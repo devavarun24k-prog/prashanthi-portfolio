@@ -6,35 +6,35 @@ export const Hero: React.FC = () => {
   const [imgError, setImgError] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
   
-  // Cinematic 5-stage opening choreography (2.4s total, never blocks interaction)
-  const [stage, setStage] = useState<number>(0);
+  // Coordinated 5-Phase Entrance Sequence
+  const [phase, setPhase] = useState<number>(0);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // Sequenced opening beats
-    const t1 = setTimeout(() => setStage(1), 100);   // Screen 1: Name + Line draw
-    const t2 = setTimeout(() => setStage(2), 600);   // Screen 2: Frame expand + Typography mask
-    const t3 = setTimeout(() => setStage(3), 1100);  // Screen 3: Portrait photographic development
-    const t4 = setTimeout(() => setStage(4), 1700);  // Screen 4: Composition settlement
-    const t5 = setTimeout(() => setStage(5), 2300);  // Screen 5: Metadata + Scroll cue
+    // Cinematic orchestrated timeline (smooth, immediate interaction ready)
+    const p1 = setTimeout(() => setPhase(1), 150);   // Phase 1: Subtle grid, line draw, staggered metadata
+    const p2 = setTimeout(() => setPhase(2), 700);   // Phase 2: PRASHANTHI B. vertical mask uncover
+    const p3 = setTimeout(() => setPhase(3), 1300);  // Phase 3: Portrait photographic develop (scale 1.08 -> 1.0 + mask)
+    const p4 = setTimeout(() => setPhase(4), 1900);  // Phase 4: Multi-directional statements, horizontal credentials
+    const p5 = setTimeout(() => setPhase(5), 2500);  // Phase 5: Fully interactive micro-engine
 
     return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
-      clearTimeout(t4);
-      clearTimeout(t5);
+      clearTimeout(p1);
+      clearTimeout(p2);
+      clearTimeout(p3);
+      clearTimeout(p4);
+      clearTimeout(p5);
     };
   }, []);
 
-  // Scroll-linked live transformation
+  // Scroll-linked continuous transformation into next section
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const vh = window.innerHeight;
-      const progress = Math.min(Math.max(scrollY / (vh * 0.8), 0), 1);
+      const progress = Math.min(Math.max(scrollY / (vh * 0.9), 0), 1);
       setScrollProgress(progress);
     };
 
@@ -42,16 +42,16 @@ export const Hero: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Desktop subtle pointer parallax (5-8px)
+  // Desktop Micro-interaction Parallax (5-8px subtle range, opposite axis displacement)
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (window.innerWidth < 1024) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
       const { innerWidth, innerHeight } = window;
-      const x = ((e.clientX / innerWidth) - 0.5) * 14;
-      const y = ((e.clientY / innerHeight) - 0.5) * 14;
-      setMouseOffset({ x, y });
+      const x = ((e.clientX / innerWidth) - 0.5) * 16;
+      const y = ((e.clientY / innerHeight) - 0.5) * 16;
+      setMousePos({ x, y });
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
@@ -62,78 +62,90 @@ export const Hero: React.FC = () => {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between pt-28 sm:pt-32 pb-12 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none"
+      className="relative min-h-[100vh] flex flex-col justify-between pt-28 sm:pt-32 pb-12 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none"
     >
-      {/* Background Micro Grid Coordinate Lines */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,#262320_1px,transparent_1px),linear-gradient(to_bottom,#262320_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]" />
+      {/* Editorial Background Grid Coordinate Overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-15 bg-[linear-gradient(to_right,#262320_1px,transparent_1px),linear-gradient(to_bottom,#262320_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]" />
 
-      {/* Screen 1 / Top System Bar & Coordinates */}
+      {/* PHASE 1: Top Staggered System Metadata & Thin Drawing Line */}
       <div className="relative z-20 space-y-4">
-        <div
-          className={`flex flex-wrap items-center justify-between gap-4 border-b border-[#262320] pb-4 transition-all duration-700 ${
-            stage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-          }`}
-        >
-          <div className="inline-flex items-center gap-2.5 text-xs font-mono font-medium uppercase tracking-wider text-[#722F37]">
-            <Sparkles className="w-3.5 h-3.5 animate-pulse text-[#722F37]" />
-            <span className="text-[#F4F0E8] font-bold tracking-widest">PRASHANTHI B.</span>
-            <span className="text-[#262320]">|</span>
-            <span className="text-[#8E8278] text-[11px]">SYS.01 // PORTFOLIO</span>
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-2 text-xs font-mono">
+          {/* Tag 1: Name */}
+          <div
+            className={`inline-flex items-center gap-2.5 transition-all duration-700 ${
+              phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
+            }`}
+          >
+            <Sparkles className="w-3.5 h-3.5 text-[#722F37] animate-pulse" />
+            <span className="font-bold text-[#F4F0E8] tracking-widest uppercase">PRASHANTHI B.</span>
           </div>
 
-          <div className="hidden sm:flex items-center gap-6 text-[11px] font-mono text-[#8E8278] uppercase tracking-widest">
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#722F37]" />
-              BLR · 12.9716° N, 77.5946° E
-            </span>
-            <span className="text-[#262320]">/</span>
-            <span>PEARL ACADEMY MBA · 2025–2027</span>
+          {/* Tag 2: Location Coordinate */}
+          <div
+            className={`hidden sm:flex items-center gap-2 text-[#8E8278] transition-all duration-700 delay-100 ${
+              phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
+            }`}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#722F37]" />
+            <span>BANGALORE / INDIA</span>
+            <span className="text-[#262320]">•</span>
+            <span className="text-[11px] text-[#C8BFB2]">12.9716° N, 77.5946° E</span>
+          </div>
+
+          {/* Tag 3: Discipline Taxonomy */}
+          <div
+            className={`text-[#722F37] uppercase tracking-wider font-semibold transition-all duration-700 delay-200 ${
+              phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
+            }`}
+          >
+            <span>FASHION × RETAIL × STRATEGY</span>
           </div>
         </div>
 
-        {/* Dynamic Expanding Burgundy Rule Line (Screen 1 → 2) */}
+        {/* Thin Drawing Accent Rule Line */}
         <div className="relative w-full h-[1px] bg-[#262320] overflow-hidden">
           <div
             className="absolute inset-y-0 left-0 bg-[#722F37] transition-all duration-1000 ease-out"
             style={{
-              width: stage >= 1 ? '100%' : '0%',
-              opacity: stage >= 1 ? 1 : 0,
+              width: phase >= 1 ? '100%' : '0%',
+              opacity: phase >= 1 ? 1 : 0,
             }}
           />
         </div>
       </div>
 
-      {/* Hero Central Spread (Typography + Developed Portrait) */}
+      {/* HERO CENTRAL SPREAD: Continuous Scroll-Driven Transformation */}
       <div
-        className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center py-6 my-auto"
+        className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center py-8 my-auto transition-all duration-300"
         style={{
-          opacity: 1 - scrollProgress * 0.7,
+          transform: `translate3d(0, ${scrollProgress * -40}px, 0)`,
+          opacity: 1 - scrollProgress * 0.75,
         }}
       >
-        {/* Left Column: Masked Monumental Typography (Cols 7) */}
+        {/* Left Column: Multi-Directional Typography & Mask Reveals (Cols 7) */}
         <div
           className="lg:col-span-7 space-y-6 lg:space-y-8 transition-transform duration-300 ease-out"
           style={{
-            transform: `translate3d(${mouseOffset.x * -0.6}px, ${mouseOffset.y * -0.6 + scrollProgress * -30}px, 0)`,
+            transform: `translate3d(${mousePos.x * -0.5}px, ${mousePos.y * -0.5}px, 0)`,
           }}
         >
-          {/* Section Index Marker */}
+          {/* Phase 1 Marker */}
           <div
-            className={`flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-[#722F37] transition-all duration-700 delay-200 ${
-              stage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            className={`flex items-center gap-2.5 font-mono text-xs uppercase tracking-widest text-[#722F37] transition-all duration-700 ${
+              phase >= 1 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
             }`}
           >
             <Terminal className="w-3.5 h-3.5 text-[#722F37]" />
-            <span>01 // FASHION SYSTEM & STRATEGY</span>
+            <span>SYS.01 // FASHION SYSTEM & COMMERCIAL MERCHANDISE</span>
           </div>
 
-          {/* Masked Large Headline (Screen 2 Reveal) */}
+          {/* PHASE 2: Mask Uncover Typography */}
           <div className="overflow-hidden">
             <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.25rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
               <div className="overflow-hidden">
                 <span
                   className={`block transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    stage >= 2 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+                    phase >= 2 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
                   }`}
                 >
                   PRASHANTHI
@@ -142,7 +154,7 @@ export const Hero: React.FC = () => {
               <div className="overflow-hidden">
                 <span
                   className={`block transition-all duration-1000 delay-150 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    stage >= 2 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+                    phase >= 2 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
                   }`}
                 >
                   B.
@@ -151,7 +163,7 @@ export const Hero: React.FC = () => {
               <div className="overflow-hidden pt-1">
                 <span
                   className={`block font-serif italic text-[#722F37] font-normal text-3xl sm:text-4xl lg:text-5xl transition-all duration-1000 delay-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    stage >= 2 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+                    phase >= 2 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
                   }`}
                 >
                   Fashion & Lifestyle Business
@@ -160,10 +172,10 @@ export const Hero: React.FC = () => {
             </h1>
           </div>
 
-          {/* Academic Credential & Technical Spec Line (Screen 4 Reveal) */}
+          {/* PHASE 4: Horizontal Reveal Academic Credential & Specs */}
           <div
-            className={`space-y-2 border-l-2 border-[#722F37] pl-4 transition-all duration-700 delay-300 ${
-              stage >= 4 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+            className={`space-y-2 border-l-2 border-[#722F37] pl-4 transition-all duration-1000 delay-200 ${
+              phase >= 4 ? 'mask-horizontal-reveal' : 'mask-horizontal-hidden'
             }`}
           >
             <div className="font-mono text-xs uppercase tracking-wider text-[#C8BFB2]">
@@ -177,24 +189,24 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Intro Narrative Statement */}
+          {/* Hero Statement */}
           <p
-            className={`text-base sm:text-lg text-[#C8BFB2] leading-relaxed font-sans max-w-xl font-light transition-all duration-700 delay-400 ${
-              stage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            className={`text-base sm:text-lg text-[#C8BFB2] leading-relaxed font-sans max-w-xl font-light transition-all duration-1000 delay-300 ${
+              phase >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
             "{PERSONAL_DATA.intro}"
           </p>
 
-          {/* Action Navigation */}
+          {/* Action CTAs */}
           <div
-            className={`flex flex-wrap items-center gap-4 pt-2 transition-all duration-700 delay-500 ${
-              stage >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            className={`flex flex-wrap items-center gap-4 pt-2 transition-all duration-700 delay-400 ${
+              phase >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
             <a
               href="#work"
-              className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider bg-[#722F37] text-[#F4F0E8] px-7 py-3.5 rounded-full hover:bg-[#F4F0E8] hover:text-[#0B0A09] transition-all shadow-xl group border border-[#722F37]"
+              className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider bg-[#722F37] text-[#F4F0E8] px-7 py-3.5 rounded-full hover:bg-[#F4F0E8] hover:text-[#0B0A09] transition-all shadow-2xl group border border-[#722F37]"
             >
               <span>EXPLORE SELECTED WORK</span>
               <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
@@ -210,24 +222,23 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Screen 3 Film Scan / Developed Portrait Crop (Cols 5) */}
+        {/* Right Column: PHASE 3 Zoom Settling Portrait (Cols 5) */}
         <div
           className="lg:col-span-5 flex justify-center lg:justify-end z-0 transition-transform duration-300 ease-out"
           style={{
-            transform: `translate3d(${mouseOffset.x}px, ${mouseOffset.y + scrollProgress * -15}px, 0)`,
+            transform: `translate3d(${mousePos.x * 0.7}px, ${mousePos.y * 0.7 + scrollProgress * 20}px, 0)`,
           }}
         >
           <div
-            className={`relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-2xl border border-[#262320] bg-[#141211] shadow-2xl transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              stage >= 3
-                ? 'opacity-100 scale-100 [clip-path:inset(0%_0%_0%_0%_round_1rem)]'
-                : 'opacity-0 scale-95 [clip-path:inset(15%_15%_15%_15%_round_1rem)]'
+            className={`relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-3xl border border-[#262320] bg-[#141211] shadow-2xl transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              phase >= 3 ? 'photo-develop-reveal' : 'photo-develop-hidden'
             }`}
             style={{
-              transform: `scale(${1 - scrollProgress * 0.06})`,
+              // Scroll transformation: subtle scale adaptation
+              transform: `scale(${phase >= 3 ? 1 + scrollProgress * 0.05 : 1.08})`,
             }}
           >
-            {/* Real Photographic Portrait Asset */}
+            {/* Real Portrait Photo */}
             {!imgError && (
               <img
                 src={PERSONAL_DATA.images.hero}
@@ -235,19 +246,18 @@ export const Hero: React.FC = () => {
                 onLoad={() => setImgLoaded(true)}
                 onError={() => setImgError(true)}
                 className={`w-full h-full object-cover transition-all duration-1000 ${
-                  imgLoaded ? 'opacity-100 filter-none' : 'opacity-0 brightness-150 contrast-125'
+                  imgLoaded ? 'opacity-100' : 'opacity-0'
                 } hover:scale-[1.04]`}
               />
             )}
 
-            {/* Editorial Placeholder Cover */}
+            {/* Editorial Placeholder Canvas */}
             {(imgError || !imgLoaded) && (
               <div
                 className={`absolute inset-0 flex flex-col justify-between p-8 bg-[#141211] transition-opacity duration-500 ${
                   imgError ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                {/* Frame Header Coordinate */}
                 <div className="flex items-center justify-between border-b border-[#262320] pb-3 text-xs font-mono">
                   <span className="font-semibold uppercase tracking-wider text-[11px] text-[#722F37] flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#722F37] animate-ping" />
@@ -256,7 +266,6 @@ export const Hero: React.FC = () => {
                   <span className="text-[10px] text-[#8E8278]">4:5 // REF.PB_01</span>
                 </div>
 
-                {/* Central Monogram Frame */}
                 <div className="my-auto text-center py-6">
                   <div className="w-20 h-20 mx-auto rounded-full bg-[#0B0A09] border border-[#262320] flex items-center justify-center text-3xl font-serif text-[#722F37] mb-4 shadow-inner">
                     PB
@@ -272,7 +281,6 @@ export const Hero: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Frame Footer Spec */}
                 <div className="border-t border-[#262320] pt-3 flex items-center justify-between text-[11px] text-[#8E8278] font-mono">
                   <span>/images/prashanthi/hero.jpg</span>
                   <span className="text-[#722F37] font-semibold">ASSET_READY</span>
@@ -280,22 +288,24 @@ export const Hero: React.FC = () => {
               </div>
             )}
 
-            {/* Subtle Film Scan Overlay Line */}
-            <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#722F37]/60 to-transparent pointer-events-none" />
+            {/* Editorial Crop Coordinates Tag */}
+            <div className="absolute top-4 left-4 px-3 py-1 rounded bg-[#0B0A09]/85 backdrop-blur-md border border-[#262320] font-mono text-[10px] text-[#C8BFB2] uppercase tracking-widest pointer-events-none">
+              [ + ] 4:5 // PORTRAIT CROP
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Screen 5 / Bottom Status & Scroll Cue */}
+      {/* PHASE 5: Bottom Status Line & Scroll Indicator */}
       <div
-        className={`flex flex-wrap items-center justify-between gap-4 border-t border-[#262320] pt-4 text-xs font-mono text-[#8E8278] transition-all duration-700 delay-500 ${
-          stage >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        className={`flex flex-wrap items-center justify-between gap-4 border-t border-[#262320] pt-4 text-xs font-mono text-[#8E8278] transition-all duration-700 ${
+          phase >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
       >
         <div className="flex items-center gap-3">
           <span className="inline-block w-2 h-2 rounded-full bg-[#722F37] animate-pulse" />
           <span className="uppercase tracking-widest text-[11px] text-[#C8BFB2]">
-            STATUS: ACTIVE FOR STRATEGIC RETAIL & BUYING ROLES
+            STATUS: ACTIVE FOR BUYING, MERCHANDISING & RETAIL ROLES
           </span>
         </div>
 
@@ -310,3 +320,4 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+

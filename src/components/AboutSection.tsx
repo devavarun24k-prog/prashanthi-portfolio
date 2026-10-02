@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
-import { User, ArrowUpRight, FileText, Sparkles } from 'lucide-react';
+import { User, ArrowUpRight, FileText, Sparkles, Sliders } from 'lucide-react';
 import { PERSONAL_DATA, SKILLS_LIST } from '../data/portfolioData';
 
 export const AboutSection: React.FC = () => {
   const [imgError, setImgError] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
+  const [activeLens, setActiveLens] = useState<'retail' | 'merchandising' | 'branding' | 'consumer' | 'strategy'>('retail');
+
+  const lensOptions: { id: 'retail' | 'merchandising' | 'branding' | 'consumer' | 'strategy'; label: string; focus: string; cropStyle: string }[] = [
+    { id: 'retail', label: 'RETAIL', focus: 'Store operations, visual merchandising compliance & shop floor dwell-time', cropStyle: 'scale-100 object-center' },
+    { id: 'merchandising', label: 'MERCHANDISING', focus: 'Assortment architecture, Indian sizing curves & 40–60% margin baseline', cropStyle: 'scale-105 object-top' },
+    { id: 'branding', label: 'BRANDING', focus: 'Brand code translation, editorial curation & digital omnichannel storytelling', cropStyle: 'scale-102 object-center brightness-105' },
+    { id: 'consumer', label: 'CONSUMER', focus: 'Ethnographic field empathy, pain-point definition & behavioral insights', cropStyle: 'scale-105 object-bottom' },
+    { id: 'strategy', label: 'STRATEGY', focus: 'Bridge-to-luxury positioning, market gap synthesis & sustainable growth loops', cropStyle: 'scale-100 object-top contrast-105' },
+  ];
+
+  const currentLens = lensOptions.find((l) => l.id === activeLens) || lensOptions[0];
 
   return (
     <section id="about" className="py-24 sm:py-36 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#262320] bg-[#0B0A09] text-[#F4F0E8] select-none">
@@ -31,18 +42,18 @@ export const AboutSection: React.FC = () => {
 
       {/* Main Split Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-16 items-start">
-        {/* Left Column: Portrait Frame with Traveling Coordinate Boundary (Cols 5) */}
-        <div className="lg:col-span-5 relative">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#262320] bg-[#141211] shadow-2xl group">
+        {/* Left Column: Interactive Portrait Frame with Lens Crop Shifts (Cols 5) */}
+        <div className="lg:col-span-5 relative space-y-4">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#262320] bg-[#141211] shadow-2xl group transition-all duration-700">
             {!imgError && (
               <img
                 src={PERSONAL_DATA.images.portrait01}
                 alt="Prashanthi B. — About Portrait"
                 onLoad={() => setImgLoaded(true)}
                 onError={() => setImgError(true)}
-                className={`w-full h-full object-cover transition-all duration-1000 ${
-                  imgLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                } group-hover:scale-[1.03]`}
+                className={`w-full h-full object-cover transition-all duration-700 ${
+                  imgLoaded ? 'opacity-100' : 'opacity-0 scale-95'
+                } ${currentLens.cropStyle}`}
               />
             )}
 
@@ -55,7 +66,7 @@ export const AboutSection: React.FC = () => {
                 <div className="flex items-center justify-between border-b border-[#262320] pb-3 text-xs font-mono">
                   <span className="font-semibold uppercase tracking-wider text-[11px] text-[#722F37] flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" />
-                    PORTRAIT CROP
+                    PORTRAIT LENS: {currentLens.label}
                   </span>
                   <span className="text-[10px] text-[#8E8278]">REF.PB_02</span>
                 </div>
@@ -74,10 +85,47 @@ export const AboutSection: React.FC = () => {
 
                 <div className="border-t border-[#262320] pt-3 text-[11px] text-[#8E8278] flex justify-between font-mono">
                   <span>/images/prashanthi/portrait-01.jpg</span>
-                  <span className="text-[#722F37] font-semibold">ASSET_PENDING</span>
+                  <span className="text-[#722F37] font-semibold">LENS_{currentLens.label}</span>
                 </div>
               </div>
             )}
+
+            {/* Interactive Lens Overlay Coordinates */}
+            <div className="absolute top-4 left-4 px-3 py-1 rounded bg-[#0B0A09]/85 backdrop-blur-md border border-[#262320] font-mono text-[10px] text-[#C8BFB2] uppercase tracking-widest pointer-events-none">
+              [ + ] LENS // {currentLens.label}
+            </div>
+          </div>
+
+          {/* Interactive Domain Lens Selector */}
+          <div className="p-4 rounded-2xl bg-[#141211] border border-[#262320] space-y-2">
+            <div className="flex items-center justify-between font-mono text-[10px] text-[#8E8278] border-b border-[#262320] pb-1.5">
+              <span className="flex items-center gap-1 text-[#722F37]">
+                <Sliders className="w-3 h-3" />
+                PERSPECTIVE LENS
+              </span>
+              <span>HOVER TO REFOCUS PORTRAIT</span>
+            </div>
+
+            <div className="flex flex-wrap gap-1.5">
+              {lensOptions.map((lens) => (
+                <button
+                  key={lens.id}
+                  onMouseEnter={() => setActiveLens(lens.id)}
+                  onClick={() => setActiveLens(lens.id)}
+                  className={`px-3 py-1 rounded text-xs font-mono transition-all ${
+                    activeLens === lens.id
+                      ? 'bg-[#722F37] text-[#F4F0E8] font-bold shadow-md'
+                      : 'bg-[#0B0A09] text-[#8E8278] hover:text-[#F4F0E8] hover:border-[#722F37]/50 border border-[#262320]'
+                  }`}
+                >
+                  {lens.label}
+                </button>
+              ))}
+            </div>
+
+            <p className="text-[11px] font-mono text-[#C8BFB2] pt-1">
+              • {currentLens.focus}
+            </p>
           </div>
         </div>
 
@@ -101,9 +149,9 @@ export const AboutSection: React.FC = () => {
               {SKILLS_LIST.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="p-3.5 bg-[#141211] rounded-2xl border border-[#262320] text-[11px] font-mono font-medium text-[#C8BFB2] hover:text-[#F4F0E8] hover:border-[#722F37] transition-all flex items-center justify-between"
+                  className="p-3.5 bg-[#141211] rounded-2xl border border-[#262320] text-[11px] font-mono font-medium text-[#C8BFB2] hover:text-[#F4F0E8] hover:border-[#722F37] transition-all flex items-center justify-between group"
                 >
-                  <span>{skill}</span>
+                  <span className="group-hover:text-[#F4F0E8] transition-colors">{skill}</span>
                   <span className="text-[#722F37] text-[9px]">0{idx + 1}</span>
                 </div>
               ))}
@@ -130,4 +178,5 @@ export const AboutSection: React.FC = () => {
     </section>
   );
 };
+
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Project } from './data/portfolioData';
 import { PROJECTS_DATA } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
@@ -13,11 +13,46 @@ import { CaseStudyView } from './components/CaseStudyView';
 
 export function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeSection, setActiveSection] = useState<string>('hero');
+
+  // Minimal Scroll Progress Tracker
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = [
+        { id: 'contact', name: '04 CONTACT' },
+        { id: 'about', name: '03 ABOUT' },
+        { id: 'experience', name: '02 EXPERIENCE' },
+        { id: 'work', name: '01 WORK' },
+        { id: 'hero', name: 'SYS.01' },
+      ];
+
+      const scrollY = window.scrollY + window.innerHeight * 0.35;
+
+      for (const sec of sections) {
+        const el = document.getElementById(sec.id);
+        if (el && scrollY >= el.offsetTop) {
+          setActiveSection(sec.name);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0B0A09] text-[#F4F0E8] antialiased selection:bg-[#722F37] selection:text-[#F4F0E8]">
       {/* Sticky Navigation */}
       <Navbar />
+
+      {/* Extremely Minimal Floating Scroll Progress Tracker (Desktop Only) */}
+      <aside className="fixed right-6 bottom-10 z-30 hidden xl:flex flex-col items-end gap-2 font-mono text-[10px] text-[#8E8278] select-none pointer-events-none">
+        <div className="flex items-center gap-2 bg-[#141211]/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#262320] text-[#C8BFB2]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#722F37] animate-pulse" />
+          <span className="font-semibold uppercase tracking-widest">{activeSection}</span>
+        </div>
+      </aside>
 
       {/* Main Narrative Flow */}
       <main className="flex-grow">
@@ -43,7 +78,7 @@ export function App() {
       {/* Footer */}
       <Footer />
 
-      {/* Magazine Case Study View */}
+      {/* Immersive Case Study View */}
       <CaseStudyView
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
@@ -54,3 +89,4 @@ export function App() {
 }
 
 export default App;
+
