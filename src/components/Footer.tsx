@@ -10,48 +10,28 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#151515] text-[#FAF9F6] border-t border-[#282828] pt-16 pb-12 px-6 sm:px-8 lg:px-12">
-      <div className="max-w-7xl mx-auto space-y-12">
-        {/* Top Footer Row */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 pb-12 border-b border-[#282828]">
-          <div className="space-y-2">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#FAF9F6] text-[#151515] flex items-center justify-center font-serif font-medium text-sm">
-                PB
-              </div>
-              <span className="font-serif text-2xl font-normal text-[#FAF9F6] tracking-wide">
-                {PERSONAL_DATA.name}
-              </span>
-            </div>
-            <p className="font-mono text-xs text-[#B7B1A8] tracking-widest uppercase">
-              Buying & Merchandising • Retail Strategy • Visual Merchandising
-            </p>
-          </div>
-
-          <div className="flex items-center gap-6">
-            <button
-              onClick={scrollToTop}
-              className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase px-4 py-2.5 bg-[#1C1C1C] text-[#FAF9F6] hover:bg-[#FAF9F6] hover:text-[#151515] transition-colors border border-[#282828]"
-            >
-              <span>Back to Top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
-            </button>
-          </div>
+    <footer className="bg-[#F7F5F0] text-[#171717] border-t border-[#E8E6DF] py-12 px-6 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="space-y-1 text-center sm:text-left">
+          <span className="font-serif text-xl font-normal">
+            {PERSONAL_DATA.name}
+          </span>
+          <p className="text-xs text-[#77736D] font-sans">
+            MBA Candidate, Fashion & Lifestyle Business Management • Pearl Academy Bangalore
+          </p>
         </div>
 
-        {/* Bottom Footer Row */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-[#77736D]">
-          <div>
-            <span>
-              {CURRENT_YEAR} {PERSONAL_DATA.name} — MBA Candidate, Pearl Academy Bangalore.
-            </span>
-          </div>
-
-          <div className="flex items-center gap-4 text-[11px]">
-            <span>Editorial Edition</span>
-            <span>•</span>
-            <span className="text-[#FAF9F6]">Creative Eye × Business Mind</span>
-          </div>
+        <div className="flex items-center gap-6">
+          <span className="text-xs text-[#77736D] font-sans">
+            © {CURRENT_YEAR} Prashanthi B.
+          </span>
+          <button
+            onClick={scrollToTop}
+            aria-label="Scroll to top"
+            className="p-2.5 rounded-full border border-[#E8E6DF] bg-white hover:border-[#171717] transition-colors shadow-sm"
+          >
+            <ArrowUp className="w-4 h-4 text-[#171717]" />
+          </button>
         </div>
       </div>
     </footer>

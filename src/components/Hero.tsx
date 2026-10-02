@@ -1,187 +1,131 @@
-import React, { useEffect, useState } from 'react';
-import { ArrowDown } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowDown, Sparkles } from 'lucide-react';
 import { PERSONAL_DATA } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
+  const [imgError, setImgError] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   return (
     <section
       id="hero"
-      className="relative min-h-[95vh] flex flex-col justify-between pt-24 sm:pt-28 pb-10 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#282828] bg-[#151515] text-[#FAF9F6]"
+      className="relative pt-32 sm:pt-36 pb-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#E8E6DF] bg-[#F7F5F0] text-[#171717]"
     >
-      {/* Top Editorial Ribbon & Section Indicator */}
-      <div
-        className={`flex flex-wrap items-center justify-between gap-4 pt-2 border-b border-[#282828] pb-3 text-[10px] sm:text-[11px] font-mono tracking-[0.25em] text-[#B7B1A8] uppercase transition-opacity duration-700 ${
-          isLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
-        <div className="flex items-center gap-3">
-          <span className="font-bold text-[#FAF9F6] bg-[#1C1C1C] px-2 py-0.5 border border-[#282828]">
-            01 / 10
-          </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#5A2427]" />
-          <span>BANGALORE • {PERSONAL_DATA.coordinates}</span>
-        </div>
-        <div className="flex items-center gap-4 text-[#77736D]">
-          <span className="hidden md:inline-block tracking-[0.2em]">
-            EDITORIAL PORTFOLIO
-          </span>
-          <span className="text-[#FAF9F6] font-medium bg-[#1C1C1C] px-2.5 py-0.5 border border-[#282828]">
-            PEARL ACADEMY • 2025–2027
-          </span>
-        </div>
-      </div>
-
-      {/* Main Editorial Grid */}
-      <div className="my-auto py-8 sm:py-12 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-        {/* Left Column: Typographic Opening (Cols 7) */}
-        <div className="lg:col-span-7 space-y-6 sm:space-y-8">
-          {/* Metadata Eyebrow with mask reveal */}
-          <div className="overflow-hidden">
-            <div
-              className={`space-y-1.5 transition-all duration-700 ease-out ${
-                isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-              }`}
-            >
-              <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.25em] text-[#B7B1A8]">
-                <span>PRASHANTHI B</span>
-                <span className="text-[#5A2427]">/</span>
-                <span>{PERSONAL_DATA.roleDescriptor}</span>
-              </div>
-            </div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* Left Column: Headline, Credential & Introduction (Cols 7) */}
+        <div className="lg:col-span-7 space-y-8">
+          {/* Eyebrow Label */}
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#3158D4]">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>{PERSONAL_DATA.name}</span>
+            <span className="text-[#77736D]">/</span>
+            <span className="text-[#77736D]">Bangalore, India</span>
           </div>
 
-          {/* Large Masked Display Headline */}
-          <div className="overflow-hidden py-1">
-            <h1
-              className={`font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-normal text-[#FAF9F6] tracking-tight leading-[0.9] transition-all duration-1000 delay-150 ease-out ${
-                isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
-              }`}
-            >
-              BUY.
-              <span className="block font-serif text-[#FAF9F6]">
-                CURATE.
-              </span>
-              <span className="block font-serif italic text-[#B7B1A8] font-light">
-                PRESENT.
-              </span>
-            </h1>
-          </div>
+          {/* Major Display Headline */}
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-normal text-[#171717] tracking-tight leading-[0.95]">
+            Fashion Business.
+            <span className="block font-serif text-[#171717]">
+              Retail. Merchandising.
+            </span>
+            <span className="block font-serif italic text-[#3158D4] font-normal">
+              Brand.
+            </span>
+          </h1>
 
-          {/* Supporting Statement Line */}
-          <div className="overflow-hidden">
-            <p
-              className={`font-serif text-xl sm:text-2xl text-[#FAF9F6]/90 max-w-xl leading-relaxed italic transition-all duration-700 delay-300 ease-out ${
-                isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
-              }`}
-            >
-              "{PERSONAL_DATA.heroSupport}"
+          {/* Academic Credential & Discipline Bar */}
+          <div className="space-y-1.5 pt-1 border-l-2 border-[#3158D4] pl-4">
+            <p className="font-sans text-sm sm:text-base font-semibold text-[#171717]">
+              MBA Candidate — Fashion & Lifestyle Business Management
+            </p>
+            <p className="font-sans text-xs sm:text-sm text-[#77736D]">
+              Pearl Academy, Bangalore (2025–2027) • ICFAI University BBA (2020–2023)
+            </p>
+            <p className="font-sans text-xs text-[#555555] font-medium pt-1">
+              {PERSONAL_DATA.disciplines}
             </p>
           </div>
 
-          {/* Positioning & Introduction */}
-          <div
-            className={`pt-2 max-w-xl space-y-4 transition-all duration-700 delay-500 ease-out ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
-          >
-            <p className="text-sm sm:text-base text-[#B7B1A8] leading-relaxed font-sans font-light">
-              {PERSONAL_DATA.introduction}
-            </p>
+          {/* Natural Human Introduction */}
+          <p className="text-base sm:text-lg text-[#444444] leading-relaxed font-sans max-w-xl font-normal">
+            "{PERSONAL_DATA.intro}"
+          </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-3">
-              <a
-                href="#work"
-                className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase bg-[#FAF9F6] text-[#151515] px-6 py-3.5 hover:bg-[#F4F1EB] transition-colors font-semibold"
-              >
-                <span>Explore Selected Work</span>
-                <ArrowDown className="w-3.5 h-3.5" />
-              </a>
+          {/* Call to Actions */}
+          <div className="flex flex-wrap items-center gap-4 pt-2">
+            <a
+              href="#work"
+              className="inline-flex items-center gap-2 text-xs font-sans font-semibold uppercase tracking-wider bg-[#171717] text-white px-6 py-3.5 rounded-full hover:bg-[#3158D4] transition-colors"
+            >
+              <span>Explore Selected Work</span>
+              <ArrowDown className="w-3.5 h-3.5" />
+            </a>
 
-              <a
-                href="#pov"
-                className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase px-5 py-3.5 border border-[#282828] text-[#FAF9F6] hover:bg-[#1C1C1C] transition-colors"
-              >
-                <span>02 / Point of View</span>
-              </a>
-            </div>
+            <a
+              href="#about"
+              className="inline-flex items-center gap-2 text-xs font-sans font-semibold uppercase tracking-wider px-5 py-3.5 rounded-full border border-[#E8E6DF] bg-white text-[#171717] hover:border-[#171717] transition-colors"
+            >
+              <span>About Prashanthi</span>
+            </a>
           </div>
         </div>
 
-        {/* Right Column: 4:5 Large Editorial Portrait Placeholder Frame (Cols 5) */}
+        {/* Right Column: Large 4:5 Editorial Portrait Area (Cols 5) */}
         <div className="lg:col-span-5 flex justify-center lg:justify-end">
-          <div
-            className={`relative w-full max-w-md aspect-[4/5] bg-[#1C1C1C] text-[#FAF9F6] border border-[#282828] overflow-hidden p-6 sm:p-8 flex flex-col justify-between transition-all duration-1000 delay-300 ease-out ${
-              isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
-          >
-            {/* Top Bar inside Portrait Frame */}
-            <div className="relative z-10 flex items-center justify-between text-[10px] font-mono tracking-[0.2em] text-[#B7B1A8] border-b border-[#282828] pb-3">
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#5A2427]" />
-                PORTRAIT AREA (4:5)
-              </span>
-              <span>PB • ARCHIVE 01</span>
-            </div>
+          <div className="relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-2xl border border-[#E8E6DF] bg-[#EFECE5] shadow-sm group">
+            {/* Real Image */}
+            {!imgError && (
+              <img
+                src={PERSONAL_DATA.images.hero}
+                alt="Prashanthi B. — Fashion Business & Merchandising"
+                onLoad={() => setImgLoaded(true)}
+                onError={() => setImgError(true)}
+                className={`w-full h-full object-cover transition-all duration-700 ${
+                  imgLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-98'
+                }`}
+              />
+            )}
 
-            {/* Monogram Silhouette Centerpiece */}
-            <div className="relative z-10 text-center my-auto py-6">
-              <div className="w-20 h-20 mx-auto border border-[#282828] bg-[#151515] flex items-center justify-center text-3xl font-serif text-[#FAF9F6] mb-4 hover:border-[#FAF9F6] transition-colors">
-                PB
+            {/* Editorial Portrait Placeholder Graphic if photo is pending */}
+            {(imgError || !imgLoaded) && (
+              <div
+                className={`absolute inset-0 flex flex-col justify-between p-8 bg-[#F0EEE8] transition-opacity duration-300 ${
+                  imgError ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                {/* Top Badge */}
+                <div className="flex items-center justify-between border-b border-black/10 pb-3 text-xs font-sans">
+                  <span className="font-semibold uppercase tracking-wider text-[11px] text-[#3158D4]">
+                    Editorial Portrait Area
+                  </span>
+                  <span className="text-[10px] text-[#77736D] font-mono">4:5 Ratio</span>
+                </div>
+
+                {/* Center Monogram / Name */}
+                <div className="my-auto text-center py-6">
+                  <div className="w-20 h-20 mx-auto rounded-full bg-white border border-[#E8E6DF] flex items-center justify-center text-3xl font-serif text-[#171717] mb-4 shadow-sm">
+                    PB
+                  </div>
+                  <h3 className="font-serif text-3xl text-[#171717] font-normal">
+                    Prashanthi B.
+                  </h3>
+                  <p className="text-xs font-sans text-[#77736D] mt-1 font-medium">
+                    Fashion & Lifestyle Business
+                  </p>
+                  <p className="text-[11px] font-sans text-[#999999] mt-0.5">
+                    Bangalore, India
+                  </p>
+                </div>
+
+                {/* Bottom Detail */}
+                <div className="border-t border-black/10 pt-3 flex items-center justify-between text-[11px] text-[#77736D]">
+                  <span>/images/prashanthi/hero.jpg</span>
+                  <span className="text-[#3158D4] font-medium">Photo Slot</span>
+                </div>
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl text-[#FAF9F6] font-normal tracking-wide">
-                {PERSONAL_DATA.name}
-              </h3>
-              <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#B7B1A8] mt-1.5 font-medium">
-                Buying · Merchandising · Retail
-              </p>
-              <p className="text-[11px] font-mono text-[#77736D] mt-2">
-                Pearl Academy, Bangalore
-              </p>
-            </div>
-
-            {/* Bottom Bar inside portrait frame */}
-            <div className="relative z-10 pt-3 border-t border-[#282828] flex items-center justify-between text-[10px] font-mono text-[#77736D]">
-              <span className="tracking-wider uppercase">
-                EDITORIAL PORTRAIT FRAME
-              </span>
-              <span className="text-[#B7B1A8]">ORIGINAL PHOTO PENDING</span>
-            </div>
+            )}
           </div>
         </div>
-      </div>
-
-      {/* Bottom Trait Pillars Ticker */}
-      <div className="pt-6 border-t border-[#282828] flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs font-mono text-[#B7B1A8]">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
-          {PERSONAL_DATA.traits.map((trait, idx) => (
-            <div key={trait.title} className="flex items-center gap-3">
-              <span className="text-[#FAF9F6] font-semibold">0{idx + 1}</span>
-              <div>
-                <span className="uppercase tracking-[0.2em] font-medium text-[#FAF9F6] block">
-                  {trait.title}
-                </span>
-                <span className="text-[10px] text-[#77736D]">{trait.description}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <a
-          href="#pov"
-          className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#B7B1A8] hover:text-[#FAF9F6] transition-colors shrink-0 font-medium"
-        >
-          <span>SCROLL TO EXPLORE</span>
-          <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
-        </a>
       </div>
     </section>
   );

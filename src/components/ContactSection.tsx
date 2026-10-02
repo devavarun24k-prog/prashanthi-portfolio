@@ -28,55 +28,43 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-28 sm:py-36 bg-[#151515] text-[#FAF9F6] relative border-b border-[#282828]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-16">
-        {/* Section Header */}
-        <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.25em] text-[#B7B1A8] uppercase">
-          <span className="font-bold text-[#FAF9F6] bg-[#1C1C1C] px-2 py-0.5 border border-[#282828]">
-            10 / 10
-          </span>
-          <Send className="w-3.5 h-3.5 text-[#5A2427]" />
-          <span>CONNECT & COLLABORATE</span>
+    <section id="contact" className="py-24 sm:py-32 bg-[#3158D4] text-white relative">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-12">
+        {/* Section Tag */}
+        <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/80">
+          <Send className="w-4 h-4" />
+          <span>Get in Touch</span>
         </div>
 
-        {/* Dramatic Headline */}
-        <div className="space-y-6 max-w-4xl">
-          <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#FAF9F6] tracking-tight leading-[0.95]">
-            Let's Create
-            <span className="block font-serif italic text-[#B7B1A8] font-light">
-              What's Next.
-            </span>
+        {/* Headline */}
+        <div className="space-y-4 max-w-3xl">
+          <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl font-normal tracking-tight leading-[0.95] text-white">
+            Let's connect.
           </h2>
-          <p className="text-sm sm:text-base text-[#B7B1A8] max-w-xl font-sans pt-2 leading-relaxed font-light">
-            Open for full-time and project opportunities in Buying & Merchandising, Retail Management, Visual Merchandising, and Fashion Strategy.
+          <p className="text-base sm:text-lg text-white/80 font-sans max-w-xl font-light leading-relaxed">
+            Open for full-time and project opportunities in Buying & Merchandising, Retail Management, Visual Merchandising, and Brand Strategy.
           </p>
         </div>
 
-        {/* Action Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4">
-          {/* Direct Email Card */}
-          <div className="lg:col-span-8 p-8 sm:p-10 bg-[#1C1C1C] border border-[#282828] space-y-6">
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-[#77736D] block">
-                PRIMARY INBOX
-              </span>
-              <span className="text-[11px] font-mono text-[#B7B1A8]">
-                BANGALORE, INDIA
-              </span>
+        {/* Contact Channels Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-4">
+          {/* Email Card */}
+          <div className="md:col-span-8 p-8 rounded-2xl bg-white text-[#171717] shadow-lg space-y-6">
+            <div className="flex items-center justify-between text-xs text-[#77736D] font-sans">
+              <span className="font-semibold uppercase text-[11px] text-[#3158D4]">Direct Inbox</span>
+              <span>Bangalore, India</span>
             </div>
 
-            <div className="p-5 sm:p-6 bg-[#151515] border border-[#282828] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="flex items-center gap-3.5">
-                <div className="w-10 h-10 bg-[#1C1C1C] border border-[#282828] flex items-center justify-center text-[#FAF9F6]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-[#F7F5F0] border border-[#E8E6DF]">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#3158D4] shadow-sm">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[9px] font-mono tracking-widest text-[#77736D] uppercase block">
-                    DIRECT EMAIL
-                  </span>
+                  <span className="text-[10px] uppercase text-[#77736D] font-semibold block">Email Address</span>
                   <a
                     href={`mailto:${PERSONAL_DATA.email}`}
-                    className="font-mono text-sm sm:text-base text-[#FAF9F6] hover:text-[#B7B1A8] transition-colors break-all font-medium"
+                    className="font-sans text-base sm:text-lg font-medium text-[#171717] hover:text-[#3158D4] transition-colors break-all"
                   >
                     {PERSONAL_DATA.email}
                   </a>
@@ -86,24 +74,24 @@ export const ContactSection: React.FC = () => {
               <div className="flex items-center gap-2 shrink-0">
                 <button
                   onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#1C1C1C] text-[#FAF9F6] hover:bg-[#282828] border border-[#282828] text-xs font-mono tracking-wider transition-colors font-medium"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-[#E8E6DF] hover:border-[#171717] text-xs font-sans font-semibold transition-colors shadow-sm text-[#171717]"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-white" />
+                      <Check className="w-3.5 h-3.5 text-emerald-600" />
                       <span>Copied!</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5" />
-                      <span>Copy Email</span>
+                      <span>Copy</span>
                     </>
                   )}
                 </button>
 
                 <a
-                  href={`mailto:${PERSONAL_DATA.email}?subject=Collaboration Inquiry - Prashanthi B`}
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#FAF9F6] text-[#151515] hover:bg-[#F4F1EB] text-xs font-mono tracking-wider transition-colors font-semibold"
+                  href={`mailto:${PERSONAL_DATA.email}?subject=Opportunity / Collaboration Inquiry`}
+                  className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-[#3158D4] text-white hover:bg-[#171717] text-xs font-sans font-semibold transition-colors"
                 >
                   <span>Compose</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -112,18 +100,17 @@ export const ContactSection: React.FC = () => {
             </div>
           </div>
 
-          {/* LinkedIn Connect Card */}
-          <div className="lg:col-span-4 p-8 sm:p-10 bg-[#1C1C1C] border border-[#282828] flex flex-col justify-between space-y-6">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between text-[10px] font-mono text-[#77736D] uppercase tracking-widest">
-                <span>PROFESSIONAL NETWORK</span>
-                <span className="text-[#5A2427]">●</span>
-              </div>
-              <h3 className="font-serif text-2xl text-[#FAF9F6] font-normal">
+          {/* LinkedIn Card */}
+          <div className="md:col-span-4 p-8 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white flex flex-col justify-between space-y-6">
+            <div className="space-y-2">
+              <span className="text-[11px] uppercase tracking-wider font-semibold text-white/80 block">
+                Professional Network
+              </span>
+              <h3 className="font-serif text-2xl font-normal">
                 LinkedIn Profile
               </h3>
-              <p className="text-xs text-[#B7B1A8] leading-relaxed font-sans font-light">
-                Connect for professional updates, retail perspectives, and career discussions.
+              <p className="text-xs text-white/80 leading-relaxed font-sans">
+                Connect for professional updates, retail strategy discussions, and career opportunities.
               </p>
             </div>
 
@@ -131,13 +118,13 @@ export const ContactSection: React.FC = () => {
               href={PERSONAL_DATA.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-between p-4 bg-[#151515] border border-[#282828] hover:border-[#FAF9F6] text-xs font-mono tracking-wider uppercase text-[#FAF9F6] transition-all group"
+              className="inline-flex items-center justify-between p-4 rounded-xl bg-white text-[#171717] hover:bg-[#F7F5F0] transition-colors font-sans text-xs font-semibold uppercase tracking-wider shadow-sm group"
             >
               <div className="flex items-center gap-2.5">
-                <LinkedinIcon className="w-4 h-4 text-[#B7B1A8] group-hover:text-white transition-colors" />
+                <LinkedinIcon className="w-4 h-4 text-[#3158D4]" />
                 <span>Prashanthi Reddy</span>
               </div>
-              <ArrowUpRight className="w-4 h-4 text-[#77736D] group-hover:text-white transition-colors" />
+              <ArrowUpRight className="w-4 h-4 text-[#77736D] group-hover:text-[#3158D4] transition-colors" />
             </a>
           </div>
         </div>

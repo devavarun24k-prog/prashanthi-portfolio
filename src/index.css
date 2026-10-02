@@ -8,52 +8,40 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #151515;
-    color: #FAF9F6;
+    background-color: #F7F5F0;
+    color: #171717;
   }
 
   body {
-    background-color: #151515;
-    color: #FAF9F6;
+    background-color: #F7F5F0;
+    color: #171717;
     overflow-x: hidden;
-    font-family: 'Manrope', system-ui, sans-serif;
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   }
 
-  /* Sharp minimal editorial scrollbar */
+  /* Clean minimal scrollbar */
   ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #151515;
+    background: #F7F5F0;
   }
   ::-webkit-scrollbar-thumb {
-    background: #282828;
+    background: #D5D2C8;
+    border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #77736D;
+    background: #B7B1A8;
   }
 
   ::selection {
-    background-color: #FAF9F6;
-    color: #151515;
+    background-color: #3158D4;
+    color: #FFFFFF;
   }
 }
 
 @layer utilities {
-  .font-serif-italic {
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-style: italic;
-  }
-
-  .hairline-dark {
-    border-color: #282828;
-  }
-
-  .hairline-light {
-    border-color: #E5E1D8;
-  }
-
   .hide-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;

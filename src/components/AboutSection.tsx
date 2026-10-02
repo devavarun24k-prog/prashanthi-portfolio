@@ -1,98 +1,98 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { User, ArrowUpRight, FileText } from 'lucide-react';
 import { PERSONAL_DATA } from '../data/portfolioData';
 
 export const AboutSection: React.FC = () => {
+  const [imgError, setImgError] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState(false);
+
   return (
-    <section id="about" className="py-28 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#E5E1D8] bg-[#F4F1EB] text-[#151515]">
+    <section id="about" className="py-24 sm:py-28 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#E8E6DF] bg-[#F7F5F0] text-[#171717]">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#E5E1D8]">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#E8E6DF]">
         <div className="space-y-3">
-          <div className="flex items-center gap-3 font-mono text-xs tracking-[0.25em] text-[#77736D] uppercase font-semibold">
-            <span className="font-bold text-[#151515] bg-[#FAF9F6] px-2 py-0.5 border border-[#E5E1D8]">
-              09 / 10
-            </span>
-            <User className="w-3.5 h-3.5 text-[#5A2427]" />
-            <span>BIOGRAPHICAL PROFILE</span>
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#3158D4]">
+            <User className="w-4 h-4" />
+            <span>Profile & Background</span>
           </div>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-[#151515] tracking-tight">
-            About Prashanthi B.
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-[#171717] tracking-tight">
+            About Prashanthi
           </h2>
         </div>
-        <p className="max-w-md text-sm text-[#77736D] leading-relaxed">
-          Blending visual sensitivity with quantitative retail discipline and merchandise strategy.
+        <p className="max-w-md text-sm text-[#555555] leading-relaxed font-sans">
+          Exploring the synergy between creative curation and commercial retail performance.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-16 items-center">
-        {/* Left Column: Portrait Frame (Cols 5) */}
-        <div className="lg:col-span-5 space-y-4">
-          <div className="relative aspect-[4/5] bg-[#151515] text-[#FAF9F6] border border-[#282828] p-8 flex flex-col justify-between">
-            <div className="relative z-10 flex items-center justify-between text-[10px] font-mono tracking-widest text-[#B7B1A8] border-b border-[#282828] pb-3">
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#5A2427]" />
-                PORTRAIT AREA 02
-              </span>
-              <span>PB • PROFILE</span>
-            </div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-16 items-center">
+        {/* Left Column: Portrait Area (Cols 5) */}
+        <div className="lg:col-span-5">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[#E8E6DF] bg-[#EFECE5] shadow-sm">
+            {!imgError && (
+              <img
+                src={PERSONAL_DATA.images.portrait01}
+                alt="Prashanthi B. — About Portrait"
+                onLoad={() => setImgLoaded(true)}
+                onError={() => setImgError(true)}
+                className={`w-full h-full object-cover transition-all duration-700 ${
+                  imgLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-98'
+                }`}
+              />
+            )}
 
-            <div className="relative z-10 text-center my-auto py-6">
-              <div className="w-20 h-20 mx-auto border border-[#282828] bg-[#1C1C1C] flex items-center justify-center text-3xl font-serif text-[#FAF9F6] mb-4">
-                PB
+            {(imgError || !imgLoaded) && (
+              <div
+                className={`absolute inset-0 flex flex-col justify-between p-8 bg-[#F0EEE8] transition-opacity duration-300 ${
+                  imgError ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <div className="flex items-center justify-between border-b border-black/10 pb-3 text-xs font-sans">
+                  <span className="font-semibold uppercase tracking-wider text-[11px] text-[#3158D4]">
+                    Portrait Area
+                  </span>
+                  <span className="text-[10px] text-[#77736D] font-mono">Photo 02</span>
+                </div>
+
+                <div className="my-auto text-center py-6">
+                  <div className="w-16 h-16 mx-auto rounded-full bg-white border border-[#E8E6DF] flex items-center justify-center text-2xl font-serif text-[#171717] mb-3 shadow-sm">
+                    PB
+                  </div>
+                  <h3 className="font-serif text-2xl text-[#171717]">
+                    Prashanthi B.
+                  </h3>
+                  <p className="text-xs font-sans text-[#77736D] mt-1">
+                    Bangalore, India
+                  </p>
+                </div>
+
+                <div className="border-t border-black/10 pt-3 text-[11px] text-[#77736D] flex justify-between">
+                  <span>/images/prashanthi/portrait-01.jpg</span>
+                  <span className="text-[#3158D4] font-medium">Slot</span>
+                </div>
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#FAF9F6]">
-                {PERSONAL_DATA.name}
-              </h3>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#B7B1A8] mt-1 font-medium">
-                Fashion & Lifestyle Business
-              </p>
-              <p className="text-[11px] font-mono text-[#77736D] mt-2">
-                Pearl Academy, Bangalore
-              </p>
-            </div>
-
-            <div className="relative z-10 text-[10px] font-mono text-[#77736D] border-t border-[#282828] pt-3 flex justify-between">
-              <span>BANGALORE</span>
-              <span>2025–2027</span>
-            </div>
+            )}
           </div>
         </div>
 
-        {/* Right Column: Narrative (Cols 7) */}
-        <div className="lg:col-span-7 space-y-8">
-          <div className="space-y-4">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#77736D] font-semibold block">
-              BACKGROUND & PHILOSOPHY
-            </span>
-            <h3 className="font-serif text-3xl sm:text-4xl text-[#151515] font-normal leading-snug">
-              "Connecting creative visual presentation with structured merchandise planning and retail operations."
-            </h3>
+        {/* Right Column: Narrative & CV CTA (Cols 7) */}
+        <div className="lg:col-span-7 space-y-6">
+          <div className="space-y-4 text-base sm:text-lg text-[#333333] leading-relaxed font-sans font-light">
+            {PERSONAL_DATA.aboutParagraphs.map((para, idx) => (
+              <p key={idx}>{para}</p>
+            ))}
           </div>
 
-          <div className="space-y-4 text-sm sm:text-base text-[#555555] leading-relaxed font-sans font-light">
-            <p>
-              Prashanthi B is pursuing an MBA in Fashion & Lifestyle Business Management at Pearl Academy, Bangalore (2025–2027), having earned her BBA from ICFAI University (2020–2023).
-            </p>
-            <p>
-              Her experience includes a 46-day Visual Merchandising Internship at The Bear House across 7 retail locations, where she worked on VM store audits, 2 New Store Openings (Himayath Nagar, Tolichowki), and large-scale End of Season Sale (EOSS) transitions.
-            </p>
-            <p>
-              At 3AM India, she led digital brand communication, skincare ingredient research simplification, and creator seeding workflows. Her academic focus spans quantitative range planning, Indian market size curves, and luxury retail spatial dynamics.
-            </p>
-          </div>
-
-          {/* Understated CV Download Action */}
-          <div className="pt-4 border-t border-[#E5E1D8] flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-2 text-xs font-mono text-[#77736D]">
-              <span>Verified academic & professional credentials</span>
+          <div className="pt-6 border-t border-[#E8E6DF] flex flex-wrap items-center justify-between gap-4">
+            <div className="text-xs font-sans text-[#77736D]">
+              Open for Buying, Merchandising & Retail roles
             </div>
 
             <a
               href={PERSONAL_DATA.cvUrl}
-              className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase px-5 py-3 bg-[#151515] text-[#FAF9F6] hover:bg-[#282828] transition-colors font-medium"
+              className="inline-flex items-center gap-2 text-xs font-sans font-semibold uppercase tracking-wider px-6 py-3.5 rounded-full bg-[#171717] text-white hover:bg-[#3158D4] transition-colors"
             >
               <FileText className="w-3.5 h-3.5" />
-              <span>REQUEST / DOWNLOAD CV</span>
+              <span>Download / Request CV</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>

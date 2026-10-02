@@ -1,65 +1,50 @@
 import { useState } from 'react';
 import type { Project } from './data/portfolioData';
+import { PROJECTS_DATA } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { PointOfViewSection } from './components/PointOfViewSection';
-import { TheWayIThinkSection } from './components/TheWayIThinkSection';
 import { SelectedWork } from './components/SelectedWork';
-import { BehindTheEyeSection } from './components/BehindTheEyeSection';
-import { SelectedObservationsSection } from './components/SelectedObservationsSection';
-import { ExperienceAndEducation } from './components/ExperienceAndEducation';
-import { BeyondTheRoleSection } from './components/BeyondTheRoleSection';
+import { TheBearHouseFeature } from './components/TheBearHouseFeature';
+import { ExperienceSection } from './components/ExperienceSection';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { CaseStudyModal } from './components/CaseStudyModal';
+import { CaseStudyView } from './components/CaseStudyView';
 
 export function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#151515] text-[#FAF9F6] antialiased selection:bg-[#FAF9F6] selection:text-[#151515]">
-      {/* Sticky Editorial Navbar with Section Counter & Progress */}
+    <div className="min-h-screen flex flex-col bg-[#F7F5F0] text-[#171717] antialiased selection:bg-[#3158D4] selection:text-white">
+      {/* Sticky Navigation */}
       <Navbar />
 
-      {/* 10 Continuous Narrative Editorial Chapters */}
+      {/* Main Narrative Flow */}
       <main className="flex-grow">
-        {/* 01 — OPENING / HERO */}
+        {/* 1. Hero: Personal Introduction & Identity */}
         <Hero />
 
-        {/* 02 — POINT OF VIEW (Creative × Commercial Synthesis) */}
-        <PointOfViewSection />
-
-        {/* 03 — THE WAY I THINK (Transitional Manifesto) */}
-        <TheWayIThinkSection />
-
-        {/* 04 — SELECTED WORK (5 Distinct Editorial Compositions) */}
+        {/* 2. Selected Work: 5 Image-Led Case Studies */}
         <SelectedWork onSelectProject={(project) => setSelectedProject(project)} />
 
-        {/* 05 — BEHIND THE EYE (Product Evaluation Matrix) */}
-        <BehindTheEyeSection />
+        {/* 3. The Bear House: Hero Retail Case Study Feature */}
+        <TheBearHouseFeature onOpenStudy={() => setSelectedProject(PROJECTS_DATA[0])} />
 
-        {/* 06 — SELECTED OBSERVATIONS (Horizontal Storytelling) */}
-        <SelectedObservationsSection />
+        {/* 4. Experience & Education: Clean Professional History */}
+        <ExperienceSection />
 
-        {/* 07 — EXPERIENCE & EDUCATION (Year Blocks & Degrees) */}
-        <ExperienceAndEducation />
-
-        {/* 08 — BEYOND THE ROLE (Human Perspective) */}
-        <BeyondTheRoleSection />
-
-        {/* 09 — ABOUT (Biographical Profile & CV CTA) */}
+        {/* 5. About: Real Human Perspective & Background */}
         <AboutSection />
 
-        {/* 10 — CONTACT (Let's Create What's Next) */}
+        {/* 6. Contact: Get in Touch */}
         <ContactSection />
       </main>
 
       {/* Footer */}
       <Footer />
 
-      {/* Interactive Case Study Reader */}
-      <CaseStudyModal
+      {/* Magazine Case Study View */}
+      <CaseStudyView
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
         onSelectProject={setSelectedProject}
