@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         serif: ['"Instrument Serif"', 'Georgia', 'serif'],
         sans: ['Manrope', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       colors: {
         obsidian: '#0B0A09',

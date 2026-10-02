@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Copy, Check, Send, ArrowUpRight } from 'lucide-react';
+import { Mail, Copy, Check, Send, ArrowUpRight, Sparkles, FileText } from 'lucide-react';
 import { PERSONAL_DATA } from '../data/portfolioData';
 
 const LinkedinIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
@@ -28,49 +28,59 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-[#0B0A09] text-[#F4F0E8] relative overflow-hidden">
+    <section id="contact" className="py-24 sm:py-36 bg-[#0B0A09] text-[#F4F0E8] relative overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Full-bleed Burgundy Statement Panel */}
-        <div className="relative rounded-3xl bg-[#722F37] text-[#F4F0E8] p-8 sm:p-14 lg:p-16 overflow-hidden shadow-2xl border border-[#A87578]/20 space-y-12 transition-all duration-700">
-          {/* Subtle Background Watermark Typography */}
-          <div className="absolute right-0 bottom-0 text-[8rem] sm:text-[14rem] font-serif italic text-black/10 select-none pointer-events-none leading-none -mb-8 -mr-8 font-normal">
+        {/* Full-bleed Deep Burgundy Expanding Statement Panel */}
+        <div className="relative rounded-3xl bg-[#722F37] text-[#F4F0E8] p-8 sm:p-14 lg:p-20 overflow-hidden shadow-2xl border border-[#A87578]/25 space-y-14 transition-all duration-700">
+          {/* Subtle Background Watermark Monogram */}
+          <div className="absolute right-0 bottom-0 text-[10rem] sm:text-[18rem] font-serif italic text-black/10 select-none pointer-events-none leading-none -mb-12 -mr-12 font-normal">
             PB
           </div>
 
-          {/* Section Eyebrow */}
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-widest text-[#F4F0E8]/80 z-10 relative">
-            <Send className="w-4 h-4 text-[#C8BFB2]" />
-            <span>LET'S CONNECT</span>
+          {/* Section System Eyebrow */}
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#F4F0E8]/20 pb-6 z-10 relative font-mono text-xs text-[#F4F0E8]/80">
+            <div className="inline-flex items-center gap-2 uppercase tracking-widest text-[#F4F0E8]">
+              <Send className="w-4 h-4 text-[#F4F0E8]" />
+              <span>COMMUNICATION CHANNEL // SYS_CONTACT</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <span className="w-2 h-2 rounded-full bg-[#F4F0E8] animate-ping" />
+              <span>DIRECT INBOX: ACTIVE</span>
+            </div>
           </div>
 
           {/* Monumental Headline */}
-          <div className="space-y-4 max-w-3xl z-10 relative">
-            <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight leading-[0.92] text-[#F4F0E8]">
+          <div className="space-y-4 max-w-4xl z-10 relative">
+            <h2 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-normal tracking-tight leading-[0.90] text-[#F4F0E8]">
               LET'S
               <span className="block font-serif text-[#F4F0E8]">WORK</span>
               <span className="block font-serif italic text-[#C8BFB2] font-normal">TOGETHER.</span>
             </h2>
-            <p className="text-base sm:text-lg text-[#F4F0E8]/90 font-sans max-w-xl font-light leading-relaxed pt-2">
-              Open for full-time and project opportunities in Buying & Merchandising, Retail Management, Visual Merchandising, and Brand Strategy.
+            <p className="text-base sm:text-lg text-[#F4F0E8]/90 font-sans max-w-2xl font-light leading-relaxed pt-2">
+              Available for strategic roles and project collaborations across Buying & Merchandising, Retail Operations, Visual Merchandising, and Brand Strategy.
             </p>
           </div>
 
           {/* Contact Interactive Channels */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-4 z-10 relative">
-            {/* Email Direct Box */}
-            <div className="md:col-span-8 p-8 rounded-2xl bg-[#0B0A09]/80 backdrop-blur-md border border-[#262320] text-[#F4F0E8] shadow-2xl space-y-6">
-              <div className="flex items-center justify-between text-xs text-[#8E8278] font-mono">
-                <span className="font-semibold uppercase text-[11px] text-[#722F37]">DIRECT INBOX</span>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-4 z-10 relative font-mono text-xs">
+            {/* Email Direct Box (Cols 8) */}
+            <div className="md:col-span-8 p-8 rounded-3xl bg-[#0B0A09]/85 backdrop-blur-xl border border-[#262320] text-[#F4F0E8] shadow-2xl space-y-6">
+              <div className="flex items-center justify-between text-xs text-[#8E8278]">
+                <span className="font-bold uppercase text-[11px] text-[#722F37] flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-[#722F37]" />
+                  DIRECT INBOX ALLOCATION
+                </span>
                 <span>BANGALORE / INDIA</span>
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-[#141211] border border-[#262320]">
-                <div className="flex items-center gap-3.5">
-                  <div className="w-11 h-11 rounded-full bg-[#722F37] flex items-center justify-center text-[#F4F0E8] shadow-md shrink-0">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-2xl bg-[#141211] border border-[#262320]">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-[#722F37] flex items-center justify-center text-[#F4F0E8] shadow-lg shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase text-[#8E8278] font-mono font-semibold block">EMAIL ADDRESS</span>
+                    <span className="text-[10px] uppercase text-[#8E8278] font-bold block">EMAIL ADDRESS</span>
                     <a
                       href={`mailto:${PERSONAL_DATA.email}`}
                       className="font-sans text-base sm:text-lg font-medium text-[#F4F0E8] hover:text-[#C8BFB2] transition-colors break-all"
@@ -83,58 +93,71 @@ export const ContactSection: React.FC = () => {
                 <div className="flex items-center gap-2 shrink-0">
                   <button
                     onClick={handleCopyEmail}
-                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[#0B0A09] border border-[#262320] hover:border-[#722F37] text-xs font-sans font-semibold transition-colors shadow-sm text-[#F4F0E8]"
+                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[#0B0A09] border border-[#262320] hover:border-[#722F37] text-xs font-mono font-semibold transition-colors shadow-sm text-[#F4F0E8]"
                   >
                     {copied ? (
                       <>
                         <Check className="w-3.5 h-3.5 text-emerald-400" />
-                        <span>Copied!</span>
+                        <span>COPIED!</span>
                       </>
                     ) : (
                       <>
                         <Copy className="w-3.5 h-3.5" />
-                        <span>Copy</span>
+                        <span>COPY</span>
                       </>
                     )}
                   </button>
 
                   <a
-                    href={`mailto:${PERSONAL_DATA.email}?subject=Opportunity / Collaboration Inquiry`}
-                    className="inline-flex items-center gap-1 px-5 py-2.5 rounded-full bg-[#722F37] text-[#F4F0E8] hover:bg-[#F4F0E8] hover:text-[#0B0A09] text-xs font-sans font-semibold uppercase tracking-wider transition-all shadow-md"
+                    href={`mailto:${PERSONAL_DATA.email}?subject=Collaboration / Strategic Role Inquiry - Prashanthi B`}
+                    className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#722F37] text-[#F4F0E8] hover:bg-[#F4F0E8] hover:text-[#0B0A09] text-xs font-mono font-bold uppercase tracking-wider transition-all shadow-md border border-[#722F37]"
                   >
-                    <span>Compose</span>
+                    <span>COMPOSE</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* LinkedIn Card */}
-            <div className="md:col-span-4 p-8 rounded-2xl bg-[#0B0A09]/80 backdrop-blur-md border border-[#262320] text-[#F4F0E8] flex flex-col justify-between space-y-6 shadow-2xl">
+            {/* LinkedIn & CV Card (Cols 4) */}
+            <div className="md:col-span-4 p-8 rounded-3xl bg-[#0B0A09]/85 backdrop-blur-xl border border-[#262320] text-[#F4F0E8] flex flex-col justify-between space-y-6 shadow-2xl">
               <div className="space-y-2">
-                <span className="text-[11px] font-mono uppercase tracking-widest font-semibold text-[#722F37] block">
-                  PROFESSIONAL NETWORK
+                <span className="text-[11px] font-mono uppercase tracking-widest font-bold text-[#722F37] block">
+                  PROFESSIONAL NETWORK & CV
                 </span>
-                <h3 className="font-serif text-2xl font-normal text-[#F4F0E8]">
-                  LinkedIn Profile
+                <h3 className="font-serif text-3xl font-normal text-[#F4F0E8]">
+                  LinkedIn & Resume
                 </h3>
                 <p className="text-xs text-[#8E8278] leading-relaxed font-sans font-light">
-                  Connect for professional updates, retail strategy discussions, and career opportunities.
+                  Connect for executive discussions, brand consultations, or resume verification.
                 </p>
               </div>
 
-              <a
-                href={PERSONAL_DATA.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-between p-4 rounded-xl bg-[#141211] border border-[#262320] text-[#F4F0E8] hover:border-[#722F37] transition-all font-sans text-xs font-semibold uppercase tracking-wider shadow-sm group"
-              >
-                <div className="flex items-center gap-2.5">
-                  <LinkedinIcon className="w-4 h-4 text-[#722F37]" />
-                  <span>Prashanthi Reddy</span>
-                </div>
-                <ArrowUpRight className="w-4 h-4 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-              </a>
+              <div className="space-y-2.5 pt-2">
+                <a
+                  href={PERSONAL_DATA.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-between p-3.5 rounded-xl bg-[#141211] border border-[#262320] text-[#F4F0E8] hover:border-[#722F37] transition-all font-mono text-xs uppercase tracking-wider group"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <LinkedinIcon className="w-4 h-4 text-[#722F37]" />
+                    <span>Prashanthi Reddy</span>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </a>
+
+                <a
+                  href={PERSONAL_DATA.cvUrl}
+                  className="w-full inline-flex items-center justify-between p-3.5 rounded-xl bg-[#141211] border border-[#262320] text-[#C8BFB2] hover:text-[#F4F0E8] hover:border-[#722F37] transition-all font-mono text-xs uppercase tracking-wider group"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <FileText className="w-4 h-4 text-[#722F37]" />
+                    <span>Download CV</span>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-[#8E8278] group-hover:text-[#F4F0E8] transition-all" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -142,3 +165,4 @@ export const ContactSection: React.FC = () => {
     </section>
   );
 };
+

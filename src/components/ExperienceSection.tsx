@@ -1,145 +1,178 @@
-import React from 'react';
-import { Briefcase, GraduationCap, Award, CheckCircle2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { Briefcase, CheckCircle2 } from 'lucide-react';
 import { EXPERIENCES_DATA, EDUCATION_DATA, EXPOSURES_DATA } from '../data/portfolioData';
 
 export const ExperienceSection: React.FC = () => {
+  const [activeExpTab, setActiveExpTab] = useState<'work' | 'academic' | 'exposure'>('work');
+
   return (
-    <section id="experience" className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#262320] bg-[#0B0A09] text-[#F4F0E8]">
+    <section id="experience" className="py-24 sm:py-36 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#262320] bg-[#0B0A09] text-[#F4F0E8] select-none">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#262320]">
-        <div className="space-y-3">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#722F37]">
-            <Briefcase className="w-4 h-4" />
-            <span>CAREER TIMELINE & EDUCATION</span>
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-16 border-b border-[#262320]">
+        <div className="space-y-4 max-w-3xl">
+          <div className="flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#722F37]">
+            <Briefcase className="w-4 h-4 text-[#722F37]" />
+            <span>CHRONOLOGY // TRACK RECORD & CREDENTIALS</span>
           </div>
-          <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal text-[#F4F0E8] tracking-tight">
-            EXPERIENCE
+          <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
+            CAREER &
+            <span className="block font-serif italic text-[#C8BFB2] font-normal">TIMELINE</span>
           </h2>
         </div>
-        <p className="max-w-md text-sm text-[#C8BFB2] leading-relaxed font-sans font-light">
-          Hands-on retail visual merchandising, digital brand marketing, and formal academic business management.
-        </p>
+
+        {/* Category Switcher Tabs */}
+        <div className="flex items-center gap-2 font-mono text-xs">
+          <button
+            onClick={() => setActiveExpTab('work')}
+            className={`px-4 py-2 rounded-full border transition-all ${
+              activeExpTab === 'work'
+                ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold shadow-md'
+                : 'bg-[#141211] border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
+            }`}
+          >
+            01 // WORK (2)
+          </button>
+          <button
+            onClick={() => setActiveExpTab('academic')}
+            className={`px-4 py-2 rounded-full border transition-all ${
+              activeExpTab === 'academic'
+                ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold shadow-md'
+                : 'bg-[#141211] border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
+            }`}
+          >
+            02 // EDUCATION (2)
+          </button>
+          <button
+            onClick={() => setActiveExpTab('exposure')}
+            className={`px-4 py-2 rounded-full border transition-all ${
+              activeExpTab === 'exposure'
+                ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold shadow-md'
+                : 'bg-[#141211] border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
+            }`}
+          >
+            03 // IMMERSION (2)
+          </button>
+        </div>
       </div>
 
-      <div className="pt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-        {/* Left Column: Work History (Cols 7) */}
-        <div className="lg:col-span-7 space-y-8">
-          <div className="flex items-center justify-between border-b border-[#262320] pb-3">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#F4F0E8] font-mono">
-              PROFESSIONAL WORK
-            </span>
-            <span className="text-xs text-[#8E8278] font-mono">2023 — 2024</span>
-          </div>
-
+      {/* Sequential Editorial Numbered Cards (01, 02, 03, 04) */}
+      <div className="pt-12 space-y-12">
+        {activeExpTab === 'work' && (
           <div className="space-y-8">
-            {EXPERIENCES_DATA.map((exp) => (
+            {EXPERIENCES_DATA.map((exp, idx) => (
               <div
                 key={exp.id}
-                className="p-8 rounded-2xl bg-[#141211] border border-[#262320] hover:border-[#722F37] transition-all duration-300 shadow-xl space-y-4"
+                className="p-8 sm:p-12 rounded-3xl bg-[#141211] border border-[#262320] hover:border-[#722F37] transition-all duration-500 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group"
               >
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#262320] pb-3">
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#722F37] text-[#F4F0E8]">
-                      {exp.period}
-                    </span>
-                    <span className="text-xs font-mono text-[#8E8278]">
-                      {exp.type}
-                    </span>
-                  </div>
-                  <span className="text-xs font-mono text-[#722F37] font-semibold uppercase tracking-wider">
-                    {exp.location}
-                  </span>
+                {/* Large Monumental Number */}
+                <div className="lg:col-span-2 font-serif text-6xl sm:text-7xl lg:text-8xl text-[#722F37]/30 group-hover:text-[#722F37] transition-colors font-normal select-none">
+                  0{idx + 1}
                 </div>
 
-                <div>
-                  <h3 className="font-serif text-3xl text-[#F4F0E8] font-normal">
-                    {exp.company}
-                  </h3>
-                  <p className="text-sm font-sans font-semibold text-[#722F37] mt-0.5">
-                    {exp.role}
-                  </p>
-                </div>
-
-                <p className="text-sm text-[#C8BFB2] leading-relaxed font-sans font-light">
-                  {exp.description}
-                </p>
-
-                <div className="space-y-2 pt-3 border-t border-[#262320]">
-                  {exp.highlights.map((h, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-xs font-sans text-[#8E8278]">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#722F37] shrink-0 mt-0.5" />
-                      <span>{h}</span>
+                <div className="lg:col-span-10 space-y-5">
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#262320] pb-4 font-mono text-xs">
+                    <div className="flex items-center gap-3">
+                      <span className="font-bold text-[#722F37] px-3 py-1 rounded bg-[#0B0A09] border border-[#262320]">
+                        {exp.period}
+                      </span>
+                      <span className="text-[#8E8278] uppercase tracking-wider">{exp.type}</span>
                     </div>
-                  ))}
+                    <span className="text-[#C8BFB2] font-semibold">{exp.location}</span>
+                  </div>
+
+                  <div>
+                    <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal">
+                      {exp.company}
+                    </h3>
+                    <p className="text-sm font-mono font-bold text-[#722F37] mt-1 uppercase tracking-wider">
+                      {exp.role}
+                    </p>
+                  </div>
+
+                  <p className="text-sm sm:text-base text-[#C8BFB2] font-sans font-light leading-relaxed">
+                    {exp.description}
+                  </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 border-t border-[#262320]">
+                    {exp.highlights.map((h, hIdx) => (
+                      <div key={hIdx} className="flex items-start gap-2.5 text-xs text-[#8E8278] font-sans">
+                        <CheckCircle2 className="w-4 h-4 text-[#722F37] shrink-0 mt-0.5" />
+                        <span>{h}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        )}
 
-        {/* Right Column: Education & Industry Exposure (Cols 5) */}
-        <div className="lg:col-span-5 space-y-10">
-          {/* Education */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between border-b border-[#262320] pb-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#F4F0E8] flex items-center gap-2 font-mono">
-                <GraduationCap className="w-4 h-4 text-[#722F37]" />
-                ACADEMIC CREDENTIALS
-              </span>
-              <span className="text-xs text-[#8E8278] font-mono">2020 — 2027</span>
-            </div>
-
-            <div className="space-y-4">
-              {EDUCATION_DATA.map((edu) => (
-                <div
-                  key={edu.id}
-                  className="p-6 rounded-2xl bg-[#141211] border border-[#262320] shadow-md space-y-2 hover:border-[#722F37]/60 transition-colors"
-                >
-                  <div className="flex items-center justify-between text-xs text-[#8E8278] font-mono">
-                    <span>{edu.period}</span>
-                    <span className="text-xs font-semibold text-[#722F37]">{edu.status}</span>
-                  </div>
-                  <h4 className="font-serif text-xl text-[#F4F0E8] font-normal leading-snug">
-                    {edu.degree}
-                  </h4>
-                  <p className="text-xs font-sans text-[#C8BFB2]">
-                    {edu.institution}, {edu.location}
-                  </p>
+        {activeExpTab === 'academic' && (
+          <div className="space-y-8">
+            {EDUCATION_DATA.map((edu, idx) => (
+              <div
+                key={edu.id}
+                className="p-8 sm:p-12 rounded-3xl bg-[#141211] border border-[#262320] hover:border-[#722F37] transition-all duration-500 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group"
+              >
+                <div className="lg:col-span-2 font-serif text-6xl sm:text-7xl lg:text-8xl text-[#722F37]/30 group-hover:text-[#722F37] transition-colors font-normal select-none">
+                  0{idx + 3}
                 </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Industry Exposure */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between border-b border-[#262320] pb-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#F4F0E8] flex items-center gap-2 font-mono">
-                <Award className="w-4 h-4 text-[#722F37]" />
-                INDUSTRY IMMERSION
-              </span>
-            </div>
-
-            <div className="space-y-4">
-              {EXPOSURES_DATA.map((exp, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 rounded-2xl bg-[#141211] border border-[#262320] shadow-md space-y-2 hover:border-[#722F37]/60 transition-colors"
-                >
-                  <div className="flex items-center justify-between text-xs font-mono text-[#8E8278]">
-                    <span className="text-[#722F37] font-semibold uppercase">{exp.type}</span>
+                <div className="lg:col-span-10 space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#262320] pb-4 font-mono text-xs">
+                    <span className="font-bold text-[#722F37] px-3 py-1 rounded bg-[#0B0A09] border border-[#262320]">
+                      {edu.period}
+                    </span>
+                    <span className="text-[#F4F0E8] font-bold">{edu.status}</span>
                   </div>
-                  <h4 className="font-serif text-lg text-[#F4F0E8] font-normal">
-                    {exp.title}
-                  </h4>
-                  <p className="text-xs font-sans text-[#C8BFB2] leading-relaxed font-light">
-                    {exp.description}
-                  </p>
+
+                  <div>
+                    <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal">
+                      {edu.degree}
+                    </h3>
+                    <p className="text-sm font-mono text-[#C8BFB2] mt-1">
+                      {edu.institution} — {edu.location}
+                    </p>
+                  </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-        </div>
+        )}
+
+        {activeExpTab === 'exposure' && (
+          <div className="space-y-8">
+            {EXPOSURES_DATA.map((exp, idx) => (
+              <div
+                key={exp.id}
+                className="p-8 sm:p-12 rounded-3xl bg-[#141211] border border-[#262320] hover:border-[#722F37] transition-all duration-500 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group"
+              >
+                <div className="lg:col-span-2 font-serif text-6xl sm:text-7xl lg:text-8xl text-[#722F37]/30 group-hover:text-[#722F37] transition-colors font-normal select-none">
+                  0{idx + 5}
+                </div>
+
+                <div className="lg:col-span-10 space-y-4">
+                  <div className="flex items-center justify-between border-b border-[#262320] pb-4 font-mono text-xs">
+                    <span className="text-[#722F37] font-bold uppercase tracking-wider">
+                      {exp.type}
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal">
+                      {exp.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-[#C8BFB2] font-sans font-light leading-relaxed mt-2">
+                      {exp.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
 };
+
