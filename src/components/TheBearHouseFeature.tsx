@@ -34,27 +34,27 @@ export const TheBearHouseFeature: React.FC<TheBearHouseFeatureProps> = ({ onOpen
   return (
     <section
       id="bear-house"
-      className="py-24 sm:py-28 bg-[#DCE6F7] text-[#171717] border-b border-[#CCD9EE]"
+      className="py-24 sm:py-28 bg-[#E8DCC6] text-[#2C2421] border-b border-[#E2D5C3]"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-16">
         {/* Header Ribbon */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-black/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#B7A89A]/40">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#3158D4]">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#722F37]">
               <Store className="w-4 h-4" />
               <span>Hero Retail Feature Case Study</span>
             </div>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-[#171717] tracking-tight">
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-[#2C2421] tracking-tight">
               The Bear House
             </h2>
-            <p className="text-base sm:text-lg text-[#333333] font-sans">
+            <p className="text-base sm:text-lg text-[#554E48] font-sans">
               Visual Merchandising & Retail Execution • 46-Day Industry Internship, Hyderabad
             </p>
           </div>
 
           <button
             onClick={onOpenStudy}
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#3158D4] text-white hover:bg-[#171717] transition-colors text-xs font-sans font-semibold uppercase tracking-wider shrink-0 shadow-sm"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#722F37] text-[#F5EEE3] hover:bg-[#2C2421] transition-colors text-xs font-sans font-semibold uppercase tracking-wider shrink-0 shadow-sm"
           >
             <span>Read Full Case Study</span>
             <ArrowUpRight className="w-4 h-4" />
@@ -62,7 +62,7 @@ export const TheBearHouseFeature: React.FC<TheBearHouseFeatureProps> = ({ onOpen
         </div>
 
         {/* Short Editorial Copy */}
-        <p className="text-lg sm:text-xl text-[#222222] font-serif max-w-3xl leading-relaxed italic">
+        <p className="text-lg sm:text-xl text-[#2C2421] font-serif max-w-3xl leading-relaxed italic">
           "Hands-on exposure to visual merchandising, store operations, merchandise organisation and retail execution across EBO and SIS formats."
         </p>
 
@@ -71,21 +71,21 @@ export const TheBearHouseFeature: React.FC<TheBearHouseFeatureProps> = ({ onOpen
           {visualCards.map((card, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-8 bg-white/90 backdrop-blur-sm rounded-2xl border border-white/60 shadow-sm hover:border-[#3158D4] transition-all space-y-4 flex flex-col justify-between"
+              className="p-6 sm:p-8 bg-[#FAF6EE]/90 backdrop-blur-sm rounded-2xl border border-[#E2D5C3] shadow-sm hover:border-[#722F37] transition-all space-y-4 flex flex-col justify-between"
             >
               <div className="space-y-2">
-                <span className="text-[11px] font-mono text-[#3158D4] font-semibold uppercase tracking-wider block">
+                <span className="text-[11px] font-mono text-[#722F37] font-semibold uppercase tracking-wider block">
                   0{idx + 1} / {card.tag}
                 </span>
-                <h3 className="font-serif text-2xl text-[#171717] font-normal leading-snug">
+                <h3 className="font-serif text-2xl text-[#2C2421] font-normal leading-snug">
                   {card.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#555555] leading-relaxed font-sans pt-1">
+                <p className="text-xs sm:text-sm text-[#554E48] leading-relaxed font-sans pt-1">
                   {card.desc}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-black/5 text-[11px] font-sans font-medium text-[#3158D4] flex items-center gap-1">
+              <div className="pt-3 border-t border-[#E2D5C3] text-[11px] font-sans font-semibold text-[#722F37] flex items-center gap-1">
                 <span>Verified Retail Work</span>
               </div>
             </div>
@@ -93,13 +93,13 @@ export const TheBearHouseFeature: React.FC<TheBearHouseFeatureProps> = ({ onOpen
         </div>
 
         {/* 7 Store Footprint Matrix */}
-        <div className="p-8 rounded-2xl bg-white/70 border border-white/80 space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-black/10">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#171717] flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-[#3158D4]" />
+        <div className="p-8 rounded-2xl bg-[#FAF6EE]/80 border border-[#E2D5C3] space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#E2D5C3]">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#2C2421] flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-[#722F37]" />
               7 Active Store Locations Audited & Executed
             </span>
-            <span className="text-xs font-sans text-[#77736D]">
+            <span className="text-xs font-sans text-[#8F8177]">
               Bangalore & Hyderabad
             </span>
           </div>
@@ -108,12 +108,12 @@ export const TheBearHouseFeature: React.FC<TheBearHouseFeatureProps> = ({ onOpen
             {BEAR_HOUSE_LOCATIONS.map((loc, idx) => (
               <div
                 key={idx}
-                className="p-3.5 bg-white rounded-xl border border-black/5 space-y-1"
+                className="p-3.5 bg-[#F5EEE3] rounded-xl border border-[#E2D5C3] space-y-1"
               >
-                <div className="font-sans text-xs font-semibold text-[#171717]">
+                <div className="font-sans text-xs font-semibold text-[#2C2421]">
                   {loc.name}
                 </div>
-                <div className="text-[11px] text-[#77736D] font-sans">
+                <div className="text-[11px] text-[#8F8177] font-sans">
                   {loc.city} • {loc.type}
                 </div>
               </div>

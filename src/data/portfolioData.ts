@@ -100,9 +100,9 @@ export const PROJECTS_DATA: Project[] = [
     ],
     takeaway: 'Understanding how merchandise moves from stockroom to sales floor — and how space, presentation and organisation directly influence customer dwell time and basket size.',
     imagePath: '/images/projects/bear-house/cover.jpg',
-    accentColor: '#3158D4',
-    accentBg: '#DCE6F7',
-    tagColor: 'bg-softblue text-cobalt',
+    accentColor: '#722F37',
+    accentBg: '#E8DCC6',
+    tagColor: 'bg-burgundy text-cream',
     composition: 'landscape'
   },
   {
@@ -135,9 +135,9 @@ export const PROJECTS_DATA: Project[] = [
     ],
     takeaway: 'Information reduces anxiety. By replacing opacity with transparent digital tracking and thoughtful physical reading materials, perceived wait time is radically diminished.',
     imagePath: '/images/projects/healing-the-wait/cover.jpg',
-    accentColor: '#E58A78',
-    accentBg: '#FDF0ED',
-    tagColor: 'bg-coral/20 text-ink',
+    accentColor: '#A56A70',
+    accentBg: '#E8DCC6',
+    tagColor: 'bg-dustyRose/20 text-espresso',
     composition: 'portrait'
   },
   {
@@ -171,9 +171,9 @@ export const PROJECTS_DATA: Project[] = [
     ],
     takeaway: 'Where bold cultural brand codes meet quantitative retail discipline — ensuring creative integrity scales profitably across omnichannel touchpoints.',
     imagePath: '/images/projects/house-of-masaba/cover.jpg',
-    accentColor: '#3158D4',
-    accentBg: '#E9D36A',
-    tagColor: 'bg-butter text-ink',
+    accentColor: '#722F37',
+    accentBg: '#D8B6AE',
+    tagColor: 'bg-mutedBlush text-espresso',
     composition: 'wide'
   },
   {
@@ -206,9 +206,9 @@ export const PROJECTS_DATA: Project[] = [
     ],
     takeaway: 'Translating complex product chemistry into transparent, human-centered narratives creates genuine digital community trust and brand loyalty.',
     imagePath: '/images/projects/3am-india/cover.jpg',
-    accentColor: '#E58A78',
-    accentBg: '#FDF0ED',
-    tagColor: 'bg-coral/20 text-ink',
+    accentColor: '#722F37',
+    accentBg: '#D8B6AE',
+    tagColor: 'bg-mutedBlush/60 text-espresso',
     composition: 'split'
   },
   {
@@ -242,9 +242,9 @@ export const PROJECTS_DATA: Project[] = [
     ],
     takeaway: 'Contextual, actionable industry intelligence empowers emerging Indian fashion founders to bridge creative vision with sustainable commercial retail growth.',
     imagePath: '/images/projects/sutra-edit/cover.jpg',
-    accentColor: '#3158D4',
-    accentBg: '#DCE6F7',
-    tagColor: 'bg-softblue text-cobalt',
+    accentColor: '#722F37',
+    accentBg: '#E8DCC6',
+    tagColor: 'bg-warmTaupe/20 text-espresso',
     composition: 'editorial'
   }
 ];
