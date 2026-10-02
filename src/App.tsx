@@ -1,53 +1,65 @@
 import { useState } from 'react';
 import type { Project } from './data/portfolioData';
+import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { PointOfViewSection } from './components/PointOfViewSection';
 import { SelectedWork } from './components/SelectedWork';
-import { Experience } from './components/Experience';
-import { IndustryExposure } from './components/IndustryExposure';
-import { About } from './components/About';
-import { Skills } from './components/Skills';
-import { Contact } from './components/Contact';
+import { TheBearHouseShowcase } from './components/TheBearHouseShowcase';
+import { EditorialPerspectives } from './components/EditorialPerspectives';
+import { SkillsSection } from './components/SkillsSection';
+import { ExperienceAndEducation } from './components/ExperienceAndEducation';
+import { AboutSection } from './components/AboutSection';
+import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { ProjectModal } from './components/ProjectModal';
+import { CaseStudyModal } from './components/CaseStudyModal';
 
 export function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF9F6] text-[#1C1B19] antialiased selection:bg-[#9C7A4A] selection:text-white">
-      {/* Sticky Editorial Navbar */}
+    <div className="min-h-screen flex flex-col bg-[#17120F] text-[#F3EFE7] antialiased selection:bg-[#5A2028] selection:text-[#F3EFE7]">
+      {/* Interactive Desktop Custom Cursor */}
+      <CustomCursor />
+
+      {/* Sticky Editorial Navbar with Reading Progress */}
       <Navbar />
 
-      {/* Main Content Area */}
+      {/* Main Narrative Content Flow */}
       <main className="flex-grow">
-        {/* Section 1: Hero */}
+        {/* 01 — OPENING HERO */}
         <Hero />
 
-        {/* Section 2: Selected Work */}
+        {/* 02 — POINT OF VIEW (Creative × Commercial Synthesis) */}
+        <PointOfViewSection />
+
+        {/* 03 — SELECTED WORK (Curated Project Index) */}
         <SelectedWork onSelectProject={(project) => setSelectedProject(project)} />
 
-        {/* Section 3: Experience & Education */}
-        <Experience />
+        {/* 04 — RETAIL IMMERSION (The Bear House Retail Feature) */}
+        <TheBearHouseShowcase />
 
-        {/* Section 4: Industry Exposure */}
-        <IndustryExposure />
+        {/* 05 — PERSPECTIVES (Publication Index) */}
+        <EditorialPerspectives />
 
-        {/* Section 5: About & Strategic Focus */}
-        <About />
+        {/* 06 — CAPABILITIES MATRIX (12 Verified Skills) */}
+        <SkillsSection />
 
-        {/* Section 6: Skills */}
-        <Skills />
+        {/* 07 — TRACK RECORD (Experience & Education) */}
+        <ExperienceAndEducation />
 
-        {/* Section 7: Contact */}
-        <Contact />
+        {/* 08 — ABOUT PRASHANTHI B. */}
+        <AboutSection />
+
+        {/* 09 — DRAMATIC FINALE CONTACT */}
+        <ContactSection />
       </main>
 
       {/* Footer */}
       <Footer />
 
-      {/* Interactive Project Details Modal */}
-      <ProjectModal
+      {/* Interactive Case Study Reader */}
+      <CaseStudyModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
       />

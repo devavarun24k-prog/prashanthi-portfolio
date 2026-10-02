@@ -7,61 +7,64 @@
     scroll-behavior: smooth;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #17120F;
+    color: #F3EFE7;
   }
 
   body {
-    background-color: #FAF9F6;
-    color: #1C1B19;
+    background-color: #17120F;
+    color: #F3EFE7;
     overflow-x: hidden;
   }
 
-  /* Custom subtle scrollbar */
+  /* Editorial subtle scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
   }
   ::-webkit-scrollbar-track {
-    background: #FAF9F6;
+    background: #17120F;
   }
   ::-webkit-scrollbar-thumb {
-    background: #D8D2C7;
-    border-radius: 3px;
+    background: #2E2520;
+    border-radius: 2px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #9C7A4A;
+    background: #5A2028;
+  }
+
+  ::selection {
+    background-color: #5A2028;
+    color: #F3EFE7;
   }
 }
 
 @layer utilities {
-  .editorial-heading {
+  .font-serif-italic {
     font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+    font-style: italic;
   }
 
-  .editorial-sub {
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    font-weight: 600;
+  .hairline-dark {
+    border-color: rgba(200, 192, 181, 0.12);
   }
 
-  .editorial-border {
-    border-color: #E8E5DC;
+  .hairline-light {
+    border-color: rgba(36, 32, 29, 0.12);
   }
 
-  .editorial-card {
-    background: #FFFFFF;
-    border: 1px solid #EAE6DF;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  .hairline-oxblood {
+    border-color: rgba(90, 32, 40, 0.35);
   }
 
-  .editorial-card:hover {
-    border-color: #9C7A4A;
-    transform: translateY(-3px);
-    box-shadow: 0 16px 32px -12px rgba(28, 27, 25, 0.08);
+  /* Fine noise texture */
+  .bg-noise-dark {
+    background-image: radial-gradient(rgba(200, 192, 181, 0.04) 1px, transparent 0);
+    background-size: 24px 24px;
   }
 
-  .editorial-gradient-overlay {
-    background: linear-gradient(180deg, rgba(18, 18, 18, 0.02) 0%, rgba(18, 18, 18, 0.75) 100%);
+  .bg-noise-light {
+    background-image: radial-gradient(rgba(36, 32, 29, 0.04) 1px, transparent 0);
+    background-size: 24px 24px;
   }
 }

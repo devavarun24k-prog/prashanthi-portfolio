@@ -1,30 +1,57 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
+import { PERSONAL_DATA } from '../data/portfolioData';
 
-interface NavbarProps {
-  onContactClick?: () => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = () => {
+export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 40);
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScroll > 0) {
+        setScrollProgress((window.scrollY / totalScroll) * 100);
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const sections = ['hero', 'pov', 'work', 'bear-house', 'editorial', 'experience', 'skills', 'about', 'contact'];
+    const observers: IntersectionObserver[] = [];
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        { threshold: 0.25, rootMargin: '-80px 0px -40% 0px' }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, []);
+
   const navLinks = [
-    { label: 'HOME', href: '#hero' },
-    { label: 'WORK', href: '#work' },
-    { label: 'EXPERIENCE', href: '#experience' },
-    { label: 'EXPOSURE', href: '#exposure' },
-    { label: 'ABOUT', href: '#about' },
-    { label: 'SKILLS', href: '#skills' },
-    { label: 'CONTACT', href: '#contact' },
+    { label: 'WORK', href: '#work', id: 'work' },
+    { label: 'VIEWPOINT', href: '#pov', id: 'pov' },
+    { label: 'RETAIL', href: '#bear-house', id: 'bear-house' },
+    { label: 'PERSPECTIVES', href: '#editorial', id: 'editorial' },
+    { label: 'TRACK RECORD', href: '#experience', id: 'experience' },
+    { label: 'CAPABILITIES', href: '#skills', id: 'skills' },
+    { label: 'ABOUT', href: '#about', id: 'about' },
+    { label: 'CONTACT', href: '#contact', id: 'contact' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -36,79 +63,114 @@ export const Navbar: React.FC<NavbarProps> = () => {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#FAF9F6]/90 backdrop-blur-md border-b border-[#E8E5DC] py-3.5 shadow-sm'
-          : 'bg-transparent py-6'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-        {/* Brand Monogram & Name */}
-        <a
-          href="#hero"
-          className="group flex items-center gap-3 text-left focus:outline-none"
-        >
-          <div className="w-8 h-8 rounded-sm bg-[#1C1B19] text-[#FAF9F6] flex items-center justify-center font-serif font-semibold text-sm group-hover:bg-[#9C7A4A] transition-colors">
-            PB
-          </div>
-          <div>
-            <span className="block font-serif text-lg tracking-wider font-medium text-[#1C1B19]">
-              PRASHANTHI B
-            </span>
-            <span className="block font-mono text-[9px] tracking-[0.2em] text-[#6E6B65] uppercase">
-              Fashion & Lifestyle Business
-            </span>
-          </div>
-        </a>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8 text-xs font-mono tracking-[0.2em]">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(link.href);
-              }}
-              className="text-[#524E48] hover:text-[#1C1B19] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#9C7A4A] hover:after:w-full after:transition-all after:duration-300"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* Right CTA */}
-        <div className="hidden lg:flex items-center gap-4">
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+          isScrolled
+            ? 'bg-[#17120F]/95 backdrop-blur-md border-b border-[#2E2520] py-3.5 shadow-md'
+            : 'bg-transparent py-6'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
+          {/* Brand Mark */}
           <a
-            href="#contact"
+            href="#hero"
             onClick={(e) => {
               e.preventDefault();
-              handleNavClick('#contact');
+              handleNavClick('#hero');
             }}
-            className="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase px-4 py-2 border border-[#1C1B19] text-[#1C1B19] hover:bg-[#1C1B19] hover:text-[#FAF9F6] transition-all duration-300 rounded-sm"
+            data-cursor="HOME"
+            className="group flex items-center gap-3.5 text-left focus:outline-none"
           >
-            <span>Get in Touch</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <div className="w-8 h-8 rounded-none bg-[#221B17] text-[#F3EFE7] border border-[#2E2520] flex items-center justify-center font-serif font-semibold text-sm group-hover:border-[#5A2028] group-hover:text-[#5A2028] transition-all duration-300">
+              PB
+            </div>
+            <div>
+              <span className="block font-serif text-lg tracking-wide font-medium text-[#F3EFE7]">
+                {PERSONAL_DATA.name}
+              </span>
+              <span className="block font-mono text-[9px] tracking-[0.25em] text-[#C8C0B5]/60 uppercase">
+                Fashion & Lifestyle Business
+              </span>
+            </div>
           </a>
+
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-[11px] font-mono tracking-[0.2em]">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
+                  }}
+                  data-cursor={link.label}
+                  className={`transition-colors relative py-1 font-medium ${
+                    isActive
+                      ? 'text-[#F3EFE7] font-semibold after:w-full after:bg-[#5A2028]'
+                      : 'text-[#C8C0B5]/70 hover:text-[#F3EFE7] after:w-0 hover:after:w-full after:bg-[#5A2028]'
+                  } after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:transition-all after:duration-300`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
+          </nav>
+
+          {/* Right Action: Understated CV CTA */}
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href={PERSONAL_DATA.cvUrl}
+              data-cursor="DOWNLOAD"
+              className="inline-flex items-center gap-1.5 text-[11px] font-mono tracking-[0.2em] uppercase px-3.5 py-1.5 border border-[#2E2520] text-[#C8C0B5] hover:border-[#5A2028] hover:text-[#F3EFE7] transition-all duration-300 rounded-none bg-[#221B17]/40"
+            >
+              <span>DOWNLOAD CV</span>
+              <ArrowUpRight className="w-3 h-3 text-[#5A2028]" />
+            </a>
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+            className="lg:hidden p-2 text-[#F3EFE7] hover:text-[#5A2028] focus:outline-none"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
 
-        {/* Mobile menu button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle navigation menu"
-          className="md:hidden p-2 text-[#1C1B19] hover:text-[#9C7A4A] focus:outline-none"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
+        {/* Reading Progress Line */}
+        <div
+          className="absolute bottom-0 left-0 h-[1.5px] bg-[#5A2028] transition-all duration-150"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </header>
 
-      {/* Mobile Drawer Menu */}
+      {/* Full-Screen Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#FAF9F6] border-b border-[#E8E5DC] px-6 py-6 shadow-xl animate-fadeIn">
-          <nav className="flex flex-col space-y-4 font-mono text-xs tracking-widest">
-            {navLinks.map((link) => (
+        <div className="fixed inset-0 z-50 bg-[#17120F] text-[#F3EFE7] flex flex-col justify-between p-8 sm:p-12 animate-fadeIn lg:hidden">
+          <div className="flex items-center justify-between border-b border-[#2E2520] pb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-none bg-[#5A2028] text-[#F3EFE7] flex items-center justify-center font-serif font-bold text-sm">
+                PB
+              </div>
+              <span className="font-serif text-xl tracking-wide text-[#F3EFE7]">
+                {PERSONAL_DATA.name}
+              </span>
+            </div>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2 text-[#F3EFE7] hover:text-[#5A2028]"
+            >
+              <X className="w-7 h-7" />
+            </button>
+          </div>
+
+          <nav className="flex flex-col space-y-4 my-auto py-6">
+            {navLinks.map((link, idx) => (
               <a
                 key={link.label}
                 href={link.href}
@@ -116,25 +178,28 @@ export const Navbar: React.FC<NavbarProps> = () => {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="text-[#1C1B19] hover:text-[#9C7A4A] py-2 border-b border-[#E8E5DC]/60 transition-colors"
+                className="font-serif text-3xl sm:text-4xl text-[#F3EFE7]/80 hover:text-[#5A2028] transition-colors flex items-baseline justify-between border-b border-[#2E2520] pb-3"
               >
-                {link.label}
+                <span>{link.label}</span>
+                <span className="font-mono text-xs text-[#5A2028]">0{idx + 1}</span>
               </a>
             ))}
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('#contact');
-              }}
-              className="inline-flex items-center justify-center gap-2 w-full text-xs font-mono tracking-widest uppercase px-4 py-3 bg-[#1C1B19] text-[#FAF9F6] rounded-sm mt-2"
-            >
-              <span>Get in Touch</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
           </nav>
+
+          <div className="pt-6 border-t border-[#2E2620] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-[#C8C0B5]/60">
+            <a
+              href={PERSONAL_DATA.cvUrl}
+              className="inline-flex items-center justify-center gap-2 py-3 px-5 bg-[#5A2028] text-[#F3EFE7] font-semibold rounded-none uppercase tracking-widest"
+            >
+              <span>DOWNLOAD CV ↗</span>
+            </a>
+            <span className="flex items-center gap-1.5 text-[#C8C0B5]">
+              <Sparkles className="w-3.5 h-3.5 text-[#5A2028]" />
+              <span>BANGALORE • 2025–2027</span>
+            </span>
+          </div>
         </div>
       )}
-    </header>
+    </>
   );
 };
