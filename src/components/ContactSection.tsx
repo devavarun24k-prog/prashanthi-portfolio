@@ -28,52 +28,55 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-28 sm:py-36 bg-[#0D0D0D] text-[#F5F4F0] relative border-b border-[#262626]">
+    <section id="contact" className="py-28 sm:py-36 bg-[#151515] text-[#FAF9F6] relative border-b border-[#282828]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-16">
         {/* Section Header */}
-        <div className="flex items-center gap-2 font-mono text-[11px] tracking-[0.25em] text-[#96938D] uppercase">
-          <Send className="w-3.5 h-3.5" />
-          <span>08 / CONNECT & COLLABORATE</span>
+        <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.25em] text-[#B7B1A8] uppercase">
+          <span className="font-bold text-[#FAF9F6] bg-[#1C1C1C] px-2 py-0.5 border border-[#282828]">
+            10 / 10
+          </span>
+          <Send className="w-3.5 h-3.5 text-[#5A2427]" />
+          <span>CONNECT & COLLABORATE</span>
         </div>
 
         {/* Dramatic Headline */}
         <div className="space-y-6 max-w-4xl">
-          <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#F5F4F0] tracking-tight leading-[0.95]">
-            Let's Talk About
-            <span className="block font-serif italic text-[#96938D] font-light">
+          <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#FAF9F6] tracking-tight leading-[0.95]">
+            Let's Create
+            <span className="block font-serif italic text-[#B7B1A8] font-light">
               What's Next.
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-[#96938D] max-w-xl font-sans pt-2 leading-relaxed">
-            Open for opportunities in Buying & Merchandising, Retail Management, Visual Merchandising, Brand Strategy, and Marketing.
+          <p className="text-sm sm:text-base text-[#B7B1A8] max-w-xl font-sans pt-2 leading-relaxed font-light">
+            Open for full-time and project opportunities in Buying & Merchandising, Retail Management, Visual Merchandising, and Fashion Strategy.
           </p>
         </div>
 
         {/* Action Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4">
           {/* Direct Email Card */}
-          <div className="lg:col-span-8 p-8 sm:p-10 bg-[#161616] border border-[#262626] space-y-6">
+          <div className="lg:col-span-8 p-8 sm:p-10 bg-[#1C1C1C] border border-[#282828] space-y-6">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-[#96938D] block">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#77736D] block">
                 PRIMARY INBOX
               </span>
-              <span className="text-[11px] font-mono text-[#96938D]">
+              <span className="text-[11px] font-mono text-[#B7B1A8]">
                 BANGALORE, INDIA
               </span>
             </div>
 
-            <div className="p-5 sm:p-6 bg-[#0D0D0D] border border-[#262626] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="p-5 sm:p-6 bg-[#151515] border border-[#282828] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-3.5">
-                <div className="w-10 h-10 bg-[#161616] border border-[#262626] flex items-center justify-center text-[#F5F4F0]">
+                <div className="w-10 h-10 bg-[#1C1C1C] border border-[#282828] flex items-center justify-center text-[#FAF9F6]">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[9px] font-mono tracking-widest text-[#96938D] uppercase block">
+                  <span className="text-[9px] font-mono tracking-widest text-[#77736D] uppercase block">
                     DIRECT EMAIL
                   </span>
                   <a
                     href={`mailto:${PERSONAL_DATA.email}`}
-                    className="font-mono text-sm sm:text-base text-[#F5F4F0] hover:text-[#96938D] transition-colors break-all font-medium"
+                    className="font-mono text-sm sm:text-base text-[#FAF9F6] hover:text-[#B7B1A8] transition-colors break-all font-medium"
                   >
                     {PERSONAL_DATA.email}
                   </a>
@@ -83,7 +86,7 @@ export const ContactSection: React.FC = () => {
               <div className="flex items-center gap-2 shrink-0">
                 <button
                   onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#161616] text-[#F5F4F0] hover:bg-[#262626] border border-[#262626] text-xs font-mono tracking-wider transition-colors font-medium"
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#1C1C1C] text-[#FAF9F6] hover:bg-[#282828] border border-[#282828] text-xs font-mono tracking-wider transition-colors font-medium"
                 >
                   {copied ? (
                     <>
@@ -99,34 +102,28 @@ export const ContactSection: React.FC = () => {
                 </button>
 
                 <a
-                  href={`mailto:${PERSONAL_DATA.email}`}
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#F5F4F0] text-[#0D0D0D] hover:bg-[#E8E7E3] font-medium text-xs font-mono tracking-wider transition-colors"
+                  href={`mailto:${PERSONAL_DATA.email}?subject=Collaboration Inquiry - Prashanthi B`}
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#FAF9F6] text-[#151515] hover:bg-[#F4F1EB] text-xs font-mono tracking-wider transition-colors font-semibold"
                 >
-                  <span>Send Mail</span>
+                  <span>Compose</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
-
-            <div className="flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#96938D] pt-2 border-t border-[#262626]">
-              <div>
-                <span>Professional inquiries, industry conversations, and graduate roles welcome.</span>
-              </div>
-              <span>BANGALORE</span>
-            </div>
           </div>
 
-          {/* Social / LinkedIn Network Card */}
-          <div className="lg:col-span-4 p-8 bg-[#161616] border border-[#262626] space-y-6 flex flex-col justify-between">
-            <div className="space-y-4">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-[#96938D] block">
-                PROFESSIONAL NETWORK
-              </span>
-              <h3 className="font-serif text-2xl text-[#F5F4F0]">
+          {/* LinkedIn Connect Card */}
+          <div className="lg:col-span-4 p-8 sm:p-10 bg-[#1C1C1C] border border-[#282828] flex flex-col justify-between space-y-6">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between text-[10px] font-mono text-[#77736D] uppercase tracking-widest">
+                <span>PROFESSIONAL NETWORK</span>
+                <span className="text-[#5A2427]">●</span>
+              </div>
+              <h3 className="font-serif text-2xl text-[#FAF9F6] font-normal">
                 LinkedIn Profile
               </h3>
-              <p className="text-xs text-[#96938D] leading-relaxed font-sans">
-                Connect on LinkedIn for career milestones, professional network recommendations, and industry dialogue.
+              <p className="text-xs text-[#B7B1A8] leading-relaxed font-sans font-light">
+                Connect for professional updates, retail perspectives, and career discussions.
               </p>
             </div>
 
@@ -134,33 +131,13 @@ export const ContactSection: React.FC = () => {
               href={PERSONAL_DATA.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-[#0D0D0D] border border-[#262626] space-y-2 group hover:border-[#96938D] transition-colors block"
+              className="inline-flex items-center justify-between p-4 bg-[#151515] border border-[#282828] hover:border-[#FAF9F6] text-xs font-mono tracking-wider uppercase text-[#FAF9F6] transition-all group"
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-[#F5F4F0]">
-                  <LinkedinIcon className="w-4 h-4 text-[#F5F4F0]" />
-                  <span className="font-mono text-xs font-semibold uppercase group-hover:text-[#96938D] transition-colors">
-                    LinkedIn
-                  </span>
-                </div>
-                <div className="flex items-center gap-1 text-[#F5F4F0] text-xs">
-                  <span className="text-[10px] font-mono uppercase">Profile</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
+              <div className="flex items-center gap-2.5">
+                <LinkedinIcon className="w-4 h-4 text-[#B7B1A8] group-hover:text-white transition-colors" />
+                <span>Prashanthi Reddy</span>
               </div>
-              <p className="text-xs text-[#96938D] font-mono truncate">
-                prashanthi-reddy-14771a244
-              </p>
-            </a>
-
-            <a
-              href={PERSONAL_DATA.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 w-full text-xs font-mono tracking-widest uppercase px-4 py-3 bg-[#F5F4F0] text-[#0D0D0D] hover:bg-[#E8E7E3] transition-colors font-semibold"
-            >
-              <span>Connect on LinkedIn</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-4 h-4 text-[#77736D] group-hover:text-white transition-colors" />
             </a>
           </div>
         </div>

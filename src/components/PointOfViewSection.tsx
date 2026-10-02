@@ -1,129 +1,189 @@
-import React from 'react';
-import { Compass, Palette, TrendingUp } from 'lucide-react';
+import React, { useState } from 'react';
+import { Compass, Eye, CheckSquare, Store } from 'lucide-react';
 
 export const PointOfViewSection: React.FC = () => {
-  const creativePillars = [
-    { label: 'Fashion Aesthetics', desc: 'Visual identity, color palettes, and contemporary styling.' },
-    { label: 'Visual Merchandising', desc: 'Spatial floor choreography, window styling, and display setups.' },
-    { label: 'Trend Research', desc: 'Decoding emerging cultural signals, moods, and aesthetics.' },
-    { label: 'Store Presentation', desc: 'Elevating brand prestige through curated focal installations.' }
-  ];
+  const [activeWord, setActiveWord] = useState<'SEE' | 'SELECT' | 'PRESENT'>('SEE');
 
-  const commercialPillars = [
-    { label: 'Merchandise Planning', desc: 'Range architecture, category density, and SKU allocation.' },
-    { label: 'Retail Operations', desc: 'Store audits, customer flow optimization, and replenishment.' },
-    { label: 'Consumer Research', desc: 'Analyzing purchase behaviors, decision funnels, and dwell time.' },
-    { label: 'Retail Analytics', desc: 'Performance benchmarking and multi-brand assortment viability.' }
-  ];
+  const interactivePillars = {
+    SEE: {
+      word: 'SEE',
+      sublabel: '01 / OBSERVATION & RESEARCH',
+      headline: 'Decoding Cultural Shifts & Consumer Behaviour',
+      description: 'Understanding what people notice before they decide to buy. Observing physical dwell patterns, fit hesitation, and evolving wardrobe rituals.',
+      tags: ['Trend Research', 'Consumer Studies', 'Store Audits', 'Cultural Signals'],
+      lensText: 'Observing the human context behind every purchase decision.',
+      moodTheme: 'Field observation, human movement, and retail spatial dynamics.'
+    },
+    SELECT: {
+      word: 'SELECT',
+      sublabel: '02 / MERCHANDISE PLANNING & BUYING',
+      headline: 'Disciplined Assortment & Range Architecture',
+      description: 'Balancing aesthetic vision with quantitative retail discipline. Crafting SKU breadth, category density, and size curves that protect gross margin health.',
+      tags: ['Range Planning', 'Assortment Architecture', 'Size-Ratio Curves', 'Margin Math (40–60%)'],
+      lensText: 'Selecting the right depth, color balance, and commercial velocity.',
+      moodTheme: 'Category density, SKU architecture, and inventory planning.'
+    },
+    PRESENT: {
+      word: 'PRESENT',
+      sublabel: '03 / VISUAL MERCHANDISING & RETAIL',
+      headline: 'Elevating Brand Prestige through Spatial Design',
+      description: 'Translating collections into high-impact store presentation. From eye-level fixture zoning and mannequin styling to rapid EOSS sale transitions.',
+      tags: ['Visual Merchandising', 'Fixture Standards', 'Mannequin Styling', 'NSO Setup'],
+      lensText: 'Transforming commercial spaces into compelling aesthetic universes.',
+      moodTheme: 'Focal hotspots, planograms, and window storytelling.'
+    }
+  };
+
+  const current = interactivePillars[activeWord];
 
   return (
-    <section id="pov" className="py-28 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#D9D7D2] bg-[#F5F4F0] text-[#0D0D0D]">
+    <section id="pov" className="py-28 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#E5E1D8] bg-[#F4F1EB] text-[#151515]">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#D9D7D2]">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#E5E1D8]">
         <div className="space-y-3">
-          <div className="flex items-center gap-2 font-mono text-xs tracking-[0.25em] text-[#666666] uppercase font-semibold">
-            <Compass className="w-4 h-4" />
-            <span>02 / THE POINT OF VIEW</span>
+          <div className="flex items-center gap-3 font-mono text-xs tracking-[0.25em] text-[#77736D] uppercase font-semibold">
+            <span className="font-bold text-[#151515] bg-[#FAF9F6] px-2 py-0.5 border border-[#E5E1D8]">
+              02 / 10
+            </span>
+            <Compass className="w-3.5 h-3.5 text-[#5A2427]" />
+            <span>THE POINT OF VIEW</span>
           </div>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-[#0D0D0D] tracking-tight">
-            Creative × Commercial
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-[#151515] tracking-tight">
+            Creative Eye × Commercial Mind
           </h2>
         </div>
-        <p className="max-w-md text-sm text-[#666666] leading-relaxed">
-          Bridging design sensitivity with business discipline. In contemporary retail, creative curation and analytical planning are inseparable.
+        <p className="max-w-md text-sm text-[#77736D] leading-relaxed">
+          Bridging visual sensitivity with retail strategy. In fashion business, creative curation and merchandise planning are inseparable.
         </p>
       </div>
 
-      {/* Main Big Editorial Manifesto */}
-      <div className="py-14 border-b border-[#D9D7D2] space-y-5">
-        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#666666] font-semibold block">
+      {/* Main Big Editorial Statement */}
+      <div className="py-14 border-b border-[#E5E1D8] space-y-6">
+        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#77736D] font-semibold block">
           CORE MANIFESTO
         </span>
-        <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#0D0D0D] leading-[1.08] max-w-5xl">
-          "I bring a <span className="font-serif italic font-normal">creative eye</span> with a strong understanding of the <span className="underline decoration-[#0D0D0D]/40 underline-offset-8">business behind fashion</span>."
+        <h3 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-[#151515] leading-[0.95] max-w-5xl">
+          FASHION
+          <span className="block font-serif italic text-[#77736D] font-light">
+            ISN'T JUST WHAT SELLS.
+          </span>
         </h3>
-        <p className="text-sm sm:text-base text-[#666666] max-w-3xl leading-relaxed pt-2 font-sans">
-          From retail visual merchandising on the ground at The Bear House to academic case research on House of Masaba and Nykaa Fashion, Prashanthi’s approach unites visual storytelling with structured merchandise planning and consumer research.
+        <p className="text-base sm:text-lg text-[#555555] max-w-3xl leading-relaxed font-sans font-light pt-2">
+          It is how product, presentation, and perception converge. From retail execution across 7 stores at The Bear House to strategic range planning for House of Masaba, my approach connects what the consumer sees with the business systems behind it.
         </p>
       </div>
 
-      {/* The Two Editorial Halves (Creative vs Commercial) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-12 items-stretch">
-        {/* Left Side: Creative */}
-        <div className="lg:col-span-6 p-8 sm:p-10 bg-white border border-[#D9D7D2] space-y-6 flex flex-col justify-between">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-[#D9D7D2]">
-              <span className="font-mono text-xs font-semibold text-[#0D0D0D] uppercase tracking-[0.2em] flex items-center gap-1.5">
-                <Palette className="w-4 h-4" />
-                SIDE A • THE CREATIVE EYE
-              </span>
-              <span className="text-[10px] font-mono text-[#666666] uppercase">AESTHETICS</span>
+      {/* THREE INTERACTIVE WORDS: SEE / SELECT / PRESENT */}
+      <div className="pt-14 space-y-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E5E1D8] pb-4">
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#77736D] font-semibold">
+            INTERACTIVE PERSPECTIVE PILLARS // HOVER OR TAP TO EXPLORE
+          </span>
+          <span className="text-[11px] font-mono text-[#5A2427]">
+            Active Lens: {current.sublabel}
+          </span>
+        </div>
+
+        {/* 3 Giant Word Selectors */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {(['SEE', 'SELECT', 'PRESENT'] as const).map((word, idx) => {
+            const isSelected = activeWord === word;
+            return (
+              <button
+                key={word}
+                onMouseEnter={() => setActiveWord(word)}
+                onClick={() => setActiveWord(word)}
+                className={`p-6 sm:p-8 text-left border transition-all duration-300 relative group ${
+                  isSelected
+                    ? 'bg-[#151515] text-[#FAF9F6] border-[#151515] shadow-lg'
+                    : 'bg-[#FAF9F6] text-[#151515] border-[#E5E1D8] hover:border-[#151515]'
+                }`}
+              >
+                <div className="flex items-center justify-between text-[11px] font-mono mb-4">
+                  <span className={`tracking-widest ${isSelected ? 'text-[#B7B1A8]' : 'text-[#77736D]'}`}>
+                    PHASE 0{idx + 1}
+                  </span>
+                  {isSelected && <span className="w-2 h-2 rounded-full bg-[#5A2427]" />}
+                </div>
+
+                <div className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight">
+                  {word}
+                </div>
+
+                <p className={`text-xs mt-3 line-clamp-2 leading-relaxed font-sans ${
+                  isSelected ? 'text-[#B7B1A8]' : 'text-[#77736D]'
+                }`}>
+                  {interactivePillars[word].headline}
+                </p>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Dynamic Contextual Reveal Card */}
+        <div className="p-8 sm:p-10 bg-[#FAF9F6] border border-[#E5E1D8] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center transition-all duration-500 animate-fadeIn">
+          {/* Left Text Detail (Cols 7) */}
+          <div className="lg:col-span-7 space-y-5">
+            <div className="flex items-center gap-2 text-xs font-mono text-[#5A2427] uppercase tracking-widest font-semibold">
+              <span>{current.sublabel}</span>
             </div>
 
-            <h4 className="font-serif text-2xl sm:text-3xl text-[#0D0D0D] font-normal">
-              Visual Direction & Spatial Resonance
+            <h4 className="font-serif text-3xl sm:text-4xl text-[#151515] font-normal leading-snug">
+              {current.headline}
             </h4>
-            <p className="text-xs sm:text-sm text-[#666666] leading-relaxed">
-              How fashion environments communicate emotion, allure, and prestige through layout geometry, lighting, and product presentation.
+
+            <p className="text-sm sm:text-base text-[#555555] leading-relaxed font-sans font-light">
+              {current.description}
             </p>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-[#D9D7D2]">
-            {creativePillars.map((item) => (
-              <div key={item.label} className="p-3.5 bg-[#F5F4F0] border border-[#D9D7D2] space-y-1">
-                <span className="font-mono text-xs font-medium text-[#0D0D0D] block">
-                  {item.label}
-                </span>
-                <span className="text-[11px] text-[#666666] block leading-tight">
-                  {item.desc}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right Side: Commercial */}
-        <div className="lg:col-span-6 p-8 sm:p-10 bg-[#0D0D0D] text-[#F5F4F0] border border-[#262626] space-y-6 flex flex-col justify-between">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-[#262626]">
-              <span className="font-mono text-xs font-semibold text-[#F5F4F0] uppercase tracking-[0.2em] flex items-center gap-1.5">
-                <TrendingUp className="w-4 h-4" />
-                SIDE B • THE COMMERCIAL MIND
-              </span>
-              <span className="text-[10px] font-mono text-[#96938D] uppercase">COMMERCIAL</span>
+            <div className="p-4 bg-[#F4F1EB] border-l-2 border-[#5A2427] text-xs font-serif italic text-[#151515]">
+              "{current.lensText}"
             </div>
 
-            <h4 className="font-serif text-2xl sm:text-3xl text-[#F5F4F0] font-normal">
-              Merchandise Planning & Retail Rigor
-            </h4>
-            <p className="text-xs sm:text-sm text-[#96938D] leading-relaxed">
-              How merchandise planning, range density, customer flow audits, and replenishment velocity convert visual appeal into sustainable commercial success.
-            </p>
+            <div className="flex flex-wrap gap-2 pt-2">
+              {current.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs font-mono text-[#151515] bg-white border border-[#E5E1D8] px-3 py-1"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-[#262626]">
-            {commercialPillars.map((item) => (
-              <div key={item.label} className="p-3.5 bg-[#161616] border border-[#262626] space-y-1">
-                <span className="font-mono text-xs font-medium text-[#F5F4F0] block">
-                  {item.label}
+          {/* Right Visual Frame (Cols 5) */}
+          <div className="lg:col-span-5">
+            <div className="aspect-[4/3] bg-[#151515] text-[#FAF9F6] border border-[#282828] p-6 flex flex-col justify-between">
+              <div className="flex items-center justify-between text-[10px] font-mono tracking-widest text-[#B7B1A8] border-b border-[#282828] pb-2.5">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#5A2427]" />
+                  EDITORIAL FRAME
                 </span>
-                <span className="text-[11px] text-[#96938D] block leading-tight">
-                  {item.desc}
-                </span>
+                <span>PB • {activeWord}</span>
               </div>
-            ))}
+
+              <div className="text-center my-auto py-4">
+                <div className="w-12 h-12 mx-auto border border-[#282828] flex items-center justify-center text-xl font-serif mb-2">
+                  {activeWord === 'SEE' && <Eye className="w-5 h-5 text-[#B7B1A8]" />}
+                  {activeWord === 'SELECT' && <CheckSquare className="w-5 h-5 text-[#B7B1A8]" />}
+                  {activeWord === 'PRESENT' && <Store className="w-5 h-5 text-[#B7B1A8]" />}
+                </div>
+                <div className="font-serif text-2xl font-normal text-[#FAF9F6]">
+                  {activeWord}
+                </div>
+                <p className="text-[11px] text-[#B7B1A8] italic mt-1 font-serif">
+                  {current.moodTheme}
+                </p>
+              </div>
+
+              <div className="text-[9px] font-mono text-[#77736D] border-t border-[#282828] pt-2 flex justify-between">
+                <span>CURATED VISUAL</span>
+                <span>ORIGINAL ARCHIVE</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Synthesis Footnote */}
-      <div className="mt-8 p-4 bg-white border border-[#D9D7D2] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#666666] font-mono">
-        <div>
-          <span>Where creative visual curation drives retail performance and brand equity.</span>
-        </div>
-        <span className="text-[#0D0D0D] font-semibold uppercase tracking-wider">
-          STRATEGIC SYNTHESIS
-        </span>
       </div>
     </section>
   );

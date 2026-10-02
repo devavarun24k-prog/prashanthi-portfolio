@@ -8,47 +8,69 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #0D0D0D;
-    color: #F5F4F0;
+    background-color: #151515;
+    color: #FAF9F6;
   }
 
   body {
-    background-color: #0D0D0D;
-    color: #F5F4F0;
+    background-color: #151515;
+    color: #FAF9F6;
     overflow-x: hidden;
+    font-family: 'Manrope', system-ui, sans-serif;
   }
 
   /* Sharp minimal editorial scrollbar */
   ::-webkit-scrollbar {
     width: 4px;
+    height: 4px;
   }
   ::-webkit-scrollbar-track {
-    background: #0D0D0D;
+    background: #151515;
   }
   ::-webkit-scrollbar-thumb {
-    background: #262626;
+    background: #282828;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #444444;
+    background: #77736D;
   }
 
   ::selection {
-    background-color: #F5F4F0;
-    color: #0D0D0D;
+    background-color: #FAF9F6;
+    color: #151515;
   }
 }
 
 @layer utilities {
   .font-serif-italic {
-    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     font-style: italic;
   }
 
   .hairline-dark {
-    border-color: #262626;
+    border-color: #282828;
   }
 
   .hairline-light {
-    border-color: #D9D7D2;
+    border-color: #E5E1D8;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Strict Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

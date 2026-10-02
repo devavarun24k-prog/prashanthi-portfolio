@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import type { Project } from './data/portfolioData';
-import { PROJECTS_DATA } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { PointOfViewSection } from './components/PointOfViewSection';
+import { TheWayIThinkSection } from './components/TheWayIThinkSection';
 import { SelectedWork } from './components/SelectedWork';
-import { TheBearHouseShowcase } from './components/TheBearHouseShowcase';
-import { EditorialPerspectives } from './components/EditorialPerspectives';
-import { SkillsSection } from './components/SkillsSection';
+import { BehindTheEyeSection } from './components/BehindTheEyeSection';
+import { SelectedObservationsSection } from './components/SelectedObservationsSection';
 import { ExperienceAndEducation } from './components/ExperienceAndEducation';
+import { BeyondTheRoleSection } from './components/BeyondTheRoleSection';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -18,37 +18,40 @@ export function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0D0D0D] text-[#F5F4F0] antialiased selection:bg-[#F5F4F0] selection:text-[#0D0D0D]">
-      {/* Sticky Editorial Navbar with Reading Progress */}
+    <div className="min-h-screen flex flex-col bg-[#151515] text-[#FAF9F6] antialiased selection:bg-[#FAF9F6] selection:text-[#151515]">
+      {/* Sticky Editorial Navbar with Section Counter & Progress */}
       <Navbar />
 
-      {/* Main Narrative Content Flow */}
+      {/* 10 Continuous Narrative Editorial Chapters */}
       <main className="flex-grow">
-        {/* 01 — OPENING HERO */}
+        {/* 01 — OPENING / HERO */}
         <Hero />
 
         {/* 02 — POINT OF VIEW (Creative × Commercial Synthesis) */}
         <PointOfViewSection />
 
-        {/* 03 — SELECTED WORK (Curated Project Index) */}
+        {/* 03 — THE WAY I THINK (Transitional Manifesto) */}
+        <TheWayIThinkSection />
+
+        {/* 04 — SELECTED WORK (5 Distinct Editorial Compositions) */}
         <SelectedWork onSelectProject={(project) => setSelectedProject(project)} />
 
-        {/* 04 — RETAIL IMMERSION (The Bear House Retail Feature) */}
-        <TheBearHouseShowcase onOpenStudy={() => setSelectedProject(PROJECTS_DATA[0])} />
+        {/* 05 — BEHIND THE EYE (Product Evaluation Matrix) */}
+        <BehindTheEyeSection />
 
-        {/* 05 — PERSPECTIVES (Publication Index) */}
-        <EditorialPerspectives />
+        {/* 06 — SELECTED OBSERVATIONS (Horizontal Storytelling) */}
+        <SelectedObservationsSection />
 
-        {/* 06 — CAPABILITIES MATRIX (12 Verified Skills) */}
-        <SkillsSection />
-
-        {/* 07 — TRACK RECORD (Experience & Education) */}
+        {/* 07 — EXPERIENCE & EDUCATION (Year Blocks & Degrees) */}
         <ExperienceAndEducation />
 
-        {/* 08 — ABOUT PRASHANTHI B. */}
+        {/* 08 — BEYOND THE ROLE (Human Perspective) */}
+        <BeyondTheRoleSection />
+
+        {/* 09 — ABOUT (Biographical Profile & CV CTA) */}
         <AboutSection />
 
-        {/* 09 — DRAMATIC FINALE CONTACT */}
+        {/* 10 — CONTACT (Let's Create What's Next) */}
         <ContactSection />
       </main>
 
