@@ -13,45 +13,19 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
-        // High Fashion Dark Editorial Palette
-        espresso: {
-          950: '#110D0B',
-          900: '#17120F', // Primary dark background
-          850: '#1A1411', // Dark surface
-          800: '#221B17', // Dark card
-          700: '#2E2520',
-          600: '#3D322B',
+        // Strict Black / Off-White / Grey Fashion Editorial Palette
+        editorial: {
+          black: '#0D0D0D',       // PRIMARY DARK
+          dark: '#161616',        // SECONDARY DARK
+          surface: '#1F1F1F',     // Dark border/card surface
+          borderDark: '#262626',  // Hairline dark border
+          light: '#F5F4F0',       // PRIMARY LIGHT (Off-White)
+          lightAlt: '#E8E7E3',    // SECONDARY LIGHT
+          borderLight: '#D9D7D2', // Hairline light border
+          muted: '#96938D',       // MUTED GREY
+          textDark: '#111111',    // Off-white spread body text
+          accent: '#6B2737',      // OPTIONAL ACCENT (rarely used)
         },
-        oxblood: {
-          DEFAULT: '#5A2028', // Restrained luxury fashion accent
-          hover: '#6E2530',
-          dark: '#42141A',
-          muted: '#5A2028',
-          light: '#8B3844',
-          subtle: 'rgba(90, 32, 40, 0.12)',
-        },
-        ivory: {
-          DEFAULT: '#F3EFE7', // Editorial light spread background
-          50: '#FAF8F4',
-          100: '#F3EFE7',
-          200: '#EBE5DC',
-        },
-        stone: {
-          DEFAULT: '#C8C0B5', // Secondary neutral
-          light: '#E2DBD0',
-          muted: '#B5ACA0',
-          dark: '#8C8275',
-        },
-        charcoal: {
-          DEFAULT: '#24201D', // Dark typography
-          muted: '#5C544E',
-          soft: '#3A332E',
-        },
-        champagne: {
-          DEFAULT: '#A99578', // Restrained tiny accent
-          light: '#C4B49B',
-          dark: '#8A775C',
-        }
       },
       letterSpacing: {
         'widest-editorial': '0.3em',

@@ -1,63 +1,48 @@
-import React, { useState } from 'react';
-import { ArrowDown, Sparkles, Compass, Layers, ShieldCheck } from 'lucide-react';
+import React from 'react';
+import { ArrowDown, Layers } from 'lucide-react';
 import { PERSONAL_DATA } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
-  const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setMouseOffset({ x: x * 8, y: y * 8 });
-  };
-
-  const handleMouseLeave = () => {
-    setMouseOffset({ x: 0, y: 0 });
-  };
-
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between pt-28 sm:pt-32 pb-10 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#2E2520] bg-[#17120F] text-[#F3EFE7] overflow-hidden"
+      className="relative min-h-[92vh] flex flex-col justify-between pt-28 sm:pt-32 pb-10 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#262626] bg-[#0D0D0D] text-[#F5F4F0]"
     >
       {/* Top Editorial Coordinates Ribbon */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-b border-[#2E2520] pb-3 text-[10px] sm:text-[11px] font-mono tracking-[0.25em] text-[#C8C0B5]/60 uppercase">
+      <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-b border-[#262626] pb-3 text-[10px] sm:text-[11px] font-mono tracking-[0.25em] text-[#96938D] uppercase">
         <div className="flex items-center gap-2.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#5A2028]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#F5F4F0]" />
           <span>BANGALORE • {PERSONAL_DATA.coordinates}</span>
         </div>
-        <div className="flex items-center gap-4 text-[#C8C0B5]/80">
-          <span className="hidden md:inline-flex items-center gap-1.5">
-            <Sparkles className="w-3 h-3 text-[#5A2028]" />
-            <span>EDITORIAL PORTFOLIO</span>
+        <div className="flex items-center gap-4 text-[#96938D]">
+          <span className="hidden md:inline-block tracking-[0.2em]">
+            EDITORIAL PORTFOLIO
           </span>
-          <span className="text-[#F3EFE7] font-semibold bg-[#221B17] px-2.5 py-0.5 rounded-none border border-[#2E2520]">
+          <span className="text-[#F5F4F0] font-semibold bg-[#161616] px-2.5 py-0.5 border border-[#262626]">
             PEARL ACADEMY • 2025–2027
           </span>
         </div>
       </div>
 
-      {/* Main Cinematic Editorial Grid */}
-      <div className="my-auto py-8 sm:py-12 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      {/* Main Editorial Grid */}
+      <div className="my-auto py-10 sm:py-14 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         {/* Left Column: Typographic Opening (Cols 7) */}
         <div className="lg:col-span-7 space-y-6 sm:space-y-8">
           {/* Eyebrow */}
-          <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#221B17] border border-[#2E2520] rounded-none text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#C8C0B5]">
-              <Compass className="w-3 h-3 text-[#5A2028]" />
-              <span>PORTFOLIO & PERSPECTIVES</span>
+          <div className="space-y-2">
+            <div className="inline-block text-[11px] font-mono uppercase tracking-[0.25em] text-[#96938D]">
+              PORTFOLIO & PERSPECTIVES
             </div>
-            <p className="font-serif text-2xl sm:text-3xl text-[#F3EFE7] font-medium tracking-wide pt-1">
+            <p className="font-serif text-3xl sm:text-4xl text-[#F5F4F0] font-normal tracking-wide">
               {PERSONAL_DATA.name}
             </p>
           </div>
 
           {/* Main Statement */}
           <div className="space-y-2">
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#F3EFE7] tracking-tight leading-[0.92]">
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#F5F4F0] tracking-tight leading-[0.92]">
               Creative Eye.
-              <span className="block font-serif-italic text-[#C8C0B5] font-light">
+              <span className="block font-serif italic text-[#96938D] font-light">
                 Business Mind.
               </span>
             </h1>
@@ -65,15 +50,15 @@ export const Hero: React.FC = () => {
 
           {/* Positioning Ribbon */}
           <div className="pt-2">
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#C8C0B5]/50 block mb-2">
+            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#96938D] block mb-2">
               POSITIONING
             </span>
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs sm:text-sm font-mono tracking-[0.18em] text-[#F3EFE7]/90">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs sm:text-sm font-mono tracking-[0.18em] text-[#F5F4F0]">
               {PERSONAL_DATA.specializations.map((spec, idx) => (
                 <React.Fragment key={spec}>
-                  <span className="font-medium hover:text-[#5A2028] transition-colors">{spec}</span>
+                  <span className="font-medium hover:text-[#96938D] transition-colors">{spec}</span>
                   {idx < PERSONAL_DATA.specializations.length - 1 && (
-                    <span className="text-[#5A2028] font-light">/</span>
+                    <span className="text-[#96938D] font-light">/</span>
                   )}
                 </React.Fragment>
               ))}
@@ -82,27 +67,26 @@ export const Hero: React.FC = () => {
 
           {/* Academic Credential & Narrative */}
           <div className="pt-1 max-w-xl space-y-4">
-            <div className="p-3.5 bg-[#221B17] border border-[#2E2520] rounded-none">
-              <span className="text-[10px] font-mono tracking-widest uppercase text-[#5A2028] block font-semibold">
+            <div className="p-4 bg-[#161616] border border-[#262626]">
+              <span className="text-[10px] font-mono tracking-widest uppercase text-[#96938D] block font-semibold">
                 ACADEMIC CREDENTIAL
               </span>
-              <p className="font-serif text-base text-[#F3EFE7] font-medium mt-0.5">
+              <p className="font-serif text-lg text-[#F5F4F0] font-normal mt-0.5">
                 MBA — Fashion & Lifestyle Business Management
               </p>
-              <p className="text-xs text-[#C8C0B5]/60 font-mono">
+              <p className="text-xs text-[#96938D] font-mono">
                 Pearl Academy, Bangalore (2025–2027)
               </p>
             </div>
 
-            <p className="text-sm sm:text-base text-[#C8C0B5]/85 leading-relaxed font-sans">
+            <p className="text-sm sm:text-base text-[#96938D] leading-relaxed font-sans">
               {PERSONAL_DATA.introduction}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-4 pt-3">
               <a
                 href="#work"
-                data-cursor="EXPLORE"
-                className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase bg-[#5A2028] text-[#F3EFE7] px-6 py-3.5 rounded-none hover:bg-[#6E2530] transition-all duration-300 shadow-sm"
+                className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase bg-[#F5F4F0] text-[#0D0D0D] px-6 py-3.5 hover:bg-[#E8E7E3] transition-colors font-medium"
               >
                 <span>Explore Selected Work</span>
                 <ArrowDown className="w-3.5 h-3.5" />
@@ -110,8 +94,7 @@ export const Hero: React.FC = () => {
 
               <a
                 href="#pov"
-                data-cursor="VIEWPOINT"
-                className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase px-5 py-3.5 border border-[#2E2520] text-[#F3EFE7] hover:bg-[#221B17] hover:border-[#5A2028] transition-all duration-300 rounded-none"
+                className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] uppercase px-5 py-3.5 border border-[#262626] text-[#F5F4F0] hover:bg-[#161616] transition-colors"
               >
                 <span>The Point of View</span>
               </a>
@@ -120,71 +103,56 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Right Column: Large Vertical Editorial Portrait Frame (Cols 5) */}
-        <div
-          className="lg:col-span-5 flex justify-center lg:justify-end"
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div
-            className="relative w-full max-w-md aspect-[3/4] bg-[#1A1411] text-[#F3EFE7] rounded-none border border-[#2E2520] overflow-hidden group shadow-2xl p-6 sm:p-8 flex flex-col justify-between transition-transform duration-300 ease-out"
-            style={{
-              transform: `perspective(1000px) rotateY(${mouseOffset.x}deg) rotateX(${-mouseOffset.y}deg)`,
-            }}
-          >
-            {/* Background Texture */}
-            <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#A99578_1px,transparent_1px)] [background-size:24px_24px]" />
-
+        <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <div className="relative w-full max-w-md aspect-[3/4] bg-[#161616] text-[#F5F4F0] border border-[#262626] overflow-hidden group p-6 sm:p-8 flex flex-col justify-between">
             {/* Top Bar inside Portrait Frame */}
-            <div className="relative z-10 flex items-center justify-between text-[10px] font-mono tracking-[0.2em] text-[#F3EFE7]/60 border-b border-[#F3EFE7]/10 pb-3">
+            <div className="relative z-10 flex items-center justify-between text-[10px] font-mono tracking-[0.2em] text-[#96938D] border-b border-[#262626] pb-3">
               <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#5A2028]" />
-                PORTRAIT — TO BE ADDED
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F5F4F0]" />
+                PORTRAIT PLACEHOLDER
               </span>
-              <span className="text-[#C8C0B5]/50 font-mono">PB • ARCHIVE</span>
+              <span>PB • ARCHIVE</span>
             </div>
 
             {/* Monogram Silhouette Centerpiece */}
             <div className="relative z-10 text-center my-auto py-8">
-              <div className="w-24 h-24 mx-auto rounded-none border border-[#2E2520] bg-[#221B17] flex items-center justify-center text-4xl font-serif text-[#F3EFE7] shadow-xl mb-4 group-hover:border-[#5A2028] transition-all duration-500">
+              <div className="w-24 h-24 mx-auto border border-[#262626] bg-[#0D0D0D] flex items-center justify-center text-4xl font-serif text-[#F5F4F0] mb-4 group-hover:border-[#F5F4F0] transition-colors">
                 PB
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl text-[#F3EFE7] font-normal tracking-wide">
+              <h3 className="font-serif text-2xl sm:text-3xl text-[#F5F4F0] font-normal tracking-wide">
                 {PERSONAL_DATA.name}
               </h3>
-              <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#5A2028] mt-1.5 font-medium">
+              <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#96938D] mt-1.5 font-medium">
                 Fashion & Lifestyle Business
               </p>
-              <p className="text-[11px] font-mono text-[#C8C0B5]/50 mt-2">
+              <p className="text-[11px] font-mono text-[#96938D] mt-2">
                 Pearl Academy, Bangalore
               </p>
             </div>
 
             {/* Bottom Bar inside portrait frame */}
-            <div className="relative z-10 pt-3 border-t border-[#F3EFE7]/10 flex items-center justify-between text-[10px] font-mono text-[#F3EFE7]/50">
-              <span className="flex items-center gap-1">
-                <Layers className="w-3.5 h-3.5 text-[#5A2028]" />
+            <div className="relative z-10 pt-3 border-t border-[#262626] flex items-center justify-between text-[10px] font-mono text-[#96938D]">
+              <span className="flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5" />
                 <span>EDITORIAL PORTRAIT FRAME</span>
               </span>
-              <span className="flex items-center gap-1 text-[#C8C0B5]">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#5A2028]" />
-                <span>ASSET READY</span>
-              </span>
+              <span>ORIGINAL PHOTO</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Trait Pillars Ticker */}
-      <div className="pt-6 border-t border-[#2E2520] flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs font-mono text-[#C8C0B5]/70">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+      <div className="pt-6 border-t border-[#262626] flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs font-mono text-[#96938D]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
           {PERSONAL_DATA.traits.map((trait, idx) => (
-            <div key={trait.title} className="flex items-center gap-2.5">
-              <span className="text-[#5A2028] font-semibold">0{idx + 1}</span>
+            <div key={trait.title} className="flex items-center gap-3">
+              <span className="text-[#F5F4F0] font-semibold">0{idx + 1}</span>
               <div>
-                <span className="uppercase tracking-[0.2em] font-semibold text-[#F3EFE7] block">
+                <span className="uppercase tracking-[0.2em] font-medium text-[#F5F4F0] block">
                   {trait.title}
                 </span>
-                <span className="text-[10px] text-[#C8C0B5]/50">{trait.description}</span>
+                <span className="text-[10px] text-[#96938D]">{trait.description}</span>
               </div>
             </div>
           ))}
@@ -192,10 +160,10 @@ export const Hero: React.FC = () => {
 
         <a
           href="#pov"
-          className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#C8C0B5] hover:text-[#F3EFE7] transition-colors shrink-0 font-medium"
+          className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#96938D] hover:text-[#F5F4F0] transition-colors shrink-0 font-medium"
         >
           <span>SCROLL TO EXPLORE</span>
-          <ArrowDown className="w-3.5 h-3.5 text-[#5A2028] animate-bounce" />
+          <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
         </a>
       </div>
     </section>

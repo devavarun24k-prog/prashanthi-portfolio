@@ -2,11 +2,14 @@ export interface Project {
   id: string;
   number: string;
   title: string;
+  subtitle: string;
   category: string;
   type: string;
+  context: string;
   tagline: string;
   heroExcerpt: string;
   focusAreas: string[];
+  takeaway: string;
   placeholderMood: {
     accentTone: string;
     tag: string;
@@ -21,19 +24,6 @@ export interface BearHouseLocation {
   type: string;
   city: string;
   highlights: string[];
-}
-
-export interface BearHouseCaseStudy {
-  company: string;
-  role: string;
-  duration: string;
-  locations: BearHouseLocation[];
-  scope: string[];
-  keyHighlights: {
-    number: string;
-    label: string;
-    detail: string;
-  }[];
 }
 
 export interface EditorialTopic {
@@ -101,145 +91,227 @@ export const PERSONAL_DATA = {
 
 export const PROJECTS_DATA: Project[] = [
   {
-    id: 'house-of-masaba',
+    id: 'the-bear-house',
     number: '01',
-    title: 'House of Masaba',
-    category: 'VM & Merchandise Planning',
-    type: 'Academic Project',
-    tagline: 'Visual merchandising and merchandise planning academic project for House of Masaba.',
-    heroExcerpt: 'Translating bold contemporary Indian design aesthetics into retail floor zoning, visual presentation standards, and assortment planning.',
+    title: 'THE BEAR HOUSE',
+    subtitle: 'Retail in the Real World',
+    category: 'Visual Merchandising & Retail Execution',
+    type: '46-Day Industry Internship',
+    context: '46-Day Industry Internship | Visual Merchandising & Retail Execution | Hyderabad',
+    tagline: 'Understanding how merchandise moves from stockroom to shop floor — and how space, presentation and organisation shape the retail experience.',
+    heroExcerpt: 'Hands-on retail execution across 7 store locations, spanning EBO & SIS formats, VM store audits, 2 New Store Openings (NSO), and comprehensive End of Season Sale (EOSS) transitions.',
     focusAreas: [
       'Visual Merchandising',
-      'Merchandise Planning',
-      'Product Presentation',
-      'Range Planning'
+      'Store Audits',
+      'EOSS Setup & Segregation',
+      'New Store Openings (NSO)',
+      'Mannequin & Fixture Styling',
+      'Replenishment Cadence'
     ],
+    takeaway: 'Understanding how merchandise moves from stockroom to shop floor — and how space, presentation and organisation shape the retail experience.',
     placeholderMood: {
-      accentTone: '#C5A880',
-      tag: 'ACADEMIC PROJECT',
-      theme: 'House of Masaba • VM & Merchandise Planning',
+      accentTone: '#0D0D0D',
+      tag: 'RETAIL INTERNSHIP',
+      theme: 'The Bear House • Retail in the Real World',
       aspectRatio: 'aspect-[16/10]'
     }
   },
   {
-    id: 'nykaa-fashion',
+    id: 'healing-the-wait',
     number: '02',
-    title: 'Nykaa Fashion',
-    category: 'Retail & Business Case Study',
-    type: 'Academic Project',
-    tagline: 'Retail and business case study analyzing Nykaa Fashion.',
-    heroExcerpt: 'Analyzing omnichannel fashion commerce, multi-brand category dynamics, consumer buying behaviors, and market positioning.',
+    title: 'HEALING THE WAIT',
+    subtitle: 'Designing for a Human Experience',
+    category: 'Design Thinking & Service Innovation',
+    type: 'Design Thinking Project',
+    context: 'Design Thinking | Research | Editorial Design | Service Innovation',
+    tagline: 'Transforming the hospital waiting experience through empathetic research, editorial storytelling, and service design.',
+    heroExcerpt: 'Addressing the critical anxiety and boredom of healthcare waiting rooms through a 28-page research publication and the Heal Queue digital service concept.',
     focusAreas: [
-      'Retail Case Analysis',
-      'Consumer Research',
-      'Competitor Benchmarking',
-      'Retail Analytics'
+      'Design Thinking (5 Stages)',
+      'Consumer Research & Field Data',
+      'Editorial Publication Design',
+      'Service Blueprint & Heal Queue',
+      'Patient Experience Design'
     ],
+    takeaway: 'Information reduces anxiety. By transforming passive waiting into transparent, human-centered service touchpoints, the entire patient journey is elevated.',
     placeholderMood: {
-      accentTone: '#A88B60',
-      tag: 'ACADEMIC PROJECT',
-      theme: 'Nykaa Fashion • Retail & Business Case Study',
+      accentTone: '#161616',
+      tag: 'DESIGN THINKING',
+      theme: 'Healing The Wait • Human-Centered Service Design',
+      aspectRatio: 'aspect-[16/10]'
+    }
+  },
+  {
+    id: 'house-of-masaba',
+    number: '03',
+    title: 'HOUSE OF MASABA',
+    subtitle: 'Translating Brand Identity into Retail Experience',
+    category: 'Fashion Strategy & Merchandise Planning',
+    type: 'Merchandise Planning Case Study',
+    context: 'Fashion Strategy | Merchandise Planning | Visual Merchandising | Product Development',
+    tagline: 'Translating bold contemporary Indian heritage prints into structured retail range architecture, size ratios, and visual storytelling.',
+    heroExcerpt: 'A comprehensive commercial strategy covering 5 product categories, 112 styles, and 1,008 SKUs with defined size ratios, 40–60% margin targets, and end-to-end product development workflows.',
+    focusAreas: [
+      'Range Architecture (1,008 SKUs)',
+      'Size-Ratio Matrix Planning',
+      'Commercial Margin Strategy (40-60%)',
+      'VM Spatial Hierarchy',
+      'Product Development Pipeline'
+    ],
+    takeaway: 'Where bold cultural brand codes meet quantitative retail discipline — ensuring creative integrity scales sustainably across omnichannel touchpoints.',
+    placeholderMood: {
+      accentTone: '#262626',
+      tag: 'MERCHANDISE PLANNING',
+      theme: 'House of Masaba • Printed Identities Edit',
+      aspectRatio: 'aspect-[16/10]'
+    }
+  },
+  {
+    id: '3am-india',
+    number: '04',
+    title: '3AM INDIA',
+    subtitle: 'Building Digital Consumer Engagement',
+    category: 'Social Media & Brand Marketing',
+    type: 'Marketing Internship',
+    context: 'Social Media Marketing | Content Creation | Ingredient Research | Blog Writing | Influencer Marketing',
+    tagline: 'Demystifying skincare through research-backed storytelling, clear consumer communication, and community collaboration.',
+    heroExcerpt: 'Developing accessible skincare communication across digital content planning, ingredient research simplification, educational blog writing, and creator outreach.',
+    focusAreas: [
+      'Content Planning & Strategy',
+      'Ingredient Research Simplification',
+      'Educational Blog Writing',
+      'Influencer Outreach & Coordination',
+      'Community Engagement Analytics'
+    ],
+    takeaway: 'Simplifying complex technical ingredient information into relatable, transparent narratives builds authentic consumer trust and digital community engagement.',
+    placeholderMood: {
+      accentTone: '#0D0D0D',
+      tag: 'DIGITAL MARKETING',
+      theme: '3AM India • Digital Consumer Engagement',
       aspectRatio: 'aspect-[16/10]'
     }
   },
   {
     id: 'sutra-edit',
-    number: '03',
-    title: 'Sutra Edit',
-    category: 'Fashion Business Newsletter & Consulting',
-    type: 'Academic Project',
-    tagline: 'Fashion business newsletter and consulting project focused on industry insights and trend research.',
-    heroExcerpt: 'Curating industry analysis, trend research briefs, and retail consulting methodologies bridging creative direction with commercial viability.',
+    number: '05',
+    title: 'SUTRA EDIT',
+    subtitle: 'Building an India-First Fashion Intelligence Platform',
+    category: 'Startup Strategy & Fashion Business',
+    type: 'Startup Business Model',
+    context: 'Startup Strategy | Consumer Research | Business Model | Brand Strategy',
+    tagline: 'Fashion business intelligence for India’s next generation of direct-to-consumer and lifestyle founders.',
+    heroExcerpt: 'Creating an actionable ecosystem bridging Weekly Edits, an exclusive Founder Community, and bespoke Brand Consulting through a monetized tiered Value Ladder.',
     focusAreas: [
-      'Trend Research',
-      'Fashion Business Consulting',
-      'Industry Analysis',
-      'Newsletter Curation'
+      'India-First Market Gap Analysis',
+      'Tiered Value Ladder Strategy',
+      'Founder Pulse Intelligence',
+      'Continuous Flywheel Growth Loop',
+      'Startup Go-To-Market Execution'
     ],
+    takeaway: 'Actionable, contextual business intelligence empowers emerging Indian fashion founders to navigate sizing, sourcing, supply chain, and omnichannel growth.',
     placeholderMood: {
-      accentTone: '#856A41',
-      tag: 'ACADEMIC PROJECT',
-      theme: 'Sutra Edit • Fashion Business & Consulting',
+      accentTone: '#161616',
+      tag: 'STARTUP STRATEGY',
+      theme: 'Sutra Edit • Fashion Intelligence Platform',
       aspectRatio: 'aspect-[16/10]'
     }
   }
 ];
 
-export const FUTURE_PROJECT_PIPELINE = [
-  { name: 'Jaypore', tag: 'Retail Strategy' },
-  { name: 'Fabindia', tag: 'Brand & Retail Analysis' },
-  { name: 'Samsonite SmartTravel+', tag: 'Retail Case Study' },
-  { name: 'Hermès', tag: 'Brand Research' },
-  { name: 'Design Thinking & Coffee Table Book', tag: 'Creative Strategy' },
-  { name: 'Case Competition Projects', tag: 'Business Solutions' }
+export const BEAR_HOUSE_LOCATIONS_DATA: BearHouseLocation[] = [
+  {
+    id: 'lakeshore',
+    name: 'Lakeshore Mall',
+    type: 'Premium Retail Mall (EBO)',
+    city: 'Bangalore',
+    highlights: ['EOSS size-wise fixture & grid organisation', 'Customer flow mapping', 'Store visual audits']
+  },
+  {
+    id: 'sharath-city',
+    name: 'Sharath City Mall',
+    type: 'Flagship Hub (EBO)',
+    city: 'Hyderabad',
+    highlights: ['High-traffic display maintenance', 'Product & colour flow execution', 'Floor replenishment cadence']
+  },
+  {
+    id: 'banjara-hills',
+    name: 'Banjara Hills',
+    type: 'High-Street Boutique',
+    city: 'Hyderabad',
+    highlights: ['Focal window styling', 'Prestige brand presentation', 'Product visibility optimization']
+  },
+  {
+    id: 'broadway',
+    name: 'Broadway Hyderabad',
+    type: 'Retail Destination',
+    city: 'Hyderabad',
+    highlights: ['Floor zoning standards', 'Mannequin coordination', 'Fixture maintenance']
+  },
+  {
+    id: 'amb-mall',
+    name: 'Amb Mall',
+    type: 'Destination Mall (EBO)',
+    city: 'Hyderabad',
+    highlights: ['EOSS shorts wall execution', 'Stock segregation', 'Fixture installation standards']
+  },
+  {
+    id: 'himayath-nagar',
+    name: 'Himayath Nagar',
+    type: 'New Store Opening (NSO)',
+    city: 'Hyderabad',
+    highlights: ['NSO full visual floor setup', 'Initial fixture allocation', 'Opening stock merchandising']
+  },
+  {
+    id: 'tolichowki',
+    name: 'Tolichowki',
+    type: 'New Store Opening (NSO)',
+    city: 'Hyderabad',
+    highlights: ['NSO visual merchandising execution', 'Display compliance', 'VM team coordination']
+  }
 ];
 
-export const BEAR_HOUSE_STUDY: BearHouseCaseStudy = {
-  company: 'The Bear House',
+export const BEAR_HOUSE_STUDY = {
+  company: 'THE BEAR HOUSE',
   role: 'Visual Merchandising Intern',
-  duration: '46-Day Internship',
-  locations: [
-    {
-      id: 'lakeshore',
-      name: 'Lakeshore Mall',
-      type: 'Premium Retail Mall',
-      city: 'Bangalore',
-      highlights: ['Store visual audits', 'Customer navigation flow', 'Merchandise display updates']
-    },
-    {
-      id: 'sharath-city',
-      name: 'Sharath City Mall',
-      type: 'High-Density Flagship Hub',
-      city: 'Hyderabad',
-      highlights: ['High-traffic display maintenance', 'EOSS sale floor layout', 'Inventory replenishment']
-    },
-    {
-      id: 'banjara-hills',
-      name: 'Banjara Hills',
-      type: 'Boutique High-Street Store',
-      city: 'Hyderabad',
-      highlights: ['Focal window styling', 'Product visibility optimization', 'Brand presentation standards']
-    },
-    {
-      id: 'amb-mall',
-      name: 'Amb Mall',
-      type: 'Destination Retail Mall',
-      city: 'Hyderabad',
-      highlights: ['New store opening execution', 'Fixture installation standards', 'VM team coordination']
-    }
-  ],
-  scope: [
-    'VM store audits across active retail locations',
-    'Customer flow mapping & in-store product visibility optimization',
-    'Execution for 2 New Store Openings (NSO)',
-    'End of Season Sale (EOSS) floor transitions',
-    'Floor replenishment & display changes',
-    'Store presentation standards & display setups',
-    'Cross-functional coordination with VM and store teams'
-  ],
+  duration: '46-Day Industry Internship',
+  locations: BEAR_HOUSE_LOCATIONS_DATA,
   keyHighlights: [
     {
-      number: '46',
-      label: '46-DAY INTERNSHIP',
-      detail: 'Visual Merchandising Intern across high-pace retail environments.'
-    },
-    {
-      number: '04',
+      number: '07',
       label: 'RETAIL LOCATIONS',
-      detail: 'Lakeshore Mall, Sharath City Mall, Banjara Hills, and Amb Mall.'
+      detail: 'Audited & executed across Bangalore & Hyderabad EBO / SIS stores'
     },
     {
       number: '02',
       label: 'NEW STORE OPENINGS',
-      detail: 'Store opening setup and visual presentation.'
+      detail: 'Complete initial floor setup at Himayath Nagar & Tolichowki'
     },
     {
-      number: 'EOSS',
-      label: 'SALE EXECUTION',
-      detail: 'End of Season Sale floor execution and replenishment.'
+      number: '46',
+      label: 'DAYS IMMERSION',
+      detail: 'Intensive on-ground visual merchandising & floor execution'
+    },
+    {
+      number: '01',
+      label: 'EOSS CAMPAIGN',
+      detail: 'Rapid high-density transformation & shorts wall size grid'
     }
+  ],
+  scope: [
+    'Visual merchandising store audits and standards compliance',
+    'Customer flow analysis, focal hotspots, and eye-level optimization',
+    'End of Season Sale (EOSS) size-wise grid segregation & shorts wall execution',
+    'New Store Openings (NSO) layout planning and initial stock arrival merchandising',
+    'Mannequin dressing, seasonal storytelling looks, and fixture maintenance',
+    'Stockroom to shop floor replenishment cadence and inventory control'
   ]
 };
+
+export const FUTURE_PROJECT_PIPELINE = [
+  { name: 'Retail Space Optimization', tag: 'IN PROGRESS' },
+  { name: 'Luxury Consumer Archetypes', tag: 'RESEARCH' },
+  { name: 'Omnichannel Buying Matrix', tag: 'ACADEMIC' }
+];
 
 export const EDITORIAL_TOPICS: EditorialTopic[] = [
   {
@@ -343,12 +415,12 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
     company: 'The Bear House',
     role: 'Visual Merchandising Intern',
     type: 'Retail Internship',
-    summary: 'Visual Merchandising Intern across 4 prime retail locations (Lakeshore Mall, Sharath City Mall, Banjara Hills, Amb Mall). Worked on VM audits, customer flow, product visibility, 2 new store openings, EOSS execution, replenishment, display changes, and coordination with VM/store teams.',
+    summary: 'Visual Merchandising Intern across 7 retail locations (Lakeshore Mall, Sharath City Mall, Banjara Hills, Broadway, Amb Mall, Himayath Nagar, Tolichowki). Worked on VM audits, customer flow, product visibility, 2 New Store Openings (NSO), EOSS execution, replenishment, and display changes.',
     keyResponsibilities: [
-      'Visual merchandising audits across 4 stores',
+      'Visual merchandising audits across 7 stores',
       'Customer flow & product visibility optimization',
-      'Execution for 2 new store openings',
-      'End of Season Sale (EOSS) setup',
+      'Execution for 2 new store openings (Himayath Nagar, Tolichowki)',
+      'End of Season Sale (EOSS) setup & segregation',
       'Floor replenishment & display changes'
     ]
   },
@@ -358,10 +430,12 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
     company: '3AM India',
     role: 'Social Media Marketing Intern',
     type: 'Marketing Internship',
-    summary: 'Social Media Marketing Intern at 3AM India focusing on digital brand communication, visual storytelling, content planning, and social media analytics.',
+    summary: 'Social Media Marketing Intern at 3AM India focusing on digital brand communication, visual storytelling, content planning, ingredient research simplification, and social media analytics.',
     keyResponsibilities: [
       'Digital brand communication & content support',
+      'Simplifying skincare ingredient information for consumers',
       'Visual storytelling for social media campaigns',
+      'Influencer research and collaboration outreach',
       'Social media metrics & audience engagement monitoring'
     ]
   }
@@ -401,3 +475,4 @@ export const EXPOSURES_DATA: ExposureItem[] = [
     description: 'Corporate industry program focused on experiential entertainment, audience engagement, and commercial partnerships.'
   }
 ];
+

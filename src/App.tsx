@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { Project } from './data/portfolioData';
-import { CustomCursor } from './components/CustomCursor';
+import { PROJECTS_DATA } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { PointOfViewSection } from './components/PointOfViewSection';
@@ -18,10 +18,7 @@ export function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#17120F] text-[#F3EFE7] antialiased selection:bg-[#5A2028] selection:text-[#F3EFE7]">
-      {/* Interactive Desktop Custom Cursor */}
-      <CustomCursor />
-
+    <div className="min-h-screen flex flex-col bg-[#0D0D0D] text-[#F5F4F0] antialiased selection:bg-[#F5F4F0] selection:text-[#0D0D0D]">
       {/* Sticky Editorial Navbar with Reading Progress */}
       <Navbar />
 
@@ -37,7 +34,7 @@ export function App() {
         <SelectedWork onSelectProject={(project) => setSelectedProject(project)} />
 
         {/* 04 — RETAIL IMMERSION (The Bear House Retail Feature) */}
-        <TheBearHouseShowcase />
+        <TheBearHouseShowcase onOpenStudy={() => setSelectedProject(PROJECTS_DATA[0])} />
 
         {/* 05 — PERSPECTIVES (Publication Index) */}
         <EditorialPerspectives />
@@ -62,6 +59,7 @@ export function App() {
       <CaseStudyModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
+        onSelectProject={setSelectedProject}
       />
     </div>
   );

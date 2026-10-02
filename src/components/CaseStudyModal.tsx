@@ -1,17 +1,34 @@
 import React, { useEffect } from 'react';
-import { X, ArrowUpRight, BookOpen, Compass, Lightbulb, CheckCircle2, Image as ImageIcon } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 import type { Project } from '../data/portfolioData';
-import { EditorialPlaceholder } from './EditorialPlaceholder';
+import { PROJECTS_DATA } from '../data/portfolioData';
+import { BearHouseInteractive } from './projects/BearHouseInteractive';
+import { HealingTheWaitInteractive } from './projects/HealingTheWaitInteractive';
+import { HouseOfMasabaInteractive } from './projects/HouseOfMasabaInteractive';
+import { ThreeAmIndiaInteractive } from './projects/ThreeAmIndiaInteractive';
+import { SutraEditInteractive } from './projects/SutraEditInteractive';
 
 interface CaseStudyModalProps {
   project: Project | null;
   onClose: () => void;
+  onSelectProject?: (project: Project) => void;
 }
 
-export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose }) => {
+export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose, onSelectProject }) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
+      if (!project) return;
+
+      const currentIndex = PROJECTS_DATA.findIndex((p) => p.id === project.id);
+      if (e.key === 'ArrowRight' && onSelectProject) {
+        const nextIndex = (currentIndex + 1) % PROJECTS_DATA.length;
+        onSelectProject(PROJECTS_DATA[nextIndex]);
+      }
+      if (e.key === 'ArrowLeft' && onSelectProject) {
+        const prevIndex = (currentIndex - 1 + PROJECTS_DATA.length) % PROJECTS_DATA.length;
+        onSelectProject(PROJECTS_DATA[prevIndex]);
+      }
     };
 
     if (project) {
@@ -23,151 +40,172 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [project, onClose]);
+  }, [project, onClose, onSelectProject]);
 
   if (!project) return null;
+
+  const currentIndex = PROJECTS_DATA.findIndex((p) => p.id === project.id);
+  const prevProject = PROJECTS_DATA[(currentIndex - 1 + PROJECTS_DATA.length) % PROJECTS_DATA.length];
+  const nextProject = PROJECTS_DATA[(currentIndex + 1) % PROJECTS_DATA.length];
+
+  const renderProjectInteractive = () => {
+    switch (project.id) {
+      case 'the-bear-house':
+        return <BearHouseInteractive />;
+      case 'healing-the-wait':
+        return <HealingTheWaitInteractive />;
+      case 'house-of-masaba':
+        return <HouseOfMasabaInteractive />;
+      case '3am-india':
+        return <ThreeAmIndiaInteractive />;
+      case 'sutra-edit':
+        return <SutraEditInteractive />;
+      default:
+        return (
+          <div className="p-8 bg-white border border-[#D9D7D2] text-center text-[#666666] font-mono text-xs">
+            Interactive showcase in preparation for {project.title}.
+          </div>
+        );
+    }
+  };
 
   return (
     <div
       role="dialog"
       aria-modal="true"
       aria-labelledby="case-study-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-[#110D0B]/80 backdrop-blur-md animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-[#0D0D0D]/90 backdrop-blur-md animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-[#F3EFE7] text-[#24201D] rounded-sm border border-[#C8C0B5] shadow-2xl transition-all"
+        className="relative w-full max-w-5xl max-h-[94vh] overflow-y-auto bg-[#F5F4F0] text-[#0D0D0D] border border-[#D9D7D2] shadow-2xl transition-all"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Sticky Header */}
-        <div className="sticky top-0 z-30 flex items-center justify-between px-6 sm:px-8 py-4 bg-[#F3EFE7]/95 backdrop-blur-md border-b border-[#C8C0B5]">
+        <div className="sticky top-0 z-40 flex items-center justify-between px-4 sm:px-8 py-3.5 bg-[#F5F4F0]/95 backdrop-blur-md border-b border-[#D9D7D2]">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs font-semibold tracking-widest bg-[#17120F] text-[#F3EFE7] px-2.5 py-1 rounded-sm border border-[#5A2028]">
-              CASE {project.number}
+            <span className="font-mono text-xs font-bold tracking-widest bg-[#0D0D0D] text-[#F5F4F0] px-2.5 py-1">
+              PROJECT {project.number} / 05
             </span>
-            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#5C544E]">
+            <span className="text-[11px] uppercase tracking-[0.2em] font-mono text-[#666666] hidden sm:inline-block">
               {project.category}
             </span>
           </div>
-          <button
-            onClick={onClose}
-            aria-label="Close case study modal"
-            className="p-2 text-[#24201D]/70 hover:text-[#24201D] hover:bg-[#E5DFD5] rounded-full transition-colors"
-          >
-            <X className="w-5 h-5" />
-          </button>
+
+          <div className="flex items-center gap-2">
+            {/* Quick Prev / Next Buttons */}
+            {onSelectProject && (
+              <div className="flex items-center border border-[#D9D7D2] mr-2 bg-white">
+                <button
+                  onClick={() => onSelectProject(prevProject)}
+                  title={`Previous: ${prevProject.title}`}
+                  className="p-2 text-[#0D0D0D] hover:bg-[#E8E7E3] transition-colors border-r border-[#D9D7D2]"
+                  aria-label="Previous project"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => onSelectProject(nextProject)}
+                  title={`Next: ${nextProject.title}`}
+                  className="p-2 text-[#0D0D0D] hover:bg-[#E8E7E3] transition-colors"
+                  aria-label="Next project"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            )}
+
+            <button
+              onClick={onClose}
+              aria-label="Close case study modal"
+              className="p-2 text-[#0D0D0D] hover:bg-[#E8E7E3] border border-transparent hover:border-[#D9D7D2] transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
-        {/* Modal Content */}
-        <div className="p-6 sm:p-10 space-y-10">
-          {/* Main Case Heading */}
-          <div className="space-y-3 pb-6 border-b border-[#C8C0B5]">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#5A2028] font-semibold">
-              {project.type}
-            </span>
-            <h3
+        {/* Modal Main Body */}
+        <div className="p-4 sm:p-8 md:p-10 space-y-8">
+          {/* Top Title Section */}
+          <div className="space-y-3 pb-6 border-b border-[#D9D7D2]">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#666666] font-semibold">
+                {project.type}
+              </span>
+              <span className="text-[11px] font-mono text-[#666666]">
+                Case File Ref: PB-{project.number}
+              </span>
+            </div>
+            <h2
               id="case-study-title"
-              className="font-serif text-3xl sm:text-5xl font-normal text-[#24201D] tracking-tight leading-tight"
+              className="font-serif text-3xl sm:text-5xl font-normal text-[#0D0D0D] tracking-tight leading-tight"
             >
               {project.title}
-            </h3>
-            <p className="font-serif text-lg sm:text-xl italic text-[#5C544E] max-w-2xl leading-relaxed">
+            </h2>
+            <p className="font-serif text-base sm:text-xl italic text-[#555555] max-w-3xl leading-relaxed">
               "{project.tagline}"
             </p>
           </div>
 
-          {/* Hero Visual Area */}
-          <div>
-            <EditorialPlaceholder
-              title={project.title}
-              category={project.category}
-              tag={project.placeholderMood.tag}
-              theme={project.placeholderMood.theme}
-              aspectRatio="aspect-[16/9]"
-              themeMode="light"
-            />
-          </div>
-
-          {/* Specialization Focus Areas */}
-          <div className="space-y-3">
-            <h4 className="font-mono text-xs uppercase tracking-[0.25em] text-[#5A2028] font-semibold">
-              CORE DOMAINS & METHODOLOGIES
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {project.focusAreas.map((area, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2.5 p-3.5 bg-white border border-[#C8C0B5] rounded-sm text-xs font-mono text-[#24201D]"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#5A2028] shrink-0" />
-                  <span>{area}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Structured Case Study Framework Sections */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-[#C8C0B5]">
-            {/* 1. Context */}
-            <div className="space-y-3 p-6 bg-[#EAE4DC] border border-[#C8C0B5] rounded-sm">
-              <div className="flex items-center gap-2 text-[#5A2028] font-mono text-xs tracking-wider uppercase font-semibold">
-                <BookOpen className="w-4 h-4" />
-                <span>01 / Context & Objective</span>
-              </div>
-              <p className="text-xs sm:text-sm text-[#5C544E] italic font-serif">
-                Case study details coming soon.
-              </p>
-            </div>
-
-            {/* 2. Approach */}
-            <div className="space-y-3 p-6 bg-[#EAE4DC] border border-[#C8C0B5] rounded-sm">
-              <div className="flex items-center gap-2 text-[#5A2028] font-mono text-xs tracking-wider uppercase font-semibold">
-                <Compass className="w-4 h-4" />
-                <span>02 / Strategic Approach</span>
-              </div>
-              <p className="text-xs sm:text-sm text-[#5C544E] italic font-serif">
-                Methodology & analysis documentation in preparation.
-              </p>
-            </div>
-
-            {/* 3. Insights */}
-            <div className="space-y-3 p-6 bg-[#EAE4DC] border border-[#C8C0B5] rounded-sm">
-              <div className="flex items-center gap-2 text-[#5A2028] font-mono text-xs tracking-wider uppercase font-semibold">
-                <Lightbulb className="w-4 h-4" />
-                <span>03 / Key Focus</span>
-              </div>
-              <p className="text-xs sm:text-sm text-[#5C544E] italic font-serif">
-                Project analysis coming soon.
-              </p>
-            </div>
-
-            {/* 4. Outcomes / Visuals */}
-            <div className="space-y-3 p-6 bg-[#EAE4DC] border border-[#C8C0B5] rounded-sm">
-              <div className="flex items-center gap-2 text-[#5A2028] font-mono text-xs tracking-wider uppercase font-semibold">
-                <CheckCircle2 className="w-4 h-4" />
-                <span>04 / Visuals & Deliverables</span>
-              </div>
-              <p className="text-xs sm:text-sm text-[#5C544E] italic font-serif">
-                Original project visuals to be uploaded.
-              </p>
-            </div>
-          </div>
-
-          {/* Visual Showcase Note */}
-          <div className="p-4 bg-[#17120F] text-[#F3EFE7] rounded-sm border border-[#2E2620] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#5A2028]/40 flex items-center justify-center text-[#A99578] shrink-0">
-                <ImageIcon className="w-4 h-4" />
-              </div>
-              <span className="text-xs font-sans text-[#F3EFE7]/85">
-                Original project visuals, moodboards, and planning decks will be attached upon release.
+          {/* Core Focus Area Tags */}
+          <div className="flex flex-wrap gap-2">
+            {project.focusAreas.map((area, idx) => (
+              <span
+                key={idx}
+                className="text-[11px] font-mono text-[#0D0D0D] bg-white border border-[#D9D7D2] px-3 py-1"
+              >
+                {area}
               </span>
+            ))}
+          </div>
+
+          {/* DEDICATED INTERACTIVE CASE STUDY COMPONENT */}
+          <div className="pt-2">
+            {renderProjectInteractive()}
+          </div>
+
+          {/* Bottom Project Navigator Bar */}
+          {onSelectProject && (
+            <div className="pt-8 border-t border-[#D9D7D2] grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <button
+                onClick={() => onSelectProject(prevProject)}
+                className="p-4 bg-white border border-[#D9D7D2] hover:border-[#0D0D0D] transition-all text-left flex items-center justify-between group"
+              >
+                <div>
+                  <div className="font-mono text-[10px] text-[#666666] uppercase tracking-wider flex items-center gap-1">
+                    <ChevronLeft className="w-3.5 h-3.5" /> PREVIOUS CASE STUDY
+                  </div>
+                  <div className="font-serif text-base font-medium text-[#0D0D0D] mt-1 group-hover:underline">
+                    {prevProject.number} — {prevProject.title}
+                  </div>
+                </div>
+              </button>
+
+              <button
+                onClick={() => onSelectProject(nextProject)}
+                className="p-4 bg-white border border-[#D9D7D2] hover:border-[#0D0D0D] transition-all text-right flex items-center justify-between group"
+              >
+                <div className="w-full">
+                  <div className="font-mono text-[10px] text-[#666666] uppercase tracking-wider flex items-center justify-end gap-1">
+                    NEXT CASE STUDY <ChevronRight className="w-3.5 h-3.5" />
+                  </div>
+                  <div className="font-serif text-base font-medium text-[#0D0D0D] mt-1 group-hover:underline">
+                    {nextProject.number} — {nextProject.title}
+                  </div>
+                </div>
+              </button>
             </div>
+          )}
+
+          {/* Modal Footer Close Action */}
+          <div className="pt-4 flex items-center justify-between text-xs font-mono text-[#666666]">
+            <span>Tip: Use Left / Right arrow keys or Esc to navigate</span>
             <button
               onClick={onClose}
-              className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[#A99578] hover:text-[#F3EFE7] transition-colors shrink-0"
+              className="inline-flex items-center gap-1.5 uppercase tracking-wider text-[#0D0D0D] hover:underline"
             >
-              <span>Back to Overview</span>
+              <span>Close Case Study</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
           </div>
