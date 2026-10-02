@@ -46,19 +46,42 @@ export interface ExposureItem {
   description: string;
 }
 
+export const SKILLS_LIST = [
+  'MERCHANDISE PLANNING',
+  'RANGE PLANNING',
+  'ASSORTMENT ANALYSIS',
+  'VISUAL MERCHANDISING',
+  'STORE AUDITS',
+  'PRODUCT PRESENTATION',
+  'REPLENISHMENT',
+  'CONSUMER RESEARCH',
+  'TREND RESEARCH',
+  'COMPETITOR BENCHMARKING',
+  'RETAIL ANALYTICS',
+  'SOCIAL MEDIA ANALYTICS',
+];
+
+export const MASABA_CATEGORIES = [
+  { name: 'FESTIVE BIAS', ratio: '1 : 1 : 2 : 2 : 1', description: 'Statement ethnic silhouettes & opulent festive accents' },
+  { name: 'HERITAGE REMIX LAB', ratio: '1 : 1 : 2 : 2 : 1', description: 'Experimental motif reinterpretation with modern tailoring' },
+  { name: 'HIGH-END PRÊT', ratio: '1 : 1 : 2 : 2 : 2', description: 'Elevated everyday luxury separates & directional drape' },
+  { name: 'WEDDING GUEST', ratio: '2 : 2 : 2 : 2 : 2', description: 'Contemporary occasionwear & occasion fusion sets' },
+  { name: 'PRINT YOUR PERSONALITY', ratio: '2 : 2 : 2 : 3 : 3', description: 'Iconic conversational prints across resort & leisurewear' },
+];
+
 export const PERSONAL_DATA = {
-  name: 'Prashanthi B.',
-  roleHeadline: 'Fashion Business. Retail. Merchandising. Brand.',
-  credential: 'MBA Candidate — Fashion & Lifestyle Business Management, Pearl Academy Bangalore',
-  disciplines: 'Buying & Merchandising / Retail / Visual Merchandising / Brand & Consumer Strategy',
-  intro: 'I’m interested in the space where fashion, consumers and business meet — from merchandise planning and visual merchandising to brand communication and retail strategy.',
+  name: 'PRASHANTHI B.',
+  roleHeadline: 'FASHION. RETAIL. MERCHANDISING. BRAND.',
+  credential: 'MBA — Fashion & Lifestyle Business Management, Pearl Academy Bangalore (2025–2027)',
+  disciplines: 'Buying & Merchandising · Visual Merchandising · Retail Execution · Brand Strategy',
+  intro: 'Exploring the intersection of fashion, retail, consumers and brand strategy.',
   aboutParagraphs: [
     'I’m Prashanthi, currently pursuing an MBA in Fashion & Lifestyle Business Management at Pearl Academy, Bangalore (2025–2027), following my BBA from ICFAI University (2020–2023).',
     'My interests sit across buying, merchandising, visual merchandising, retail operations, branding, and consumer behaviour.',
     'I enjoy understanding both sides of fashion — what catches attention visually and what makes a product, assortment or retail experience work commercially.'
   ],
   email: 'prashanthi.rbovilla@gmail.com',
-  location: 'Bangalore, India',
+  location: 'Bangalore / India',
   linkedin: 'https://www.linkedin.com/in/prashanthi-reddy-14771a244/',
   cvUrl: 'mailto:prashanthi.rbovilla@gmail.com?subject=CV Request - Prashanthi B',
   images: {
@@ -73,10 +96,10 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: 'bear-house',
     number: '01',
-    title: 'The Bear House',
-    subtitle: 'Visual Merchandising & Retail Execution',
-    category: 'Retail & Visual Merchandising',
-    type: '46-Day Industry Internship',
+    title: 'THE BEAR HOUSE',
+    subtitle: 'Retail in the Real World',
+    category: 'Visual Merchandising / Retail Execution',
+    type: '46-Day Industry Internship · Hyderabad',
     shortDescription: 'Hands-on exposure to visual merchandising, store operations, merchandise organisation and retail execution across EBO and SIS formats.',
     fullOverview: 'An intensive 46-day visual merchandising internship across 7 high-traffic retail locations in Hyderabad and Bangalore, covering EBO and SIS formats, store visual audits, 2 New Store Openings (NSO), and complete End of Season Sale (EOSS) transitions.',
     challenge: 'Maintaining high brand visual standards, rapid floor replenishment, and intuitive customer navigation across both high-traffic flagship mall stores and new store launches.',
@@ -99,18 +122,18 @@ export const PROJECTS_DATA: Project[] = [
       'NSO initial merchandise allocation and display setups'
     ],
     takeaway: 'Understanding how merchandise moves from stockroom to sales floor — and how space, presentation and organisation directly influence customer dwell time and basket size.',
-    imagePath: '/images/projects/bear-house/cover.jpg',
+    imagePath: '/images/prashanthi/bear-house/store-01.jpg',
     accentColor: '#722F37',
-    accentBg: '#E8DCC6',
-    tagColor: 'bg-burgundy text-cream',
+    accentBg: '#141211',
+    tagColor: 'bg-burgundy text-ivory',
     composition: 'landscape'
   },
   {
     id: 'healing-the-wait',
     number: '02',
-    title: 'Healing the Wait',
-    subtitle: 'Design Thinking & Service Innovation',
-    category: 'Design Thinking & Service Design',
+    title: 'HEALING THE WAIT',
+    subtitle: 'Designing for a Human Experience',
+    category: 'Design Thinking / Service Innovation',
     type: 'Design Thinking Case Study',
     shortDescription: 'Transforming the healthcare waiting room experience through human-centered research, a 28-page publication, and the Heal Queue service concept.',
     fullOverview: 'A design thinking research project addressing the emotional anxiety and friction of indeterminate hospital waiting times through empathetic patient studies, editorial publication design, and a digital queue management concept.',
@@ -134,55 +157,55 @@ export const PROJECTS_DATA: Project[] = [
       'Spatial micro-zoning blueprint separating quiet reading zones from check-in areas'
     ],
     takeaway: 'Information reduces anxiety. By replacing opacity with transparent digital tracking and thoughtful physical reading materials, perceived wait time is radically diminished.',
-    imagePath: '/images/projects/healing-the-wait/cover.jpg',
-    accentColor: '#A56A70',
-    accentBg: '#E8DCC6',
-    tagColor: 'bg-dustyRose/20 text-espresso',
+    imagePath: '/images/prashanthi/projects/healing-wait-01.jpg',
+    accentColor: '#A87578',
+    accentBg: '#141211',
+    tagColor: 'bg-dustyRose/20 text-ivory',
     composition: 'portrait'
   },
   {
     id: 'house-of-masaba',
     number: '03',
-    title: 'House of Masaba',
-    subtitle: 'Merchandise Planning & Visual Merchandising',
-    category: 'Fashion Strategy & Merchandising',
-    type: 'Merchandise Planning Project',
+    title: 'HOUSE OF MASABA',
+    subtitle: 'Translating Brand Identity into Retail Experience',
+    category: 'Fashion Strategy / Merchandise Planning',
+    type: 'Merchandise Planning & VM Framework',
     shortDescription: 'A quantitative commercial strategy and visual merchandising framework translating bold heritage prints into structured range architecture.',
-    fullOverview: 'A comprehensive fashion strategy and merchandise planning case study for House of Masaba (Bridge-to-Luxury, Digital-First, Omnichannel), structured around the "Printed Identities" concept for Urban Millennials and Global Indian consumers.',
+    fullOverview: 'A comprehensive fashion strategy and merchandise planning case study for House of Masaba (Bridge-to-Luxury, Digital-First, Omnichannel), structured around the "Printed Identities" concept across 5 verified product categories and 1,008 SKUs.',
     challenge: 'Translating bold, unconventional brand codes into a disciplined commercial assortment with optimized SKU breadth and balanced size ratios that protect margins.',
     processSteps: [
-      { title: 'Range Architecture', desc: 'Structured a balanced range of 112 styles across 5 categories, generating 1,008 total SKUs tailored to festive and pret demand.' },
-      { title: 'Commercial Margin Strategy', desc: 'Formulated category-led pricing tiers targeting 40%–60% gross margins across everyday pret, destination resort, and occasion wear.' },
-      { title: 'Size-Ratio Planning', desc: 'Calibrated Indian market size curves (XS 10%, S 30%, M 35%, L 20%, XL 5%) to minimize residual broken-size markdown risks.' },
+      { title: 'Range Architecture', desc: 'Structured a balanced range of 112 styles across 5 verified categories: Festive Bias, High-End Prêt, Wedding Guest, Heritage Remix Lab, and Print Your Personality.' },
+      { title: 'Commercial Margin Strategy', desc: 'Formulated category-led pricing tiers targeting 40%–60% gross margins across everyday prêt, destination resort, and occasion wear.' },
+      { title: 'Size-Ratio Planning', desc: 'Calibrated category-specific size curves (e.g. Festive Bias 1:1:2:2:1, High-End Prêt 1:1:2:2:2, Print Your Personality 2:2:2:3:3) to protect margins and reduce broken-size inventory.' },
       { title: 'VM Spatial Hierarchy', desc: 'Designed store visual standards based on Focal Point, Contrast, Hierarchy, Balance, and Storytelling.' },
       { title: 'Product Development Pipeline', desc: 'Mapped end-to-end workflow: Concept → Design → Tech Pack → BOM → Costing → Product.' }
     ],
     keyFacts: [
-      { label: 'Product Categories', value: '5 Lines', note: 'Pret, Fusion, Festive, Resort, Accessories' },
+      { label: 'Product Categories', value: '5 Lines', note: 'Festive Bias, Prêt, Wedding, Remix Lab, Print' },
       { label: 'Style Breadth', value: '112 Styles', note: 'Curated silhouettes' },
       { label: 'SKU Architecture', value: '1,008 SKUs', note: 'Across sizes and colorways' },
       { label: 'Target Gross Margin', value: '40% – 60%', note: 'Category-led pricing baseline' }
     ],
     outputs: [
       'Comprehensive Range Architecture matrix across 5 product lines and 1,008 SKUs',
-      'Size-ratio distribution curve and inventory depth calculator',
+      'Size-ratio distribution curves across all 5 distinct product categories',
       'Visual Merchandising store planograms and entrance hotspot guidelines',
       '6-stage Product Development timeline and costing framework'
     ],
     takeaway: 'Where bold cultural brand codes meet quantitative retail discipline — ensuring creative integrity scales profitably across omnichannel touchpoints.',
-    imagePath: '/images/projects/house-of-masaba/cover.jpg',
+    imagePath: '/images/prashanthi/projects/masaba-01.jpg',
     accentColor: '#722F37',
-    accentBg: '#D8B6AE',
-    tagColor: 'bg-mutedBlush text-espresso',
+    accentBg: '#141211',
+    tagColor: 'bg-burgundy text-ivory',
     composition: 'wide'
   },
   {
     id: '3am-india',
     number: '04',
-    title: '3AM India',
-    subtitle: 'Social Media & Brand Communication',
-    category: 'Digital Marketing & Content Strategy',
-    type: 'Marketing Internship',
+    title: '3AM INDIA',
+    subtitle: 'Building Digital Consumer Engagement',
+    category: 'Social Media / Brand Communication',
+    type: 'Marketing Internship · Bangalore',
     shortDescription: 'Demystifying skincare formulations through research-backed storytelling, ingredient education, and community creator outreach.',
     fullOverview: 'A social media marketing internship focused on digital brand communication, content planning, simplifying complex dermatological ingredients for everyday consumers, blog writing, and influencer outreach.',
     challenge: 'Skincare consumers are overwhelmed by clinical terminology; communicating ingredient efficacy transparently builds authentic trust without misleading claims.',
@@ -193,10 +216,10 @@ export const PROJECTS_DATA: Project[] = [
       { title: 'Connect', desc: 'Coordinated influencer seeding with aligned skincare creators and engaged directly with community comments and routine inquiries.' }
     ],
     keyFacts: [
+      { label: 'Community Growth', value: '15K → 17K', note: '+13% verified organic follower expansion' },
       { label: 'Core Framework', value: '4-Step Flow', note: 'Research → Simplify → Create → Connect' },
       { label: 'Content Formats', value: 'Blogs & Carousels', note: 'SEO articles and visual explainers' },
-      { label: 'Community Focus', value: 'Ingredient Clarity', note: 'Barrier care, actives & routine building' },
-      { label: 'Outreach Channel', value: 'Influencer Seeding', note: 'Targeted creator relationship management' }
+      { label: 'Community Focus', value: 'Ingredient Clarity', note: 'Barrier care, actives & routine building' }
     ],
     outputs: [
       'Educational skincare blog series breaking down active ingredient pairings',
@@ -205,18 +228,18 @@ export const PROJECTS_DATA: Project[] = [
       'Social media audience engagement monitoring guidelines'
     ],
     takeaway: 'Translating complex product chemistry into transparent, human-centered narratives creates genuine digital community trust and brand loyalty.',
-    imagePath: '/images/projects/3am-india/cover.jpg',
-    accentColor: '#722F37',
-    accentBg: '#D8B6AE',
-    tagColor: 'bg-mutedBlush/60 text-espresso',
+    imagePath: '/images/prashanthi/projects/3am-01.jpg',
+    accentColor: '#A87578',
+    accentBg: '#141211',
+    tagColor: 'bg-dustyRose/20 text-ivory',
     composition: 'split'
   },
   {
     id: 'sutra-edit',
     number: '05',
-    title: 'Sutra Edit',
-    subtitle: 'Fashion Business & Strategy',
-    category: 'Fashion Intelligence & Business Model',
+    title: 'SUTRA EDIT',
+    subtitle: 'Building an India-First Fashion Intelligence Platform',
+    category: 'Fashion Intelligence / Business Strategy',
     type: 'Startup Strategy Case Study',
     shortDescription: 'An India-first fashion intelligence platform providing actionable market insights, founder community, and strategic consulting.',
     fullOverview: 'A startup business model and brand strategy addressing the information void for emerging Indian direct-to-consumer and lifestyle founders who navigate distinct local supply chains and sizing dynamics.',
@@ -241,10 +264,10 @@ export const PROJECTS_DATA: Project[] = [
       'Consulting roadmap for emerging apparel brands preparing for retail expansion'
     ],
     takeaway: 'Contextual, actionable industry intelligence empowers emerging Indian fashion founders to bridge creative vision with sustainable commercial retail growth.',
-    imagePath: '/images/projects/sutra-edit/cover.jpg',
+    imagePath: '/images/prashanthi/projects/sutra-01.jpg',
     accentColor: '#722F37',
-    accentBg: '#E8DCC6',
-    tagColor: 'bg-warmTaupe/20 text-espresso',
+    accentBg: '#141211',
+    tagColor: 'bg-burgundy text-ivory',
     composition: 'editorial'
   }
 ];
@@ -287,7 +310,7 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
       'Simplified complex cosmetic ingredient chemistry for consumer-facing educational content',
       'Researched and authored skincare guides and visual carousel storyboards',
       'Managed influencer seeding coordination and creator outreach pipelines',
-      'Monitored audience engagement metrics and community response trends'
+      'Monitored audience engagement metrics and community response trends (+13% growth: 15K → 17K)'
     ]
   }
 ];
@@ -296,7 +319,7 @@ export const EDUCATION_DATA: EducationItem[] = [
   {
     id: 'pearl-academy',
     period: '2025 – 2027',
-    degree: 'MBA – Fashion & Lifestyle Business Management',
+    degree: 'MBA — Fashion & Lifestyle Business Management',
     institution: 'Pearl Academy',
     location: 'Bangalore, India',
     status: 'Candidate (In Progress)'
@@ -304,7 +327,7 @@ export const EDUCATION_DATA: EducationItem[] = [
   {
     id: 'icfai',
     period: '2020 – 2023',
-    degree: 'BBA – Bachelor of Business Administration',
+    degree: 'BBA — Bachelor of Business Administration',
     institution: 'ICFAI University',
     location: 'Hyderabad, India',
     status: 'Completed'
@@ -316,12 +339,12 @@ export const EXPOSURES_DATA: ExposureItem[] = [
     id: 'miss-karnataka',
     title: 'Miss Karnataka Grand',
     type: 'Fashion Production Exposure',
-    description: 'Backstage runway coordination, model styling assistance, and live show execution.'
+    description: 'Backstage runway coordination, model styling assistance, and live show communication across event rounds.'
   },
   {
     id: 'pvr-inox',
-    title: 'PVR INOX × Timbuckdo Cine Career Program',
-    type: 'Corporate Industry Immersion',
-    description: '4-day intensive program on experiential entertainment, audience engagement, and brand partnerships.'
+    title: 'PVR INOX × Timbukdo Cine Career Program',
+    type: '4-Day Industry Immersion',
+    description: 'Cinema operations, F&B/concession operations, revenue management, audience engagement, and quality assurance.'
   }
 ];

@@ -8,13 +8,13 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #F5EEE3;
-    color: #2C2421;
+    background-color: #0B0A09;
+    color: #F4F0E8;
   }
 
   body {
-    background-color: #F5EEE3;
-    color: #2C2421;
+    background-color: #0B0A09;
+    color: #F4F0E8;
     overflow-x: hidden;
     font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   }
@@ -25,19 +25,19 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #F5EEE3;
+    background: #0B0A09;
   }
   ::-webkit-scrollbar-thumb {
-    background: #D8CEBE;
+    background: #262320;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #B7A89A;
+    background: #722F37;
   }
 
   ::selection {
     background-color: #722F37;
-    color: #F5EEE3;
+    color: #F4F0E8;
   }
 }
 

@@ -15,7 +15,7 @@ export function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F5EEE3] text-[#2C2421] antialiased selection:bg-[#722F37] selection:text-[#F5EEE3]">
+    <div className="min-h-screen flex flex-col bg-[#0B0A09] text-[#F4F0E8] antialiased selection:bg-[#722F37] selection:text-[#F4F0E8]">
       {/* Sticky Navigation */}
       <Navbar />
 

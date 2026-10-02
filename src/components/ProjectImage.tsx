@@ -17,7 +17,7 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
   alt,
   title,
   category,
-  accentBg = '#E8DCC6',
+  accentBg = '#141211',
   accentColor: _accentColor = '#722F37',
   aspectRatio = 'aspect-[16/10]',
   className = '',
@@ -27,7 +27,7 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
 
   return (
     <div
-      className={`relative w-full ${aspectRatio} overflow-hidden bg-[#E8DCC6] border border-[#E2D5C3] group ${className}`}
+      className={`relative w-full ${aspectRatio} overflow-hidden bg-[#141211] border border-[#262320] group ${className}`}
       style={{ backgroundColor: hasError ? accentBg : undefined }}
     >
       {!hasError && (
@@ -37,7 +37,7 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
           loading="lazy"
           onLoad={() => setIsLoaded(true)}
           onError={() => setHasError(true)}
-          className={`w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.03] ${
+          className={`w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.04] ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
         />
@@ -52,30 +52,30 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
           style={{ backgroundColor: accentBg }}
         >
           {/* Top Bar */}
-          <div className="flex items-center justify-between border-b border-[#2C2421]/15 pb-3 text-xs font-sans text-[#2C2421]">
+          <div className="flex items-center justify-between border-b border-[#262320] pb-3 text-xs font-sans text-[#F4F0E8]">
             <span className="font-semibold tracking-wider uppercase text-[11px] text-[#722F37]">{category}</span>
-            <span className="text-[10px] text-[#8F8177] uppercase font-mono">Portfolio Work</span>
+            <span className="text-[10px] text-[#8E8278] uppercase font-mono">Editorial Portfolio</span>
           </div>
 
           {/* Center Title */}
           <div className="my-auto py-4">
-            <div className="w-10 h-10 rounded-full border border-[#2C2421]/15 flex items-center justify-center mb-4 bg-[#FAF6EE]/80 shadow-sm">
+            <div className="w-10 h-10 rounded-full border border-[#262320] flex items-center justify-center mb-4 bg-[#0B0A09] shadow-sm">
               <Layers className="w-4 h-4 text-[#722F37]" />
             </div>
             <h4
-              className="font-serif text-3xl sm:text-4xl text-[#2C2421] font-normal leading-tight"
+              className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal leading-tight"
             >
               {title}
             </h4>
-            <p className="text-xs text-[#554E48] mt-2 font-sans max-w-sm">
+            <p className="text-xs text-[#8E8278] mt-2 font-sans max-w-sm">
               Visual merchandising, range planning & retail presentation.
             </p>
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-[#2C2421]/15 pt-3 flex items-center justify-between text-[11px] text-[#8F8177]">
+          <div className="border-t border-[#262320] pt-3 flex items-center justify-between text-[11px] text-[#8E8278]">
             <span>Prashanthi B.</span>
-            <span className="font-semibold text-[#722F37]">View Project →</span>
+            <span className="font-semibold text-[#722F37] group-hover:text-[#F4F0E8] transition-colors">View Case Study →</span>
           </div>
         </div>
       )}
