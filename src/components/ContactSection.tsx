@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowUpRight, Check, Copy } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { PERSONAL_DATA } from '../data/portfolioData';
 
 export const ContactSection: React.FC = () => {
-  const [copied, setCopied] = useState(false);
   const [inView, setInView] = useState(false);
+  const [scrollYOffset, setScrollYOffset] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export const ContactSection: React.FC = () => {
           setInView(true);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.12 }
     );
 
     if (sectionRef.current) {
@@ -24,37 +24,35 @@ export const ContactSection: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleCopyEmail = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    navigator.clipboard.writeText(PERSONAL_DATA.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2200);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (rect.top <= windowHeight && rect.bottom >= 0) {
+        const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+        // Subtle 10-18px vertical movement on portrait
+        setScrollYOffset((progress - 0.5) * 24);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section
       ref={sectionRef}
       id="contact"
-      className="py-20 sm:py-28 lg:py-36 bg-[#0B0A09] text-[#F4F0E8] relative select-none border-b border-[#262320] overflow-hidden"
+      className="min-h-[100svh] lg:min-h-[110svh] bg-[#0B0A09] text-[#F4F0E8] relative select-none border-b border-[#262320] flex flex-col justify-between pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto overflow-hidden"
     >
-      {/* 01. Large Editorial Background Typography (Cropped & Low-Contrast Depth) */}
-      <div
-        className={`absolute -right-12 sm:-right-8 -bottom-10 sm:-bottom-16 select-none pointer-events-none z-0 transition-all duration-1000 ease-out ${
-          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-        }`}
-      >
-        <span className="font-serif text-[6.5rem] sm:text-[14rem] md:text-[18rem] lg:text-[22rem] xl:text-[26rem] font-normal leading-none tracking-tighter text-[#722F37]/[0.08] block uppercase">
-          CONTACT
-        </span>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
-        {/* 02. Top Editorial Section Label Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 sm:pb-8 border-b border-[#262320] mb-12 sm:mb-16">
+      {/* 01. Section Label Bar */}
+      <div className="w-full relative z-20">
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#262320]">
           <div
-            className={`font-sans font-semibold text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] tracking-[0.12em] uppercase leading-none transition-all duration-700 ease-out ${
-              inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+            className={`font-sans font-semibold text-[14px] sm:text-[15px] lg:text-[16px] tracking-[0.12em] uppercase leading-none transition-all duration-700 ease-out ${
+              inView ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
             }`}
           >
             <span className="text-[#722F37] mr-1.5">04 /</span>
@@ -63,7 +61,7 @@ export const ContactSection: React.FC = () => {
 
           <div
             className={`flex items-center gap-2 sm:gap-3 font-sans text-xs sm:text-[13px] text-[#8E8278] tracking-wider uppercase transition-all duration-700 delay-100 ease-out ${
-              inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+              inView ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
             }`}
           >
             <span className="text-[#C8BFB2]">BANGALORE, INDIA</span>
@@ -71,159 +69,148 @@ export const ContactSection: React.FC = () => {
             <span>2025 — 2027</span>
           </div>
         </div>
+      </div>
 
-        {/* 03. Main Asymmetric Editorial Spread */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start">
-          {/* Left Column: Monumental Headline & Strategic Statement */}
-          <div className="lg:col-span-6 space-y-6 sm:space-y-8">
-            <div className="space-y-3 sm:space-y-4">
+      {/* 02. MAIN EDITORIAL SPREAD (LEFT TYPOGRAPHY + RIGHT VISUAL ANCHOR) */}
+      <div className="my-auto py-8 sm:py-12 lg:py-14 w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-center">
+          {/* Mobile Image (Visible only on mobile before headline) */}
+          <div className="block lg:hidden w-full overflow-hidden">
+            <div
+              className="w-full h-[50svh] sm:h-[60svh] overflow-hidden transition-all duration-1000 ease-out"
+              style={{
+                clipPath: inView ? 'inset(0% 0 0% 0)' : 'inset(100% 0 0% 0)',
+                transition: 'clip-path 1.1s cubic-bezier(0.16, 1, 0.3, 1)',
+              }}
+            >
+              <img
+                src={PERSONAL_DATA.images.hero}
+                alt="PRASHANTHI.B — Editorial Closing"
+                className="w-full h-full object-cover object-top filter brightness-[0.92] contrast-[1.03]"
+              />
+            </div>
+          </div>
+
+          {/* Left / Main Typography Area */}
+          <div className="lg:col-span-7 space-y-6 sm:space-y-8">
+            <div className="overflow-hidden">
               <h2
-                className={`font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[4.75rem] xl:text-[5.5rem] font-normal tracking-tight leading-[0.92] text-[#F4F0E8] transition-all duration-700 delay-150 ease-out ${
-                  inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                className={`font-serif text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.25rem] xl:text-[6.25rem] 2xl:text-[7rem] font-normal tracking-tight leading-[0.86] text-[#F4F0E8] uppercase transition-all duration-1000 ease-out ${
+                  inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                 }`}
               >
-                LET’S BUILD
-                <span className="block font-serif italic text-[#C8BFB2] font-normal mt-1">
-                  WHAT’S NEXT.
+                LET’S TALK
+                <span className="block font-serif italic text-[#C8BFB2] font-normal mt-1 sm:mt-2">
+                  ABOUT WHAT
+                </span>
+                <span className="block font-serif font-normal text-[#F4F0E8] mt-1 sm:mt-2">
+                  COMES NEXT<span className="text-[#722F37]">.</span>
                 </span>
               </h2>
-
-              <p
-                className={`text-base sm:text-lg lg:text-[1.1rem] text-[#C8BFB2] font-sans font-light leading-relaxed max-w-lg pt-2 sm:pt-4 transition-all duration-700 delay-250 ease-out ${
-                  inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-                }`}
-              >
-                Available for strategic roles and project collaborations across Buying & Merchandising, Retail Operations, Visual Merchandising, and Brand Strategy.
-              </p>
             </div>
 
-            {/* Subtle Editorial Positioning Stamp */}
+            {/* Restrained Subtitle Line (Max 2 lines) */}
             <div
-              className={`pt-6 sm:pt-8 border-t border-[#262320] max-w-md transition-all duration-700 delay-350 ease-out ${
+              className={`pt-2 sm:pt-4 transition-all duration-700 delay-300 ease-out ${
                 inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#722F37] font-semibold block mb-1.5">
-                EDITORIAL DESK
-              </span>
-              <p className="text-xs sm:text-[13px] font-mono text-[#8E8278] uppercase tracking-wider leading-relaxed">
-                AVAILABLE FOR STRATEGIC ROLES, COLLABORATIONS & SELECTED PROJECTS.
+              <p className="text-xs sm:text-[13px] lg:text-sm font-mono text-[#8E8278] uppercase tracking-wider leading-relaxed max-w-lg">
+                AVAILABLE FOR STRATEGIC ROLES, SELECTED COLLABORATIONS & PROJECTS.
               </p>
             </div>
           </div>
 
-          {/* Right Column: Editorial Contact Directory / Index */}
-          <div className="lg:col-span-6 space-y-0 border-t border-[#262320]">
-            {/* 1. EMAIL ROW */}
+          {/* Right / Visual Editorial Portrait Crop (Desktop & Tablet) */}
+          <div className="hidden lg:flex lg:col-span-5 justify-end">
             <div
-              className={`group py-6 sm:py-8 border-b border-[#262320] transition-all duration-700 delay-200 ease-out ${
-                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
+              className="relative w-full max-w-md xl:max-w-lg aspect-[3/4] h-[520px] lg:h-[620px] xl:h-[680px] overflow-hidden shadow-2xl transition-all duration-1000 ease-out"
+              style={{
+                clipPath: inView ? 'inset(0% 0 0% 0)' : 'inset(100% 0 0% 0)',
+                transform: `translate3d(0, ${scrollYOffset}px, 0)`,
+                transition: 'clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1)',
+              }}
             >
-              <div className="flex items-center justify-between gap-4 mb-2">
-                <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-[#8E8278] group-hover:text-[#722F37] transition-colors">
-                  01 // EMAIL
-                </span>
-
-                <button
-                  onClick={handleCopyEmail}
-                  className="text-[11px] font-mono uppercase tracking-wider text-[#8E8278] hover:text-[#F4F0E8] transition-colors flex items-center gap-1.5 py-0.5 px-2 rounded border border-[#262320] hover:border-[#722F37]"
-                >
-                  {copied ? (
-                    <>
-                      <Check className="w-3 h-3 text-emerald-400" />
-                      <span className="text-emerald-400">COPIED</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3 h-3" />
-                      <span>COPY</span>
-                    </>
-                  )}
-                </button>
-              </div>
-
-              <a
-                href={`mailto:${PERSONAL_DATA.email}?subject=Collaboration / Strategic Role Inquiry - PRASHANTHI.B`}
-                className="flex items-center justify-between gap-4 text-[#F4F0E8] group-hover:text-[#A87578] transition-colors"
-              >
-                <span className="font-sans text-lg sm:text-2xl lg:text-[1.65rem] font-normal tracking-tight break-all">
-                  {PERSONAL_DATA.email}
-                </span>
-                <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-2 group-hover:-translate-y-1 transition-all duration-300 shrink-0" />
-              </a>
-            </div>
-
-            {/* 2. LINKEDIN ROW */}
-            <div
-              className={`group py-6 sm:py-8 border-b border-[#262320] transition-all duration-700 delay-300 ease-out ${
-                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-            >
-              <div className="mb-2">
-                <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-[#8E8278] group-hover:text-[#722F37] transition-colors">
-                  02 // LINKEDIN
-                </span>
-              </div>
-
-              <a
-                href={PERSONAL_DATA.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-4 text-[#F4F0E8] group-hover:text-[#A87578] transition-colors"
-              >
-                <span className="font-sans text-lg sm:text-2xl lg:text-[1.65rem] font-normal tracking-tight">
-                  PRASHANTHI.B
-                </span>
-                <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-2 group-hover:-translate-y-1 transition-all duration-300 shrink-0" />
-              </a>
-            </div>
-
-            {/* 3. CV DOWNLOAD ROW */}
-            <div
-              className={`group py-6 sm:py-8 border-b border-[#262320] transition-all duration-700 delay-400 ease-out ${
-                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-            >
-              <div className="mb-2">
-                <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-[#8E8278] group-hover:text-[#722F37] transition-colors">
-                  03 // RESUME & CREDENTIALS
-                </span>
-              </div>
-
-              <a
-                href={PERSONAL_DATA.cvUrl}
-                className="flex items-center justify-between gap-4 text-[#F4F0E8] group-hover:text-[#A87578] transition-colors"
-              >
-                <span className="font-sans text-lg sm:text-2xl lg:text-[1.65rem] font-normal tracking-tight">
-                  VIEW / DOWNLOAD CV
-                </span>
-                <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-2 group-hover:-translate-y-1 transition-all duration-300 shrink-0" />
-              </a>
-            </div>
-
-            {/* 4. LOCATION & BASE ROW */}
-            <div
-              className={`py-6 sm:py-8 transition-all duration-700 delay-500 ease-out ${
-                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-            >
-              <div className="mb-2">
-                <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] text-[#8E8278]">
-                  04 // BASE LOCATION
-                </span>
-              </div>
-
-              <div className="flex items-center justify-between gap-4">
-                <span className="font-sans text-lg sm:text-2xl lg:text-[1.65rem] font-normal text-[#C8BFB2] tracking-tight">
-                  BANGALORE, INDIA
-                </span>
-                <span className="text-xs font-mono uppercase text-[#722F37] tracking-wider font-semibold">
-                  ACTIVE
-                </span>
-              </div>
+              <img
+                src={PERSONAL_DATA.images.hero}
+                alt="PRASHANTHI.B — Editorial Closing Spread"
+                className="w-full h-full object-cover object-top filter brightness-[0.92] contrast-[1.03]"
+              />
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* 03. MINIMAL PUBLICATION CONTACT INDEX & SIGNATURE */}
+      <div className="w-full pt-8 border-t border-[#262320] relative z-20 space-y-8">
+        {/* Contact Metadata Directory (Publication Index Style) */}
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 transition-all duration-700 delay-400 ease-out ${
+            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          {/* Email */}
+          <div className="space-y-1 group">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#8E8278] block">
+              EMAIL
+            </span>
+            <a
+              href={`mailto:${PERSONAL_DATA.email}?subject=Collaboration / Strategic Role Inquiry - PRASHANTHI.B`}
+              className="inline-flex items-center gap-2 text-sm sm:text-[15px] lg:text-base font-sans text-[#F4F0E8] group-hover:text-[#A87578] transition-colors duration-300 break-all"
+            >
+              <span>{PERSONAL_DATA.email}</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-2 transition-all duration-300 shrink-0" />
+            </a>
+          </div>
+
+          {/* LinkedIn */}
+          <div className="space-y-1 group">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#8E8278] block">
+              LINKEDIN
+            </span>
+            <a
+              href={PERSONAL_DATA.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm sm:text-[15px] lg:text-base font-sans text-[#F4F0E8] group-hover:text-[#A87578] transition-colors duration-300"
+            >
+              <span>PRASHANTHI.B</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-2 transition-all duration-300 shrink-0" />
+            </a>
+          </div>
+
+          {/* CV */}
+          <div className="space-y-1 group">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#8E8278] block">
+              RESUME
+            </span>
+            <a
+              href={PERSONAL_DATA.cvUrl}
+              className="inline-flex items-center gap-2 text-sm sm:text-[15px] lg:text-base font-sans text-[#F4F0E8] group-hover:text-[#A87578] transition-colors duration-300"
+            >
+              <span>VIEW CV</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-2 transition-all duration-300 shrink-0" />
+            </a>
+          </div>
+
+          {/* Location */}
+          <div className="space-y-1">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#8E8278] block">
+              LOCATION
+            </span>
+            <span className="text-sm sm:text-[15px] lg:text-base font-sans text-[#C8BFB2]">
+              BANGALORE / INDIA
+            </span>
+          </div>
+        </div>
+
+        {/* Imprint Footer Signature */}
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[#262320]/60 text-[11px] font-mono text-[#8E8278] uppercase tracking-wider">
+          <span className="text-[#F4F0E8] font-sans font-semibold text-xs tracking-widest">
+            PRASHANTHI.B
+          </span>
+          <span>FASHION · RETAIL · CONSUMER THINKING</span>
+          <span>2026</span>
         </div>
       </div>
     </section>
