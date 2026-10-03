@@ -53,21 +53,8 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
         </div>
       </div>
 
-      {/* High-Impact Editorial Transition Statement */}
-      <div className="space-y-4 max-w-4xl pb-16 sm:pb-24 border-b border-[#262320] relative z-10">
-        <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.98]">
-          WORK THAT SITS
-          <span className="block font-serif italic text-[#C8BFB2] font-normal mt-1">
-            BETWEEN CREATIVITY AND COMMERCE.
-          </span>
-        </h2>
-        <p className="text-sm sm:text-base text-[#8E8278] font-sans font-light max-w-2xl pt-1 leading-relaxed">
-          Work across retail, fashion strategy, consumer thinking and brand communication.
-        </p>
-      </div>
-
       {/* 5 Curated Large Magazine Editorial Spreads */}
-      <div className="space-y-28 sm:space-y-40 pt-16 sm:pt-20 relative z-10">
+      <div className="space-y-28 sm:space-y-40 pt-4 sm:pt-6 relative z-10">
         {PROJECTS_DATA.map((project, idx) => {
           const isHovered = activeHoverIndex === idx;
           const isEven = idx % 2 === 1;

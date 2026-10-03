@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Project } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
+import { EditorialGrid } from './components/EditorialGrid';
 import { Hero } from './components/Hero';
 import { SelectedWork } from './components/SelectedWork';
 import { AboutSection } from './components/AboutSection';
@@ -14,7 +15,10 @@ export function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0B0A09] text-[#F4F0E8] antialiased selection:bg-[#722F37] selection:text-[#F4F0E8]">
+    <div className="min-h-screen flex flex-col bg-[#0B0A09] text-[#F4F0E8] antialiased selection:bg-[#722F37] selection:text-[#F4F0E8] relative">
+      {/* Subtle Architectural Editorial Grid System (Background Layer) */}
+      <EditorialGrid />
+
       {/* Sticky Minimal Navigation */}
       <Navbar />
 
