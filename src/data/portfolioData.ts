@@ -126,54 +126,8 @@ export const PROJECTS_DATA: Project[] = [
     composition: 'landscape'
   },
   {
-    id: 'house-of-masaba',
-    number: '02',
-    title: 'HOUSE OF MASABA',
-    subtitle: 'Assortment and Merchandising Strategy',
-    category: 'Fashion Strategy / Merchandise Planning',
-    type: 'Merchandise Planning & Assortment Strategy',
-    shortDescription: 'A merchandise strategy case study for House of Masaba, focused on assortment planning, pricing architecture and product positioning, translating its distinctive brand identity into a commercially relevant offering for contemporary Indian consumers.',
-    fullOverview: 'A merchandise strategy case study for House of Masaba, focused on assortment planning, pricing architecture and product positioning, translating its distinctive brand identity into a commercially relevant offering for contemporary Indian consumers.',
-    challenge: 'Translate House of Masaba’s bold, distinctive brand identity into a commercially viable assortment — balancing SKU breadth, category mix, pricing and size ratios to create a focused and market-relevant merchandise plan.',
-    processSteps: [
-      {
-        title: '01 Assortment Planning',
-        desc: 'Structured a focused commercial assortment balancing core, fashion and novelty styles across everyday and occasion wear.'
-      },
-      {
-        title: '02 Pricing Architecture',
-        desc: 'Defined clear pricing bands (₹7.5K–₹65K) and margin benchmarks (40–60%) to maintain commercial viability while preserving brand prestige.'
-      },
-      {
-        title: '03 Product Positioning & Sizing',
-        desc: 'Calibrated size ratios (XS–XL) and category mix to ensure high sell-through and minimize broken-size inventory.'
-      },
-      {
-        title: '04 Visual & Retail Integration',
-        desc: 'Integrated brand storytelling and visual merchandising principles to create a cohesive in-store product narrative.'
-      }
-    ],
-    keyFacts: [
-      { label: 'Verified Styles', value: '112 Styles', note: 'Across 5 core categories' },
-      { label: 'Total Assortment', value: '1,008 SKUs', note: 'Structured SKU breadth' },
-      { label: 'Price Architecture', value: '₹7.5K – ₹65K', note: 'Tiered commercial bands' },
-      { label: 'Target Margin', value: '40% – 60%', note: 'Baseline profitability' }
-    ],
-    outputs: [
-      '5 Core Categories: Festive Bias, High-End Prêt, Wedding Guest, Heritage Remix Lab, Print Your Personality',
-      'Tiered pricing architecture (₹7.5K–₹65K) and commercial margin guidelines',
-      'Size ratio planning (XS–XL) and inventory balance recommendations'
-    ],
-    takeaway: 'Where bold cultural codes meet thoughtful merchandise strategy — turning brand identity into a cohesive product story.',
-    imagePath: '/images/prashanthi/projects/masaba-01.jpg',
-    accentColor: '#722F37',
-    accentBg: '#141211',
-    tagColor: 'bg-burgundy text-ivory',
-    composition: 'wide'
-  },
-  {
     id: 'healing-the-wait',
-    number: '03',
+    number: '02',
     title: 'HEALING THE WAIT',
     subtitle: 'Designing for a Human Experience',
     category: 'Design Thinking / Service Design',
@@ -222,8 +176,100 @@ export const PROJECTS_DATA: Project[] = [
     composition: 'portrait'
   },
   {
-    id: 'sutra-edit',
+    id: 'house-of-masaba',
+    number: '03',
+    title: 'HOUSE OF MASABA',
+    subtitle: 'Assortment and Merchandising Strategy',
+    category: 'Fashion Strategy / Merchandise Planning',
+    type: 'Merchandise Planning & Assortment Strategy',
+    shortDescription: 'A merchandise strategy case study for House of Masaba, focused on assortment planning, pricing architecture and product positioning, translating its distinctive brand identity into a commercially relevant offering for contemporary Indian consumers.',
+    fullOverview: 'A merchandise strategy case study for House of Masaba, focused on assortment planning, pricing architecture and product positioning, translating its distinctive brand identity into a commercially relevant offering for contemporary Indian consumers.',
+    challenge: 'Translate House of Masaba’s bold, distinctive brand identity into a commercially viable assortment — balancing SKU breadth, category mix, pricing and size ratios to create a focused and market-relevant merchandise plan.',
+    processSteps: [
+      {
+        title: '01 Assortment Planning',
+        desc: 'Structured a focused commercial assortment balancing core, fashion and novelty styles across everyday and occasion wear.'
+      },
+      {
+        title: '02 Pricing Architecture',
+        desc: 'Defined clear pricing bands (₹7.5K–₹65K) and margin benchmarks (40–60%) to maintain commercial viability while preserving brand prestige.'
+      },
+      {
+        title: '03 Product Positioning & Sizing',
+        desc: 'Calibrated size ratios (XS–XL) and category mix to ensure high sell-through and minimize broken-size inventory.'
+      },
+      {
+        title: '04 Visual & Retail Integration',
+        desc: 'Integrated brand storytelling and visual merchandising principles to create a cohesive in-store product narrative.'
+      }
+    ],
+    keyFacts: [
+      { label: 'Verified Styles', value: '112 Styles', note: 'Across 5 core categories' },
+      { label: 'Total Assortment', value: '1,008 SKUs', note: 'Structured SKU breadth' },
+      { label: 'Price Architecture', value: '₹7.5K – ₹65K', note: 'Tiered commercial bands' },
+      { label: 'Target Margin', value: '40% – 60%', note: 'Baseline profitability' }
+    ],
+    outputs: [
+      '5 Core Categories: Festive Bias, High-End Prêt, Wedding Guest, Heritage Remix Lab, Print Your Personality',
+      'Tiered pricing architecture (₹7.5K–₹65K) and commercial margin guidelines',
+      'Size ratio planning (XS–XL) and inventory balance recommendations'
+    ],
+    takeaway: 'Where bold cultural codes meet thoughtful merchandise strategy — turning brand identity into a cohesive product story.',
+    imagePath: '/images/prashanthi/projects/masaba-01.jpg',
+    accentColor: '#722F37',
+    accentBg: '#141211',
+    tagColor: 'bg-burgundy text-ivory',
+    composition: 'wide'
+  },
+  {
+    id: '3am-india',
     number: '04',
+    title: '3AM INDIA',
+    subtitle: 'Social Media & Community Strategy',
+    category: 'Digital Marketing / Social Strategy',
+    type: 'Social Media & Growth Strategy',
+    shortDescription: 'Social media strategy, educational content creation, influencer collaboration and community growth (+13% from 15K to 17K followers) for clean skincare brand 3AM India.',
+    fullOverview: 'Hands-on social media marketing and brand communication internship managing strategy, content calendars, influencer outreach, and analytics-driven community growth.',
+    challenge: 'Simplifying complex skincare formulations and ingredient stories into engaging, highly shareable social content that drives authentic audience trust and follower growth.',
+    processSteps: [
+      {
+        title: '01 — Research',
+        desc: 'Researched skincare trends, ingredient science, and competitor communication strategies to identify key educational content pillars.'
+      },
+      {
+        title: '02 — Simplify',
+        desc: 'Translated complex scientific formulations and active ingredients into clear, bite-sized visual education for everyday consumers.'
+      },
+      {
+        title: '03 — Create',
+        desc: 'Designed engaging social media assets, captions, stories, and blogs focused on transparency, routine-building, and skincare efficacy.'
+      },
+      {
+        title: '04 — Connect',
+        desc: 'Engaged with community comments, managed influencer seeding collaborations, and monitored analytics to optimize engagement and grow followers.'
+      }
+    ],
+    keyFacts: [
+      { label: 'Audience Growth', value: '15K → 17K', note: '+13% community expansion' },
+      { label: 'Framework', value: '4-Step Loop', note: 'Research → Simplify → Create → Connect' },
+      { label: 'Core Channels', value: 'Social & Blog', note: 'Multi-touchpoint strategy' },
+      { label: 'Marketing Scope', value: 'Content & Influencer', note: 'Organic community trust' }
+    ],
+    outputs: [
+      'Educational skincare content calendars and campaign copy',
+      'Influencer collaboration pipelines and outreach workflows',
+      'Audience analytics tracking and engagement optimization (+13% follower growth)'
+    ],
+    takeaway: 'Translating complex ingredient science into simple, relatable content that builds genuine consumer trust and community momentum.',
+    imagePath: '/images/prashanthi/projects/3am-01.jpg',
+    accentColor: '#A87578',
+    accentBg: '#141211',
+    tagColor: 'bg-dustyRose/20 text-ivory',
+    composition: 'landscape'
+  },
+  {
+    id: 'sutra-edit',
+    number: '05',
     title: 'SUTRA EDIT',
     subtitle: 'India’s fashion intelligence platform for sharper brand decisions.',
     category: 'Fashion Intelligence / Business Strategy',
@@ -256,7 +302,7 @@ export const PROJECTS_DATA: Project[] = [
     keyFacts: [
       { label: 'Core Market', value: 'India | D2C Fashion & Lifestyle', note: 'Contextual retail focus' },
       { label: 'Business Verticals', value: '3 Verticals', note: 'Editorial, Dashboard, Advisory' },
-      { label: 'Revenue Tiers', value: '3 Streams', note: 'Starter, Pro, Retainer' },
+      { label: 'Revenue Tiers', value: 'Starter / Pro / Premium', note: 'Tiered subscription model' },
       { label: 'Strategic Focus', value: 'Brand Decisions', note: 'Signals to sharper action' }
     ],
     outputs: [
@@ -271,54 +317,6 @@ export const PROJECTS_DATA: Project[] = [
     accentBg: '#141211',
     tagColor: 'bg-burgundy text-ivory',
     composition: 'editorial'
-  },
-  {
-    id: 'beyond-the-boutique',
-    number: '05',
-    title: 'BEYOND THE BOUTIQUE',
-    subtitle: 'Designing a phygital luxury ecosystem where heritage, technology and human clienteling meet.',
-    category: 'Luxury Strategy / Phygital Experience',
-    type: 'Bvlgari Phygital Strategy Case Study',
-    shortDescription: 'A strategic exploration of how Bvlgari can bridge its heritage-led physical experience with digital innovation—without compromising the exclusivity of luxury.',
-    fullOverview: 'A strategic exploration of how Bvlgari can bridge its heritage-led physical experience with digital innovation—without compromising the exclusivity of luxury.',
-    challenge: 'Luxury is no longer experienced only inside the boutique. Consumers increasingly discover, research and engage with brands digitally, creating a need for a more connected online–offline journey. The challenge was to explore: How can Bvlgari extend its Maison experience into the digital world while retaining its human touch and sense of exclusivity?',
-    processSteps: [
-      {
-        title: '01 — Journey Mapping',
-        desc: 'Mapped the luxury customer journey from digital discovery to post-purchase engagement across physical and virtual touchpoints.'
-      },
-      {
-        title: '02 — Technological Enablers',
-        desc: 'Identified opportunities to integrate AI for personalised recommendations, AR for virtual try-on, unified CRM, and Digital Product Passports.'
-      },
-      {
-        title: '03 — Strategic Ecosystem',
-        desc: 'Developed the Bvlgari Phygital Luxury Ecosystem connecting Discover → Explore → Experience → Purchase → Own → Re-engage.'
-      },
-      {
-        title: '04 — Clienteling & Exclusivity',
-        desc: 'Positioned technology as an extension of the Maison experience, augmenting human luxury service rather than replacing it.'
-      }
-    ],
-    keyFacts: [
-      { label: 'Brand Focus', value: 'Bvlgari Maison', note: 'Luxury jewellery & heritage' },
-      { label: 'Strategic Model', value: 'Phygital Ecosystem', note: 'Heritage + Digital Innovation' },
-      { label: 'Journey Stages', value: '6 Touchpoints', note: 'Discover to Re-engage' },
-      { label: 'Core Principle', value: 'Human Touch', note: 'Exclusivity preserved' }
-    ],
-    outputs: [
-      'AI for personalised recommendations and clienteling',
-      'AR for immersive product discovery and virtual try-on',
-      'CRM for a unified customer view across touchpoints',
-      'Digital Product Passports for authentication and ownership',
-      'Omnichannel retail to connect digital and physical experiences'
-    ],
-    takeaway: 'Technology should not make luxury more digital. It should make the luxury relationship more seamless, personal and enduring.',
-    imagePath: '/images/prashanthi/projects/bvlgari-01.jpg',
-    accentColor: '#722F37',
-    accentBg: '#141211',
-    tagColor: 'bg-burgundy text-ivory',
-    composition: 'wide'
   }
 ];
 

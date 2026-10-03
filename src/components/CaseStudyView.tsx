@@ -17,21 +17,21 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [activeStage, setActiveStage] = useState<number>(0);
-  const featuredProjects = PROJECTS_DATA.filter((p) => p.id !== '3am-india');
 
   // Specific project methodology phases mapping
   const getMethodologyStages = (projectId: string) => {
     switch (projectId) {
+      case 'bear-house':
       case 'the-bear-house':
         return ['VISUAL MERCHANDISING', 'STORE AUDITS', 'STYLING', 'EOSS', 'NEW STORE SETUP'];
-      case 'house-of-masaba':
-        return ['BRAND', 'CONSUMER', 'ASSORTMENT', 'MERCHANDISE', 'VM', 'PRODUCT DEVELOPMENT'];
       case 'healing-the-wait':
         return ['EMPATHIZE', 'DEFINE', 'IDEATE', 'PROTOTYPE', 'TEST'];
+      case 'house-of-masaba':
+        return ['BRAND', 'CONSUMER', 'ASSORTMENT', 'MERCHANDISE', 'VM', 'PRODUCT DEVELOPMENT'];
+      case '3am-india':
+        return ['RESEARCH', 'SIMPLIFY', 'CREATE', 'CONNECT'];
       case 'sutra-edit':
         return ['MARKET GAP', 'PLATFORM', 'VALUE PROPOSITION', 'BUSINESS MODEL', 'GO-TO-MARKET'];
-      case 'beyond-the-boutique':
-        return ['DISCOVER', 'EXPLORE', 'EXPERIENCE', 'PURCHASE', 'OWN', 'RE-ENGAGE'];
       default:
         return ['DISCOVERY', 'ANALYSIS', 'STRATEGY', 'EXECUTION', 'DELIVERY'];
     }
@@ -42,7 +42,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
       if (e.key === 'Escape') onClose();
       if (!project) return;
 
-      const projectList = project.id === '3am-india' ? PROJECTS_DATA : featuredProjects;
+      const projectList = PROJECTS_DATA;
       const currentIndex = projectList.findIndex((p) => p.id === project.id);
       if (e.key === 'ArrowRight') {
         const nextIndex = (currentIndex + 1) % projectList.length;
@@ -63,11 +63,11 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [project, onClose, onSelectProject, featuredProjects]);
+  }, [project, onClose, onSelectProject]);
 
   if (!project) return null;
 
-  const projectList = project.id === '3am-india' ? PROJECTS_DATA : featuredProjects;
+  const projectList = PROJECTS_DATA;
   const currentIndex = projectList.findIndex((p) => p.id === project.id);
   const prevProject = projectList[(currentIndex - 1 + projectList.length) % projectList.length];
   const nextProject = projectList[(currentIndex + 1) % projectList.length];

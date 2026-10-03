@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Sparkles, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import type { Project } from '../data/portfolioData';
 import { PROJECTS_DATA } from '../data/portfolioData';
 import { ProjectImage } from './ProjectImage';
@@ -13,9 +13,6 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
   const [visibleMetrics, setVisibleMetrics] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
-  // Exactly 5 Curated Case Studies (3AM India excluded from Selected Work)
-  const featuredProjects = PROJECTS_DATA.filter((p) => p.id !== '3am-india');
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -23,7 +20,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
           setVisibleMetrics(true);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -37,34 +34,45 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
     <section
       ref={sectionRef}
       id="work"
-      className="py-24 sm:py-36 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#262320] bg-[#0B0A09] text-[#F4F0E8] relative select-none"
+      className="pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-36 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#262320] bg-[#0B0A09] text-[#F4F0E8] relative select-none"
     >
       {/* Subtle Layout Grid Background */}
       <div className="absolute inset-0 editorial-grid-bg opacity-20 pointer-events-none" />
 
-      {/* Section Header */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-16 border-b border-[#262320] relative z-10">
-        <div className="space-y-4 max-w-3xl">
-          <div className="flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#722F37]">
-            <Sparkles className="w-3.5 h-3.5 text-[#722F37]" />
-            <span>SELECTED WORK</span>
+      {/* Short Editorial Transition Header (~35vh, No Slideshow Filler) */}
+      <div className="pb-16 sm:pb-24 border-b border-[#262320] relative z-10 space-y-6">
+        <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+          <div className="flex items-center gap-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#722F37]" />
+            <span className="font-semibold tracking-[0.18em] text-[#722F37] uppercase text-[11px] sm:text-xs">
+              01 — SELECTED WORK
+            </span>
           </div>
-          <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
-            SELECTED
-            <span className="block font-serif italic text-[#C8BFB2] font-normal">WORK</span>
-          </h2>
+
+          <div className="flex items-center gap-2 sm:gap-3 text-[#8E8278] text-[10px] sm:text-[11px] tracking-widest uppercase">
+            <span className="text-[#C8BFB2]">05 CURATED PROJECTS</span>
+            <span className="text-[#262320]">•</span>
+            <span>RETAIL × MERCHANDISING × STRATEGY</span>
+          </div>
         </div>
 
-        <div className="flex items-center gap-2 font-mono text-xs text-[#8E8278]">
-          <span className="text-[#722F37] font-bold">05 CURATED PROJECTS</span>
-          <span className="text-[#262320]">•</span>
-          <span>RETAIL × MERCHANDISING × STRATEGY</span>
+        {/* High-Impact Editorial Transition Statement */}
+        <div className="space-y-3 max-w-4xl pt-2">
+          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.98]">
+            WORK THAT SITS
+            <span className="block font-serif italic text-[#C8BFB2] font-normal mt-1">
+              BETWEEN CREATIVITY AND COMMERCE.
+            </span>
+          </h2>
+          <p className="text-sm sm:text-base text-[#8E8278] font-sans font-light max-w-2xl pt-1 leading-relaxed">
+            Work across retail, fashion strategy, consumer thinking and brand communication.
+          </p>
         </div>
       </div>
 
-      {/* 5 Curated Large Editorial Spreads (Open, No Nested Cards) */}
-      <div className="space-y-32 sm:space-y-44 pt-16 relative z-10">
-        {featuredProjects.map((project, idx) => {
+      {/* 5 Curated Large Magazine Editorial Spreads */}
+      <div className="space-y-28 sm:space-y-40 pt-16 sm:pt-20 relative z-10">
+        {PROJECTS_DATA.map((project, idx) => {
           const isHovered = activeHoverIndex === idx;
           const isEven = idx % 2 === 1;
 
@@ -77,7 +85,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
               className="group relative transition-all duration-700"
             >
               {/* Top Project Identification Bar */}
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#262320] pb-4 mb-10 font-mono text-xs text-[#8E8278] transition-colors group-hover:border-[#722F37]/50">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#262320] pb-4 mb-8 sm:mb-12 font-mono text-xs text-[#8E8278] transition-colors group-hover:border-[#722F37]/50">
                 <div className="flex items-center gap-3">
                   <span className="text-[#722F37] font-bold text-sm">0{idx + 1}</span>
                   <span className="text-[#262320]">/</span>
@@ -91,7 +99,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
 
               {/* Large Editorial Magazine Spread Layout */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-                {/* Left/Right Column: Narrative, Deliverables & Action */}
+                {/* Narrative & Strategy Column */}
                 <div
                   className={`lg:col-span-6 space-y-6 ${
                     isEven ? 'lg:order-2' : 'lg:order-1'
@@ -101,10 +109,10 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                     <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] block">
                       {project.category}
                     </span>
-                    <h3 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#F4F0E8] font-normal leading-[0.95] tracking-tight group-hover:text-[#F4F0E8] transition-colors">
+                    <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#F4F0E8] font-normal leading-[0.95] tracking-tight group-hover:text-[#F4F0E8] transition-colors">
                       {project.title}
                     </h3>
-                    <p className="font-serif text-2xl sm:text-3xl text-[#C8BFB2] italic pt-1">
+                    <p className="font-serif text-xl sm:text-2xl text-[#C8BFB2] italic pt-0.5">
                       "{project.subtitle}"
                     </p>
                   </div>
@@ -114,7 +122,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                     {project.shortDescription}
                   </p>
 
-                  {/* Strategic Deliverables List */}
+                  {/* Key Deliverables & Strategy */}
                   <div className="space-y-2.5 pt-2 border-t border-[#262320]">
                     <span className="text-[10px] font-mono uppercase tracking-widest text-[#722F37] font-bold block">
                       KEY DELIVERABLES & STRATEGY:
@@ -134,7 +142,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                     {project.keyFacts.slice(0, 2).map((fact, fIdx) => (
                       <div
                         key={fIdx}
-                        className="p-3 rounded-xl border border-[#262320] text-left transition-colors group-hover:border-[#722F37]/40"
+                        className="p-3.5 rounded-xl border border-[#262320] text-left transition-colors group-hover:border-[#722F37]/40 bg-[#141211]/50"
                       >
                         <div className="text-[9px] font-mono text-[#8E8278] uppercase">{fact.label}</div>
                         <div
@@ -169,7 +177,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                   </div>
                 </div>
 
-                {/* Right/Left Column: Large Magazine Visual Area */}
+                {/* Large Magazine Visual Area */}
                 <div
                   className={`lg:col-span-6 ${
                     isEven ? 'lg:order-1' : 'lg:order-2'

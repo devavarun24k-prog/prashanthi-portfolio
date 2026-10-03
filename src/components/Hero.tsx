@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowDown, ArrowUpRight, Sparkles } from 'lucide-react';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { PERSONAL_DATA } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
@@ -9,13 +9,12 @@ export const Hero: React.FC = () => {
   const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // Cinematic Editorial Entrance Sequence
-    const p1 = setTimeout(() => setPhase(1), 60);   // Subtle grid lines fade in
-    const p2 = setTimeout(() => setPhase(2), 300);  // Portrait mask reveals
-    const p3 = setTimeout(() => setPhase(3), 650);  // "Prashanthi B." typography reveals
-    const p4 = setTimeout(() => setPhase(4), 1050); // Supporting disciplines reveal
-    const p5 = setTimeout(() => setPhase(5), 1400); // Academic credential & statement
-    const p6 = setTimeout(() => setPhase(6), 1750); // CTAs settle & accent line draws
+    // Controlled editorial reveal phases
+    const p1 = setTimeout(() => setPhase(1), 50);   // Grid & metadata
+    const p2 = setTimeout(() => setPhase(2), 250);  // Portrait reveal
+    const p3 = setTimeout(() => setPhase(3), 500);  // "Prashanthi B." monumental title
+    const p4 = setTimeout(() => setPhase(4), 850);  // Role & positioning
+    const p5 = setTimeout(() => setPhase(5), 1150); // CTAs settle
 
     return () => {
       clearTimeout(p1);
@@ -23,7 +22,6 @@ export const Hero: React.FC = () => {
       clearTimeout(p3);
       clearTimeout(p4);
       clearTimeout(p5);
-      clearTimeout(p6);
     };
   }, []);
 
@@ -45,7 +43,6 @@ export const Hero: React.FC = () => {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
       const { innerWidth, innerHeight } = window;
-      // Controlled 2-4px maximum movement
       const x = ((e.clientX / innerWidth) - 0.5) * 6;
       const y = ((e.clientY / innerHeight) - 0.5) * 6;
       setMousePos({ x, y });
@@ -59,9 +56,9 @@ export const Hero: React.FC = () => {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-[92vh] lg:min-h-[96vh] flex flex-col justify-between pt-28 sm:pt-36 pb-16 sm:pb-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none border-b border-[#262320]"
+      className="relative min-h-[92vh] lg:min-h-screen flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-16 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none border-b border-[#262320]"
     >
-      {/* Subtle Editorial Grid Lines */}
+      {/* Subtle Editorial Background Grid */}
       <div
         className="absolute inset-0 editorial-grid-bg pointer-events-none transition-opacity duration-1000 ease-out"
         style={{
@@ -70,80 +67,61 @@ export const Hero: React.FC = () => {
       />
 
       {/* Top Editorial Identity & Metadata Bar */}
-      <div className="relative z-20 space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-2 text-xs font-mono text-[#8E8278]">
+      <div className="relative z-20">
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#262320] text-xs font-mono text-[#8E8278]">
           <div
-            className={`inline-flex items-center gap-2.5 transition-all duration-700 ${
-              phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
-            }`}
-          >
-            <Sparkles className="w-3.5 h-3.5 text-[#722F37]" />
-            <span className="font-bold text-[#F4F0E8] tracking-widest uppercase">Prashanthi B.</span>
-          </div>
-
-          <div
-            className={`hidden sm:flex items-center gap-2 transition-all duration-700 delay-100 ${
+            className={`flex items-center gap-2.5 transition-all duration-700 ${
               phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
             }`}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#722F37]" />
-            <span className="text-[#C8BFB2]">BANGALORE, INDIA</span>
-            <span className="text-[#262320]">•</span>
-            <span className="text-[11px] text-[#8E8278]">12.9716° N, 77.5946° E</span>
+            <span className="font-bold text-[#F4F0E8] tracking-widest uppercase">Prashanthi B.</span>
           </div>
 
           <div
-            className={`text-[#722F37] uppercase tracking-wider font-semibold transition-all duration-700 delay-200 ${
+            className={`flex items-center gap-2 sm:gap-3 text-[11px] tracking-wider transition-all duration-700 delay-100 ${
               phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
             }`}
           >
-            <span>FASHION × RETAIL × STRATEGY</span>
+            <span className="text-[#C8BFB2]">BANGALORE, INDIA</span>
+            <span className="text-[#262320]">•</span>
+            <span className="text-[#722F37] font-semibold uppercase">FASHION × RETAIL × BRAND STRATEGY</span>
           </div>
-        </div>
-
-        {/* Drawing Accent Rule Line */}
-        <div className="relative w-full h-[1px] bg-[#262320] overflow-hidden">
-          <div
-            className="absolute inset-y-0 left-0 bg-[#722F37] transition-all duration-1000 ease-out"
-            style={{
-              width: phase >= 1 ? '100%' : '0%',
-              opacity: phase >= 1 ? 1 : 0,
-            }}
-          />
         </div>
       </div>
 
       {/* HERO CENTRAL EDITORIAL SPREAD */}
       <div
-        className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center py-8 sm:py-14 my-auto transition-all duration-500"
+        className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center py-6 sm:py-10 my-auto transition-all duration-500"
         style={{
           transform: `translate3d(0, ${scrollProgress * -20}px, 0)`,
           opacity: 1 - scrollProgress * 0.5,
         }}
       >
-        {/* Left Column: Monumental Editorial Typography */}
+        {/* Left Column: Monumental Editorial Typography (Dominant Name & Role) */}
         <div
-          className="lg:col-span-7 space-y-6 lg:space-y-8 transition-transform duration-500 ease-out"
+          className="lg:col-span-7 space-y-6 lg:space-y-7 transition-transform duration-500 ease-out"
           style={{
             transform: `translate3d(${mousePos.x * -0.2}px, ${mousePos.y * -0.2}px, 0)`,
           }}
         >
-          {/* Main Title & Role */}
+          {/* Main Monumental Name */}
           <div className="space-y-3">
             <div className="overflow-hidden">
               <h1
-                className={`font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[6.25rem] xl:text-[7rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.90] ${
-                  phase >= 3 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
+                className={`font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[6.5rem] xl:text-[7.75rem] 2xl:text-[8.5rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.88] transition-all duration-1000 ease-out ${
+                  phase >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
               >
                 Prashanthi B.
               </h1>
             </div>
 
+            {/* Role Disciplines */}
             <div className="overflow-hidden pt-1">
               <p
-                className={`font-serif italic text-[#722F37] font-normal text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-snug ${
-                  phase >= 4 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
+                className={`font-serif italic text-[#722F37] font-normal text-2xl sm:text-3xl lg:text-4xl xl:text-[2.65rem] tracking-tight leading-snug transition-all duration-1000 delay-150 ease-out ${
+                  phase >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
               >
                 Buying & Merchandising | Brand Strategy | Visual Merchandising
@@ -151,33 +129,19 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Academic Credential & Disciplines */}
-          <div
-            className={`space-y-2 border-l-2 border-[#722F37] pl-4 transition-all duration-1000 ${
-              phase >= 5 ? 'mask-horizontal-reveal' : 'mask-horizontal-hidden'
-            }`}
-          >
-            <div className="font-mono text-xs uppercase tracking-wider text-[#C8BFB2] font-semibold">
-              MBA — Fashion & Lifestyle Business Management
-            </div>
-            <div className="text-xs text-[#8E8278] font-sans">
-              Pearl Academy Bangalore (2025–2027) • ICFAI University BBA (2020–2023)
-            </div>
-          </div>
-
-          {/* Statement Quote */}
+          {/* Strategic Positioning Line */}
           <p
-            className={`text-base sm:text-lg text-[#C8BFB2] leading-relaxed font-sans max-w-xl font-light transition-all duration-1000 ${
-              phase >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            className={`text-base sm:text-lg lg:text-xl text-[#C8BFB2] leading-relaxed font-sans max-w-xl font-light transition-all duration-1000 delay-300 ease-out ${
+              phase >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            “I bring a creative eye with a strong understanding of the business behind fashion.”
+            “{PERSONAL_DATA.intro}”
           </p>
 
           {/* Action CTAs */}
           <div
-            className={`flex flex-wrap items-center gap-5 pt-2 transition-all duration-700 ${
-              phase >= 6 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            className={`flex flex-wrap items-center gap-4 sm:gap-5 pt-2 transition-all duration-700 delay-500 ${
+              phase >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
             <a
@@ -206,7 +170,7 @@ export const Hero: React.FC = () => {
           }}
         >
           <div
-            className={`relative w-full max-w-sm sm:max-w-md lg:max-w-lg aspect-[3/4] overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            className={`relative w-full max-w-sm sm:max-w-md lg:max-w-lg aspect-[3/4] overflow-hidden rounded-xl transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               phase >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.03]'
             }`}
           >

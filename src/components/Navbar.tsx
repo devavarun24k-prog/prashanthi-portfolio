@@ -22,8 +22,8 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: 'WORK', href: '#work', number: '01' },
-    { label: 'EXPERIENCE', href: '#experience', number: '02' },
-    { label: 'ABOUT', href: '#about', number: '03' },
+    { label: 'ABOUT', href: '#about', number: '02' },
+    { label: 'EXPERIENCE', href: '#experience', number: '03' },
     { label: 'CONTACT', href: '#contact', number: '04' },
   ];
 
@@ -158,7 +158,7 @@ export const Navbar: React.FC = () => {
               <span>REQUEST CV</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
-            <span className="text-[10px]">BLR // 12.9716° N</span>
+            <span className="text-[10px] uppercase">BANGALORE, INDIA</span>
           </div>
         </div>
       )}

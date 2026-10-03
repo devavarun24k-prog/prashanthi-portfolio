@@ -15,7 +15,7 @@ export const ExperienceSection: React.FC = () => {
         <div className="space-y-4 max-w-3xl">
           <div className="flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#722F37]">
             <Briefcase className="w-3.5 h-3.5 text-[#722F37]" />
-            <span>CAREER PATH & EXPERIENCE</span>
+            <span>03 — CAREER PATH & EXPERIENCE</span>
           </div>
           <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
             CAREER &

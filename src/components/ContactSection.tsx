@@ -41,7 +41,7 @@ export const ContactSection: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#F4F0E8]/20 pb-6 z-10 relative font-mono text-xs text-[#F4F0E8]/80">
             <div className="inline-flex items-center gap-2 uppercase tracking-widest text-[#F4F0E8]">
               <Sparkles className="w-3.5 h-3.5 text-[#F4F0E8]" />
-              <span>DIRECT INQUIRY & COLLABORATION</span>
+              <span>04 — DIRECT INQUIRY & COLLABORATION</span>
             </div>
 
             <div className="flex items-center gap-3">

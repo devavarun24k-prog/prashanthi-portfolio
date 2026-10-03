@@ -55,7 +55,7 @@ export const AboutSection: React.FC = () => {
         <div className="flex items-center gap-2.5">
           <span className="w-1.5 h-1.5 rounded-full bg-[#722F37]" />
           <span className="font-semibold tracking-[0.18em] text-[#722F37] uppercase text-[11px] sm:text-xs">
-            03 / ABOUT
+            02 / ABOUT
           </span>
         </div>
 
