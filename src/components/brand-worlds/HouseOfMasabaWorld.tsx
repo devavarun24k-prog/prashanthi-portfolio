@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Sparkles, Crown } from 'lucide-react';
+import { Crown, ArrowRight, Layers } from 'lucide-react';
 
 interface HouseOfMasabaWorldProps {
   className?: string;
@@ -8,21 +8,54 @@ interface HouseOfMasabaWorldProps {
 export const HouseOfMasabaWorld: React.FC<HouseOfMasabaWorldProps> = ({
   className = '',
 }) => {
-  const [stage, setStage] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState<boolean>(true);
 
-  const stages = [
-    { num: '01', name: 'TEXTILE & PRINT', desc: 'Signature Botanical & Foil Artistry' },
-    { num: '02', name: 'RESORT & PRÊT', desc: 'Draped Silhouettes & Festive Lookbook' },
-    { num: '03', name: 'VERIFIED CATEGORIES', desc: '5 Core Lines · 112 Styles · 1,008 SKUs' },
-    { num: '04', name: 'ASSORTMENT MATRIX', desc: 'Tiered Pricing & Indian Sizing Calibration' },
-    { num: '05', name: 'STRATEGY CASCADE', desc: 'Brand → Assortment → VM → Conversion' },
-    { num: '06', name: 'RETAIL RESOLUTION', desc: 'Translating Brand Identity into Retail Experience' },
+  const tabs = [
+    {
+      label: '5 CORE CATEGORIES',
+      tagline: '112 Styles · 1,008 SKUs',
+      headline: 'Merchandise Planning & Assortment Architecture',
+      detail: 'Structuring a balanced commercial range balancing core styles, high-end prêt, festive occasions, and print personality.',
+      badge: '1,008 SKUs',
+      items: [
+        { name: 'Festive Bias', count: '28 Styles', skus: '252 SKUs', tag: 'Core Festive' },
+        { name: 'High-End Prêt', count: '32 Styles', skus: '288 SKUs', tag: 'Resort Wear' },
+        { name: 'Wedding Guest', count: '24 Styles', skus: '216 SKUs', tag: 'Occasion' },
+        { name: 'Heritage Remix', count: '16 Styles', skus: '144 SKUs', tag: 'Statement' },
+        { name: 'Print Personality', count: '12 Styles', skus: '108 SKUs', tag: 'Signature' },
+      ],
+    },
+    {
+      label: 'DRAPED LOOKBOOK',
+      tagline: 'Signature Prints & Contemporary Silhouettes',
+      headline: 'Translating Brand Identity into Luxury Fashion',
+      detail: 'Pre-stitched draped sarees, relaxed fluid kaftans, and modern bridal fusion sets with iconic gold foil motifs.',
+      badge: 'Editorial Lookbook',
+      items: [
+        { name: 'Draped Saree Cape', count: 'Gold Foil Silk', skus: '₹18,500', tag: 'Festive Bias' },
+        { name: 'Crepe Resort Kaftan', count: 'Engineered Palm', skus: '₹12,000', tag: 'High-End Prêt' },
+        { name: 'Tiered Remix Lehenga', count: 'Structured Bustier', skus: '₹38,000', tag: 'Wedding Guest' },
+        { name: 'Fusion Kurta Set', count: 'Contrast Border', skus: '₹14,500', tag: 'Heritage Remix' },
+        { name: 'Statement Overlay', count: 'Bold Monogram', skus: '₹16,000', tag: 'Print Personality' },
+      ],
+    },
+    {
+      label: 'PRICING & SIZING STRATEGY',
+      tagline: 'Tiered Pricing & Indian Sizing Calibration',
+      headline: 'Commercial Margin Viability & High Sell-Through',
+      detail: 'Defined price bands (₹7.5K – ₹65K) and calibrated female sizing curves (XS–XL) to eliminate broken-size inventory.',
+      badge: 'Commercial Strategy',
+      items: [
+        { name: 'Entry Prêt Tier', count: '₹7,500 – ₹14,000', skus: '60% Margin', tag: 'Volume Driver' },
+        { name: 'Core Festive Tier', count: '₹15,000 – ₹28,000', skus: '65% Margin', tag: 'Margin Engine' },
+        { name: 'Statement Lab', count: '₹30,000 – ₹65,000', skus: '70% Margin', tag: 'Prestige Hero' },
+        { name: 'Sizing Curve', count: 'XS · S · M · L · XL', skus: 'Calibrated', tag: 'Indian Fit' },
+        { name: 'Conversion Flow', count: 'Brand → Assortment → VM', skus: '6-Tier', tag: 'Retail VM' },
+      ],
+    },
   ];
-
-  const TOTAL_STAGES = stages.length;
-  const STAGE_DURATION = 2300; // ms per stage
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,251 +72,109 @@ export const HouseOfMasabaWorld: React.FC<HouseOfMasabaWorldProps> = ({
     return () => observer.disconnect();
   }, []);
 
+  // Calm automatic rotation
   useEffect(() => {
     if (!isVisible) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const interval = setInterval(() => {
-      setStage((prev) => (prev + 1) % TOTAL_STAGES);
-    }, STAGE_DURATION);
+      setActiveTab((prev) => (prev + 1) % tabs.length);
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, [isVisible, TOTAL_STAGES]);
+  }, [isVisible, tabs.length]);
 
-  const currentStage = stages[stage] || stages[0];
+  const current = tabs[activeTab];
 
   return (
     <div
       ref={containerRef}
-      className={`relative w-full aspect-[16/10] sm:aspect-[16/9] bg-[#100D0C] rounded-3xl border border-[#2E2623] overflow-hidden flex flex-col justify-between p-5 sm:p-7 select-none shadow-2xl transition-all duration-700 ${className}`}
+      className={`relative w-full rounded-3xl bg-[#14100F] border border-[#382B27] overflow-hidden p-6 sm:p-8 select-none shadow-2xl transition-all duration-700 ${className}`}
     >
-      {/* Expressive Luxury Texture with Warm Burgundy & Gold Highlights */}
-      <div className="absolute inset-0 pointer-events-none opacity-25 bg-[radial-gradient(#722F37_1.2px,transparent_1.2px)] [background-size:1.8rem_1.8rem]" />
-      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#722F37]/15 rounded-full blur-3xl pointer-events-none" />
+      {/* Background Luxury Burgundy Texture */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#A87578_1.2px,transparent_1.2px)] [background-size:2rem_2rem]" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#722F37]/20 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Top Editorial Ribbon */}
-      <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-[#2E2623] pb-3 text-xs font-mono">
-        <div className="flex items-center gap-2 text-[#A87578]">
-          <Sparkles className="w-3.5 h-3.5 text-[#A87578]" />
-          <span className="font-bold uppercase tracking-widest text-[#F4F0E8] text-[11px] sm:text-xs">
-            FASHION EDITORIAL // HOUSE OF MASABA
-          </span>
-          <span className="text-[#3A322E]">•</span>
-          <span className="text-[#C8BFB2] text-[10px] sm:text-[11px] uppercase tracking-wider transition-all duration-500">
-            {currentStage.name}
-          </span>
+      {/* Editorial Header Bar */}
+      <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-b border-[#382B27] pb-4">
+        <div className="space-y-0.5 text-left">
+          <div className="flex items-center gap-2">
+            <Crown className="w-3.5 h-3.5 text-[#A87578]" />
+            <span className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#A87578]">
+              LUXURY FASHION & ASSORTMENT STRATEGY
+            </span>
+          </div>
+          <h4 className="font-serif text-2xl sm:text-3xl text-[#F4F0E8] font-normal tracking-tight">
+            HOUSE OF MASABA
+          </h4>
         </div>
 
-        <div className="flex items-center gap-2 text-[10px] font-mono text-[#8E8278]">
-          <span className="text-[#A87578] font-bold">{currentStage.num}</span>
-          <span>/</span>
-          <span>0{TOTAL_STAGES}</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#722F37] ml-1" />
+        {/* Interactive Story Switcher */}
+        <div className="flex items-center gap-1.5 bg-[#0A0707] p-1 rounded-full border border-[#382B27]">
+          {tabs.map((tab, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveTab(idx)}
+              className={`px-3 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase transition-all ${
+                activeTab === idx
+                  ? 'bg-[#722F37] text-[#F4F0E8] font-bold shadow'
+                  : 'text-[#8E8278] hover:text-[#F4F0E8]'
+              }`}
+            >
+              {tab.label.split(' ')[0]}
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* Central Visual Motion Canvas */}
-      <div className="relative z-10 flex-1 my-3 flex items-center justify-center min-h-[195px]">
-        {/* STAGE 01: Signature Textile Print & Botanical Motif Artistry */}
-        {stage === 0 && (
-          <div className="w-full max-w-lg p-5 rounded-2xl bg-[#171312] border border-[#722F37]/40 shadow-xl space-y-3 animate-fadeIn transition-all duration-700">
-            <div className="flex justify-between items-center text-[9px] font-mono text-[#A87578] border-b border-[#2E2623] pb-2">
-              <span className="font-semibold uppercase tracking-wider">SIGNATURE BOTANICAL & FOIL PRINT SPREAD</span>
-              <span className="text-[#C8BFB2]">RESORT / OCCASION WEAR</span>
-            </div>
-
-            <div className="grid grid-cols-4 sm:grid-cols-6 gap-2.5 py-1">
-              {[...Array(6)].map((_, i) => (
-                <div
-                  key={i}
-                  className="h-20 rounded-xl border border-[#722F37]/50 bg-[#0B0A09] p-2 flex flex-col justify-between items-center relative overflow-hidden group hover:border-[#A87578] transition-all"
-                >
-                  <div className="absolute -top-3 -right-3 w-10 h-10 bg-[#722F37]/20 rounded-full blur-sm" />
-                  <span className="text-[7.5px] font-mono text-[#A87578]">PRT_0{i + 1}</span>
-                  {/* Decorative stylized textile vector */}
-                  <svg viewBox="0 0 32 32" className="w-8 h-8 text-[#F4F0E8] opacity-90">
-                    <path
-                      d="M16 2 C20 8, 28 12, 28 18 C28 24, 22 28, 16 30 C10 28, 4 24, 4 18 C4 12, 12 8, 16 2 Z"
-                      fill="none"
-                      stroke="#A87578"
-                      strokeWidth="1.2"
-                    />
-                    <circle cx="16" cy="18" r="3" fill="#722F37" />
-                  </svg>
-                  <span className="text-[7px] font-mono text-[#C8BFB2] truncate">Foil Palm</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex justify-between text-[8px] font-mono text-[#8E8278]">
-              <span>LUXURY PRINT COMPOSITION</span>
-              <span className="text-[#A87578]">HIGH-CONTRAST INDIAN PRINTS</span>
-            </div>
+      {/* Central Visual Showcase Spread */}
+      <div className="relative z-10 py-6 space-y-6">
+        {/* Headline & Detail */}
+        <div className="space-y-2 text-left">
+          <div className="flex items-center gap-3">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#722F37]/25 border border-[#A87578]/50 text-[9px] font-mono text-[#F4F0E8] uppercase tracking-wider font-semibold">
+              {current.badge}
+            </span>
+            <span className="text-xs font-mono text-[#C8BFB2] uppercase tracking-wider">
+              {current.tagline}
+            </span>
           </div>
-        )}
+          <h5 className="font-serif text-xl sm:text-2xl text-[#F4F0E8] font-normal leading-snug">
+            {current.headline}
+          </h5>
+          <p className="text-xs sm:text-sm text-[#8E8278] font-sans font-light leading-relaxed max-w-2xl">
+            {current.detail}
+          </p>
+        </div>
 
-        {/* STAGE 02: Draped Silhouettes & Festive Lookbook */}
-        {stage === 1 && (
-          <div className="w-full max-w-lg p-5 rounded-2xl bg-[#171312] border border-[#2E2623] shadow-xl space-y-3 animate-fadeIn transition-all duration-700">
-            <div className="flex justify-between items-center text-[9px] font-mono text-[#A87578] border-b border-[#2E2623] pb-2">
-              <span className="font-semibold uppercase tracking-wider">DRAPED SILHOUETTES & FESTIVE LOOKBOOK</span>
-              <span className="text-[#8E8278]">CONTEMPORARY OCCASION</span>
+        {/* 5 Verified Category Cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 pt-2">
+          {current.items.map((item, idx) => (
+            <div
+              key={idx}
+              className="p-3.5 rounded-2xl bg-[#1C1615] border border-[#382B27] hover:border-[#A87578] transition-all space-y-1.5 text-center shadow-lg"
+            >
+              <div className="text-[8px] font-mono text-[#A87578] font-bold uppercase">{item.tag}</div>
+              <div className="font-serif text-sm text-[#F4F0E8] leading-tight line-clamp-1">{item.name}</div>
+              <div className="text-[10px] text-[#C8BFB2] font-mono">{item.count}</div>
+              <div className="text-[8px] text-[#8E8278] font-mono pt-1 border-t border-[#2A201D]">{item.skus}</div>
             </div>
-
-            <div className="grid grid-cols-3 gap-3">
-              {[
-                { title: 'DRAPED SAREE', tag: 'Festive Bias', desc: 'Pre-stitched silk blend with gold foil border' },
-                { title: 'RESORT KAFTAN', tag: 'High-End Prêt', desc: 'Fluid relaxed crepe silhouette with engineered print' },
-                { title: 'LEHENGA REMIX', tag: 'Wedding Guest', desc: 'Tiered skirt volume with structured bustier' },
-              ].map((card, cIdx) => (
-                <div key={cIdx} className="p-3.5 rounded-xl bg-[#0B0A09] border border-[#722F37]/50 space-y-2 text-left hover:border-[#A87578] transition-all">
-                  <div className="flex items-center justify-between text-[8px] font-mono text-[#A87578]">
-                    <span>LOOK 0{cIdx + 1}</span>
-                    <span className="px-1.5 py-0.5 rounded bg-[#722F37]/25 text-[7px] text-[#F4F0E8]">{card.tag}</span>
-                  </div>
-                  <div className="font-serif text-sm text-[#F4F0E8] leading-tight">{card.title}</div>
-                  <div className="text-[8px] text-[#8E8278] font-sans line-clamp-2">{card.desc}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* STAGE 03: Verified 5 Core Categories & SKU Breakdown */}
-        {stage === 2 && (
-          <div className="w-full max-w-lg p-5 rounded-2xl bg-[#171312] border border-[#2E2623] shadow-xl space-y-3 animate-fadeIn transition-all duration-700">
-            <div className="flex justify-between items-center text-[9px] font-mono text-[#A87578] border-b border-[#2E2623] pb-2">
-              <span className="font-semibold uppercase tracking-wider">VERIFIED CATEGORY ARCHITECTURE</span>
-              <span className="text-[#F4F0E8] font-bold">5 CATEGORIES · 112 STYLES · 1,008 SKUs</span>
-            </div>
-
-            <div className="grid grid-cols-5 gap-1.5">
-              {[
-                { name: 'Festive Bias', count: '28 Styles', skus: '252 SKUs' },
-                { name: 'High-End Prêt', count: '32 Styles', skus: '288 SKUs' },
-                { name: 'Wedding Guest', count: '24 Styles', skus: '216 SKUs' },
-                { name: 'Heritage Remix', count: '16 Styles', skus: '144 SKUs' },
-                { name: 'Print Personality', count: '12 Styles', skus: '108 SKUs' },
-              ].map((cat, idx) => (
-                <div key={idx} className="p-2.5 rounded-xl bg-[#0B0A09] border border-[#722F37]/50 text-center space-y-1 hover:border-[#A87578] transition-all">
-                  <div className="text-[7.5px] font-mono text-[#A87578] font-bold">CAT_0{idx + 1}</div>
-                  <div className="font-serif text-xs text-[#F4F0E8] leading-tight">{cat.name}</div>
-                  <div className="text-[8px] text-[#C8BFB2] font-mono">{cat.count}</div>
-                  <div className="text-[7px] text-[#8E8278] font-mono">{cat.skus}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* STAGE 04: Tiered Pricing Architecture & Indian Sizing Calibration */}
-        {stage === 3 && (
-          <div className="w-full max-w-lg p-5 rounded-2xl bg-[#171312] border border-[#2E2623] shadow-xl space-y-3 animate-fadeIn transition-all duration-700">
-            <div className="flex justify-between items-center text-[9px] font-mono text-[#A87578] border-b border-[#2E2623] pb-2">
-              <span className="font-semibold uppercase tracking-wider">PRICING BANDS & SIZING CALIBRATION</span>
-              <span className="text-[#8E8278]">COMMERCIAL VIABILITY</span>
-            </div>
-
-            <div className="grid grid-cols-3 gap-3 text-left">
-              {[
-                { band: 'ENTRY LUXURY', price: '₹7,500 – ₹14,000', mix: 'Prêt & Resort Sets', margin: '60% Target' },
-                { band: 'CORE FESTIVE', price: '₹15,000 – ₹28,000', mix: 'Draped Sarees & Capes', margin: '65% Target' },
-                { band: 'STATEMENT LAB', price: '₹30,000 – ₹65,000', mix: 'Wedding & Heritage Remix', margin: '70% Target' },
-              ].map((tier, tIdx) => (
-                <div key={tIdx} className="p-3.5 rounded-xl bg-[#0B0A09] border border-[#722F37]/50 space-y-1.5">
-                  <div className="text-[8px] font-mono text-[#A87578] font-bold">TIER_0{tIdx + 1}</div>
-                  <div className="font-serif text-sm text-[#F4F0E8]">{tier.band}</div>
-                  <div className="text-[10px] font-mono text-[#C8BFB2] font-semibold">{tier.price}</div>
-                  <div className="text-[8px] font-sans text-[#8E8278]">{tier.mix}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex justify-between text-[8px] font-mono text-[#8E8278]">
-              <span>INDIAN SIZING CURVE: XS (10%) · S (25%) · M (35%) · L (20%) · XL (10%)</span>
-            </div>
-          </div>
-        )}
-
-        {/* STAGE 05: Brand-to-Product Strategy Cascade */}
-        {stage === 4 && (
-          <div className="w-full max-w-lg p-5 rounded-2xl bg-[#171312] border border-[#2E2623] shadow-xl space-y-3 animate-fadeIn transition-all duration-700">
-            <div className="flex justify-between items-center text-[9px] font-mono text-[#A87578] border-b border-[#2E2623] pb-2">
-              <span className="font-semibold uppercase tracking-wider">STRATEGIC RETAIL CONVERSION CASCADE</span>
-              <span className="text-[#8E8278]">6-TIER HIERARCHY</span>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-between gap-1 p-3 bg-[#0B0A09] rounded-xl border border-[#722F37]/40 font-mono text-xs text-[#F4F0E8]">
-              {['BRAND', '↓', 'CONSUMER', '↓', 'MERCHANDISE', '↓', 'ASSORTMENT', '↓', 'VM', '↓', 'PRODUCT'].map((item, idx) => (
-                <span
-                  key={idx}
-                  className={
-                    item === '↓'
-                      ? 'text-[#A87578] font-bold'
-                      : 'px-2 py-1 rounded bg-[#171312] border border-[#2E2623] text-[9.5px] font-semibold text-[#F4F0E8]'
-                  }
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            <div className="text-[8px] font-mono text-[#8E8278] text-center">
-              Harmonizing Bold Print Storytelling with Commercial High-Sellthrough Floor Planning
-            </div>
-          </div>
-        )}
-
-        {/* STAGE 06: Authentic Brand & Retail Resolution */}
-        {stage === 5 && (
-          <div className="text-center space-y-3 max-w-md animate-fadeIn transition-all duration-700">
-            <div className="w-12 h-12 mx-auto rounded-full bg-[#722F37] text-[#F4F0E8] flex items-center justify-center shadow-2xl border border-[#A87578]/50">
-              <Crown className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal tracking-tight">
-                HOUSE OF MASABA
-              </h4>
-              <div className="text-xs font-mono text-[#A87578] uppercase tracking-widest font-semibold mt-1">
-                TRANSLATING BRAND IDENTITY INTO RETAIL EXPERIENCE
-              </div>
-            </div>
-            <p className="text-xs text-[#8E8278] font-mono leading-relaxed max-w-sm mx-auto">
-              5 Categories · 112 Styles · 1,008 SKUs · Assortment Planning & Tiered Pricing Architecture
-            </p>
-          </div>
-        )}
+          ))}
+        </div>
       </div>
 
-      {/* Bottom Passive Editorial Progress Line */}
-      <div className="relative z-10 border-t border-[#2E2623] pt-3">
-        <div className="grid grid-cols-6 gap-2">
-          {stages.map((stg, idx) => {
-            const isCurrent = stage === idx;
-            const isCompleted = stage > idx;
-
-            return (
-              <div key={idx} className="space-y-1">
-                <div className="h-0.5 bg-[#1C1716] rounded-full overflow-hidden">
-                  <div
-                    className={`h-full bg-[#A87578] transition-all ${
-                      isCompleted ? 'w-full' : isCurrent ? 'w-full duration-[2300ms] ease-linear' : 'w-0'
-                    }`}
-                  />
-                </div>
-                <div className="flex items-center justify-between text-[8px] font-mono">
-                  <span className={isCurrent ? 'text-[#F4F0E8] font-bold' : 'text-[#6E5C58]'}>
-                    {stg.num}
-                  </span>
-                  <span className="hidden sm:inline text-[#6E5C58] truncate text-[7.5px]">
-                    {stg.name.split(' ')[0]}
-                  </span>
-                </div>
-              </div>
-            );
-          })}
+      {/* Bottom Context Footer */}
+      <div className="relative z-10 border-t border-[#382B27] pt-4 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-[#8E8278]">
+        <div className="flex items-center gap-2 text-[11px] text-[#C8BFB2]">
+          <Layers className="w-3.5 h-3.5 text-[#A87578]" />
+          <span>5 Categories · 112 Styles · 1,008 SKUs · Indian Sizing & Tiered Margins</span>
+        </div>
+        <div className="flex items-center gap-1 text-[#A87578] text-[11px] font-semibold">
+          <span>Explore Masaba Strategy</span>
+          <ArrowRight className="w-3.5 h-3.5" />
         </div>
       </div>
     </div>
   );
 };
+

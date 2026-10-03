@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { BookOpen, FileText } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, FileText } from 'lucide-react';
 
 interface SutraEditWorldProps {
   className?: string;
@@ -8,20 +8,49 @@ interface SutraEditWorldProps {
 export const SutraEditWorld: React.FC<SutraEditWorldProps> = ({
   className = '',
 }) => {
-  const [stage, setStage] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState<boolean>(true);
 
-  const stages = [
-    { num: '01', name: 'EDITORIAL SIGNALS', desc: 'Market Signals & Fashion Business Fragments' },
-    { num: '02', name: '3-TIER PLATFORM', desc: 'The Weekly Edit · Dashboard · Consulting' },
-    { num: '03', name: 'VALUE ECOSYSTEM', desc: 'Content → Community → Paid Intelligence' },
-    { num: '04', name: 'BUSINESS MODEL', desc: 'Starter · Pro · Premium Subscription Tiers' },
-    { num: '05', name: 'JOURNAL RESOLUTION', desc: 'Fashion Intelligence & Business Model' },
+  const tabs = [
+    {
+      label: 'FASHION INTELLIGENCE',
+      tagline: 'Vol. 04 · What’s Changing in Indian Fashion',
+      headline: 'Strategic Signals & Market Intelligence Dispatches',
+      detail: 'Executive synthesis tracking consumer migration toward high-end prêt, mid-market margin pressures, and D2C omnichannel penetration in India.',
+      badge: 'Executive Journal',
+      items: [
+        { title: 'Prêt Over Embellishment', stat: 'High-Growth', sub: 'Shift toward versatile everyday luxury', tag: 'Consumer' },
+        { title: 'Mid-Market Margin Squeeze', stat: '₹4K–₹12K Band', sub: 'Rising CAC & raw material price pressure', tag: 'Economics' },
+        { title: 'Omnichannel Regional Scale', stat: 'Tier 2/3 Expansion', sub: 'D2C brands establishing physical EBOs', tag: 'Channels' },
+        { title: 'Standardized Sizing Models', stat: 'XS–XL Calibration', sub: 'Eliminating broken-size inventory returns', tag: 'Sizing' },
+      ],
+    },
+    {
+      label: '3-TIER PLATFORM',
+      tagline: 'Editorial to Paid Retainers',
+      headline: 'The Weekly Edit · The Dashboard · 1:1 Advisory',
+      detail: 'A multi-layered intelligence platform that converts free thought leadership and community authority into high-margin executive advisory retainers.',
+      badge: 'Platform Architecture',
+      items: [
+        { title: '01 The Weekly Edit', stat: 'Weekly Dispatches', sub: 'Executive newsletter & trend synthesis', tag: 'Editorial' },
+        { title: '02 The Dashboard', stat: 'Category Index', sub: 'Proprietary Indian SKU pricing data', tag: 'Intelligence' },
+        { title: '03 1:1 Advisory Practice', stat: 'Bespoke Retainer', sub: 'Assortment reviews & retail VM strategy', tag: 'Consulting' },
+      ],
+    },
+    {
+      label: 'BUSINESS MODEL',
+      tagline: 'Tiered Monetization Engine',
+      headline: 'Starter, Pro & Sutra Circle Retainers',
+      detail: 'Structured recurring revenue streams spanning open-access thought leadership to high-retaining executive consulting and founder roundtables.',
+      badge: 'Recurring Engine',
+      items: [
+        { title: 'Starter Edit', stat: 'Free / Open', sub: 'Public essays & bi-weekly industry alerts', tag: 'Community' },
+        { title: 'Pro Dashboard', stat: '₹2,499 / Month', sub: 'SKU pricing benchmarks & category datasets', tag: 'Subscription' },
+        { title: 'Sutra Circle', stat: 'Bespoke Retainer', sub: 'Direct 1:1 advisory & brand consulting', tag: 'Advisory' },
+      ],
+    },
   ];
-
-  const TOTAL_STAGES = stages.length;
-  const STAGE_DURATION = 2300; // ms per stage
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,248 +67,113 @@ export const SutraEditWorld: React.FC<SutraEditWorldProps> = ({
     return () => observer.disconnect();
   }, []);
 
+  // Calm automatic rotation
   useEffect(() => {
     if (!isVisible) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const interval = setInterval(() => {
-      setStage((prev) => (prev + 1) % TOTAL_STAGES);
-    }, STAGE_DURATION);
+      setActiveTab((prev) => (prev + 1) % tabs.length);
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, [isVisible, TOTAL_STAGES]);
+  }, [isVisible, tabs.length]);
 
-  const currentStage = stages[stage] || stages[0];
+  const current = tabs[activeTab];
 
   return (
     <div
       ref={containerRef}
-      className={`relative w-full aspect-[16/10] sm:aspect-[16/9] bg-[#0E0D0C] rounded-3xl border border-[#2E2824] overflow-hidden flex flex-col justify-between p-5 sm:p-7 select-none shadow-2xl transition-all duration-700 ${className}`}
+      className={`relative w-full rounded-3xl bg-[#12100F] border border-[#2E2824] overflow-hidden p-6 sm:p-8 select-none shadow-2xl transition-all duration-700 ${className}`}
     >
-      {/* Editorial Journal Paper & Typography Grid Background */}
+      {/* Background Editorial Paper & Grid Texture */}
       <div className="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,#C8BFB2_1px,transparent_1px),linear-gradient(to_bottom,#C8BFB2_1px,transparent_1px)] bg-[size:3rem_3rem]" />
-      <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#722F37]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#722F37]/15 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Top Editorial Ribbon */}
-      <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-[#2E2824] pb-3 text-xs font-mono">
-        <div className="flex items-center gap-2 text-[#C8BFB2]">
+      {/* Editorial Header Bar */}
+      <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-b border-[#2E2824] pb-4">
+        <div className="space-y-0.5 text-left">
+          <div className="flex items-center gap-2">
+            <BookOpen className="w-3.5 h-3.5 text-[#722F37]" />
+            <span className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#722F37]">
+              FASHION BUSINESS JOURNAL & INTELLIGENCE
+            </span>
+          </div>
+          <h4 className="font-serif text-2xl sm:text-3xl text-[#F4F0E8] font-normal tracking-tight">
+            SUTRA EDIT
+          </h4>
+        </div>
+
+        {/* Interactive Story Switcher */}
+        <div className="flex items-center gap-1.5 bg-[#0A0908] p-1 rounded-full border border-[#2E2824]">
+          {tabs.map((tab, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveTab(idx)}
+              className={`px-3 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase transition-all ${
+                activeTab === idx
+                  ? 'bg-[#722F37] text-[#F4F0E8] font-bold shadow'
+                  : 'text-[#8E8278] hover:text-[#F4F0E8]'
+              }`}
+            >
+              {tab.label.split(' ')[0]}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Central Visual Showcase Spread */}
+      <div className="relative z-10 py-6 space-y-6">
+        {/* Headline & Detail */}
+        <div className="space-y-2 text-left">
+          <div className="flex items-center gap-3">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#722F37]/25 border border-[#722F37]/50 text-[9px] font-mono text-[#F4F0E8] uppercase tracking-wider font-semibold">
+              {current.badge}
+            </span>
+            <span className="text-xs font-mono text-[#C8BFB2] uppercase tracking-wider">
+              {current.tagline}
+            </span>
+          </div>
+          <h5 className="font-serif text-xl sm:text-2xl text-[#F4F0E8] font-normal leading-snug">
+            {current.headline}
+          </h5>
+          <p className="text-xs sm:text-sm text-[#8E8278] font-sans font-light leading-relaxed max-w-2xl">
+            {current.detail}
+          </p>
+        </div>
+
+        {/* Product / Strategy Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3 pt-2">
+          {current.items.map((item, idx) => (
+            <div
+              key={idx}
+              className="p-4 rounded-2xl bg-[#171412] border border-[#2E2824] hover:border-[#722F37] transition-all space-y-2 text-left shadow-lg"
+            >
+              <div className="flex items-center justify-between text-[8.5px] font-mono text-[#722F37]">
+                <span>0{idx + 1} // {item.tag}</span>
+                <Sparkles className="w-3.5 h-3.5 text-[#722F37]" />
+              </div>
+              <div>
+                <div className="font-serif text-base text-[#F4F0E8] leading-tight">{item.title}</div>
+                <div className="text-[10px] text-[#C8BFB2] font-mono mt-0.5">{item.stat}</div>
+              </div>
+              <div className="pt-2 border-t border-[#26211E] text-[8.5px] font-mono text-[#8E8278] line-clamp-1">
+                {item.sub}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom Context Footer */}
+      <div className="relative z-10 border-t border-[#2E2824] pt-4 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-[#8E8278]">
+        <div className="flex items-center gap-2 text-[11px] text-[#C8BFB2]">
           <FileText className="w-3.5 h-3.5 text-[#722F37]" />
-          <span className="font-bold uppercase tracking-widest text-[#F4F0E8] text-[11px] sm:text-xs">
-            INTELLIGENCE EDIT // SUTRA
-          </span>
-          <span className="text-[#3E3530]">•</span>
-          <span className="text-[#C8BFB2] text-[10px] sm:text-[11px] uppercase tracking-wider transition-all duration-500">
-            {currentStage.name}
-          </span>
+          <span>Executive Intelligence Dispatches · 3-Tier Platform Architecture · Strategic Advisory</span>
         </div>
-
-        <div className="flex items-center gap-2 text-[10px] font-mono text-[#8E8278]">
-          <span className="text-[#722F37] font-bold">{currentStage.num}</span>
-          <span>/</span>
-          <span>0{TOTAL_STAGES}</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#722F37] ml-1" />
-        </div>
-      </div>
-
-      {/* Central Visual Motion Canvas */}
-      <div className="relative z-10 flex-1 my-3 flex items-center justify-center min-h-[195px]">
-        {/* STAGE 01: Editorial Masthead & Sliding Market Signal Fragments */}
-        {stage === 0 && (
-          <div className="w-full max-w-lg p-5 rounded-2xl bg-[#141210] border border-[#2E2824] shadow-xl space-y-3 animate-fadeIn transition-all duration-700">
-            <div className="flex justify-between items-center text-[9px] font-mono text-[#C8BFB2] border-b border-[#2E2824] pb-2">
-              <span className="font-semibold text-[#722F37]">THE SUTRA EDIT // ISSUE VOL. 04</span>
-              <span>INDIAN FASHION INDUSTRY SIGNALS</span>
-            </div>
-
-            <div className="grid grid-cols-3 gap-2 py-1">
-              {[
-                { tag: 'SIGNAL 01', title: 'CONSUMER SHIFT', sub: 'Prêt Over Heavily Embellished Wear' },
-                { tag: 'SIGNAL 02', title: 'PRICE PRESSURE', sub: 'Mid-Market ₹4K–₹12K Margin Squeeze' },
-                { tag: 'SIGNAL 03', title: 'D2C CHANNELS', sub: 'Omnichannel & Regional Tier-2 Growth' },
-                { tag: 'SIGNAL 04', title: 'SIZING STANDARDS', sub: 'Calibrating Indian Female Forms' },
-                { tag: 'SIGNAL 05', title: 'FABRIC TRACEABILITY', sub: 'Rise of Certified Natural Linens' },
-                { tag: 'SIGNAL 06', title: 'TREND CYCLE', sub: 'Micro-Drops Replacing Seasonal Buys' },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="p-2.5 rounded-xl bg-[#0A0908] border border-[#722F37]/40 text-left space-y-1 hover:border-[#722F37] transition-all"
-                >
-                  <div className="text-[7px] font-mono text-[#722F37] font-bold">{item.tag}</div>
-                  <div className="font-serif text-xs text-[#F4F0E8] leading-tight">{item.title}</div>
-                  <div className="text-[7.5px] font-mono text-[#8E8278] truncate">{item.sub}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex justify-between text-[8px] font-mono text-[#8E8278]">
-              <span>CURATED STRATEGIC DISPATCHES</span>
-              <span className="text-[#C8BFB2]">DATA-BACKED EDITORIAL JOURNAL</span>
-            </div>
-          </div>
-        )}
-
-        {/* STAGE 02: 3-Tier Platform Columns */}
-        {stage === 1 && (
-          <div className="w-full max-w-lg grid grid-cols-1 sm:grid-cols-3 gap-3 animate-fadeIn transition-all duration-700">
-            {[
-              {
-                pill: '01 CONTENT',
-                title: 'THE WEEKLY EDIT',
-                desc: 'Weekly executive dispatches synthesizing fashion business, retail shifts & trend telemetry.',
-                tag: 'Newsletter & Audio',
-              },
-              {
-                pill: '02 DATA',
-                title: 'THE DASHBOARD',
-                desc: 'Proprietary Indian category benchmarks, SKU volume tracking & pricing tier indexes.',
-                tag: 'Analytics Platform',
-              },
-              {
-                pill: '03 STRATEGY',
-                title: '1:1 ADVISORY',
-                desc: 'Bespoke brand architecture, assortment curation & retail merchandising consulting.',
-                tag: 'Executive Practice',
-              },
-            ].map((col, cIdx) => (
-              <div
-                key={cIdx}
-                className="p-4 rounded-2xl bg-[#141210] border border-[#722F37]/60 space-y-2 text-left hover:border-[#722F37] transition-all shadow-xl"
-              >
-                <div className="flex justify-between items-center text-[7.5px] font-mono text-[#722F37]">
-                  <span className="font-bold">{col.pill}</span>
-                  <span className="px-1.5 py-0.5 rounded bg-[#0A0908] border border-[#2E2824] text-[7px] text-[#C8BFB2]">
-                    {col.tag}
-                  </span>
-                </div>
-                <div className="font-serif text-sm text-[#F4F0E8] leading-tight">{col.title}</div>
-                <div className="text-[8.5px] text-[#8E8278] font-sans leading-relaxed">{col.desc}</div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* STAGE 03: Connected Ecosystem Value Chain */}
-        {stage === 2 && (
-          <div className="w-full max-w-lg p-5 rounded-2xl bg-[#141210] border border-[#2E2824] shadow-xl space-y-3 animate-fadeIn transition-all duration-700">
-            <div className="flex justify-between items-center text-[9px] font-mono text-[#722F37] border-b border-[#2E2824] pb-2">
-              <span className="font-semibold">INTELLIGENCE VALUE ECOSYSTEM</span>
-              <span className="text-[#8E8278]">COMMUNITY TO HIGH-VALUE CONSULTING</span>
-            </div>
-
-            <div className="flex items-center justify-between gap-1 p-3 bg-[#0A0908] rounded-xl border border-[#722F37]/50 font-mono text-xs text-[#F4F0E8]">
-              {['CONTENT', '↓', 'COMMUNITY', '↓', 'TRUST', '↓', 'PAID INTEL', '↓', 'ADVISORY'].map(
-                (itm, iIdx) => (
-                  <span
-                    key={iIdx}
-                    className={
-                      itm === '↓'
-                        ? 'text-[#722F37] font-bold'
-                        : 'px-2 py-1 rounded bg-[#141210] border border-[#2E2824] text-[8.5px] font-semibold text-[#F4F0E8]'
-                    }
-                  >
-                    {itm}
-                  </span>
-                )
-              )}
-            </div>
-
-            <div className="text-[8px] font-mono text-[#8E8278] text-center">
-              Transforming Free Editorial Authority into High-Retention Paid Advisory Retainers
-            </div>
-          </div>
-        )}
-
-        {/* STAGE 04: Subscription & Business Architecture */}
-        {stage === 3 && (
-          <div className="w-full max-w-lg p-5 rounded-2xl bg-[#141210] border border-[#2E2824] shadow-xl space-y-3 animate-fadeIn transition-all duration-700">
-            <div className="flex justify-between items-center text-[9px] font-mono text-[#722F37] border-b border-[#2E2824] pb-2">
-              <span className="font-semibold">TIERED BUSINESS MODEL ARCHITECTURE</span>
-              <span className="text-[#8E8278]">RECURRING REVENUE ENGINE</span>
-            </div>
-
-            <div className="grid grid-cols-3 gap-2.5 text-left">
-              {[
-                {
-                  tier: 'STARTER EDIT',
-                  price: 'Free / Community',
-                  scope: 'Bi-weekly newsletters, trend alerts & public essays',
-                  access: 'Open Access',
-                },
-                {
-                  tier: 'PRO DASHBOARD',
-                  price: '₹2,499 / Month',
-                  scope: 'Category indices, SKU pricing benchmarks & datasets',
-                  access: 'Member Login',
-                },
-                {
-                  tier: 'SUTRA CIRCLE',
-                  price: 'Bespoke Retainer',
-                  scope: '1:1 brand strategy, assortment reviews & founder roundtables',
-                  access: 'Direct Advisory',
-                },
-              ].map((t, tIdx) => (
-                <div
-                  key={tIdx}
-                  className="p-3.5 rounded-xl bg-[#0A0908] border border-[#722F37]/60 space-y-1.5 hover:border-[#722F37] transition-all"
-                >
-                  <div className="text-[7.5px] font-mono text-[#722F37] font-bold">TIER 0{tIdx + 1}</div>
-                  <div className="font-serif text-sm text-[#F4F0E8]">{t.tier}</div>
-                  <div className="text-[9px] font-mono text-[#C8BFB2] font-semibold">{t.price}</div>
-                  <div className="text-[8px] font-sans text-[#8E8278] leading-tight">{t.scope}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* STAGE 05: Editorial Publication & Business Model Resolution */}
-        {stage === 4 && (
-          <div className="text-center space-y-3 max-w-md animate-fadeIn transition-all duration-700">
-            <div className="w-12 h-12 mx-auto rounded-full bg-[#722F37] text-[#F4F0E8] flex items-center justify-center shadow-2xl border border-[#A87578]/50">
-              <BookOpen className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal tracking-tight">
-                SUTRA EDIT
-              </h4>
-              <div className="text-xs font-mono text-[#722F37] uppercase tracking-widest font-semibold mt-1">
-                FASHION INTELLIGENCE & BUSINESS MODEL
-              </div>
-            </div>
-            <p className="text-xs text-[#8E8278] font-mono leading-relaxed max-w-sm mx-auto">
-              The Weekly Edit · Intelligence Dashboard · 1:1 Brand Consulting Model
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* Bottom Passive Editorial Progress Line */}
-      <div className="relative z-10 border-t border-[#2E2824] pt-3">
-        <div className="grid grid-cols-5 gap-2">
-          {stages.map((stg, idx) => {
-            const isCurrent = stage === idx;
-            const isCompleted = stage > idx;
-
-            return (
-              <div key={idx} className="space-y-1">
-                <div className="h-0.5 bg-[#1C1816] rounded-full overflow-hidden">
-                  <div
-                    className={`h-full bg-[#722F37] transition-all ${
-                      isCompleted ? 'w-full' : isCurrent ? 'w-full duration-[2300ms] ease-linear' : 'w-0'
-                    }`}
-                  />
-                </div>
-                <div className="flex items-center justify-between text-[8px] font-mono">
-                  <span className={isCurrent ? 'text-[#F4F0E8] font-bold' : 'text-[#5C524C]'}>
-                    {stg.num}
-                  </span>
-                  <span className="hidden sm:inline text-[#5C524C] truncate text-[7.5px]">
-                    {stg.name.split(' ')[0]}
-                  </span>
-                </div>
-              </div>
-            );
-          })}
+        <div className="flex items-center gap-1 text-[#722F37] text-[11px] font-semibold">
+          <span>Explore Sutra Edit Case Study</span>
+          <ArrowRight className="w-3.5 h-3.5" />
         </div>
       </div>
     </div>
