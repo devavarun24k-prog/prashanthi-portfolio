@@ -362,7 +362,7 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
   },
   {
     id: 'bear-house',
-    period: '2024',
+    period: '2026',
     company: 'The Bear House',
     role: 'Visual Merchandising Intern',
     location: 'Hyderabad',
