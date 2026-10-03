@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import { X, ChevronLeft, ChevronRight, CheckCircle2, Sparkles, ArrowUpRight } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { X, ChevronLeft, ChevronRight, CheckCircle2, Sparkles, ArrowUpRight, Layers } from 'lucide-react';
 import type { Project } from '../data/portfolioData';
 import { PROJECTS_DATA } from '../data/portfolioData';
+import { ProjectImage } from './ProjectImage';
 
 interface CaseStudyViewProps {
   project: Project | null;
@@ -15,7 +16,26 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
   onSelectProject,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [activeStage, setActiveStage] = useState<number>(0);
   const featuredProjects = PROJECTS_DATA.filter((p) => p.id !== '3am-india');
+
+  // Specific project methodology phases mapping
+  const getMethodologyStages = (projectId: string) => {
+    switch (projectId) {
+      case 'the-bear-house':
+        return ['VISUAL MERCHANDISING', 'STORE AUDITS', 'STYLING', 'EOSS', 'NEW STORE SETUP'];
+      case 'house-of-masaba':
+        return ['BRAND', 'CONSUMER', 'ASSORTMENT', 'MERCHANDISE', 'VM', 'PRODUCT DEVELOPMENT'];
+      case 'healing-the-wait':
+        return ['EMPATHIZE', 'DEFINE', 'IDEATE', 'PROTOTYPE', 'TEST'];
+      case 'sutra-edit':
+        return ['MARKET GAP', 'PLATFORM', 'VALUE PROPOSITION', 'BUSINESS MODEL', 'GO-TO-MARKET'];
+      case 'beyond-the-boutique':
+        return ['DISCOVER', 'EXPLORE', 'EXPERIENCE', 'PURCHASE', 'OWN', 'RE-ENGAGE'];
+      default:
+        return ['DISCOVERY', 'ANALYSIS', 'STRATEGY', 'EXECUTION', 'DELIVERY'];
+    }
+  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -51,6 +71,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
   const currentIndex = projectList.findIndex((p) => p.id === project.id);
   const prevProject = projectList[(currentIndex - 1 + projectList.length) % projectList.length];
   const nextProject = projectList[(currentIndex + 1) % projectList.length];
+  const stages = getMethodologyStages(project.id);
 
   return (
     <div
@@ -98,7 +119,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
             <button
               onClick={onClose}
               aria-label="Close case study"
-              className="p-2 rounded-full border border-[#262320] bg-[#141211] text-[#F4F0E8] hover:bg-[#722F37] hover:border-[#722F37] transition-all shadow-sm group"
+              className="p-2 rounded-full border border-[#262320] bg-[#141211] text-[#F4F0E8] hover:bg-[#722F37] hover:border-[#722F37] transition-all duration-300 shadow-sm group"
             >
               <X className="w-4 h-4 group-hover:rotate-90 transition-transform" />
             </button>
@@ -123,6 +144,34 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
             <p className="font-serif text-2xl sm:text-4xl text-[#C8BFB2] italic leading-relaxed pt-1">
               "{project.subtitle}"
             </p>
+          </div>
+
+          {/* Methodology Stage Sequence Pill Bar */}
+          <div className="p-4 rounded-2xl bg-[#141211] border border-[#262320] space-y-2">
+            <div className="flex items-center justify-between font-mono text-[10px] text-[#8E8278] border-b border-[#262320] pb-2">
+              <span className="flex items-center gap-1.5 text-[#722F37] font-bold">
+                <Layers className="w-3.5 h-3.5" />
+                STRATEGIC METHODOLOGY PATHWAY
+              </span>
+              <span>{stages.length} STRATEGIC PHASES</span>
+            </div>
+
+            <div className="flex flex-wrap gap-2 pt-1">
+              {stages.map((stage, sIdx) => (
+                <button
+                  key={sIdx}
+                  onClick={() => setActiveStage(sIdx)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
+                    activeStage === sIdx
+                      ? 'bg-[#722F37] text-[#F4F0E8] font-bold shadow-md'
+                      : 'bg-[#0B0A09] text-[#8E8278] hover:text-[#F4F0E8] border border-[#262320]'
+                  }`}
+                >
+                  <span className="text-[10px] opacity-70 mr-1.5">0{sIdx + 1}</span>
+                  <span>{stage}</span>
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* VISUAL STORYTELLING SPLIT PANE */}
@@ -167,7 +216,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                   {project.processSteps.map((step, idx) => (
                     <div
                       key={idx}
-                      className="p-6 rounded-2xl bg-[#141211] border border-[#262320] space-y-2 hover:border-[#722F37]/60 transition-colors"
+                      className="p-6 rounded-2xl bg-[#141211] border border-[#262320] space-y-2 hover:border-[#722F37]/60 hover:bg-[#161413] transition-all duration-300"
                     >
                       <span className="text-xs font-bold font-mono text-[#722F37]">
                         0{idx + 1}
@@ -216,8 +265,23 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Key Facts Snapshot */}
+            {/* Right Column: Key Facts Snapshot & Sticky Visual */}
             <div className="lg:col-span-5 sticky top-24 space-y-6">
+              {/* Project Image Frame */}
+              <div className="rounded-3xl overflow-hidden border border-[#262320] bg-[#141211] shadow-2xl">
+                <ProjectImage
+                  src={project.imagePath}
+                  alt={project.title}
+                  title={project.title}
+                  category={project.category}
+                  subtitle={project.subtitle}
+                  accentBg={project.accentBg}
+                  accentColor={project.accentColor}
+                  aspectRatio="aspect-[4/3]"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
               {/* Snapshot Box */}
               <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
                 <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">

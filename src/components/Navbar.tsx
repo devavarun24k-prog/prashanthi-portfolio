@@ -5,11 +5,17 @@ import { PERSONAL_DATA } from '../data/portfolioData';
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollPercent, setScrollPercent] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      const scrollY = window.scrollY;
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const percent = totalHeight > 0 ? (scrollY / totalHeight) * 100 : 0;
+      setScrollPercent(percent);
+      setIsScrolled(scrollY > 30);
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -31,6 +37,14 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
+      {/* Editorial Scroll Progress Indicator (Top Edge) */}
+      <div className="fixed top-0 left-0 right-0 h-[2px] z-50 bg-transparent pointer-events-none">
+        <div
+          className="h-full bg-[#722F37] transition-all duration-150 ease-out"
+          style={{ width: `${scrollPercent}%` }}
+        />
+      </div>
+
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 select-none ${
           isScrolled
@@ -66,19 +80,22 @@ export const Navbar: React.FC = () => {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="text-[#C8BFB2] hover:text-[#722F37] transition-colors flex items-center gap-1.5"
+                className="group relative text-[#C8BFB2] hover:text-[#F4F0E8] transition-colors flex items-center gap-1.5 py-1"
               >
-                <span className="text-[9px] text-[#722F37] font-bold">{link.number}</span>
+                <span className="text-[9px] text-[#722F37] font-bold group-hover:scale-110 transition-transform">
+                  {link.number}
+                </span>
                 <span>{link.label}</span>
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#722F37] group-hover:w-full transition-all duration-300 ease-out" />
               </a>
             ))}
 
             <a
               href={PERSONAL_DATA.cvUrl}
-              className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold uppercase tracking-wider px-5 py-2 rounded-full bg-[#722F37] text-[#F4F0E8] hover:bg-[#F4F0E8] hover:text-[#0B0A09] transition-all shadow-md border border-[#722F37]"
+              className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold uppercase tracking-wider px-5 py-2 rounded-full bg-[#722F37] text-[#F4F0E8] hover:bg-[#F4F0E8] hover:text-[#0B0A09] transition-all duration-300 shadow-md border border-[#722F37] group"
             >
               <span>CV</span>
-              <ArrowUpRight className="w-3 h-3" />
+              <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </nav>
 

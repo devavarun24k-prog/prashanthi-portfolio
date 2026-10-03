@@ -9,13 +9,14 @@ export const Hero: React.FC = () => {
   const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // Cinematic 6-Phase Staggered Entrance Sequence
-    const p1 = setTimeout(() => setPhase(1), 100);  // Top identity & thin accent rule
-    const p2 = setTimeout(() => setPhase(2), 550);  // Monumental Name Mask Reveal
-    const p3 = setTimeout(() => setPhase(3), 1000); // Editorial Italic Subtitle Reveal
-    const p4 = setTimeout(() => setPhase(4), 1500); // Academic Credentials & Statement Quote
-    const p5 = setTimeout(() => setPhase(5), 1950); // Action CTAs
-    const p6 = setTimeout(() => setPhase(6), 2350); // Portrait Photographic Mask Develop
+    // Cinematic 7-Phase Staggered Entrance Sequence
+    const p1 = setTimeout(() => setPhase(1), 80);   // Grid slowly appears & top rule draws
+    const p2 = setTimeout(() => setPhase(2), 350);  // Small metadata reveals
+    const p3 = setTimeout(() => setPhase(3), 750);  // "Prashanthi B." typography reveals
+    const p4 = setTimeout(() => setPhase(4), 1150); // Role typography reveals
+    const p5 = setTimeout(() => setPhase(5), 1550); // Credentials & statement quote reveal
+    const p6 = setTimeout(() => setPhase(6), 1950); // Portrait develops through large mask
+    const p7 = setTimeout(() => setPhase(7), 2350); // CTAs settle & grid fully settles
 
     return () => {
       clearTimeout(p1);
@@ -24,6 +25,7 @@ export const Hero: React.FC = () => {
       clearTimeout(p4);
       clearTimeout(p5);
       clearTimeout(p6);
+      clearTimeout(p7);
     };
   }, []);
 
@@ -45,8 +47,9 @@ export const Hero: React.FC = () => {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
       const { innerWidth, innerHeight } = window;
-      const x = ((e.clientX / innerWidth) - 0.5) * 12;
-      const y = ((e.clientY / innerHeight) - 0.5) * 12;
+      // Controlled 2-4px maximum movement
+      const x = ((e.clientX / innerWidth) - 0.5) * 6;
+      const y = ((e.clientY / innerHeight) - 0.5) * 6;
       setMousePos({ x, y });
     };
 
@@ -60,13 +63,21 @@ export const Hero: React.FC = () => {
       id="hero"
       className="relative min-h-[92vh] lg:min-h-[96vh] flex flex-col justify-between pt-28 sm:pt-36 pb-16 sm:pb-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none border-b border-[#262320]"
     >
+      {/* Fine Interactive Editorial Grid Background */}
+      <div
+        className="absolute inset-0 editorial-grid-bg pointer-events-none transition-opacity duration-1000 ease-out"
+        style={{
+          opacity: phase >= 1 ? 0.45 - scrollProgress * 0.25 : 0,
+        }}
+      />
+
       {/* Top Staggered Identity Bar */}
       <div className="relative z-20 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-4 pb-2 text-xs font-mono">
           {/* Tag 1: Name */}
           <div
             className={`inline-flex items-center gap-2.5 transition-all duration-700 ${
-              phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
+              phase >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
             }`}
           >
             <Sparkles className="w-3.5 h-3.5 text-[#722F37]" />
@@ -76,7 +87,7 @@ export const Hero: React.FC = () => {
           {/* Tag 2: Location */}
           <div
             className={`hidden sm:flex items-center gap-2 text-[#8E8278] transition-all duration-700 delay-100 ${
-              phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
+              phase >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
             }`}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#722F37]" />
@@ -88,7 +99,7 @@ export const Hero: React.FC = () => {
           {/* Tag 3: Disciplines */}
           <div
             className={`text-[#722F37] uppercase tracking-wider font-semibold transition-all duration-700 delay-200 ${
-              phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
+              phase >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
             }`}
           >
             <span>FASHION × RETAIL × STRATEGY</span>
@@ -111,15 +122,15 @@ export const Hero: React.FC = () => {
       <div
         className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center py-10 sm:py-16 my-auto transition-all duration-500"
         style={{
-          transform: `translate3d(0, ${scrollProgress * -25}px, 0)`,
-          opacity: 1 - scrollProgress * 0.6,
+          transform: `translate3d(0, ${scrollProgress * -20}px, 0)`,
+          opacity: 1 - scrollProgress * 0.5,
         }}
       >
         {/* Left Column: Multi-Directional Typography & Editorial Credential */}
         <div
           className="lg:col-span-7 space-y-7 lg:space-y-8 transition-transform duration-500 ease-out"
           style={{
-            transform: `translate3d(${mousePos.x * -0.3}px, ${mousePos.y * -0.3}px, 0)`,
+            transform: `translate3d(${mousePos.x * -0.2}px, ${mousePos.y * -0.2}px, 0)`,
           }}
         >
           {/* Headline */}
@@ -127,7 +138,7 @@ export const Hero: React.FC = () => {
             <div className="overflow-hidden">
               <h1
                 className={`font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.75rem] xl:text-[6.5rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.93] ${
-                  phase >= 2 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
+                  phase >= 3 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
                 }`}
               >
                 Prashanthi B.
@@ -137,7 +148,7 @@ export const Hero: React.FC = () => {
             <div className="overflow-hidden pt-1">
               <p
                 className={`font-serif italic text-[#722F37] font-normal text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-snug ${
-                  phase >= 3 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
+                  phase >= 4 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
                 }`}
               >
                 Buying & Merchandising | Brand Strategy | Visual Merchandising
@@ -148,7 +159,7 @@ export const Hero: React.FC = () => {
           {/* Academic Credential & Disciplines */}
           <div
             className={`space-y-2 border-l-2 border-[#722F37] pl-4 transition-all duration-1000 ${
-              phase >= 4 ? 'mask-horizontal-reveal' : 'mask-horizontal-hidden'
+              phase >= 5 ? 'mask-horizontal-reveal' : 'mask-horizontal-hidden'
             }`}
           >
             <div className="font-mono text-xs uppercase tracking-wider text-[#C8BFB2]">
@@ -164,8 +175,8 @@ export const Hero: React.FC = () => {
 
           {/* Statement Quote */}
           <p
-            className={`text-base sm:text-lg text-[#C8BFB2] leading-relaxed font-sans max-w-xl font-light transition-all duration-1000 delay-200 ${
-              phase >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            className={`text-base sm:text-lg text-[#C8BFB2] leading-relaxed font-sans max-w-xl font-light transition-all duration-1000 delay-100 ${
+              phase >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
             “I bring a creative eye with a strong understanding of the business behind fashion.”
@@ -174,7 +185,7 @@ export const Hero: React.FC = () => {
           {/* Action CTAs */}
           <div
             className={`flex flex-wrap items-center gap-4 pt-2 transition-all duration-700 ${
-              phase >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              phase >= 7 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
             <a
@@ -195,11 +206,11 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Hero Portrait Photograph */}
+        {/* Right Column: Hero Portrait Photograph with 2-4px micro-interaction */}
         <div
           className="lg:col-span-5 flex justify-center lg:justify-end z-10 transition-transform duration-500 ease-out"
           style={{
-            transform: `translate3d(${mousePos.x * 0.4}px, ${mousePos.y * 0.4 + scrollProgress * 12}px, 0)`,
+            transform: `translate3d(${mousePos.x * 0.3}px, ${mousePos.y * 0.3 + scrollProgress * 10}px, 0)`,
           }}
         >
           <div
@@ -211,6 +222,9 @@ export const Hero: React.FC = () => {
               src={PERSONAL_DATA.images.hero}
               alt="Prashanthi B. — Fashion Business & Merchandising"
               className="w-full h-full object-cover object-center transition-transform duration-1000 ease-out hover:scale-[1.02]"
+              style={{
+                transform: `scale(${1 + scrollProgress * 0.04})`,
+              }}
             />
           </div>
         </div>

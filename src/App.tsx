@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import type { Project } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { EditorialManifesto } from './components/EditorialManifesto';
 import { SelectedWork } from './components/SelectedWork';
 import { ExperienceSection } from './components/ExperienceSection';
 import { AboutSection } from './components/AboutSection';
@@ -21,6 +22,7 @@ export function App() {
         { id: 'about', name: '03 ABOUT' },
         { id: 'experience', name: '02 EXPERIENCE' },
         { id: 'work', name: '01 WORK' },
+        { id: 'manifesto', name: 'PHILOSOPHY' },
         { id: 'hero', name: 'HERO' },
       ];
 
@@ -46,7 +48,7 @@ export function App() {
 
       {/* Floating Scroll Progress Tracker (Desktop Only) */}
       <aside className="fixed right-6 bottom-10 z-30 hidden xl:flex flex-col items-end gap-2 font-mono text-[10px] text-[#8E8278] select-none pointer-events-none">
-        <div className="flex items-center gap-2 bg-[#141211]/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#262320] text-[#C8BFB2]">
+        <div className="flex items-center gap-2 bg-[#141211]/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#262320] text-[#C8BFB2] shadow-xl">
           <span className="w-1.5 h-1.5 rounded-full bg-[#722F37] animate-pulse" />
           <span className="font-semibold uppercase tracking-widest">{activeSection}</span>
         </div>
@@ -57,16 +59,19 @@ export function App() {
         {/* 1. Hero: Personal Introduction & Identity */}
         <Hero />
 
-        {/* 2. Selected Work: 5 Editorial Case Studies */}
+        {/* 2. Editorial Manifesto: Strategic Philosophy Moment */}
+        <EditorialManifesto />
+
+        {/* 3. Selected Work: 5 Editorial Case Studies */}
         <SelectedWork onSelectProject={(project) => setSelectedProject(project)} />
 
-        {/* 3. Experience & Education: Professional History */}
+        {/* 4. Experience & Education: Professional History */}
         <ExperienceSection />
 
-        {/* 4. About: Perspective & Background */}
+        {/* 5. About: Perspective & Background */}
         <AboutSection />
 
-        {/* 5. Contact: Get in Touch */}
+        {/* 6. Contact: Get in Touch */}
         <ContactSection />
       </main>
 
@@ -84,3 +89,4 @@ export function App() {
 }
 
 export default App;
+

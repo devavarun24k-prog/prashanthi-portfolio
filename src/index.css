@@ -50,6 +50,32 @@
     display: none;
   }
 
+  /* Editorial Grid Pattern Background */
+  .editorial-grid-bg {
+    background-size: 80px 80px;
+    background-image: 
+      linear-gradient(to right, rgba(38, 35, 32, 0.35) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(38, 35, 32, 0.35) 1px, transparent 1px);
+  }
+
+  .editorial-grid-dense {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(38, 35, 32, 0.25) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(38, 35, 32, 0.25) 1px, transparent 1px);
+  }
+
+  /* Interactive Line Drawing Animation */
+  .grid-line-draw-x {
+    transform-origin: left;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+  }
+
+  .grid-line-draw-y {
+    transform-origin: top;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+  }
+
   /* Editorial typography mask and reveal utilities */
   .mask-vertical-reveal {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -91,9 +117,49 @@
     transform: scale(1.03);
   }
 
-  /* Smooth editorial image crop */
+  /* Distinct Project Image Reveals */
+  .reveal-curtain-v {
+    clip-path: inset(0% 0% 0% 0%);
+    transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-curtain-v-hidden {
+    clip-path: inset(100% 0% 0% 0%);
+  }
+
+  .reveal-curtain-h {
+    clip-path: inset(0% 0% 0% 0%);
+    transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-curtain-h-hidden {
+    clip-path: inset(0% 100% 0% 0%);
+  }
+
+  .reveal-split {
+    clip-path: inset(0% 0% 0% 0%);
+    transition: clip-path 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-split-hidden {
+    clip-path: inset(50% 0% 50% 0%);
+  }
+
+  .reveal-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition: clip-path 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-diagonal-hidden {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+
+  /* Smooth editorial image crop & zoom */
   .editorial-img-reveal {
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+  }
+
+  /* Floating Image Preview on Hover */
+  .floating-preview-card {
+    pointer-events: none;
+    will-change: transform, opacity;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s ease-out;
   }
 }
 

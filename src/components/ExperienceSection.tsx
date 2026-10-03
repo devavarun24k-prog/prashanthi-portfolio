@@ -6,13 +6,16 @@ export const ExperienceSection: React.FC = () => {
   const [activeExpTab, setActiveExpTab] = useState<'work' | 'academic' | 'exposure'>('work');
 
   return (
-    <section id="experience" className="py-24 sm:py-36 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#262320] bg-[#0B0A09] text-[#F4F0E8] select-none">
+    <section id="experience" className="py-24 sm:py-36 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#262320] bg-[#0B0A09] text-[#F4F0E8] select-none relative">
+      {/* Editorial Grid Background */}
+      <div className="absolute inset-0 editorial-grid-bg opacity-25 pointer-events-none" />
+
       {/* Section Header */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-16 border-b border-[#262320]">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-16 border-b border-[#262320] relative z-10">
         <div className="space-y-4 max-w-3xl">
           <div className="flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#722F37]">
             <Briefcase className="w-4 h-4 text-[#722F37]" />
-            <span>EXPERIENCE</span>
+            <span>TRACK RECORD // EXPERIENCE</span>
           </div>
           <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
             CAREER &
@@ -24,7 +27,7 @@ export const ExperienceSection: React.FC = () => {
         <div className="flex items-center gap-2 font-mono text-xs">
           <button
             onClick={() => setActiveExpTab('work')}
-            className={`px-4 py-2 rounded-full border transition-all ${
+            className={`px-4 py-2 rounded-full border transition-all duration-300 ${
               activeExpTab === 'work'
                 ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold shadow-md'
                 : 'bg-[#141211] border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
@@ -34,7 +37,7 @@ export const ExperienceSection: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveExpTab('academic')}
-            className={`px-4 py-2 rounded-full border transition-all ${
+            className={`px-4 py-2 rounded-full border transition-all duration-300 ${
               activeExpTab === 'academic'
                 ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold shadow-md'
                 : 'bg-[#141211] border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
@@ -44,7 +47,7 @@ export const ExperienceSection: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveExpTab('exposure')}
-            className={`px-4 py-2 rounded-full border transition-all ${
+            className={`px-4 py-2 rounded-full border transition-all duration-300 ${
               activeExpTab === 'exposure'
                 ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold shadow-md'
                 : 'bg-[#141211] border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
@@ -55,22 +58,22 @@ export const ExperienceSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Sequential Editorial Numbered Cards */}
-      <div className="pt-12 space-y-12">
+      {/* Sequential Editorial Interactive Timeline Cards */}
+      <div className="pt-12 space-y-12 relative z-10">
         {activeExpTab === 'work' && (
           <div className="space-y-8">
             {EXPERIENCES_DATA.map((exp, idx) => (
               <div
                 key={exp.id}
-                className="p-8 sm:p-12 rounded-3xl bg-[#141211] border border-[#262320] hover:border-[#722F37] transition-all duration-500 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group"
+                className="p-8 sm:p-12 rounded-3xl bg-[#141211] border border-[#262320] hover:border-[#722F37] hover:bg-[#161413] transition-all duration-700 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group"
               >
                 {/* Number */}
-                <div className="lg:col-span-2 font-serif text-6xl sm:text-7xl lg:text-8xl text-[#722F37]/30 group-hover:text-[#722F37] transition-colors font-normal select-none">
+                <div className="lg:col-span-2 font-serif text-6xl sm:text-7xl lg:text-8xl text-[#722F37]/30 group-hover:text-[#722F37] group-hover:scale-105 transition-all duration-500 font-normal select-none">
                   0{idx + 1}
                 </div>
 
                 <div className="lg:col-span-10 space-y-5">
-                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#262320] pb-4 font-mono text-xs">
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#262320] pb-4 font-mono text-xs group-hover:border-[#722F37]/40 transition-colors">
                     <div className="flex items-center gap-3">
                       <span className="font-bold text-[#722F37] px-3 py-1 rounded bg-[#0B0A09] border border-[#262320]">
                         {exp.period}
@@ -81,7 +84,7 @@ export const ExperienceSection: React.FC = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal">
+                    <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal group-hover:translate-x-1 transition-transform duration-300">
                       {exp.company}
                     </h3>
                     <p className="text-sm font-mono font-bold text-[#722F37] mt-1 uppercase tracking-wider">
@@ -112,14 +115,14 @@ export const ExperienceSection: React.FC = () => {
             {EDUCATION_DATA.map((edu, idx) => (
               <div
                 key={edu.id}
-                className="p-8 sm:p-12 rounded-3xl bg-[#141211] border border-[#262320] hover:border-[#722F37] transition-all duration-500 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group"
+                className="p-8 sm:p-12 rounded-3xl bg-[#141211] border border-[#262320] hover:border-[#722F37] hover:bg-[#161413] transition-all duration-700 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group"
               >
-                <div className="lg:col-span-2 font-serif text-6xl sm:text-7xl lg:text-8xl text-[#722F37]/30 group-hover:text-[#722F37] transition-colors font-normal select-none">
+                <div className="lg:col-span-2 font-serif text-6xl sm:text-7xl lg:text-8xl text-[#722F37]/30 group-hover:text-[#722F37] group-hover:scale-105 transition-all duration-500 font-normal select-none">
                   0{idx + 3}
                 </div>
 
                 <div className="lg:col-span-10 space-y-4">
-                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#262320] pb-4 font-mono text-xs">
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#262320] pb-4 font-mono text-xs group-hover:border-[#722F37]/40 transition-colors">
                     <span className="font-bold text-[#722F37] px-3 py-1 rounded bg-[#0B0A09] border border-[#262320]">
                       {edu.period}
                     </span>
@@ -127,7 +130,7 @@ export const ExperienceSection: React.FC = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal">
+                    <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal group-hover:translate-x-1 transition-transform duration-300">
                       {edu.degree}
                     </h3>
                     <p className="text-sm font-mono text-[#C8BFB2] mt-1">
@@ -145,21 +148,21 @@ export const ExperienceSection: React.FC = () => {
             {EXPOSURES_DATA.map((exp, idx) => (
               <div
                 key={exp.id}
-                className="p-8 sm:p-12 rounded-3xl bg-[#141211] border border-[#262320] hover:border-[#722F37] transition-all duration-500 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group"
+                className="p-8 sm:p-12 rounded-3xl bg-[#141211] border border-[#262320] hover:border-[#722F37] hover:bg-[#161413] transition-all duration-700 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group"
               >
-                <div className="lg:col-span-2 font-serif text-6xl sm:text-7xl lg:text-8xl text-[#722F37]/30 group-hover:text-[#722F37] transition-colors font-normal select-none">
+                <div className="lg:col-span-2 font-serif text-6xl sm:text-7xl lg:text-8xl text-[#722F37]/30 group-hover:text-[#722F37] group-hover:scale-105 transition-all duration-500 font-normal select-none">
                   0{idx + 5}
                 </div>
 
                 <div className="lg:col-span-10 space-y-4">
-                  <div className="flex items-center justify-between border-b border-[#262320] pb-4 font-mono text-xs">
+                  <div className="flex items-center justify-between border-b border-[#262320] pb-4 font-mono text-xs group-hover:border-[#722F37]/40 transition-colors">
                     <span className="text-[#722F37] font-bold uppercase tracking-wider">
                       {exp.type}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal">
+                    <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal group-hover:translate-x-1 transition-transform duration-300">
                       {exp.title}
                     </h3>
                     <p className="text-sm sm:text-base text-[#C8BFB2] font-sans font-light leading-relaxed mt-2">
