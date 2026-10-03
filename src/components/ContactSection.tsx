@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Copy, Check, Send, ArrowUpRight, Sparkles, FileText } from 'lucide-react';
+import { Mail, Copy, Check, ArrowUpRight, Sparkles, FileText } from 'lucide-react';
 import { PERSONAL_DATA } from '../data/portfolioData';
 
 const LinkedinIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
@@ -30,23 +30,23 @@ export const ContactSection: React.FC = () => {
   return (
     <section id="contact" className="py-24 sm:py-36 bg-[#0B0A09] text-[#F4F0E8] relative overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Full-bleed Deep Burgundy Expanding Statement Panel */}
-        <div className="relative rounded-3xl bg-[#722F37] text-[#F4F0E8] p-8 sm:p-14 lg:p-20 overflow-hidden shadow-2xl border border-[#A87578]/25 space-y-14 transition-all duration-700">
+        {/* Full-bleed Deep Burgundy Editorial Closing Spread */}
+        <div className="relative rounded-3xl bg-[#722F37] text-[#F4F0E8] p-8 sm:p-14 lg:p-20 overflow-hidden shadow-2xl border border-[#A87578]/25 space-y-12 transition-all duration-700">
           {/* Subtle Background Watermark Monogram */}
           <div className="absolute right-0 bottom-0 text-[10rem] sm:text-[18rem] font-serif italic text-black/10 select-none pointer-events-none leading-none -mb-12 -mr-12 font-normal">
             PB
           </div>
 
-          {/* Section System Eyebrow */}
+          {/* Section Eyebrow */}
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#F4F0E8]/20 pb-6 z-10 relative font-mono text-xs text-[#F4F0E8]/80">
             <div className="inline-flex items-center gap-2 uppercase tracking-widest text-[#F4F0E8]">
-              <Send className="w-4 h-4 text-[#F4F0E8]" />
-              <span>COMMUNICATION CHANNEL // SYS_CONTACT</span>
+              <Sparkles className="w-3.5 h-3.5 text-[#F4F0E8]" />
+              <span>DIRECT INQUIRY & COLLABORATION</span>
             </div>
 
             <div className="flex items-center gap-3">
               <span className="w-2 h-2 rounded-full bg-[#F4F0E8] animate-ping" />
-              <span>DIRECT INBOX: ACTIVE</span>
+              <span>BANGALORE / INDIA</span>
             </div>
           </div>
 
@@ -64,18 +64,17 @@ export const ContactSection: React.FC = () => {
           {/* Contact Interactive Channels */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-4 z-10 relative font-mono text-xs">
             {/* Email Direct Box (Cols 8) */}
-            <div className="md:col-span-8 p-8 rounded-3xl bg-[#0B0A09]/85 backdrop-blur-xl border border-[#262320] text-[#F4F0E8] shadow-2xl space-y-6">
+            <div className="md:col-span-8 p-8 rounded-2xl bg-[#0B0A09]/90 backdrop-blur-xl border border-[#262320] text-[#F4F0E8] shadow-xl space-y-6">
               <div className="flex items-center justify-between text-xs text-[#8E8278]">
-                <span className="font-bold uppercase text-[11px] text-[#722F37] flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-[#722F37]" />
-                  DIRECT INBOX ALLOCATION
+                <span className="font-bold uppercase text-[11px] text-[#722F37]">
+                  DIRECT EMAIL INBOX
                 </span>
                 <span>BANGALORE / INDIA</span>
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-2xl bg-[#141211] border border-[#262320]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-xl bg-[#141211] border border-[#262320]">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#722F37] flex items-center justify-center text-[#F4F0E8] shadow-lg shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-[#722F37] flex items-center justify-center text-[#F4F0E8] shadow-lg shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -109,7 +108,7 @@ export const ContactSection: React.FC = () => {
 
                   <a
                     href={`mailto:${PERSONAL_DATA.email}?subject=Collaboration / Strategic Role Inquiry - Prashanthi B.`}
-                    className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#722F37] text-[#F4F0E8] hover:bg-[#F4F0E8] hover:text-[#0B0A09] text-xs font-mono font-bold uppercase tracking-wider transition-all shadow-md border border-[#722F37]"
+                    className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#722F37] text-[#F4F0E8] hover:bg-[#F4F0E8] hover:text-[#0B0A09] text-xs font-mono font-bold uppercase tracking-wider transition-all duration-300 shadow-md border border-[#722F37]"
                   >
                     <span>COMPOSE</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -119,10 +118,10 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* LinkedIn & CV Card (Cols 4) */}
-            <div className="md:col-span-4 p-8 rounded-3xl bg-[#0B0A09]/85 backdrop-blur-xl border border-[#262320] text-[#F4F0E8] flex flex-col justify-between space-y-6 shadow-2xl">
+            <div className="md:col-span-4 p-8 rounded-2xl bg-[#0B0A09]/90 backdrop-blur-xl border border-[#262320] text-[#F4F0E8] flex flex-col justify-between space-y-6 shadow-xl">
               <div className="space-y-2">
                 <span className="text-[11px] font-mono uppercase tracking-widest font-bold text-[#722F37] block">
-                  PROFESSIONAL NETWORK & CV
+                  NETWORK & RESUME
                 </span>
                 <h3 className="font-serif text-3xl font-normal text-[#F4F0E8]">
                   LinkedIn & Resume

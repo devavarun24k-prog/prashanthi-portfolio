@@ -1,31 +1,19 @@
-import React, { useState } from 'react';
-import { User, ArrowUpRight, FileText, Sliders } from 'lucide-react';
+import React from 'react';
+import { User, ArrowUpRight, FileText } from 'lucide-react';
 import { PERSONAL_DATA, SKILLS_LIST } from '../data/portfolioData';
 
 export const AboutSection: React.FC = () => {
-  const [activeLens, setActiveLens] = useState<'retail' | 'merchandising' | 'branding' | 'consumer' | 'strategy'>('retail');
-
-  const lensOptions: { id: 'retail' | 'merchandising' | 'branding' | 'consumer' | 'strategy'; label: string; focus: string; cropStyle: string }[] = [
-    { id: 'retail', label: 'RETAIL', focus: 'Store operations, visual merchandising compliance & shop floor dwell-time', cropStyle: 'scale-100 object-center' },
-    { id: 'merchandising', label: 'MERCHANDISING', focus: 'Assortment architecture, Indian sizing curves & margin baseline', cropStyle: 'scale-105 object-top' },
-    { id: 'branding', label: 'BRANDING', focus: 'Brand code translation, editorial curation & digital omnichannel storytelling', cropStyle: 'scale-102 object-center brightness-105' },
-    { id: 'consumer', label: 'CONSUMER', focus: 'Ethnographic field empathy, pain-point definition & behavioral insights', cropStyle: 'scale-105 object-bottom' },
-    { id: 'strategy', label: 'STRATEGY', focus: 'Bridge-to-luxury positioning, market gap synthesis & sustainable growth loops', cropStyle: 'scale-100 object-top contrast-105' },
-  ];
-
-  const currentLens = lensOptions.find((l) => l.id === activeLens) || lensOptions[0];
-
   return (
     <section id="about" className="py-24 sm:py-36 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#262320] bg-[#0B0A09] text-[#F4F0E8] select-none relative">
-      {/* Editorial Grid Background */}
-      <div className="absolute inset-0 editorial-grid-bg opacity-25 pointer-events-none" />
+      {/* Subtle Layout Grid Background */}
+      <div className="absolute inset-0 editorial-grid-bg opacity-20 pointer-events-none" />
 
       {/* Section Header */}
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-16 border-b border-[#262320] relative z-10">
         <div className="space-y-4 max-w-3xl">
           <div className="flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#722F37]">
-            <User className="w-4 h-4 text-[#722F37]" />
-            <span>EDITORIAL PROFILE // ABOUT</span>
+            <User className="w-3.5 h-3.5 text-[#722F37]" />
+            <span>PROFILE & PERSPECTIVE</span>
           </div>
           <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
             ABOUT
@@ -41,52 +29,20 @@ export const AboutSection: React.FC = () => {
         </p>
       </div>
 
-      {/* Main Split Layout with Sticky Pinned Left Column */}
+      {/* Main Editorial Profile Split */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-16 items-start relative z-10">
-        {/* Left Column: Sticky Pinned Portrait Frame with Interactive Lens Focus (Cols 5) */}
+        {/* Left Column: Portrait Frame */}
         <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-4">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#262320] bg-[#141211] shadow-2xl group transition-all duration-700">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[#262320] shadow-2xl group transition-all duration-700">
             <img
               src={PERSONAL_DATA.images.portrait01}
               alt="Prashanthi B. — About Portrait"
-              className={`w-full h-full object-cover transition-all duration-700 ${currentLens.cropStyle}`}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
             />
-          </div>
-
-          {/* Interactive Domain Lens Selector */}
-          <div className="p-4 rounded-2xl bg-[#141211] border border-[#262320] space-y-2">
-            <div className="flex items-center justify-between font-mono text-[10px] text-[#8E8278] border-b border-[#262320] pb-1.5">
-              <span className="flex items-center gap-1 text-[#722F37]">
-                <Sliders className="w-3 h-3" />
-                PERSPECTIVE LENS
-              </span>
-              <span>SELECT TO REFOCUS</span>
-            </div>
-
-            <div className="flex flex-wrap gap-1.5">
-              {lensOptions.map((lens) => (
-                <button
-                  key={lens.id}
-                  onMouseEnter={() => setActiveLens(lens.id)}
-                  onClick={() => setActiveLens(lens.id)}
-                  className={`px-3 py-1 rounded text-xs font-mono transition-all ${
-                    activeLens === lens.id
-                      ? 'bg-[#722F37] text-[#F4F0E8] font-bold shadow-md'
-                      : 'bg-[#0B0A09] text-[#8E8278] hover:text-[#F4F0E8] hover:border-[#722F37]/50 border border-[#262320]'
-                  }`}
-                >
-                  {lens.label}
-                </button>
-              ))}
-            </div>
-
-            <p className="text-[11px] font-mono text-[#C8BFB2] pt-1">
-              • {currentLens.focus}
-            </p>
           </div>
         </div>
 
-        {/* Right Column: Scrolling Narrative (Cols 7) */}
+        {/* Right Column: Narrative & Competencies */}
         <div className="lg:col-span-7 space-y-8 relative pl-0 sm:pl-6 border-l-0 sm:border-l border-[#262320]">
           <div className="space-y-5 text-base sm:text-lg text-[#C8BFB2] leading-relaxed font-sans font-light">
             {PERSONAL_DATA.aboutParagraphs.map((para, idx) => (
@@ -94,7 +50,7 @@ export const AboutSection: React.FC = () => {
             ))}
           </div>
 
-          {/* Structured Competencies Grid */}
+          {/* Structured Competencies */}
           <div className="space-y-4 pt-6 border-t border-[#262320]">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] block">
               CORE COMPETENCIES & DOMAIN CAPABILITIES:
@@ -103,20 +59,20 @@ export const AboutSection: React.FC = () => {
               {SKILLS_LIST.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="p-3.5 bg-[#141211] rounded-2xl border border-[#262320] text-[11px] font-mono font-medium text-[#C8BFB2] hover:text-[#F4F0E8] hover:border-[#722F37] transition-all flex items-center justify-between group cursor-default"
+                  className="p-3.5 rounded-xl border border-[#262320] text-[11px] font-mono font-medium text-[#C8BFB2] hover:text-[#F4F0E8] hover:border-[#722F37] transition-all flex items-center justify-between group cursor-default"
                 >
-                  <span className="group-hover:text-[#F4F0E8] group-hover:translate-x-0.5 transition-all">{skill}</span>
+                  <span className="group-hover:text-[#F4F0E8] transition-colors">{skill}</span>
                   <span className="text-[#722F37] text-[9px] font-bold">0{idx + 1}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Download CV Strip */}
+          {/* Download CV CTA */}
           <div className="pt-6 border-t border-[#262320] flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
             <a
               href={PERSONAL_DATA.cvUrl}
-              className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider px-7 py-3.5 rounded-full bg-[#722F37] text-[#F4F0E8] hover:bg-[#F4F0E8] hover:text-[#0B0A09] transition-all duration-300 shadow-xl border border-[#722F37] group"
+              className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider px-7 py-3.5 rounded-full bg-[#722F37] text-[#F4F0E8] hover:bg-[#F4F0E8] hover:text-[#0B0A09] transition-all duration-300 shadow-xl border border-[#722F37] group"
             >
               <FileText className="w-3.5 h-3.5" />
               <span>REQUEST / DOWNLOAD CV</span>
