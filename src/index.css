@@ -50,37 +50,50 @@
     display: none;
   }
 
-  /* Editorial mask and reveal utilities */
+  /* Editorial typography mask and reveal utilities */
   .mask-vertical-reveal {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease;
+    opacity: 1;
+    transform: translateY(0);
+    transition: clip-path 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .mask-vertical-hidden {
     clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(28px);
   }
 
   .mask-horizontal-reveal {
     clip-path: inset(0 0 0 0);
-    transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+    opacity: 1;
+    transform: translateX(0);
+    transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease;
   }
 
   .mask-horizontal-hidden {
     clip-path: inset(0 100% 0 0);
     opacity: 0;
+    transform: translateX(-12px);
   }
 
+  /* Photographic editorial reveal */
   .photo-develop-reveal {
     opacity: 1;
+    clip-path: inset(0% 0% 0% 0% round 1.5rem);
     transform: scale(1);
-    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), clip-path 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .photo-develop-hidden {
     opacity: 0;
-    transform: scale(1.04);
+    clip-path: inset(8% 4% 8% 4% round 1.5rem);
+    transform: scale(1.03);
+  }
+
+  /* Smooth editorial image crop */
+  .editorial-img-reveal {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
   }
 }
 

@@ -9,11 +9,13 @@ export const Hero: React.FC = () => {
   const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const p1 = setTimeout(() => setPhase(1), 150);
-    const p2 = setTimeout(() => setPhase(2), 700);
-    const p3 = setTimeout(() => setPhase(3), 1300);
-    const p4 = setTimeout(() => setPhase(4), 1900);
-    const p5 = setTimeout(() => setPhase(5), 2500);
+    // Cinematic 6-Phase Staggered Entrance Sequence
+    const p1 = setTimeout(() => setPhase(1), 100);  // Top identity & thin accent rule
+    const p2 = setTimeout(() => setPhase(2), 550);  // Monumental Name Mask Reveal
+    const p3 = setTimeout(() => setPhase(3), 1000); // Editorial Italic Subtitle Reveal
+    const p4 = setTimeout(() => setPhase(4), 1500); // Academic Credentials & Statement Quote
+    const p5 = setTimeout(() => setPhase(5), 1950); // Action CTAs
+    const p6 = setTimeout(() => setPhase(6), 2350); // Portrait Photographic Mask Develop
 
     return () => {
       clearTimeout(p1);
@@ -21,6 +23,7 @@ export const Hero: React.FC = () => {
       clearTimeout(p3);
       clearTimeout(p4);
       clearTimeout(p5);
+      clearTimeout(p6);
     };
   }, []);
 
@@ -42,8 +45,8 @@ export const Hero: React.FC = () => {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
       const { innerWidth, innerHeight } = window;
-      const x = ((e.clientX / innerWidth) - 0.5) * 16;
-      const y = ((e.clientY / innerHeight) - 0.5) * 16;
+      const x = ((e.clientX / innerWidth) - 0.5) * 12;
+      const y = ((e.clientY / innerHeight) - 0.5) * 12;
       setMousePos({ x, y });
     };
 
@@ -55,7 +58,7 @@ export const Hero: React.FC = () => {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-[90vh] lg:min-h-[95vh] flex flex-col justify-between pt-28 sm:pt-32 pb-16 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none border-b border-[#262320]"
+      className="relative min-h-[92vh] lg:min-h-[96vh] flex flex-col justify-between pt-28 sm:pt-36 pb-16 sm:pb-20 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none border-b border-[#262320]"
     >
       {/* Top Staggered Identity Bar */}
       <div className="relative z-20 space-y-4">
@@ -106,46 +109,45 @@ export const Hero: React.FC = () => {
 
       {/* HERO CENTRAL SPREAD */}
       <div
-        className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center py-10 sm:py-14 my-auto transition-all duration-300"
+        className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center py-10 sm:py-16 my-auto transition-all duration-500"
         style={{
-          transform: `translate3d(0, ${scrollProgress * -30}px, 0)`,
-          opacity: 1 - scrollProgress * 0.7,
+          transform: `translate3d(0, ${scrollProgress * -25}px, 0)`,
+          opacity: 1 - scrollProgress * 0.6,
         }}
       >
         {/* Left Column: Multi-Directional Typography & Editorial Credential */}
         <div
-          className="lg:col-span-7 space-y-6 lg:space-y-8 transition-transform duration-300 ease-out"
+          className="lg:col-span-7 space-y-7 lg:space-y-8 transition-transform duration-500 ease-out"
           style={{
-            transform: `translate3d(${mousePos.x * -0.4}px, ${mousePos.y * -0.4}px, 0)`,
+            transform: `translate3d(${mousePos.x * -0.3}px, ${mousePos.y * -0.3}px, 0)`,
           }}
         >
           {/* Headline */}
-          <div className="overflow-hidden">
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.25rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.95]">
-              <div className="overflow-hidden">
-                <span
-                  className={`block transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] whitespace-nowrap ${
-                    phase >= 2 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
-                  }`}
-                >
-                  Prashanthi B.
-                </span>
-              </div>
-              <div className="overflow-hidden pt-3">
-                <span
-                  className={`block font-serif italic text-[#722F37] font-normal text-2xl sm:text-3xl lg:text-4xl transition-all duration-1000 delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    phase >= 2 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
-                  }`}
-                >
-                  Buying & Merchandising | Brand Strategy | Visual Merchandising
-                </span>
-              </div>
-            </h1>
+          <div className="space-y-2">
+            <div className="overflow-hidden">
+              <h1
+                className={`font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.75rem] xl:text-[6.5rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.93] ${
+                  phase >= 2 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
+                }`}
+              >
+                Prashanthi B.
+              </h1>
+            </div>
+
+            <div className="overflow-hidden pt-1">
+              <p
+                className={`font-serif italic text-[#722F37] font-normal text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-snug ${
+                  phase >= 3 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
+                }`}
+              >
+                Buying & Merchandising | Brand Strategy | Visual Merchandising
+              </p>
+            </div>
           </div>
 
           {/* Academic Credential & Disciplines */}
           <div
-            className={`space-y-2 border-l-2 border-[#722F37] pl-4 transition-all duration-1000 delay-200 ${
+            className={`space-y-2 border-l-2 border-[#722F37] pl-4 transition-all duration-1000 ${
               phase >= 4 ? 'mask-horizontal-reveal' : 'mask-horizontal-hidden'
             }`}
           >
@@ -162,7 +164,7 @@ export const Hero: React.FC = () => {
 
           {/* Statement Quote */}
           <p
-            className={`text-base sm:text-lg text-[#C8BFB2] leading-relaxed font-sans max-w-xl font-light transition-all duration-1000 delay-300 ${
+            className={`text-base sm:text-lg text-[#C8BFB2] leading-relaxed font-sans max-w-xl font-light transition-all duration-1000 delay-200 ${
               phase >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
@@ -171,44 +173,44 @@ export const Hero: React.FC = () => {
 
           {/* Action CTAs */}
           <div
-            className={`flex flex-wrap items-center gap-4 pt-2 transition-all duration-700 delay-400 ${
+            className={`flex flex-wrap items-center gap-4 pt-2 transition-all duration-700 ${
               phase >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
             <a
               href="#work"
-              className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider bg-[#722F37] text-[#F4F0E8] px-7 py-3.5 rounded-full hover:bg-[#F4F0E8] hover:text-[#0B0A09] transition-all shadow-2xl group border border-[#722F37]"
+              className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider bg-[#722F37] text-[#F4F0E8] px-7 py-3.5 rounded-full hover:bg-[#F4F0E8] hover:text-[#0B0A09] transition-all duration-300 shadow-2xl group border border-[#722F37]"
             >
               <span>EXPLORE SELECTED WORK</span>
-              <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
+              <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform duration-300" />
             </a>
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold uppercase tracking-wider px-5 py-3.5 text-[#C8BFB2] hover:text-[#722F37] transition-colors group"
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold uppercase tracking-wider px-5 py-3.5 text-[#C8BFB2] hover:text-[#722F37] transition-colors duration-300 group"
             >
               <span>DIRECT INQUIRY</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#8E8278] group-hover:text-[#722F37] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#8E8278] group-hover:text-[#722F37] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
             </a>
           </div>
         </div>
 
         {/* Right Column: Hero Portrait Photograph */}
         <div
-          className="lg:col-span-5 flex justify-center lg:justify-end z-10 transition-transform duration-300 ease-out"
+          className="lg:col-span-5 flex justify-center lg:justify-end z-10 transition-transform duration-500 ease-out"
           style={{
-            transform: `translate3d(${mousePos.x * 0.5}px, ${mousePos.y * 0.5 + scrollProgress * 15}px, 0)`,
+            transform: `translate3d(${mousePos.x * 0.4}px, ${mousePos.y * 0.4 + scrollProgress * 12}px, 0)`,
           }}
         >
           <div
-            className={`relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-3xl border border-[#262320] bg-[#141211] shadow-2xl transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              phase >= 3 ? 'photo-develop-reveal' : 'photo-develop-hidden'
+            className={`relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-3xl border border-[#262320] bg-[#141211] shadow-2xl ${
+              phase >= 6 ? 'photo-develop-reveal' : 'photo-develop-hidden'
             }`}
           >
             <img
               src={PERSONAL_DATA.images.hero}
               alt="Prashanthi B. — Fashion Business & Merchandising"
-              className="w-full h-full object-cover object-center hover:scale-[1.02] transition-transform duration-700 ease-out"
+              className="w-full h-full object-cover object-center transition-transform duration-1000 ease-out hover:scale-[1.02]"
             />
           </div>
         </div>
