@@ -74,7 +74,7 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
 
           {/* Bottom Bar */}
           <div className="border-t border-[#262320] pt-3 flex items-center justify-between text-[11px] text-[#8E8278]">
-            <span>Prashanthi B.</span>
+            <span>PRASHANTHI.B</span>
           </div>
         </div>
       )}

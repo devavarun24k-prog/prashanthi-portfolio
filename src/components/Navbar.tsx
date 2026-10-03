@@ -63,7 +63,7 @@ export const Navbar: React.FC = () => {
             className="group flex items-baseline gap-2.5 text-left focus:outline-none"
           >
             <span className="font-serif text-2xl tracking-tight text-[#F4F0E8] group-hover:text-[#722F37] transition-colors font-normal">
-              Prashanthi B.
+              PRASHANTHI.B
             </span>
             <span className="hidden sm:inline-block text-[11px] text-[#C8BFB2] font-mono font-medium tracking-wider">
               Brands. Retail. Consumer Thinking.
@@ -115,7 +115,7 @@ export const Navbar: React.FC = () => {
         <div className="fixed inset-0 z-50 bg-[#0B0A09] text-[#F4F0E8] flex flex-col justify-between p-8 sm:p-12 animate-fadeIn md:hidden select-none">
           <div className="flex items-center justify-between border-b border-[#262320] pb-6">
             <span className="font-serif text-2xl text-[#F4F0E8]">
-              Prashanthi B.
+              PRASHANTHI.B
             </span>
             <button
               onClick={() => setMobileMenuOpen(false)}

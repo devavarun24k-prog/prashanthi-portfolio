@@ -109,7 +109,7 @@ export const AboutSection: React.FC = () => {
           >
             <img
               src={images.portrait01}
-              alt="Prashanthi B. — Editorial Portrait"
+              alt="PRASHANTHI.B — Editorial Portrait"
               className="w-full h-full object-cover object-top transition-transform duration-1000 ease-out hover:scale-[1.015]"
             />
           </div>

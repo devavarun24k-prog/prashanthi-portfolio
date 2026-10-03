@@ -71,7 +71,7 @@ export const WORK_WITH_DATA: WorkWithCategory[] = [
 ];
 
 export const PERSONAL_DATA = {
-  name: 'Prashanthi B.',
+  name: 'PRASHANTHI.B',
   roleHeadline: 'Buying & Merchandising | Brand Strategy | Visual Merchandising',
   credential: 'MBA — Fashion & Lifestyle Business Management',
   academicDetail: 'Pearl Academy Bangalore (2025–2027) • ICFAI University BBA (2020–2023)',
@@ -92,7 +92,7 @@ export const PERSONAL_DATA = {
   email: 'prashanthi.rbovilla@gmail.com',
   location: 'Bangalore / India',
   linkedin: 'https://www.linkedin.com/in/prashanthi-reddy-14771a244/',
-  cvUrl: 'mailto:prashanthi.rbovilla@gmail.com?subject=CV Request - Prashanthi B.',
+  cvUrl: 'mailto:prashanthi.rbovilla@gmail.com?subject=CV Request - PRASHANTHI.B',
   images: {
     hero: '/images/hero.jpg',
     portrait01: '/images/hero.jpg',
