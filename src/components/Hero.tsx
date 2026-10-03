@@ -206,16 +206,16 @@ export const Hero: React.FC = () => {
           }}
         >
           <div
-            className={`relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-2xl transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              phase >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.04]'
+            className={`relative w-full max-w-sm sm:max-w-md lg:max-w-lg aspect-[3/4] overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              phase >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.03]'
             }`}
           >
             <img
               src={PERSONAL_DATA.images.hero}
               alt="Prashanthi B. — Fashion Business & Merchandising"
-              className="w-full h-full object-cover object-center transition-transform duration-1000 ease-out hover:scale-[1.02]"
+              className="w-full h-full object-cover object-top transition-transform duration-1000 ease-out hover:scale-[1.01]"
               style={{
-                transform: `scale(${1 + scrollProgress * 0.03})`,
+                transform: `scale(${1 + scrollProgress * 0.02})`,
               }}
             />
           </div>

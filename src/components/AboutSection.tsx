@@ -33,11 +33,11 @@ export const AboutSection: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-16 items-start relative z-10">
         {/* Left Column: Portrait Frame */}
         <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-4">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[#262320] shadow-2xl group transition-all duration-700">
+          <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-[#262320] shadow-2xl group transition-all duration-700">
             <img
               src={PERSONAL_DATA.images.portrait01}
               alt="Prashanthi B. — About Portrait"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+              className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
             />
           </div>
         </div>
