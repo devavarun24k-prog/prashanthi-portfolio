@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { Project } from './data/portfolioData';
-import { PROJECTS_DATA } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { SelectedWork } from './components/SelectedWork';
-import { TheBearHouseFeature } from './components/TheBearHouseFeature';
 import { ExperienceSection } from './components/ExperienceSection';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
@@ -62,16 +60,13 @@ export function App() {
         {/* 2. Selected Work: 5 Image-Led Case Studies */}
         <SelectedWork onSelectProject={(project) => setSelectedProject(project)} />
 
-        {/* 3. The Bear House: Hero Retail Case Study Feature */}
-        <TheBearHouseFeature onOpenStudy={() => setSelectedProject(PROJECTS_DATA[0])} />
-
-        {/* 4. Experience & Education: Clean Professional History */}
+        {/* 3. Experience & Education: Clean Professional History */}
         <ExperienceSection />
 
-        {/* 5. About: Real Human Perspective & Background */}
+        {/* 4. About: Real Human Perspective & Background */}
         <AboutSection />
 
-        {/* 6. Contact: Get in Touch */}
+        {/* 5. Contact: Get in Touch */}
         <ContactSection />
       </main>
 

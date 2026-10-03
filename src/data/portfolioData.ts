@@ -332,16 +332,6 @@ export const PROJECTS_DATA: Project[] = [
   }
 ];
 
-export const BEAR_HOUSE_LOCATIONS = [
-  { name: 'Orion Mall', city: 'Bangalore', type: 'EBO', focus: 'Visual merchandising audits, display standards, replenishment' },
-  { name: 'Phoenix Mall of Asia', city: 'Bangalore', type: 'EBO', focus: 'High-footfall presentation, mannequin styling, floor compliance' },
-  { name: 'Sarath City Capital Mall', city: 'Hyderabad', type: 'EBO', focus: 'High-traffic display maintenance, focal point setups' },
-  { name: 'Himayath Nagar', city: 'Hyderabad', type: 'EBO', focus: 'New Store Opening (NSO), floor setup, fixture & wall layout' },
-  { name: 'Tolichowki', city: 'Hyderabad', type: 'EBO', focus: 'New Store Opening (NSO), visual merchandising launch execution' },
-  { name: 'Central Mall', city: 'Hyderabad', type: 'SIS', focus: 'Shop-in-Shop visual merchandising compliance, category display' },
-  { name: 'Centro Mall', city: 'Hyderabad', type: 'SIS', focus: 'Shop-in-Shop brand presentation and stock replenishment' }
-];
-
 export const EXPERIENCES_DATA: ExperienceItem[] = [
   {
     id: 'bear-house',
