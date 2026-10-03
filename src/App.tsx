@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import type { Project } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { PointOfViewSection } from './components/PointOfViewSection';
 import { SelectedWork } from './components/SelectedWork';
 import { ExperienceSection } from './components/ExperienceSection';
 import { AboutSection } from './components/AboutSection';
@@ -12,7 +11,7 @@ import { CaseStudyView } from './components/CaseStudyView';
 
 export function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [activeSection, setActiveSection] = useState<string>('hero');
+  const [activeSection, setActiveSection] = useState<string>('HERO');
 
   // Minimal Scroll Progress Tracker
   useEffect(() => {
@@ -22,8 +21,7 @@ export function App() {
         { id: 'about', name: '03 ABOUT' },
         { id: 'experience', name: '02 EXPERIENCE' },
         { id: 'work', name: '01 WORK' },
-        { id: 'pov', name: 'MANIFESTO' },
-        { id: 'hero', name: 'SYS.01' },
+        { id: 'hero', name: 'HERO' },
       ];
 
       const scrollY = window.scrollY + window.innerHeight * 0.35;
@@ -46,7 +44,7 @@ export function App() {
       {/* Sticky Navigation */}
       <Navbar />
 
-      {/* Extremely Minimal Floating Scroll Progress Tracker (Desktop Only) */}
+      {/* Floating Scroll Progress Tracker (Desktop Only) */}
       <aside className="fixed right-6 bottom-10 z-30 hidden xl:flex flex-col items-end gap-2 font-mono text-[10px] text-[#8E8278] select-none pointer-events-none">
         <div className="flex items-center gap-2 bg-[#141211]/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#262320] text-[#C8BFB2]">
           <span className="w-1.5 h-1.5 rounded-full bg-[#722F37] animate-pulse" />
@@ -59,19 +57,16 @@ export function App() {
         {/* 1. Hero: Personal Introduction & Identity */}
         <Hero />
 
-        {/* 2. Point of View: Core Manifesto & Pillars */}
-        <PointOfViewSection />
-
-        {/* 3. Selected Work: 4 Image-Led Case Studies */}
+        {/* 2. Selected Work: 5 Editorial Case Studies */}
         <SelectedWork onSelectProject={(project) => setSelectedProject(project)} />
 
-        {/* 4. Experience & Education: Clean Professional History */}
+        {/* 3. Experience & Education: Professional History */}
         <ExperienceSection />
 
-        {/* 5. About: Real Human Perspective & Background */}
+        {/* 4. About: Perspective & Background */}
         <AboutSection />
 
-        {/* 6. Contact: Get in Touch */}
+        {/* 5. Contact: Get in Touch */}
         <ContactSection />
       </main>
 
@@ -89,4 +84,3 @@ export function App() {
 }
 
 export default App;
-

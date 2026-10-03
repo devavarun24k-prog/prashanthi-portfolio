@@ -1,22 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowDown, ArrowUpRight, Sparkles, Terminal } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Sparkles } from 'lucide-react';
 import { PERSONAL_DATA } from '../data/portfolioData';
-import { Hero3DCanvas } from './Hero3DCanvas';
 
 export const Hero: React.FC = () => {
-  // Coordinated 5-Phase Entrance Sequence
   const [phase, setPhase] = useState<number>(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // Cinematic orchestrated timeline (smooth, immediate interaction ready)
-    const p1 = setTimeout(() => setPhase(1), 150);   // Phase 1: Subtle grid, line draw, staggered metadata
-    const p2 = setTimeout(() => setPhase(2), 700);   // Phase 2: PRASHANTHI B. vertical mask uncover
-    const p3 = setTimeout(() => setPhase(3), 1300);  // Phase 3: Portrait photographic develop (scale 1.08 -> 1.0 + mask)
-    const p4 = setTimeout(() => setPhase(4), 1900);  // Phase 4: Multi-directional statements, horizontal credentials
-    const p5 = setTimeout(() => setPhase(5), 2500);  // Phase 5: Fully interactive micro-engine
+    const p1 = setTimeout(() => setPhase(1), 150);
+    const p2 = setTimeout(() => setPhase(2), 700);
+    const p3 = setTimeout(() => setPhase(3), 1300);
+    const p4 = setTimeout(() => setPhase(4), 1900);
+    const p5 = setTimeout(() => setPhase(5), 2500);
 
     return () => {
       clearTimeout(p1);
@@ -27,7 +24,6 @@ export const Hero: React.FC = () => {
     };
   }, []);
 
-  // Scroll-linked continuous transformation into next section
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -40,7 +36,6 @@ export const Hero: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Desktop Micro-interaction Parallax (5-8px subtle range, opposite axis displacement)
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (window.innerWidth < 1024) return;
@@ -60,15 +55,9 @@ export const Hero: React.FC = () => {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-[100vh] flex flex-col justify-between pt-28 sm:pt-32 pb-12 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none"
+      className="relative min-h-[90vh] lg:min-h-[95vh] flex flex-col justify-between pt-28 sm:pt-32 pb-16 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none border-b border-[#262320]"
     >
-      {/* 3D Architectural WebGL Canvas Layer */}
-      <Hero3DCanvas className="opacity-70" />
-
-      {/* Editorial Background Grid Coordinate Overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-15 bg-[linear-gradient(to_right,#262320_1px,transparent_1px),linear-gradient(to_bottom,#262320_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]" />
-
-      {/* PHASE 1: Top Staggered System Metadata & Thin Drawing Line */}
+      {/* Top Staggered Identity Bar */}
       <div className="relative z-20 space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-4 pb-2 text-xs font-mono">
           {/* Tag 1: Name */}
@@ -77,11 +66,11 @@ export const Hero: React.FC = () => {
               phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
             }`}
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#722F37] animate-pulse" />
+            <Sparkles className="w-3.5 h-3.5 text-[#722F37]" />
             <span className="font-bold text-[#F4F0E8] tracking-widest uppercase">Prashanthi B.</span>
           </div>
 
-          {/* Tag 2: Location Coordinate */}
+          {/* Tag 2: Location */}
           <div
             className={`hidden sm:flex items-center gap-2 text-[#8E8278] transition-all duration-700 delay-100 ${
               phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
@@ -93,7 +82,7 @@ export const Hero: React.FC = () => {
             <span className="text-[11px] text-[#C8BFB2]">12.9716° N, 77.5946° E</span>
           </div>
 
-          {/* Tag 3: Discipline Taxonomy */}
+          {/* Tag 3: Disciplines */}
           <div
             className={`text-[#722F37] uppercase tracking-wider font-semibold transition-all duration-700 delay-200 ${
               phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
@@ -103,7 +92,7 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Thin Drawing Accent Rule Line */}
+        {/* Drawing Accent Rule Line */}
         <div className="relative w-full h-[1px] bg-[#262320] overflow-hidden">
           <div
             className="absolute inset-y-0 left-0 bg-[#722F37] transition-all duration-1000 ease-out"
@@ -115,32 +104,22 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* HERO CENTRAL SPREAD: Continuous Scroll-Driven Transformation */}
+      {/* HERO CENTRAL SPREAD */}
       <div
-        className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center py-8 my-auto transition-all duration-300"
+        className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center py-10 sm:py-14 my-auto transition-all duration-300"
         style={{
-          transform: `translate3d(0, ${scrollProgress * -40}px, 0)`,
-          opacity: 1 - scrollProgress * 0.75,
+          transform: `translate3d(0, ${scrollProgress * -30}px, 0)`,
+          opacity: 1 - scrollProgress * 0.7,
         }}
       >
-        {/* Left Column: Multi-Directional Typography & Mask Reveals (Cols 7) */}
+        {/* Left Column: Multi-Directional Typography & Editorial Credential */}
         <div
           className="lg:col-span-7 space-y-6 lg:space-y-8 transition-transform duration-300 ease-out"
           style={{
-            transform: `translate3d(${mousePos.x * -0.5}px, ${mousePos.y * -0.5}px, 0)`,
+            transform: `translate3d(${mousePos.x * -0.4}px, ${mousePos.y * -0.4}px, 0)`,
           }}
         >
-          {/* Phase 1 Marker */}
-          <div
-            className={`flex items-center gap-2.5 font-mono text-xs uppercase tracking-widest text-[#722F37] transition-all duration-700 ${
-              phase >= 1 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-            }`}
-          >
-            <Terminal className="w-3.5 h-3.5 text-[#722F37]" />
-            <span>SYS.01 // FASHION SYSTEM & COMMERCIAL MERCHANDISE</span>
-          </div>
-
-          {/* PHASE 2: Mask Uncover Typography */}
+          {/* Headline */}
           <div className="overflow-hidden">
             <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.25rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.95]">
               <div className="overflow-hidden">
@@ -152,7 +131,7 @@ export const Hero: React.FC = () => {
                   Prashanthi B.
                 </span>
               </div>
-              <div className="overflow-hidden pt-2">
+              <div className="overflow-hidden pt-3">
                 <span
                   className={`block font-serif italic text-[#722F37] font-normal text-2xl sm:text-3xl lg:text-4xl transition-all duration-1000 delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                     phase >= 2 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
@@ -164,7 +143,7 @@ export const Hero: React.FC = () => {
             </h1>
           </div>
 
-          {/* PHASE 4: Horizontal Reveal Academic Credential & Specs */}
+          {/* Academic Credential & Disciplines */}
           <div
             className={`space-y-2 border-l-2 border-[#722F37] pl-4 transition-all duration-1000 delay-200 ${
               phase >= 4 ? 'mask-horizontal-reveal' : 'mask-horizontal-hidden'
@@ -181,7 +160,7 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Hero Statement */}
+          {/* Statement Quote */}
           <p
             className={`text-base sm:text-lg text-[#C8BFB2] leading-relaxed font-sans max-w-xl font-light transition-all duration-1000 delay-300 ${
               phase >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -214,11 +193,11 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Hero Portrait Photograph (Cols 5) */}
+        {/* Right Column: Hero Portrait Photograph */}
         <div
           className="lg:col-span-5 flex justify-center lg:justify-end z-10 transition-transform duration-300 ease-out"
           style={{
-            transform: `translate3d(${mousePos.x * 0.7}px, ${mousePos.y * 0.7 + scrollProgress * 20}px, 0)`,
+            transform: `translate3d(${mousePos.x * 0.5}px, ${mousePos.y * 0.5 + scrollProgress * 15}px, 0)`,
           }}
         >
           <div
@@ -226,7 +205,6 @@ export const Hero: React.FC = () => {
               phase >= 3 ? 'photo-develop-reveal' : 'photo-develop-hidden'
             }`}
           >
-            {/* Real Portrait Photo of Prashanthi B. */}
             <img
               src={PERSONAL_DATA.images.hero}
               alt="Prashanthi B. — Fashion Business & Merchandising"
@@ -235,29 +213,6 @@ export const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* PHASE 5: Bottom Status Line & Scroll Indicator */}
-      <div
-        className={`flex flex-wrap items-center justify-between gap-4 border-t border-[#262320] pt-4 text-xs font-mono text-[#8E8278] transition-all duration-700 ${
-          phase >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-        }`}
-      >
-        <div className="flex items-center gap-3">
-          <span className="inline-block w-2 h-2 rounded-full bg-[#722F37] animate-pulse" />
-          <span className="uppercase tracking-widest text-[11px] text-[#C8BFB2]">
-            STATUS: ACTIVE FOR BUYING, MERCHANDISING & RETAIL ROLES
-          </span>
-        </div>
-
-        <a
-          href="#work"
-          className="inline-flex items-center gap-2 uppercase tracking-widest text-[11px] text-[#C8BFB2] hover:text-[#722F37] transition-colors group"
-        >
-          <span>SCROLL TO EXPLORE</span>
-          <ArrowDown className="w-3.5 h-3.5 text-[#722F37] group-hover:translate-y-1 transition-transform" />
-        </a>
-      </div>
     </section>
   );
 };
-

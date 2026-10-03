@@ -67,7 +67,7 @@ export const PERSONAL_DATA = {
   credential: 'MBA — Fashion & Lifestyle Business Management',
   academicDetail: 'Pearl Academy Bangalore (2025–2027) • ICFAI University BBA (2020–2023)',
   disciplines: 'Buying & Merchandising | Brand Strategy | Visual Merchandising',
-  intro: 'I’m interested in where fashion, consumers and business intersect — from understanding what people want to creating the right product, experience and brand strategy to make it matter.',
+  intro: 'I bring a creative eye with a strong understanding of the business behind fashion.',
   aboutParagraphs: [
     'I’m Prashanthi B., currently pursuing an MBA in Fashion & Lifestyle Business Management at Pearl Academy, Bangalore (2025–2027), following my BBA from ICFAI University (2020–2023).',
     'My interests sit across buying, merchandising, visual merchandising, retail operations, branding, and consumer behaviour.',
@@ -92,41 +92,41 @@ export const PROJECTS_DATA: Project[] = [
     title: 'THE BEAR HOUSE',
     subtitle: 'Retail in the Real World',
     category: 'Retail / Visual Merchandising / Merchandising',
-    type: '46-Day Industry Internship · Hyderabad & Bangalore',
-    shortDescription: 'Hands-on exposure to visual merchandising, store operations, merchandise organisation and retail execution across EBO and SIS formats.',
+    type: 'Retail Internship · Bangalore & Hyderabad',
+    shortDescription: 'Hands-on visual merchandising, store operations, merchandise organization and retail execution across EBO and SIS formats.',
     fullOverview: 'An intensive 46-day visual merchandising internship across 7 high-traffic retail locations in Hyderabad and Bangalore, reviewing store presentation against VM guidelines, supporting 2 New Store Openings (NSO), and executing End of Season Sale (EOSS) transitions.',
     challenge: 'Maintaining consistent visual standards across diverse store formats while balancing merchandise presentation, product accessibility, replenishment and fast-paced floor changes — from established mall stores to new store setups.',
     processSteps: [
       {
-        title: '01 / STORE VM EXPOSURE — Store Audits & VM Standards',
+        title: '01 / Store Audits & VM Standards',
         desc: 'Gained hands-on exposure to store-level VM audits and standards across EBO and SIS formats, observing merchandise presentation, displays, fixtures and overall store execution.'
       },
       {
-        title: '02 / STYLING & PRESENTATION — Mannequin Styling & Displays',
+        title: '02 / Mannequin Styling & Displays',
         desc: 'Styled mannequins and created complete looks, working with colour flow, product pairing and accessories to strengthen visual presentation across stores.'
       },
       {
-        title: '03 / EOSS FLOOR SETUP — End of Season Sale',
+        title: '03 / End of Season Sale Floor Setup',
         desc: 'Worked on EOSS floor changes, including merchandise reorganisation, size-wise product arrangement, display adjustments and replenishment to maintain an organised sales floor.'
       },
       {
-        title: '04 / NEW STORE SETUP — Himayath Nagar — NSO',
-        desc: 'Worked on the visual merchandising setup for the Himayath Nagar new store, including merchandise placement, fixture and wall setup, mannequin styling and overall store presentation.'
+        title: '04 / New Store Setup — NSO',
+        desc: 'Worked on the visual merchandising setup for new store launches, including merchandise placement, fixture setup, mannequin styling and overall store presentation.'
       }
     ],
     keyFacts: [
-      { label: 'Internship Duration', value: '46 Days', note: 'Intensive on-ground retail immersion' },
+      { label: 'Internship Duration', value: '46 Days', note: 'On-ground retail immersion' },
       { label: 'Store Footprint', value: '7 Retail Stores', note: 'Bangalore & Hyderabad EBO / SIS' },
       { label: 'New Store Openings', value: '2 Launches', note: 'Himayath Nagar & Tolichowki' },
-      { label: 'Key Campaign', value: 'EOSS Setup', note: 'Size-grid & sale floor organization' }
+      { label: 'Floor Execution', value: 'EOSS Setup', note: 'Size-wise floor organization' }
     ],
     outputs: [
-      'Visual merchandising audit checklists and compliance standards across 7 stores',
+      'Visual merchandising audit checklists and compliance standards',
       'Mannequin lookbooks and cross-category fixture coordination',
-      'EOSS size-wise floor layout and shorts wall execution',
+      'EOSS size-wise floor layout and wall execution',
       'NSO initial merchandise allocation and display setups'
     ],
-    takeaway: 'Understanding how merchandise moves from stockroom to sales floor — and how space, presentation and organisation directly influence customer dwell time and basket size.',
+    takeaway: 'Understanding how merchandise moves from stockroom to sales floor — and how space, presentation and organisation directly influence customer dwell time and conversion.',
     imagePath: '/images/prashanthi/bear-house/store-01.jpg',
     accentColor: '#722F37',
     accentBg: '#141211',
@@ -134,8 +134,55 @@ export const PROJECTS_DATA: Project[] = [
     composition: 'landscape'
   },
   {
-    id: 'healing-the-wait',
+    id: 'house-of-masaba',
     number: '02',
+    title: 'HOUSE OF MASABA',
+    subtitle: 'Assortment and Merchandising Strategy',
+    category: 'Assortment Strategy / Merchandise Planning',
+    type: 'Merchandise Planning & Assortment Strategy',
+    shortDescription: 'A merchandise strategy case study for House of Masaba, focused on assortment planning, pricing architecture and product positioning, translating its distinctive brand identity into a commercially relevant offering for contemporary Indian consumers.',
+    fullOverview: 'A merchandise strategy case study for House of Masaba, focused on assortment planning, pricing architecture and product positioning, translating its distinctive brand identity into a commercially relevant offering for contemporary Indian consumers.',
+    challenge: 'Translate House of Masaba’s bold, distinctive brand identity into a commercially viable assortment — balancing SKU breadth, category mix, pricing and size ratios to create a focused and market-relevant merchandise plan.',
+    processSteps: [
+      {
+        title: '01 Assortment Planning',
+        desc: 'Structured a focused commercial assortment balancing core, fashion and novelty styles across everyday and occasion wear.'
+      },
+      {
+        title: '02 Pricing Architecture',
+        desc: 'Defined clear pricing bands and margin benchmarks to maintain commercial viability while preserving brand prestige.'
+      },
+      {
+        title: '03 Product Positioning & Sizing',
+        desc: 'Calibrated size ratios and category mix to ensure high sell-through and minimize broken-size inventory.'
+      },
+      {
+        title: '04 Visual & Retail Integration',
+        desc: 'Integrated brand storytelling and visual merchandising principles to create a cohesive in-store product narrative.'
+      }
+    ],
+    keyFacts: [
+      { label: 'Verified Styles', value: '112 Styles', note: 'Across 5 core categories' },
+      { label: 'Total Assortment', value: '1,008 SKUs', note: 'Structured SKU breadth' },
+      { label: 'Price Architecture', value: '₹7.5K – ₹65K', note: 'Tiered commercial bands' },
+      { label: 'Target Margin', value: '40% – 60%', note: 'Baseline profitability' }
+    ],
+    outputs: [
+      '5 Core Categories: Festive Bias, High-End Prêt, Wedding Guest, Heritage Remix Lab, Print Your Personality',
+      '112 styles across 1,008 total SKUs',
+      'Tiered pricing architecture (₹7.5K–₹65K) and commercial margin guidelines',
+      'Size ratio planning (XS–XL) and inventory balance recommendations'
+    ],
+    takeaway: 'Where bold cultural codes meet thoughtful merchandise strategy — turning brand identity into a cohesive product story.',
+    imagePath: '/images/prashanthi/projects/masaba-01.jpg',
+    accentColor: '#722F37',
+    accentBg: '#141211',
+    tagColor: 'bg-burgundy text-ivory',
+    composition: 'wide'
+  },
+  {
+    id: 'healing-the-wait',
+    number: '03',
     title: 'HEALING THE WAIT',
     subtitle: 'Designing for a Human Experience',
     category: 'Design Thinking / Service Design',
@@ -169,14 +216,14 @@ export const PROJECTS_DATA: Project[] = [
       { label: 'Patient Boredom', value: '66%', note: 'Uncovered in patient conversations' },
       { label: 'Wait Anxiety', value: '60%', note: 'From uncertain delay times' },
       { label: 'Situational Frustration', value: '40%', note: 'Key experience gap identified' },
-      { label: 'Research Publication', value: '28 Pages', note: 'Editorial healthcare design artifact' }
+      { label: 'Research Publication', value: '28 Pages', note: 'Coffee table research book' }
     ],
     outputs: [
-      'Heal Queue App - appointments, live queue tracking, test bookings, digital prescriptions, and patient assistance',
-      'Queue & Appointment Management - real-time token updates, doctor availability, and estimated waiting times',
-      'Patient Support Features - test scheduling, prescription access, reminders and assistance throughout the hospital visit'
+      '28-page research coffee table book documenting patient waiting psychology',
+      'Heal Queue App: live queue tracking, appointments, and token status',
+      'Patient experience mapping across registration, waiting, and pharmacy'
     ],
-    takeaway: 'Information reduces anxiety. By replacing opacity with transparent digital tracking and thoughtful patient communication, perceived wait time is radically diminished.',
+    takeaway: 'Information reduces anxiety. By replacing opacity with transparent digital tracking and thoughtful communication, perceived wait time is radically diminished.',
     imagePath: '/images/prashanthi/projects/healing-wait-01.jpg',
     accentColor: '#A87578',
     accentBg: '#141211',
@@ -184,47 +231,100 @@ export const PROJECTS_DATA: Project[] = [
     composition: 'portrait'
   },
   {
-    id: 'house-of-masaba',
-    number: '03',
-    title: 'HOUSE OF MASABA',
-    subtitle: 'Assortment and Merchandising Strategy',
-    category: 'Assortment and Merchandising Strategy',
-    type: 'Merchandise Planning & Assortment Strategy',
-    shortDescription: 'A merchandise strategy case study for House of Masaba, focused on assortment planning, pricing architecture and product positioning, translating its distinctive brand identity into a commercially relevant offering for contemporary Indian consumers.',
-    fullOverview: 'A merchandise strategy case study for House of Masaba, focused on assortment planning, pricing architecture and product positioning, translating its distinctive brand identity into a commercially relevant offering for contemporary Indian consumers.',
-    challenge: 'Translate House of Masaba’s bold, distinctive brand identity into a commercially viable assortment — balancing SKU breadth, category mix, pricing and size ratios to create a focused and market-relevant merchandise plan.',
+    id: 'sutra-edit',
+    number: '04',
+    title: 'SUTRA EDIT',
+    subtitle: 'India’s fashion intelligence platform for sharper brand decisions.',
+    category: 'Fashion Intelligence / Brand Strategy',
+    type: 'Fashion Intelligence Platform Concept',
+    shortDescription: 'Sutra Edit brings together market intelligence, founder community and strategic consulting to help emerging fashion and lifestyle brands understand what’s changing, why it matters, and what to do next.',
+    fullOverview: 'A business concept built around retail intelligence for emerging Indian D2C and lifestyle brands, connecting content, community and consulting with a focus on local sourcing and retail realities.',
+    challenge: 'India’s emerging fashion founders lack accessible, India-specific business intelligence and expert guidance to turn industry signals into sharper brand decisions.',
     processSteps: [
       {
-        title: '01 Assortment Planning',
-        desc: 'Structured a focused commercial assortment balancing core, fashion and novelty styles across everyday and occasion wear.'
+        title: '01 — Market Gap',
+        desc: 'Mapped the gap between global fashion intelligence platforms and the contextual needs of India’s emerging fashion founders.'
       },
       {
-        title: '02 Pricing Architecture',
-        desc: 'Defined clear pricing bands and margin benchmarks to maintain commercial viability while preserving brand prestige.'
+        title: '02 — Platform Architecture',
+        desc: 'Built a three-part model around The Weekly Edit, The Dashboard and 1:1 Consulting.'
       },
       {
-        title: '03 Product Positioning & Sizing',
-        desc: 'Calibrated size ratios and category mix to ensure high sell-through and minimize broken-size inventory.'
+        title: '03 — Value Proposition',
+        desc: 'Defined a progression from accessible industry intelligence to premium insights and strategic advisory.'
       },
       {
-        title: '04 Visual & Retail Integration',
-        desc: 'Integrated brand storytelling and visual merchandising principles to create a cohesive in-store product narrative.'
+        title: '04 — Business Model',
+        desc: 'Developed a tiered revenue model spanning Starter, Pro and Premium, supported by subscriptions and consulting.'
+      },
+      {
+        title: '05 — Go-to-Market',
+        desc: 'Outlined a launch strategy centred on founder-led content, industry intelligence, community building and strategic partnerships.'
       }
     ],
     keyFacts: [
-      { label: 'Strategic Focus', value: 'Assortment Strategy', note: 'Merchandise planning & pricing' },
-      { label: 'Brand Positioning', value: 'Contemporary Luxury', note: 'Distinctive Indian brand codes' },
-      { label: 'Core Deliverables', value: 'Range Architecture', note: 'Pricing & size planning' },
-      { label: 'Commercial Goal', value: 'Balanced Assortment', note: 'Protecting brand prestige & margins' }
+      { label: 'Core Market', value: 'India D2C Fashion', note: 'Contextual retail focus' },
+      { label: 'Business Verticals', value: 'Intelligence · Community · Consulting', note: '3-part platform architecture' },
+      { label: 'Revenue Model', value: 'Subscription · Retainer', note: 'Tiered monetization' },
+      { label: 'Platform Scope', value: 'Industry Intelligence', note: 'Signals to sharper brand decisions' }
     ],
     outputs: [
-      'Assortment planning and category mix framework',
-      'Tiered pricing architecture and commercial margin guidelines',
-      'Size ratio planning and inventory balance recommendations',
-      'In-store visual merchandising and product positioning guidelines'
+      'India-first fashion intelligence platform for emerging founders',
+      'The Weekly Edit — curated business, market and trend intelligence',
+      'The Dashboard — trend prediction, competitor mapping and pricing benchmarks',
+      '1:1 Consulting model covering brand strategy, GTM, and channel expansion',
+      'Tiered subscription architecture across Starter, Pro and Premium'
     ],
-    takeaway: 'Strategic Takeaway: Where bold cultural codes meet thoughtful merchandise strategy — turning brand identity into a cohesive product story.',
-    imagePath: '/images/prashanthi/projects/masaba-01.jpg',
+    takeaway: 'Turning fragmented fashion signals into intelligence founders can act on.',
+    imagePath: '/images/prashanthi/projects/sutra-01.jpg',
+    accentColor: '#722F37',
+    accentBg: '#141211',
+    tagColor: 'bg-burgundy text-ivory',
+    composition: 'editorial'
+  },
+  {
+    id: 'beyond-the-boutique',
+    number: '05',
+    title: 'BEYOND THE BOUTIQUE',
+    subtitle: 'Designing a phygital luxury ecosystem where heritage, technology and human clienteling meet.',
+    category: 'Luxury Ecosystem / Omnichannel Strategy',
+    type: 'Bvlgari Phygital Strategy Case Study',
+    shortDescription: 'Designing a phygital luxury ecosystem where heritage, technology and human clienteling meet — exploring how Bvlgari can extend its Maison experience into the digital world while retaining its exclusivity.',
+    fullOverview: 'A strategic exploration of how Bvlgari can bridge its heritage-led physical experience with digital innovation—without compromising the exclusivity of luxury.',
+    challenge: 'Luxury is no longer experienced only inside the boutique. Consumers increasingly discover, research and engage with brands digitally, creating a need for a more connected online–offline journey. The challenge was to explore: How can Bvlgari extend its Maison experience into the digital world while retaining its human touch and sense of exclusivity?',
+    processSteps: [
+      {
+        title: '01 — Journey Mapping',
+        desc: 'Mapped the luxury customer journey from digital discovery to post-purchase engagement across physical and virtual touchpoints.'
+      },
+      {
+        title: '02 — Technological Enablers',
+        desc: 'Identified opportunities to integrate AI clienteling, AR virtual try-on, unified CRM, and Digital Product Passports.'
+      },
+      {
+        title: '03 — Strategic Ecosystem',
+        desc: 'Developed the Bvlgari Phygital Luxury Ecosystem connecting Discover → Explore → Experience → Purchase → Own → Re-engage.'
+      },
+      {
+        title: '04 — Clienteling & Exclusivity',
+        desc: 'Positioned technology as an extension of the Maison experience, augmenting human luxury service rather than replacing it.'
+      }
+    ],
+    keyFacts: [
+      { label: 'Brand Focus', value: 'Bvlgari Maison', note: 'Luxury jewellery & heritage' },
+      { label: 'Strategic Model', value: 'Phygital Ecosystem', note: 'Heritage + Digital Innovation' },
+      { label: 'Journey Stages', value: '6 Touchpoints', note: 'Discover to Re-engage' },
+      { label: 'Core Principle', value: 'Human Touch', note: 'Exclusivity preserved' }
+    ],
+    outputs: [
+      'AI for personalised recommendations and clienteling',
+      'AR for immersive product discovery and virtual try-on',
+      'CRM for a unified customer view across touchpoints',
+      'Digital Product Passports for authentication and ownership',
+      'Omnichannel retail connecting digital and physical experiences'
+    ],
+    takeaway: 'Technology should not make luxury more digital. It should make the luxury relationship more seamless, personal and enduring.',
+    imagePath: '/images/prashanthi/projects/bvlgari-01.jpg',
     accentColor: '#722F37',
     accentBg: '#141211',
     tagColor: 'bg-burgundy text-ivory',
@@ -232,7 +332,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: '3am-india',
-    number: '04',
+    number: '06',
     title: '3AM INDIA',
     subtitle: 'Building Digital Consumer Engagement',
     category: 'Digital Strategy & Consumer Engagement',
@@ -270,65 +370,12 @@ export const PROJECTS_DATA: Project[] = [
       'Community growth loop (15K to 17K engaged consumer base)',
       'Digital touchpoint architecture for clean skincare communication'
     ],
-    takeaway: 'Strategic Takeaway: Simplifying complex skincare communication into clear, trustworthy consumer connection.',
+    takeaway: 'Simplifying complex skincare communication into clear, trustworthy consumer connection.',
     imagePath: '/images/prashanthi/projects/masaba-01.jpg',
     accentColor: '#722F37',
     accentBg: '#141211',
     tagColor: 'bg-burgundy text-ivory',
     composition: 'split'
-  },
-  {
-    id: 'sutra-edit',
-    number: '05',
-    title: 'SUTRA EDIT',
-    subtitle: 'India’s fashion intelligence platform for sharper brand decisions.',
-    category: '05 / FASHION INTELLIGENCE & BUSINESS MODEL',
-    type: 'Fashion Intelligence Platform Concept',
-    shortDescription: 'Sutra Edit brings together market intelligence, founder community and strategic consulting to help emerging fashion and lifestyle brands understand what’s changing, why it matters, and what to do next.',
-    fullOverview: 'A business concept built around retail intelligence for emerging Indian D2C and lifestyle brands, connecting content, community and consulting with a focus on local sourcing and retail realities.',
-    challenge: 'India’s emerging fashion founders lack accessible, India-specific business intelligence and expert guidance to turn industry signals into sharper brand decisions.',
-    processSteps: [
-      {
-        title: '01 — Market Gap',
-        desc: 'Mapped the gap between global fashion intelligence platforms and the contextual needs of India’s emerging fashion founders.'
-      },
-      {
-        title: '02 — Platform Architecture',
-        desc: 'Built a three-part model around The Weekly Edit, The Dashboard and 1:1 Consulting.'
-      },
-      {
-        title: '03 — Value Proposition',
-        desc: 'Defined a progression from accessible industry intelligence to premium insights and strategic advisory.'
-      },
-      {
-        title: '04 — Business Model',
-        desc: 'Developed a tiered revenue model spanning Starter, Pro and Premium, supported by subscriptions and consulting.'
-      },
-      {
-        title: '05 — Go-to-Market',
-        desc: 'Outlined a launch strategy centred on founder-led content, industry intelligence, community building and strategic partnerships.'
-      }
-    ],
-    keyFacts: [
-      { label: 'Core Market', value: 'India · D2C · Fashion & Lifestyle', note: 'Contextual retail focus' },
-      { label: 'Business Verticals', value: 'Intelligence · Community · Consulting', note: '3-part platform architecture' },
-      { label: 'Revenue Model', value: 'Subscription · Membership · Consulting', note: 'Tiered monetization' },
-      { label: 'Platform Scope', value: 'Industry Intelligence', note: 'Signals to sharper brand decisions' }
-    ],
-    outputs: [
-      'India-first fashion intelligence platform for emerging founders',
-      'The Weekly Edit — curated business, market and trend intelligence',
-      'The Dashboard — trend prediction, competitor mapping and pricing benchmarks',
-      '1:1 Consulting model covering brand strategy, GTM, investor preparation and channel expansion',
-      'Tiered subscription architecture across Starter, Pro and Premium',
-      'Launch roadmap spanning audience building, founder community and regional expansion'
-    ],
-    takeaway: 'Strategic Takeaway: Turning fragmented fashion signals into intelligence founders can act on.',
-    imagePath: '/images/prashanthi/projects/sutra-01.jpg',
-    accentColor: '#722F37',
-    accentBg: '#141211',
-    tagColor: 'bg-burgundy text-ivory',
-    composition: 'editorial'
   }
 ];
 

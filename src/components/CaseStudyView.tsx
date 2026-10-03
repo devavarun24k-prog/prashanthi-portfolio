@@ -1,13 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, ChevronLeft, ChevronRight, CheckCircle2, Sparkles, ArrowUpRight, Droplets } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, CheckCircle2, Sparkles, ArrowUpRight, Droplets, Gem } from 'lucide-react';
 import type { Project } from '../data/portfolioData';
 import { PROJECTS_DATA } from '../data/portfolioData';
-import { BearHouseWorld } from './brand-worlds/BearHouseWorld';
-import { HealingWaitWorld } from './brand-worlds/HealingWaitWorld';
-import { HouseOfMasabaWorld } from './brand-worlds/HouseOfMasabaWorld';
-import { ThreeAmWorld } from './brand-worlds/ThreeAmWorld';
-import { SutraEditWorld } from './brand-worlds/SutraEditWorld';
-import { ErrorBoundary } from './ErrorBoundary';
 
 interface CaseStudyViewProps {
   project: Project | null;
@@ -24,8 +18,8 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
   const [activeMasabaPillar, setActiveMasabaPillar] = useState(0);
   const masabaPillars = [
     { title: 'ASSORTMENT PLANNING', desc: 'Structuring a focused commercial assortment balancing core, fashion and novelty styles across everyday and occasion wear.' },
-    { title: 'PRICING ARCHITECTURE', desc: 'Defined clear pricing bands and margin benchmarks to maintain commercial viability while preserving brand prestige.' },
-    { title: 'PRODUCT POSITIONING', desc: 'Calibrating size ratios and category mix to ensure high sell-through and minimize broken-size inventory.' },
+    { title: 'PRICING ARCHITECTURE', desc: 'Defined clear pricing bands (₹7.5K–₹65K) and margin benchmarks (40–60%) to maintain commercial viability while preserving brand prestige.' },
+    { title: 'PRODUCT POSITIONING', desc: 'Calibrating size ratios (XS–XL) and category mix to ensure high sell-through and minimize broken-size inventory.' },
     { title: 'VISUAL INTEGRATION', desc: 'Integrated brand storytelling and visual merchandising principles to create a cohesive in-store product narrative.' },
   ];
 
@@ -33,10 +27,31 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
   const [waitStep, setWaitStep] = useState(0);
   const waitSteps = [
     { label: '01 EMPATHIZE', tone: 'Conducted primary research across OPD waiting environments, uncovering key stress points.' },
-    { label: '02 DEFINE', tone: 'Synthesized findings into key themes around boredom, uncertainty and waiting-time anxiety.' },
+    { label: '02 DEFINE', tone: 'Synthesized findings into key themes around boredom (66%), uncertainty (60%) and waiting-time anxiety.' },
     { label: '03 IDEATE', tone: 'Explored digital and experiential interventions to make waiting transparent, engaging, and reassuring.' },
     { label: '04 PROTOTYPE', tone: 'Developed the Heal Queue app concept with appointments, live queue tracking, and prescriptions.' },
     { label: '05 TEST', tone: 'Gathered user feedback to refine information clarity, usability, and the waiting experience.' },
+  ];
+
+  // Sutra Edit Strategy Node
+  const [activeSutraNode, setActiveSutraNode] = useState(0);
+  const sutraNodes = [
+    { title: '01 MARKET GAP', desc: 'Fragmented fashion intelligence and local Indian sizing dynamics' },
+    { title: '02 PLATFORM', desc: 'Curated editorial intelligence and retail market breakdowns' },
+    { title: '03 VALUE PROP', desc: 'Actionable strategic decisions backed by Indian consumer data' },
+    { title: '04 BUSINESS MODEL', desc: 'Tiered subscriptions (Starter, Pro) and bespoke advisory' },
+    { title: '05 GTM', desc: 'Audience building, trend reports and regional ecosystem expansion' },
+  ];
+
+  // Beyond the Boutique Bvlgari Phygital Stages
+  const [activeBvlgariStage, setActiveBvlgariStage] = useState(0);
+  const bvlgariStages = [
+    { stage: 'DISCOVER', desc: 'AI-curated inspiration and digital campaign discovery tailoring fine jewellery narratives to client aesthetic preferences.' },
+    { stage: 'EXPLORE', desc: 'Augmented reality (AR) virtual try-on and 3D high-jewellery exploration allowing tactile digital consideration.' },
+    { stage: 'EXPERIENCE', desc: 'Seamless boutique appointment booking with private salon preview prepared by dedicated client advisors.' },
+    { stage: 'PURCHASE', desc: 'Omnichannel checkout bridging boutique bespoke clienteling with secure digital concierge payment.' },
+    { stage: 'OWN', desc: 'Digital Product Passport guaranteeing gemstone provenance, blockchain authentication, and bespoke care documentation.' },
+    { stage: 'RE-ENGAGE', desc: 'Personalized private event invitations, anniversary reminders, and dedicated advisor concierge.' },
   ];
 
   // 3AM India Strategy Node
@@ -46,16 +61,6 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
     { name: 'SIMPLIFY', desc: 'Created transparent, jargon-free formulation storytelling.' },
     { name: 'CREATE', desc: 'Designed daily skincare rituals and education-first content.' },
     { name: 'CONNECT', desc: 'Built high-retention digital community loops (+13% growth).' },
-  ];
-
-  // Sutra Edit Strategy Node
-  const [activeSutraNode, setActiveSutraNode] = useState(0);
-  const sutraNodes = [
-    { title: '01 MARKET GAP', desc: 'Fragmented fashion intelligence and local Indian sizing dynamics' },
-    { title: '02 PLATFORM', desc: 'Curated editorial intelligence and retail market breakdowns' },
-    { title: '03 VALUE PROP', desc: 'Actionable strategic decisions backed by Indian consumer data' },
-    { title: '04 BUSINESS MODEL', desc: 'Tiered subscriptions, founder network and bespoke advisory' },
-    { title: '05 GTM', desc: 'Audience building, trend reports and regional ecosystem expansion' },
   ];
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -96,43 +101,6 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
   const prevProject = projectList[(currentIndex - 1 + projectList.length) % projectList.length];
   const nextProject = projectList[(currentIndex + 1) % projectList.length];
 
-  const renderBrandWorldCanvas = () => {
-    switch (project.id) {
-      case 'bear-house':
-        return (
-          <ErrorBoundary>
-            <BearHouseWorld />
-          </ErrorBoundary>
-        );
-      case 'healing-the-wait':
-        return (
-          <ErrorBoundary>
-            <HealingWaitWorld />
-          </ErrorBoundary>
-        );
-      case 'house-of-masaba':
-        return (
-          <ErrorBoundary>
-            <HouseOfMasabaWorld />
-          </ErrorBoundary>
-        );
-      case '3am-india':
-        return (
-          <ErrorBoundary>
-            <ThreeAmWorld />
-          </ErrorBoundary>
-        );
-      case 'sutra-edit':
-        return (
-          <ErrorBoundary>
-            <SutraEditWorld />
-          </ErrorBoundary>
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
     <div
       role="dialog"
@@ -140,17 +108,17 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
       aria-labelledby="case-study-title"
       className="fixed inset-0 z-50 flex items-center justify-center bg-[#0B0A09]/95 backdrop-blur-2xl transition-all duration-700 animate-fadeIn select-none p-0 sm:p-4 lg:p-6"
     >
-      {/* Full Viewport Morphing Container */}
+      {/* Full Viewport Container */}
       <div
         ref={scrollContainerRef}
         className="relative w-full h-full max-w-7xl max-h-[100vh] sm:max-h-[96vh] overflow-y-auto bg-[#0B0A09] text-[#F4F0E8] sm:rounded-3xl shadow-2xl border-0 sm:border border-[#262320] transition-all"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Sticky Precision Header Navigation Bar */}
+        {/* Sticky Header Navigation Bar */}
         <div className="sticky top-0 z-30 flex items-center justify-between px-6 sm:px-10 py-4 bg-[#0B0A09]/95 backdrop-blur-md border-b border-[#262320]">
           <div className="flex items-center gap-3 font-mono text-xs text-[#722F37]">
             <Sparkles className="w-3.5 h-3.5 text-[#722F37]" />
-            <span className="font-bold text-[#F4F0E8] uppercase tracking-wider">BRAND WORLD: {project.number} // {project.title}</span>
+            <span className="font-bold text-[#F4F0E8] uppercase tracking-wider">CASE STUDY: 0{currentIndex + 1} // {project.title}</span>
             <span className="text-[#262320]">|</span>
             <span className="hidden sm:inline text-[#C8BFB2] uppercase tracking-wider">{project.category}</span>
           </div>
@@ -188,10 +156,10 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
 
         {/* Immersive Editorial Article Spread */}
         <div className="p-6 sm:p-12 lg:p-16 space-y-16 max-w-6xl mx-auto">
-          {/* Monumental Magazine Header */}
+          {/* Magazine Header */}
           <div className="space-y-5 border-b border-[#262320] pb-12">
             <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-[#8E8278] uppercase tracking-widest">
-              <span className="text-[#722F37] font-bold">CASE ARTIFACT // SPEC_0{currentIndex + 1}</span>
+              <span className="text-[#722F37] font-bold">CASE ARTIFACT // 0{currentIndex + 1}</span>
               <span>{project.type}</span>
             </div>
 
@@ -206,20 +174,12 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
             </p>
           </div>
 
-          {/* DEDICATED BRAND WORLD INTERACTIVE HERO SPREAD */}
-          <div className="relative shadow-2xl">
-            {renderBrandWorldCanvas()}
-          </div>
-
           {/* VISUAL STORYTELLING SPLIT PANE */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start pt-4">
             {/* Left Column: Narrative Sections */}
             <div className="lg:col-span-7 space-y-12">
               {/* Section 01: Context & Overview */}
-              <div
-                id="story-context"
-                className="space-y-4"
-              >
+              <div id="story-context" className="space-y-4">
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] flex items-center gap-2">
                   <span>01</span>
                   <span>// CONTEXT & BACKGROUND</span>
@@ -247,10 +207,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
               </div>
 
               {/* Section 03: Process & Methodology */}
-              <div
-                id="story-process"
-                className="space-y-6"
-              >
+              <div id="story-process" className="space-y-6">
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] flex items-center gap-2">
                   <span>03</span>
                   <span>// EXECUTION METHODOLOGY</span>
@@ -308,13 +265,13 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Sticky Thematic Strategic Simulation Engine */}
+            {/* Right Column: Key Facts & Dynamic Project Highlights */}
             <div className="lg:col-span-5 sticky top-24 space-y-6">
               {/* Verified Highlight Box */}
               <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
                 <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
-                  <span className="font-bold uppercase tracking-wider">VERIFIED HIGHLIGHTS</span>
-                  <span>STATUS: ACTIVE</span>
+                  <span className="font-bold uppercase tracking-wider">PROJECT SNAPSHOT</span>
+                  <span>0{currentIndex + 1} // 0{projectList.length}</span>
                 </div>
                 <div className="space-y-3">
                   {project.keyFacts.map((fact, idx) => (
@@ -327,7 +284,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                 </div>
               </div>
 
-              {/* Dynamic Project Specific Engine */}
+              {/* Dynamic Project Specific Interactive Elements */}
               {project.id === 'house-of-masaba' && (
                 <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
                   <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
@@ -402,7 +359,77 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                         <div className="h-full bg-[#722F37] w-[60%]" />
                       </div>
                     </div>
+                    <div>
+                      <div className="flex justify-between text-[11px] pb-1">
+                        <span>FRUSTRATION</span>
+                        <span className="text-[#722F37] font-bold">40%</span>
+                      </div>
+                      <div className="w-full h-1.5 bg-[#0B0A09] rounded-full overflow-hidden">
+                        <div className="h-full bg-[#722F37] w-[40%]" />
+                      </div>
+                    </div>
                   </div>
+                </div>
+              )}
+
+              {project.id === 'beyond-the-boutique' && (
+                <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
+                  <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
+                    <span className="font-bold uppercase tracking-wider flex items-center gap-1.5">
+                      <Gem className="w-3.5 h-3.5" />
+                      PHYGITAL LUXURY LOOP
+                    </span>
+                    <span>BVLGARI ECOSYSTEM</span>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-1.5 font-mono text-[10px]">
+                    {bvlgariStages.map((stg, bIdx) => (
+                      <button
+                        key={bIdx}
+                        onClick={() => setActiveBvlgariStage(bIdx)}
+                        className={`p-1.5 rounded text-center transition-all ${
+                          activeBvlgariStage === bIdx ? 'bg-[#722F37] text-[#F4F0E8] font-bold' : 'bg-[#0B0A09] text-[#8E8278]'
+                        }`}
+                      >
+                        {stg.stage}
+                      </button>
+                    ))}
+                  </div>
+
+                  <p className="text-xs text-[#C8BFB2] font-sans pt-1 leading-relaxed">
+                    {bvlgariStages[activeBvlgariStage].desc}
+                  </p>
+
+                  <div className="p-3 rounded-2xl bg-[#0B0A09] border border-[#262320] text-xs font-sans text-[#F4F0E8] italic">
+                    “Technology should not make luxury more digital. It should make the luxury relationship more seamless, personal and enduring.”
+                  </div>
+                </div>
+              )}
+
+              {project.id === 'sutra-edit' && (
+                <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
+                  <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
+                    <span className="font-bold uppercase tracking-wider">STRATEGY NODE: {sutraNodes[activeSutraNode].title}</span>
+                    <span>INTELLIGENCE</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-1.5 font-mono text-[10px]">
+                    {sutraNodes.map((nd, nIdx) => (
+                      <button
+                        key={nIdx}
+                        onClick={() => setActiveSutraNode(nIdx)}
+                        className={`p-1.5 rounded border text-center transition-all ${
+                          activeSutraNode === nIdx ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold' : 'bg-[#0B0A09] border-[#262320] text-[#8E8278]'
+                        }`}
+                      >
+                        {nd.title}
+                      </button>
+                    ))}
+                  </div>
+
+                  <p className="text-xs text-[#C8BFB2] font-sans pt-1">
+                    {sutraNodes[activeSutraNode].desc}
+                  </p>
                 </div>
               )}
 
@@ -435,37 +462,10 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                   </p>
                 </div>
               )}
-
-              {project.id === 'sutra-edit' && (
-                <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
-                  <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
-                    <span className="font-bold uppercase tracking-wider">STRATEGY NODE: {sutraNodes[activeSutraNode].title}</span>
-                    <span>INTELLIGENCE</span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-1.5 font-mono text-[10px]">
-                    {sutraNodes.map((nd, nIdx) => (
-                      <button
-                        key={nIdx}
-                        onClick={() => setActiveSutraNode(nIdx)}
-                        className={`p-1.5 rounded border text-center transition-all ${
-                          activeSutraNode === nIdx ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold' : 'bg-[#0B0A09] border-[#262320] text-[#8E8278]'
-                        }`}
-                      >
-                        {nd.title}
-                      </button>
-                    ))}
-                  </div>
-
-                  <p className="text-xs text-[#C8BFB2] font-sans pt-1">
-                    {sutraNodes[activeSutraNode].desc}
-                  </p>
-                </div>
-              )}
             </div>
           </div>
 
-          {/* MONUMENTAL NEXT-PROJECT TRANSITION SPREAD */}
+          {/* NEXT-PROJECT TRANSITION */}
           <div className="pt-16 border-t border-[#262320]">
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] pb-4">
               CONTINUE EDITORIAL READING
@@ -491,7 +491,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                   "{nextProject.subtitle}"
                 </p>
                 <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#722F37] group-hover:text-[#F4F0E8] uppercase tracking-wider pt-2 transition-colors">
-                  <span>TRANSITION TO BRAND WORLD</span>
+                  <span>READ NEXT CASE STUDY</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </div>
               </div>
