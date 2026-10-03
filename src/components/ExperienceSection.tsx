@@ -12,7 +12,7 @@ export const ExperienceSection: React.FC = () => {
         <div className="space-y-4 max-w-3xl">
           <div className="flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#722F37]">
             <Briefcase className="w-4 h-4 text-[#722F37]" />
-            <span>CHRONOLOGY // TRACK RECORD & CREDENTIALS</span>
+            <span>EXPERIENCE</span>
           </div>
           <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
             CAREER &
@@ -55,7 +55,7 @@ export const ExperienceSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Sequential Editorial Numbered Cards (01, 02, 03, 04) */}
+      {/* Sequential Editorial Numbered Cards */}
       <div className="pt-12 space-y-12">
         {activeExpTab === 'work' && (
           <div className="space-y-8">
@@ -64,7 +64,7 @@ export const ExperienceSection: React.FC = () => {
                 key={exp.id}
                 className="p-8 sm:p-12 rounded-3xl bg-[#141211] border border-[#262320] hover:border-[#722F37] transition-all duration-500 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group"
               >
-                {/* Large Monumental Number */}
+                {/* Number */}
                 <div className="lg:col-span-2 font-serif text-6xl sm:text-7xl lg:text-8xl text-[#722F37]/30 group-hover:text-[#722F37] transition-colors font-normal select-none">
                   0{idx + 1}
                 </div>
@@ -175,4 +175,3 @@ export const ExperienceSection: React.FC = () => {
     </section>
   );
 };
-

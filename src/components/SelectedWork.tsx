@@ -118,7 +118,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                       className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#722F37] hover:text-[#F4F0E8] transition-colors group/btn"
                     >
                       <Eye className="w-4 h-4 text-[#722F37]" />
-                      <span>EXPLORE CASE STUDY</span>
+                      <span>EXPLORE PROJECT</span>
                       <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
 

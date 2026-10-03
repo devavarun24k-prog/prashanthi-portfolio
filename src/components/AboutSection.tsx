@@ -7,7 +7,7 @@ export const AboutSection: React.FC = () => {
 
   const lensOptions: { id: 'retail' | 'merchandising' | 'branding' | 'consumer' | 'strategy'; label: string; focus: string; cropStyle: string }[] = [
     { id: 'retail', label: 'RETAIL', focus: 'Store operations, visual merchandising compliance & shop floor dwell-time', cropStyle: 'scale-100 object-center' },
-    { id: 'merchandising', label: 'MERCHANDISING', focus: 'Assortment architecture, Indian sizing curves & 40–60% margin baseline', cropStyle: 'scale-105 object-top' },
+    { id: 'merchandising', label: 'MERCHANDISING', focus: 'Assortment architecture, Indian sizing curves & margin baseline', cropStyle: 'scale-105 object-top' },
     { id: 'branding', label: 'BRANDING', focus: 'Brand code translation, editorial curation & digital omnichannel storytelling', cropStyle: 'scale-102 object-center brightness-105' },
     { id: 'consumer', label: 'CONSUMER', focus: 'Ethnographic field empathy, pain-point definition & behavioral insights', cropStyle: 'scale-105 object-bottom' },
     { id: 'strategy', label: 'STRATEGY', focus: 'Bridge-to-luxury positioning, market gap synthesis & sustainable growth loops', cropStyle: 'scale-100 object-top contrast-105' },
@@ -22,7 +22,7 @@ export const AboutSection: React.FC = () => {
         <div className="space-y-4 max-w-3xl">
           <div className="flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#722F37]">
             <User className="w-4 h-4 text-[#722F37]" />
-            <span>BACKGROUND & PERSPECTIVE // PROFESSIONAL PROFILE</span>
+            <span>PROFILE</span>
           </div>
           <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
             ABOUT
@@ -57,7 +57,7 @@ export const AboutSection: React.FC = () => {
                 <Sliders className="w-3 h-3" />
                 PERSPECTIVE LENS
               </span>
-              <span>HOVER TO REFOCUS PORTRAIT</span>
+              <span>SELECT TO REFOCUS</span>
             </div>
 
             <div className="flex flex-wrap gap-1.5">
@@ -83,11 +83,8 @@ export const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Human Narrative & Traveling Burgundy Rule (Cols 7) */}
+        {/* Right Column: Human Narrative (Cols 7) */}
         <div className="lg:col-span-7 space-y-8 relative pl-0 sm:pl-6 border-l-0 sm:border-l border-[#262320]">
-          {/* Vertical Traveling Burgundy Rule on Large Screens */}
-          <div className="hidden sm:block absolute -left-[1.5px] top-0 h-28 w-[3px] bg-[#722F37] rounded-full" />
-
           <div className="space-y-5 text-base sm:text-lg text-[#C8BFB2] leading-relaxed font-sans font-light">
             {PERSONAL_DATA.aboutParagraphs.map((para, idx) => (
               <p key={idx}>{para}</p>
@@ -97,7 +94,7 @@ export const AboutSection: React.FC = () => {
           {/* Structured Competencies Grid */}
           <div className="space-y-4 pt-6 border-t border-[#262320]">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] block">
-              SYSTEM COMPETENCIES & DOMAIN CAPABILITIES:
+              CORE COMPETENCIES & DOMAIN CAPABILITIES:
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1">
               {SKILLS_LIST.map((skill, idx) => (
@@ -114,10 +111,6 @@ export const AboutSection: React.FC = () => {
 
           {/* Download CV Strip */}
           <div className="pt-6 border-t border-[#262320] flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
-            <div className="text-[#8E8278]">
-              OPEN FOR BUYING, MERCHANDISING & RETAIL ROLES
-            </div>
-
             <a
               href={PERSONAL_DATA.cvUrl}
               className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider px-7 py-3.5 rounded-full bg-[#722F37] text-[#F4F0E8] hover:bg-[#F4F0E8] hover:text-[#0B0A09] transition-all shadow-xl border border-[#722F37]"
@@ -132,5 +125,3 @@ export const AboutSection: React.FC = () => {
     </section>
   );
 };
-
-

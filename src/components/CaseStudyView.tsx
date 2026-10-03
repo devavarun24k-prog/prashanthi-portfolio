@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { X, ChevronLeft, ChevronRight, CheckCircle2, Sparkles, ArrowUpRight, Droplets, Gem } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { X, ChevronLeft, ChevronRight, CheckCircle2, Sparkles, ArrowUpRight } from 'lucide-react';
 import type { Project } from '../data/portfolioData';
 import { PROJECTS_DATA } from '../data/portfolioData';
 
@@ -14,55 +14,6 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
   onClose,
   onSelectProject,
 }) => {
-  // Masaba interactive pillar state
-  const [activeMasabaPillar, setActiveMasabaPillar] = useState(0);
-  const masabaPillars = [
-    { title: 'ASSORTMENT PLANNING', desc: 'Structuring a focused commercial assortment balancing core, fashion and novelty styles across everyday and occasion wear.' },
-    { title: 'PRICING ARCHITECTURE', desc: 'Defined clear pricing bands (₹7.5K–₹65K) and margin benchmarks (40–60%) to maintain commercial viability while preserving brand prestige.' },
-    { title: 'PRODUCT POSITIONING', desc: 'Calibrating size ratios (XS–XL) and category mix to ensure high sell-through and minimize broken-size inventory.' },
-    { title: 'VISUAL INTEGRATION', desc: 'Integrated brand storytelling and visual merchandising principles to create a cohesive in-store product narrative.' },
-  ];
-
-  // Healing wait empathy step
-  const [waitStep, setWaitStep] = useState(0);
-  const waitSteps = [
-    { label: '01 EMPATHIZE', tone: 'Conducted primary research across OPD waiting environments, uncovering key stress points.' },
-    { label: '02 DEFINE', tone: 'Synthesized findings into key themes around boredom (66%), uncertainty (60%) and waiting-time anxiety.' },
-    { label: '03 IDEATE', tone: 'Explored digital and experiential interventions to make waiting transparent, engaging, and reassuring.' },
-    { label: '04 PROTOTYPE', tone: 'Developed the Heal Queue app concept with appointments, live queue tracking, and prescriptions.' },
-    { label: '05 TEST', tone: 'Gathered user feedback to refine information clarity, usability, and the waiting experience.' },
-  ];
-
-  // Sutra Edit Strategy Node
-  const [activeSutraNode, setActiveSutraNode] = useState(0);
-  const sutraNodes = [
-    { title: '01 MARKET GAP', desc: 'Fragmented fashion intelligence and local Indian sizing dynamics' },
-    { title: '02 PLATFORM', desc: 'Curated editorial intelligence and retail market breakdowns' },
-    { title: '03 VALUE PROP', desc: 'Actionable strategic decisions backed by Indian consumer data' },
-    { title: '04 BUSINESS MODEL', desc: 'Tiered subscriptions (Starter, Pro) and bespoke advisory' },
-    { title: '05 GTM', desc: 'Audience building, trend reports and regional ecosystem expansion' },
-  ];
-
-  // Beyond the Boutique Bvlgari Phygital Stages
-  const [activeBvlgariStage, setActiveBvlgariStage] = useState(0);
-  const bvlgariStages = [
-    { stage: 'DISCOVER', desc: 'AI-curated inspiration and digital campaign discovery tailoring fine jewellery narratives to client aesthetic preferences.' },
-    { stage: 'EXPLORE', desc: 'Augmented reality (AR) virtual try-on and 3D high-jewellery exploration allowing tactile digital consideration.' },
-    { stage: 'EXPERIENCE', desc: 'Seamless boutique appointment booking with private salon preview prepared by dedicated client advisors.' },
-    { stage: 'PURCHASE', desc: 'Omnichannel checkout bridging boutique bespoke clienteling with secure digital concierge payment.' },
-    { stage: 'OWN', desc: 'Digital Product Passport guaranteeing gemstone provenance, blockchain authentication, and bespoke care documentation.' },
-    { stage: 'RE-ENGAGE', desc: 'Personalized private event invitations, anniversary reminders, and dedicated advisor concierge.' },
-  ];
-
-  // 3AM India Strategy Node
-  const [activeThreeAmStep, setActiveThreeAmStep] = useState(0);
-  const threeAmSteps = [
-    { name: 'RESEARCH', desc: 'Investigated consumer friction and demystified active ingredients.' },
-    { name: 'SIMPLIFY', desc: 'Created transparent, jargon-free formulation storytelling.' },
-    { name: 'CREATE', desc: 'Designed daily skincare rituals and education-first content.' },
-    { name: 'CONNECT', desc: 'Built high-retention digital community loops (+13% growth).' },
-  ];
-
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const featuredProjects = PROJECTS_DATA.filter((p) => p.id !== '3am-india');
 
@@ -118,7 +69,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
         <div className="sticky top-0 z-30 flex items-center justify-between px-6 sm:px-10 py-4 bg-[#0B0A09]/95 backdrop-blur-md border-b border-[#262320]">
           <div className="flex items-center gap-3 font-mono text-xs text-[#722F37]">
             <Sparkles className="w-3.5 h-3.5 text-[#722F37]" />
-            <span className="font-bold text-[#F4F0E8] uppercase tracking-wider">CASE STUDY: 0{currentIndex + 1} // {project.title}</span>
+            <span className="font-bold text-[#F4F0E8] uppercase tracking-wider">0{currentIndex + 1} // {project.title}</span>
             <span className="text-[#262320]">|</span>
             <span className="hidden sm:inline text-[#C8BFB2] uppercase tracking-wider">{project.category}</span>
           </div>
@@ -159,7 +110,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
           {/* Magazine Header */}
           <div className="space-y-5 border-b border-[#262320] pb-12">
             <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-[#8E8278] uppercase tracking-widest">
-              <span className="text-[#722F37] font-bold">CASE ARTIFACT // 0{currentIndex + 1}</span>
+              <span className="text-[#722F37] font-bold">PROJECT SPECIFICATION // 0{currentIndex + 1}</span>
               <span>{project.type}</span>
             </div>
 
@@ -182,10 +133,10 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
               <div id="story-context" className="space-y-4">
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] flex items-center gap-2">
                   <span>01</span>
-                  <span>// CONTEXT & BACKGROUND</span>
+                  <span>// OVERVIEW & SCOPE</span>
                 </span>
                 <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal">
-                  Overview & Commercial Scope
+                  Overview & Scope
                 </h3>
                 <p className="text-base sm:text-lg text-[#C8BFB2] leading-relaxed font-sans font-light">
                   {project.fullOverview}
@@ -199,7 +150,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
               >
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] flex items-center gap-2">
                   <span>02</span>
-                  <span>// THE STRATEGIC CHALLENGE</span>
+                  <span>// THE CHALLENGE</span>
                 </span>
                 <p className="text-base text-[#F4F0E8] font-sans leading-relaxed font-light">
                   {project.challenge}
@@ -210,7 +161,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
               <div id="story-process" className="space-y-6">
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] flex items-center gap-2">
                   <span>03</span>
-                  <span>// EXECUTION METHODOLOGY</span>
+                  <span>// THE APPROACH</span>
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {project.processSteps.map((step, idx) => (
@@ -239,7 +190,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
               >
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] flex items-center gap-2">
                   <span>04</span>
-                  <span>// STRATEGIC DELIVERABLES</span>
+                  <span>// OUTPUTS & DELIVERABLES</span>
                 </span>
                 <div className="space-y-3">
                   {project.outputs.map((out, idx) => (
@@ -265,9 +216,9 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Key Facts & Dynamic Project Highlights */}
+            {/* Right Column: Key Facts Snapshot */}
             <div className="lg:col-span-5 sticky top-24 space-y-6">
-              {/* Verified Highlight Box */}
+              {/* Snapshot Box */}
               <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
                 <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
                   <span className="font-bold uppercase tracking-wider">PROJECT SNAPSHOT</span>
@@ -284,191 +235,25 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                 </div>
               </div>
 
-              {/* Dynamic Project Specific Interactive Elements */}
-              {project.id === 'house-of-masaba' && (
-                <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
-                  <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
-                    <span className="font-bold uppercase tracking-wider">MERCHANDISE STRATEGY PILLARS</span>
-                    <span>4 PILLARS</span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-1.5 font-mono text-[10px]">
-                    {masabaPillars.map((pillar, mIdx) => (
-                      <button
-                        key={mIdx}
-                        onClick={() => setActiveMasabaPillar(mIdx)}
-                        className={`px-2.5 py-1 rounded transition-all ${
-                          activeMasabaPillar === mIdx
-                            ? 'bg-[#722F37] text-[#F4F0E8] font-bold'
-                            : 'bg-[#0B0A09] text-[#8E8278] hover:text-[#F4F0E8]'
-                        }`}
-                      >
-                        0{mIdx + 1} {pillar.title.split(' ')[0]}
-                      </button>
-                    ))}
-                  </div>
-
-                  <div className="p-3 rounded bg-[#0B0A09] border border-[#262320] space-y-1 font-mono">
-                    <div className="text-xs text-[#F4F0E8] font-bold">{masabaPillars[activeMasabaPillar].title}</div>
-                    <div className="text-[11px] text-[#C8BFB2] font-sans font-light leading-relaxed">{masabaPillars[activeMasabaPillar].desc}</div>
-                  </div>
+              {/* Project Category & Focus Card */}
+              <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-3 shadow-xl">
+                <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#722F37]">
+                  CORE DISCIPLINE
                 </div>
-              )}
-
-              {project.id === 'healing-the-wait' && (
-                <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
-                  <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
-                    <span className="font-bold uppercase tracking-wider">EMPATHY PHASE ({waitSteps[waitStep].label})</span>
-                    <span>DESIGN THINKING</span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-1 font-mono text-[10px]">
-                    {waitSteps.map((ws, wIdx) => (
-                      <button
-                        key={wIdx}
-                        onClick={() => setWaitStep(wIdx)}
-                        className={`px-2 py-0.5 rounded transition-all ${
-                          waitStep === wIdx ? 'bg-[#722F37] text-[#F4F0E8] font-bold' : 'bg-[#0B0A09] text-[#8E8278]'
-                        }`}
-                      >
-                        {ws.label}
-                      </button>
-                    ))}
-                  </div>
-
-                  <p className="text-xs text-[#C8BFB2] font-sans pt-1">
-                    {waitSteps[waitStep].tone}
-                  </p>
-
-                  <div className="space-y-3 font-mono text-xs pt-2">
-                    <div>
-                      <div className="flex justify-between text-[11px] pb-1">
-                        <span>BOREDOM</span>
-                        <span className="text-[#722F37] font-bold">66%</span>
-                      </div>
-                      <div className="w-full h-1.5 bg-[#0B0A09] rounded-full overflow-hidden">
-                        <div className="h-full bg-[#722F37] w-[66%]" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between text-[11px] pb-1">
-                        <span>WAIT ANXIETY</span>
-                        <span className="text-[#722F37] font-bold">60%</span>
-                      </div>
-                      <div className="w-full h-1.5 bg-[#0B0A09] rounded-full overflow-hidden">
-                        <div className="h-full bg-[#722F37] w-[60%]" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between text-[11px] pb-1">
-                        <span>FRUSTRATION</span>
-                        <span className="text-[#722F37] font-bold">40%</span>
-                      </div>
-                      <div className="w-full h-1.5 bg-[#0B0A09] rounded-full overflow-hidden">
-                        <div className="h-full bg-[#722F37] w-[40%]" />
-                      </div>
-                    </div>
-                  </div>
+                <div className="text-sm font-sans font-medium text-[#F4F0E8]">
+                  {project.category}
                 </div>
-              )}
-
-              {project.id === 'beyond-the-boutique' && (
-                <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
-                  <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
-                    <span className="font-bold uppercase tracking-wider flex items-center gap-1.5">
-                      <Gem className="w-3.5 h-3.5" />
-                      PHYGITAL LUXURY LOOP
-                    </span>
-                    <span>BVLGARI ECOSYSTEM</span>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-1.5 font-mono text-[10px]">
-                    {bvlgariStages.map((stg, bIdx) => (
-                      <button
-                        key={bIdx}
-                        onClick={() => setActiveBvlgariStage(bIdx)}
-                        className={`p-1.5 rounded text-center transition-all ${
-                          activeBvlgariStage === bIdx ? 'bg-[#722F37] text-[#F4F0E8] font-bold' : 'bg-[#0B0A09] text-[#8E8278]'
-                        }`}
-                      >
-                        {stg.stage}
-                      </button>
-                    ))}
-                  </div>
-
-                  <p className="text-xs text-[#C8BFB2] font-sans pt-1 leading-relaxed">
-                    {bvlgariStages[activeBvlgariStage].desc}
-                  </p>
-
-                  <div className="p-3 rounded-2xl bg-[#0B0A09] border border-[#262320] text-xs font-sans text-[#F4F0E8] italic">
-                    “Technology should not make luxury more digital. It should make the luxury relationship more seamless, personal and enduring.”
-                  </div>
+                <div className="text-xs text-[#8E8278] font-sans font-light leading-relaxed">
+                  {project.shortDescription}
                 </div>
-              )}
-
-              {project.id === 'sutra-edit' && (
-                <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
-                  <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
-                    <span className="font-bold uppercase tracking-wider">STRATEGY NODE: {sutraNodes[activeSutraNode].title}</span>
-                    <span>INTELLIGENCE</span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-1.5 font-mono text-[10px]">
-                    {sutraNodes.map((nd, nIdx) => (
-                      <button
-                        key={nIdx}
-                        onClick={() => setActiveSutraNode(nIdx)}
-                        className={`p-1.5 rounded border text-center transition-all ${
-                          activeSutraNode === nIdx ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold' : 'bg-[#0B0A09] border-[#262320] text-[#8E8278]'
-                        }`}
-                      >
-                        {nd.title}
-                      </button>
-                    ))}
-                  </div>
-
-                  <p className="text-xs text-[#C8BFB2] font-sans pt-1">
-                    {sutraNodes[activeSutraNode].desc}
-                  </p>
-                </div>
-              )}
-
-              {project.id === '3am-india' && (
-                <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
-                  <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
-                    <span className="font-bold uppercase tracking-wider flex items-center gap-1.5">
-                      <Droplets className="w-3.5 h-3.5" />
-                      3AM ENGAGEMENT FRAMEWORK
-                    </span>
-                    <span>4 PILLARS</span>
-                  </div>
-
-                  <div className="grid grid-cols-4 gap-1 font-mono text-[10px]">
-                    {threeAmSteps.map((stg, sIdx) => (
-                      <button
-                        key={sIdx}
-                        onClick={() => setActiveThreeAmStep(sIdx)}
-                        className={`p-1.5 rounded text-center transition-all ${
-                          activeThreeAmStep === sIdx ? 'bg-[#722F37] text-[#F4F0E8] font-bold' : 'bg-[#0B0A09] text-[#8E8278]'
-                        }`}
-                      >
-                        {stg.name}
-                      </button>
-                    ))}
-                  </div>
-
-                  <p className="text-xs text-[#C8BFB2] font-sans pt-1">
-                    {threeAmSteps[activeThreeAmStep].desc}
-                  </p>
-                </div>
-              )}
+              </div>
             </div>
           </div>
 
           {/* NEXT-PROJECT TRANSITION */}
           <div className="pt-16 border-t border-[#262320]">
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] pb-4">
-              CONTINUE EDITORIAL READING
+              CONTINUE READING
             </div>
 
             <div
@@ -482,7 +267,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
             >
               <div className="space-y-3 z-10 max-w-xl">
                 <span className="text-xs font-mono uppercase tracking-widest text-[#8E8278] block">
-                  NEXT CASE STUDY // 0{((currentIndex + 1) % projectList.length) + 1} OF 0{projectList.length}
+                  NEXT PROJECT // 0{((currentIndex + 1) % projectList.length) + 1} OF 0{projectList.length}
                 </span>
                 <h3 className="font-serif text-4xl sm:text-6xl text-[#F4F0E8] group-hover:text-[#F4F0E8] group-hover:translate-x-2 transition-all font-normal">
                   {nextProject.title}
@@ -491,7 +276,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                   "{nextProject.subtitle}"
                 </p>
                 <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#722F37] group-hover:text-[#F4F0E8] uppercase tracking-wider pt-2 transition-colors">
-                  <span>READ NEXT CASE STUDY</span>
+                  <span>VIEW NEXT PROJECT</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </div>
               </div>

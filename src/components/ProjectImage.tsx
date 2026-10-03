@@ -45,7 +45,7 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
         />
       )}
 
-      {/* Fallback Graphic / Editorial Cover if photo is not yet uploaded */}
+      {/* Fallback Graphic Cover if photo is not yet uploaded */}
       {(hasError || !isLoaded) && (
         <div
           className={`absolute inset-0 flex flex-col justify-between p-6 sm:p-8 transition-opacity duration-300 ${
@@ -56,7 +56,7 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
           {/* Top Bar */}
           <div className="flex items-center justify-between border-b border-[#262320] pb-3 text-xs font-sans text-[#F4F0E8]">
             <span className="font-semibold tracking-wider uppercase text-[11px] text-[#722F37]">{category}</span>
-            <span className="text-[10px] text-[#8E8278] uppercase font-mono">Editorial Portfolio</span>
+            <span className="text-[10px] text-[#8E8278] uppercase font-mono">Portfolio</span>
           </div>
 
           {/* Center Title */}
@@ -64,9 +64,7 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
             <div className="w-10 h-10 rounded-full border border-[#262320] flex items-center justify-center mb-4 bg-[#0B0A09] shadow-sm">
               <Layers className="w-4 h-4 text-[#722F37]" />
             </div>
-            <h4
-              className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal leading-tight"
-            >
+            <h4 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal leading-tight">
               {title}
             </h4>
             <p className="text-xs text-[#8E8278] mt-2 font-sans max-w-sm">
@@ -77,7 +75,6 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
           {/* Bottom Bar */}
           <div className="border-t border-[#262320] pt-3 flex items-center justify-between text-[11px] text-[#8E8278]">
             <span>Prashanthi B.</span>
-            <span className="font-semibold text-[#722F37] group-hover:text-[#F4F0E8] transition-colors">View Case Study →</span>
           </div>
         </div>
       )}

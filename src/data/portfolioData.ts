@@ -91,10 +91,10 @@ export const PROJECTS_DATA: Project[] = [
     number: '01',
     title: 'THE BEAR HOUSE',
     subtitle: 'Retail in the Real World',
-    category: 'Retail / Visual Merchandising / Merchandising',
-    type: 'Retail Internship · Bangalore & Hyderabad',
-    shortDescription: 'Hands-on visual merchandising, store operations, merchandise organization and retail execution across EBO and SIS formats.',
-    fullOverview: 'An intensive 46-day visual merchandising internship across 7 high-traffic retail locations in Hyderabad and Bangalore, reviewing store presentation against VM guidelines, supporting 2 New Store Openings (NSO), and executing End of Season Sale (EOSS) transitions.',
+    category: 'Retail / Visual Merchandising',
+    type: 'Retail Internship · Hyderabad',
+    shortDescription: 'Hands-on visual merchandising, store operations, merchandise organization and retail execution across EBO and SIS formats in Hyderabad.',
+    fullOverview: 'An intensive 46-day visual merchandising internship across 7 high-traffic retail locations in Hyderabad, reviewing store presentation against VM guidelines, supporting 2 New Store Openings (NSO), and executing End of Season Sale (EOSS) transitions.',
     challenge: 'Maintaining consistent visual standards across diverse store formats while balancing merchandise presentation, product accessibility, replenishment and fast-paced floor changes — from established mall stores to new store setups.',
     processSteps: [
       {
@@ -111,18 +111,18 @@ export const PROJECTS_DATA: Project[] = [
       },
       {
         title: '04 / New Store Setup — NSO',
-        desc: 'Worked on the visual merchandising setup for new store launches, including merchandise placement, fixture setup, mannequin styling and overall store presentation.'
+        desc: 'Worked on the visual merchandising setup for new store launches in Hyderabad, including merchandise placement, fixture setup, mannequin styling and overall store presentation.'
       }
     ],
     keyFacts: [
       { label: 'Internship Duration', value: '46 Days', note: 'On-ground retail immersion' },
-      { label: 'Store Footprint', value: '7 Retail Stores', note: 'Bangalore & Hyderabad EBO / SIS' },
+      { label: 'Store Footprint', value: '7 Retail Locations', note: 'Hyderabad EBO & SIS' },
       { label: 'New Store Openings', value: '2 Launches', note: 'Himayath Nagar & Tolichowki' },
       { label: 'Floor Execution', value: 'EOSS Setup', note: 'Size-wise floor organization' }
     ],
     outputs: [
-      'Visual merchandising audit checklists and compliance standards',
-      'Mannequin lookbooks and cross-category fixture coordination',
+      'Visual merchandising audit checklists and compliance standards across 7 Hyderabad stores',
+      'Mannequin styling guides and cross-category fixture coordination',
       'EOSS size-wise floor layout and wall execution',
       'NSO initial merchandise allocation and display setups'
     ],
@@ -138,7 +138,7 @@ export const PROJECTS_DATA: Project[] = [
     number: '02',
     title: 'HOUSE OF MASABA',
     subtitle: 'Assortment and Merchandising Strategy',
-    category: 'Assortment Strategy / Merchandise Planning',
+    category: 'Fashion Strategy / Merchandise Planning',
     type: 'Merchandise Planning & Assortment Strategy',
     shortDescription: 'A merchandise strategy case study for House of Masaba, focused on assortment planning, pricing architecture and product positioning, translating its distinctive brand identity into a commercially relevant offering for contemporary Indian consumers.',
     fullOverview: 'A merchandise strategy case study for House of Masaba, focused on assortment planning, pricing architecture and product positioning, translating its distinctive brand identity into a commercially relevant offering for contemporary Indian consumers.',
@@ -150,11 +150,11 @@ export const PROJECTS_DATA: Project[] = [
       },
       {
         title: '02 Pricing Architecture',
-        desc: 'Defined clear pricing bands and margin benchmarks to maintain commercial viability while preserving brand prestige.'
+        desc: 'Defined clear pricing bands (₹7.5K–₹65K) and margin benchmarks (40–60%) to maintain commercial viability while preserving brand prestige.'
       },
       {
         title: '03 Product Positioning & Sizing',
-        desc: 'Calibrated size ratios and category mix to ensure high sell-through and minimize broken-size inventory.'
+        desc: 'Calibrated size ratios (XS–XL) and category mix to ensure high sell-through and minimize broken-size inventory.'
       },
       {
         title: '04 Visual & Retail Integration',
@@ -169,7 +169,6 @@ export const PROJECTS_DATA: Project[] = [
     ],
     outputs: [
       '5 Core Categories: Festive Bias, High-End Prêt, Wedding Guest, Heritage Remix Lab, Print Your Personality',
-      '112 styles across 1,008 total SKUs',
       'Tiered pricing architecture (₹7.5K–₹65K) and commercial margin guidelines',
       'Size ratio planning (XS–XL) and inventory balance recommendations'
     ],
@@ -187,8 +186,8 @@ export const PROJECTS_DATA: Project[] = [
     subtitle: 'Designing for a Human Experience',
     category: 'Design Thinking / Service Design',
     type: 'Design Thinking Case Study',
-    shortDescription: 'Transforming the healthcare waiting room experience through human-centered research, a 28-page publication, and the Heal Queue app concept.',
-    fullOverview: 'A design thinking research project addressing the emotional anxiety and friction of indeterminate hospital waiting times through empathetic patient studies, editorial publication design, and a digital queue management concept.',
+    shortDescription: 'Transforming the healthcare waiting room experience through human-centered research and the Heal Queue service design concept.',
+    fullOverview: 'A design thinking research project addressing the emotional anxiety and friction of indeterminate hospital waiting times through empathetic patient studies and a digital queue management concept.',
     challenge: 'Hospital waiting rooms frequently amplify anxiety, boredom, and frustration due to uncertainty around consultation timing and complete opacity in waiting areas.',
     processSteps: [
       {
@@ -197,7 +196,7 @@ export const PROJECTS_DATA: Project[] = [
       },
       {
         title: '02 — Define',
-        desc: 'Synthesized research findings into key themes around boredom, uncertainty and frustration, identifying waiting-time anxiety as a central experience gap.'
+        desc: 'Synthesized research findings into key themes around boredom (66%), uncertainty (60%) and frustration (40%), identifying waiting-time anxiety as a central experience gap.'
       },
       {
         title: '03 — Ideate',
@@ -215,13 +214,13 @@ export const PROJECTS_DATA: Project[] = [
     keyFacts: [
       { label: 'Patient Boredom', value: '66%', note: 'Uncovered in patient conversations' },
       { label: 'Wait Anxiety', value: '60%', note: 'From uncertain delay times' },
-      { label: 'Situational Frustration', value: '40%', note: 'Key experience gap identified' },
-      { label: 'Research Publication', value: '28 Pages', note: 'Coffee table research book' }
+      { label: 'Frustration', value: '40%', note: 'Key experience gap identified' },
+      { label: 'Design Framework', value: '5-Stage Loop', note: 'Empathize to Test' }
     ],
     outputs: [
-      '28-page research coffee table book documenting patient waiting psychology',
-      'Heal Queue App: live queue tracking, appointments, and token status',
-      'Patient experience mapping across registration, waiting, and pharmacy'
+      'Heal Queue App — appointments, live queue tracking, test bookings, digital prescriptions, and patient assistance',
+      'Queue & Appointment Management — real-time token updates, doctor availability, and estimated waiting times',
+      'Patient Support Features — test scheduling, prescription access, reminders and assistance throughout the hospital visit'
     ],
     takeaway: 'Information reduces anxiety. By replacing opacity with transparent digital tracking and thoughtful communication, perceived wait time is radically diminished.',
     imagePath: '/images/prashanthi/projects/healing-wait-01.jpg',
@@ -235,7 +234,7 @@ export const PROJECTS_DATA: Project[] = [
     number: '04',
     title: 'SUTRA EDIT',
     subtitle: 'India’s fashion intelligence platform for sharper brand decisions.',
-    category: 'Fashion Intelligence / Brand Strategy',
+    category: 'Fashion Intelligence / Business Strategy',
     type: 'Fashion Intelligence Platform Concept',
     shortDescription: 'Sutra Edit brings together market intelligence, founder community and strategic consulting to help emerging fashion and lifestyle brands understand what’s changing, why it matters, and what to do next.',
     fullOverview: 'A business concept built around retail intelligence for emerging Indian D2C and lifestyle brands, connecting content, community and consulting with a focus on local sourcing and retail realities.',
@@ -263,13 +262,12 @@ export const PROJECTS_DATA: Project[] = [
       }
     ],
     keyFacts: [
-      { label: 'Core Market', value: 'India D2C Fashion', note: 'Contextual retail focus' },
-      { label: 'Business Verticals', value: 'Intelligence · Community · Consulting', note: '3-part platform architecture' },
-      { label: 'Revenue Model', value: 'Subscription · Retainer', note: 'Tiered monetization' },
-      { label: 'Platform Scope', value: 'Industry Intelligence', note: 'Signals to sharper brand decisions' }
+      { label: 'Core Market', value: 'India | D2C Fashion & Lifestyle', note: 'Contextual retail focus' },
+      { label: 'Business Verticals', value: '3 Verticals', note: 'Editorial, Dashboard, Advisory' },
+      { label: 'Revenue Tiers', value: '3 Streams', note: 'Starter, Pro, Retainer' },
+      { label: 'Strategic Focus', value: 'Brand Decisions', note: 'Signals to sharper action' }
     ],
     outputs: [
-      'India-first fashion intelligence platform for emerging founders',
       'The Weekly Edit — curated business, market and trend intelligence',
       'The Dashboard — trend prediction, competitor mapping and pricing benchmarks',
       '1:1 Consulting model covering brand strategy, GTM, and channel expansion',
@@ -287,9 +285,9 @@ export const PROJECTS_DATA: Project[] = [
     number: '05',
     title: 'BEYOND THE BOUTIQUE',
     subtitle: 'Designing a phygital luxury ecosystem where heritage, technology and human clienteling meet.',
-    category: 'Luxury Ecosystem / Omnichannel Strategy',
+    category: 'Luxury Strategy / Phygital Experience',
     type: 'Bvlgari Phygital Strategy Case Study',
-    shortDescription: 'Designing a phygital luxury ecosystem where heritage, technology and human clienteling meet — exploring how Bvlgari can extend its Maison experience into the digital world while retaining its exclusivity.',
+    shortDescription: 'A strategic exploration of how Bvlgari can bridge its heritage-led physical experience with digital innovation—without compromising the exclusivity of luxury.',
     fullOverview: 'A strategic exploration of how Bvlgari can bridge its heritage-led physical experience with digital innovation—without compromising the exclusivity of luxury.',
     challenge: 'Luxury is no longer experienced only inside the boutique. Consumers increasingly discover, research and engage with brands digitally, creating a need for a more connected online–offline journey. The challenge was to explore: How can Bvlgari extend its Maison experience into the digital world while retaining its human touch and sense of exclusivity?',
     processSteps: [
@@ -299,7 +297,7 @@ export const PROJECTS_DATA: Project[] = [
       },
       {
         title: '02 — Technological Enablers',
-        desc: 'Identified opportunities to integrate AI clienteling, AR virtual try-on, unified CRM, and Digital Product Passports.'
+        desc: 'Identified opportunities to integrate AI for personalised recommendations, AR for virtual try-on, unified CRM, and Digital Product Passports.'
       },
       {
         title: '03 — Strategic Ecosystem',
@@ -321,7 +319,7 @@ export const PROJECTS_DATA: Project[] = [
       'AR for immersive product discovery and virtual try-on',
       'CRM for a unified customer view across touchpoints',
       'Digital Product Passports for authentication and ownership',
-      'Omnichannel retail connecting digital and physical experiences'
+      'Omnichannel retail to connect digital and physical experiences'
     ],
     takeaway: 'Technology should not make luxury more digital. It should make the luxury relationship more seamless, personal and enduring.',
     imagePath: '/images/prashanthi/projects/bvlgari-01.jpg',
@@ -329,69 +327,37 @@ export const PROJECTS_DATA: Project[] = [
     accentBg: '#141211',
     tagColor: 'bg-burgundy text-ivory',
     composition: 'wide'
-  },
-  {
-    id: '3am-india',
-    number: '06',
-    title: '3AM INDIA',
-    subtitle: 'Building Digital Consumer Engagement',
-    category: 'Digital Strategy & Consumer Engagement',
-    type: 'Digital Brand Strategy Case Study',
-    shortDescription: 'A digital brand and consumer engagement strategy for 3AM India, focusing on simplified skincare communication, science + nature ingredient transparency, and building an engaged digital community.',
-    fullOverview: '3AM India positions itself around clean, simple, effective skincare at the intersection of science and nature. This project explores building accessible consumer communication and an education-first digital strategy that drove a +13% growth in community engagement.',
-    challenge: 'Skincare routines are often cluttered and confusing for modern consumers. The challenge was to simplify ingredient communication, demystify skincare education, and turn digital interactions into authentic, high-retention consumer connection.',
-    processSteps: [
-      {
-        title: '01 Research & Consumer Insight',
-        desc: 'Investigated consumer friction around skincare complexity, identifying the need for clear, jargon-free formulation transparency.'
-      },
-      {
-        title: '02 Content & Brand Architecture',
-        desc: 'Formulated the Research → Simplify → Create → Connect framework for accessible skincare storytelling.'
-      },
-      {
-        title: '03 Community Engagement Growth',
-        desc: 'Executed educational campaigns resulting in measurable community growth from 15K to 17K (+13%).'
-      },
-      {
-        title: '04 Digital Touchpoint Optimization',
-        desc: 'Designed seamless digital touchpoints connecting product discovery with transparent ingredient breakdowns.'
-      }
-    ],
-    keyFacts: [
-      { label: 'Community Growth', value: '15K → 17K', note: '+13% engagement expansion' },
-      { label: 'Brand Philosophy', value: 'Science + Nature', note: 'Plant-based & effective' },
-      { label: 'Strategic Model', value: '4-Stage Framework', note: 'Research → Connect' },
-      { label: 'Core Mission', value: 'Simplified Skincare', note: 'Accessible digital education' }
-    ],
-    outputs: [
-      'Digital consumer engagement framework (Research → Simplify → Create → Connect)',
-      'Ingredient transparency and educational content strategy',
-      'Community growth loop (15K to 17K engaged consumer base)',
-      'Digital touchpoint architecture for clean skincare communication'
-    ],
-    takeaway: 'Simplifying complex skincare communication into clear, trustworthy consumer connection.',
-    imagePath: '/images/prashanthi/projects/masaba-01.jpg',
-    accentColor: '#722F37',
-    accentBg: '#141211',
-    tagColor: 'bg-burgundy text-ivory',
-    composition: 'split'
   }
 ];
 
 export const EXPERIENCES_DATA: ExperienceItem[] = [
   {
+    id: '3am-india',
+    period: '2023 – 2024',
+    company: '3AM India',
+    role: 'Social Media Marketing Intern',
+    location: 'Bangalore, India',
+    type: 'Digital Marketing & Community Internship',
+    description: 'Managed social media strategy and execution, created educational skincare content, supported influencer collaborations, and tracked audience engagement insights.',
+    highlights: [
+      'Managed social media strategy and execution across channels',
+      'Created content, captions, creatives and blogs',
+      'Supported influencer collaborations and community outreach',
+      'Used analytics and audience insights to track trends and grew followers from 15K to 17K (+13%)'
+    ]
+  },
+  {
     id: 'bear-house',
     period: '2024',
     company: 'The Bear House',
     role: 'Visual Merchandising Intern',
-    location: 'Hyderabad & Bangalore',
+    location: 'Hyderabad',
     type: 'Retail Internship (46 Days)',
-    description: 'Hands-on visual merchandising internship across 7 retail locations covering EBO and SIS formats, store visual audits, floor replenishment, 2 New Store Openings (NSO), and EOSS transitions.',
+    description: 'Hands-on visual merchandising internship across 7 retail locations in Hyderabad covering EBO and SIS formats, store visual audits, floor replenishment, 2 New Store Openings (NSO), and EOSS transitions.',
     highlights: [
-      'Conducted visual merchandising store audits across 7 locations',
+      'Conducted visual merchandising store audits across 7 retail locations in Hyderabad',
       'Executed full floor setup for 2 New Store Openings (Himayath Nagar, Tolichowki)',
-      'Organised End of Season Sale (EOSS) size-wise grids and shorts wall presentation',
+      'Organised End of Season Sale (EOSS) size-wise grids and floor presentation',
       'Maintained mannequin styling, fixture standards, and stockroom-to-floor replenishment'
     ]
   }
