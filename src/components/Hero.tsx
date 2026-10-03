@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowDown } from 'lucide-react';
 import { PERSONAL_DATA } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
@@ -28,26 +27,19 @@ export const Hero: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section
       ref={heroRef}
       id="hero"
-      className="relative min-h-[90vh] lg:min-h-screen w-full bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none border-b border-[#262320] flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-10 sm:pb-14 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto"
+      className="relative min-h-[90vh] lg:min-h-screen w-full bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none border-b border-[#262320] flex flex-col justify-center pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto"
     >
       {/* Subtle Architectural Layout Grid */}
       <div className="absolute inset-0 editorial-grid-bg opacity-15 pointer-events-none" />
 
       {/* 01. Central 2-Column Professional Hero Spread */}
-      <div className="my-auto py-4 sm:py-8 lg:py-10 relative z-10 w-full">
+      <div className="py-4 sm:py-8 lg:py-10 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
-          {/* Left Column: Identity, Profession, Positioning & CTAs */}
+          {/* Left Column: Identity, Profession, Positioning & Metadata */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             {/* Main Display Heading */}
             <div className="space-y-3 sm:space-y-4">
@@ -140,24 +132,6 @@ export const Hero: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* 02. Restrained Bottom Bar & Gentle Scroll Indicator */}
-      <div className="relative z-20 w-full pt-4 border-t border-[#262320] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#8E8278]">
-        <div className="flex items-center gap-3">
-          <span className="text-[#722F37] font-semibold">PORTFOLIO</span>
-          <span className="text-[#262320]">•</span>
-          <span className="text-[#C8BFB2]">RETAIL × MERCHANDISING × BRAND STRATEGY</span>
-        </div>
-
-        {/* Small Scroll Indicator with Gentle 4px Pulse */}
-        <button
-          onClick={() => handleNavClick('#work')}
-          className="group flex items-center gap-2 text-[#8E8278] hover:text-[#F4F0E8] transition-colors focus:outline-none"
-        >
-          <span className="text-[11px] uppercase tracking-wider">SCROLL TO EXPLORE</span>
-          <ArrowDown className="w-3.5 h-3.5 text-[#722F37] animate-scroll-gentle" />
-        </button>
       </div>
     </section>
   );
