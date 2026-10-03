@@ -6,7 +6,6 @@ import { ProjectImage } from './ProjectImage';
 import { BearHouseWorld } from './brand-worlds/BearHouseWorld';
 import { HealingWaitWorld } from './brand-worlds/HealingWaitWorld';
 import { HouseOfMasabaWorld } from './brand-worlds/HouseOfMasabaWorld';
-import { ThreeAmWorld } from './brand-worlds/ThreeAmWorld';
 import { SutraEditWorld } from './brand-worlds/SutraEditWorld';
 import { ErrorBoundary } from './ErrorBoundary';
 
@@ -19,6 +18,9 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [activeSpread, setActiveSpread] = useState<number>(0);
   const spreadRefs = useRef<(HTMLElement | null)[]>([]);
+
+  // Curated 4 Core Featured Case Studies (Excluding 3AM from Selected Work)
+  const featuredProjects = PROJECTS_DATA.filter((p) => p.id !== '3am-india');
 
   // Desktop Pointer Parallax inside project spread (4-8px subtle range)
   const handleSpreadMouseMove = (e: React.MouseEvent<HTMLElement>) => {
@@ -52,7 +54,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [featuredProjects.length]);
 
   // Helper to render the dedicated Brand World component with ErrorBoundary safety
   const renderBrandWorld = (projectId: string) => {
@@ -75,12 +77,6 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
             <HouseOfMasabaWorld />
           </ErrorBoundary>
         );
-      case '3am-india':
-        return (
-          <ErrorBoundary>
-            <ThreeAmWorld />
-          </ErrorBoundary>
-        );
       case 'sutra-edit':
         return (
           <ErrorBoundary>
@@ -99,7 +95,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
         <div className="space-y-4 max-w-3xl">
           <div className="flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#722F37]">
             <Sparkles className="w-4 h-4 text-[#722F37]" />
-            <span>CURATED EXHIBITION // 05 BRAND WORLDS</span>
+            <span>CURATED EXHIBITION // 04 CASE STUDIES</span>
           </div>
           <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
             SELECTED
@@ -110,9 +106,9 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
         {/* Technical Coordinate Tracker & Exact Section Intro */}
         <div className="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-4 font-mono text-xs text-[#8E8278]">
           <div className="flex items-center gap-3">
-            <span className="text-[#722F37] font-bold">SPREAD 0{activeSpread + 1} / 05</span>
+            <span className="text-[#722F37] font-bold">SPREAD 0{activeSpread + 1} / 04</span>
             <span className="text-[#262320]">|</span>
-            <span className="text-[#C8BFB2] uppercase tracking-wider">{PROJECTS_DATA[activeSpread]?.title}</span>
+            <span className="text-[#C8BFB2] uppercase tracking-wider">{featuredProjects[activeSpread]?.title}</span>
           </div>
           <p className="max-w-md text-xs sm:text-sm text-[#8E8278] leading-relaxed font-sans text-left lg:text-right font-light">
             A selection of work at the intersection of creativity, consumers and commerce — exploring retail, visual merchandising, brand thinking and the strategies that connect them.
@@ -123,7 +119,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
       {/* Sticky Editorial Spread Index Navigator */}
       <div className="sticky top-20 z-20 hidden md:flex items-center justify-between py-4 bg-[#0B0A09]/95 backdrop-blur-md border-b border-[#262320] mb-12 font-mono text-[11px]">
         <div className="flex items-center gap-1 sm:gap-2">
-          {PROJECTS_DATA.map((p, idx) => {
+          {featuredProjects.map((p, idx) => {
             const isActive = activeSpread === idx;
             return (
               <a
@@ -135,7 +131,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                     : 'bg-[#141211] text-[#8E8278] hover:text-[#F4F0E8] border-[#262320]'
                 } border`}
               >
-                <span>{p.number}</span>
+                <span>0{idx + 1}</span>
                 <span className="hidden lg:inline">{p.title}</span>
               </a>
             );
@@ -148,9 +144,9 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
         </div>
       </div>
 
-      {/* 5 Sequential Editorial Page Spreads with Brand Worlds */}
+      {/* 4 Sequential Editorial Page Spreads with Brand Worlds */}
       <div className="space-y-32 sm:space-y-44 pt-8">
-        {PROJECTS_DATA.map((project, idx) => {
+        {featuredProjects.map((project, idx) => {
           const isHovered = activeHoverIndex === idx;
           const isEven = idx % 2 === 1;
 
@@ -170,7 +166,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
               {/* Top Technical Metadata Bar */}
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#262320] pb-4 mb-8 font-mono text-xs text-[#8E8278]">
                 <div className="flex items-center gap-3">
-                  <span className="text-[#722F37] font-bold text-sm">INDEX: 0{idx + 1} // 05</span>
+                  <span className="text-[#722F37] font-bold text-sm">INDEX: 0{idx + 1} // 04</span>
                   <span className="text-[#262320]">|</span>
                   <span className="text-[#F4F0E8] font-semibold uppercase tracking-wider">{project.category}</span>
                 </div>
@@ -191,7 +187,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center bg-[#141211] p-6 sm:p-10 lg:p-12 rounded-3xl border border-[#262320] group-hover:border-[#722F37] transition-all duration-500 shadow-2xl relative overflow-hidden">
                 {/* Background Watermark Number */}
                 <div className="absolute right-4 bottom-2 text-8xl lg:text-9xl font-serif text-[#0B0A09] select-none pointer-events-none opacity-40 font-normal">
-                  {project.number}
+                  0{idx + 1}
                 </div>
 
                 {/* Left/Top Column: Narrative & Interactive Brand World */}
@@ -279,7 +275,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
 
                     {/* Editorial Crop Coordinates Tag */}
                     <div className="absolute top-4 left-4 px-3 py-1 rounded bg-[#0B0A09]/85 backdrop-blur-md border border-[#262320] font-mono text-[10px] text-[#C8BFB2] uppercase tracking-widest pointer-events-none">
-                      [ + ] REF. {project.number} // {project.category.split('/')[0]}
+                      [ + ] REF. 0{idx + 1} // {project.category.split('/')[0]}
                     </div>
                   </div>
 

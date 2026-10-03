@@ -24,7 +24,6 @@ export const Footer: React.FC = () => {
         {/* Footer Navigation Links */}
         <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-mono uppercase tracking-wider text-[#8E8278]">
           <a href="#work" className="hover:text-[#722F37] transition-colors">Work</a>
-          <a href="#bear-house" className="hover:text-[#722F37] transition-colors">The Bear House</a>
           <a href="#experience" className="hover:text-[#722F37] transition-colors">Experience</a>
           <a href="#about" className="hover:text-[#722F37] transition-colors">About</a>
           <a href="#contact" className="hover:text-[#722F37] transition-colors">Contact</a>
@@ -33,7 +32,7 @@ export const Footer: React.FC = () => {
 
         <div className="flex items-center gap-6">
           <span className="text-xs text-[#8E8278] font-mono">
-            © {CURRENT_YEAR} Prashanthi.B
+            © {CURRENT_YEAR} Prashanthi B.
           </span>
           <button
             onClick={scrollToTop}

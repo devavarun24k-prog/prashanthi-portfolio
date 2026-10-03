@@ -109,7 +109,7 @@ export const ContactSection: React.FC = () => {
                   </button>
 
                   <a
-                    href={`mailto:${PERSONAL_DATA.email}?subject=Collaboration / Strategic Role Inquiry - Prashanthi.B`}
+                    href={`mailto:${PERSONAL_DATA.email}?subject=Collaboration / Strategic Role Inquiry - Prashanthi B.`}
                     className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#722F37] text-[#F4F0E8] hover:bg-[#F4F0E8] hover:text-[#0B0A09] text-xs font-mono font-bold uppercase tracking-wider transition-all shadow-md border border-[#722F37]"
                   >
                     <span>COMPOSE</span>
@@ -142,7 +142,7 @@ export const ContactSection: React.FC = () => {
                 >
                   <div className="flex items-center gap-2.5">
                     <LinkedinIcon className="w-4 h-4 text-[#722F37]" />
-                    <span>Prashanthi.B</span>
+                    <span>Prashanthi B.</span>
                   </div>
                   <ArrowUpRight className="w-4 h-4 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>

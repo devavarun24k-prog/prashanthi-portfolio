@@ -76,7 +76,7 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
 
           {/* Bottom Bar */}
           <div className="border-t border-[#262320] pt-3 flex items-center justify-between text-[11px] text-[#8E8278]">
-            <span>Prashanthi.B</span>
+            <span>Prashanthi B.</span>
             <span className="font-semibold text-[#722F37] group-hover:text-[#F4F0E8] transition-colors">View Case Study →</span>
           </div>
         </div>

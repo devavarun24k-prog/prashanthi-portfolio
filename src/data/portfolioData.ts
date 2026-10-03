@@ -62,21 +62,21 @@ export const SKILLS_LIST = [
 ];
 
 export const PERSONAL_DATA = {
-  name: 'Prashanthi.B',
+  name: 'Prashanthi B.',
   roleHeadline: 'Buying & Merchandising | Brand Strategy | Visual Merchandising',
   credential: 'MBA — Fashion & Lifestyle Business Management',
   academicDetail: 'Pearl Academy Bangalore (2025–2027) • ICFAI University BBA (2020–2023)',
   disciplines: 'Buying & Merchandising | Brand Strategy | Visual Merchandising',
   intro: 'I’m interested in where fashion, consumers and business intersect — from understanding what people want to creating the right product, experience and brand strategy to make it matter.',
   aboutParagraphs: [
-    'I’m Prashanthi.B, currently pursuing an MBA in Fashion & Lifestyle Business Management at Pearl Academy, Bangalore (2025–2027), following my BBA from ICFAI University (2020–2023).',
+    'I’m Prashanthi B., currently pursuing an MBA in Fashion & Lifestyle Business Management at Pearl Academy, Bangalore (2025–2027), following my BBA from ICFAI University (2020–2023).',
     'My interests sit across buying, merchandising, visual merchandising, retail operations, branding, and consumer behaviour.',
     'I enjoy understanding both sides of fashion — what catches attention visually and what makes a product, assortment or retail experience work commercially.'
   ],
   email: 'prashanthi.rbovilla@gmail.com',
   location: 'Bangalore / India',
   linkedin: 'https://www.linkedin.com/in/prashanthi-reddy-14771a244/',
-  cvUrl: 'mailto:prashanthi.rbovilla@gmail.com?subject=CV Request - Prashanthi.B',
+  cvUrl: 'mailto:prashanthi.rbovilla@gmail.com?subject=CV Request - Prashanthi B.',
   images: {
     hero: '/images/prashanthi/hero.jpg',
     portrait01: '/images/prashanthi/portrait-01.jpg',

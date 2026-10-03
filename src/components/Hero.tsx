@@ -77,7 +77,7 @@ export const Hero: React.FC = () => {
             }`}
           >
             <Sparkles className="w-3.5 h-3.5 text-[#722F37] animate-pulse" />
-            <span className="font-bold text-[#F4F0E8] tracking-widest uppercase">Prashanthi.B</span>
+            <span className="font-bold text-[#F4F0E8] tracking-widest uppercase">Prashanthi B.</span>
           </div>
 
           {/* Tag 2: Location Coordinate */}
@@ -148,7 +148,7 @@ export const Hero: React.FC = () => {
                     phase >= 2 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
                   }`}
                 >
-                  Prashanthi.B
+                  Prashanthi B.
                 </span>
               </div>
               <div className="overflow-hidden pt-2">
@@ -233,7 +233,7 @@ export const Hero: React.FC = () => {
             {!imgError && (
               <img
                 src={PERSONAL_DATA.images.hero}
-                alt="Prashanthi.B — Fashion Business & Merchandising"
+                alt="Prashanthi B. — Fashion Business & Merchandising"
                 onLoad={() => setImgLoaded(true)}
                 onError={() => setImgError(true)}
                 className={`w-full h-full object-cover transition-all duration-1000 ${
@@ -262,7 +262,7 @@ export const Hero: React.FC = () => {
                     PB
                   </div>
                   <h3 className="font-serif text-3xl text-[#F4F0E8] font-normal">
-                    Prashanthi.B
+                    Prashanthi B.
                   </h3>
                   <p className="text-xs font-mono text-[#722F37] mt-1 uppercase tracking-widest">
                     Fashion & Retail Business

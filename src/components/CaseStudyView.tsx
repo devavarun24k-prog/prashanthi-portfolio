@@ -59,20 +59,22 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
   ];
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const featuredProjects = PROJECTS_DATA.filter((p) => p.id !== '3am-india');
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
       if (!project) return;
 
-      const currentIndex = PROJECTS_DATA.findIndex((p) => p.id === project.id);
+      const projectList = project.id === '3am-india' ? PROJECTS_DATA : featuredProjects;
+      const currentIndex = projectList.findIndex((p) => p.id === project.id);
       if (e.key === 'ArrowRight') {
-        const nextIndex = (currentIndex + 1) % PROJECTS_DATA.length;
-        onSelectProject(PROJECTS_DATA[nextIndex]);
+        const nextIndex = (currentIndex + 1) % projectList.length;
+        onSelectProject(projectList[nextIndex]);
       }
       if (e.key === 'ArrowLeft') {
-        const prevIndex = (currentIndex - 1 + PROJECTS_DATA.length) % PROJECTS_DATA.length;
-        onSelectProject(PROJECTS_DATA[prevIndex]);
+        const prevIndex = (currentIndex - 1 + projectList.length) % projectList.length;
+        onSelectProject(projectList[prevIndex]);
       }
     };
 
@@ -85,13 +87,14 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [project, onClose, onSelectProject]);
+  }, [project, onClose, onSelectProject, featuredProjects]);
 
   if (!project) return null;
 
-  const currentIndex = PROJECTS_DATA.findIndex((p) => p.id === project.id);
-  const prevProject = PROJECTS_DATA[(currentIndex - 1 + PROJECTS_DATA.length) % PROJECTS_DATA.length];
-  const nextProject = PROJECTS_DATA[(currentIndex + 1) % PROJECTS_DATA.length];
+  const projectList = project.id === '3am-india' ? PROJECTS_DATA : featuredProjects;
+  const currentIndex = projectList.findIndex((p) => p.id === project.id);
+  const prevProject = projectList[(currentIndex - 1 + projectList.length) % projectList.length];
+  const nextProject = projectList[(currentIndex + 1) % projectList.length];
 
   const renderBrandWorldCanvas = () => {
     switch (project.id) {
@@ -479,7 +482,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
             >
               <div className="space-y-3 z-10 max-w-xl">
                 <span className="text-xs font-mono uppercase tracking-widest text-[#8E8278] block">
-                  NEXT BRAND WORLD // 0{((currentIndex + 1) % PROJECTS_DATA.length) + 1} OF 05
+                  NEXT CASE STUDY // 0{((currentIndex + 1) % projectList.length) + 1} OF 0{projectList.length}
                 </span>
                 <h3 className="font-serif text-4xl sm:text-6xl text-[#F4F0E8] group-hover:text-[#F4F0E8] group-hover:translate-x-2 transition-all font-normal">
                   {nextProject.title}
