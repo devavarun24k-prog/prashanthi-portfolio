@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { PERSONAL_DATA } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
@@ -100,32 +100,9 @@ export const Hero: React.FC = () => {
               “{PERSONAL_DATA.intro}”
             </p>
 
-            {/* Direct Action Links */}
-            <div
-              className={`flex flex-wrap items-center gap-6 sm:gap-8 pt-2 transition-all duration-700 delay-300 ease-out ${
-                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-            >
-              <button
-                onClick={() => handleNavClick('#work')}
-                className="group inline-flex items-center gap-2 text-xs sm:text-[13px] font-mono font-bold tracking-wider uppercase text-[#F4F0E8] py-1 border-b border-[#722F37] hover:border-[#F4F0E8] transition-colors focus:outline-none"
-              >
-                <span>VIEW SELECTED WORK</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#722F37] group-hover:text-[#F4F0E8] group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-all duration-300" />
-              </button>
-
-              <button
-                onClick={() => handleNavClick('#about')}
-                className="group inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-mono tracking-wider uppercase text-[#8E8278] hover:text-[#C8BFB2] py-1 transition-colors focus:outline-none"
-              >
-                <span>ABOUT ME</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#8E8278] group-hover:text-[#C8BFB2] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
-              </button>
-            </div>
-
             {/* Small Information System */}
             <div
-              className={`grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-[#262320] text-xs font-mono transition-all duration-700 delay-400 ease-out ${
+              className={`grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-[#262320] text-xs font-mono transition-all duration-700 delay-300 ease-out ${
                 inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
