@@ -15,9 +15,10 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { label: 'ABOUT', href: '#about', number: '01' },
+    { label: 'WORK', href: '#work', number: '01' },
     { label: 'EXPERIENCE', href: '#experience', number: '02' },
-    { label: 'CONTACT', href: '#contact', number: '03' },
+    { label: 'ABOUT', href: '#about', number: '03' },
+    { label: 'CONTACT', href: '#contact', number: '04' },
   ];
 
   const handleNavClick = (href: string) => {

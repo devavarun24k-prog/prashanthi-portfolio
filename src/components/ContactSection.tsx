@@ -53,9 +53,8 @@ export const ContactSection: React.FC = () => {
           {/* Monumental Headline */}
           <div className="space-y-4 max-w-4xl z-10 relative">
             <h2 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-normal tracking-tight leading-[0.90] text-[#F4F0E8]">
-              LET'S
-              <span className="block font-serif text-[#F4F0E8]">WORK</span>
-              <span className="block font-serif italic text-[#C8BFB2] font-normal">TOGETHER.</span>
+              LET'S BUILD
+              <span className="block font-serif italic text-[#C8BFB2] font-normal">WHAT'S NEXT.</span>
             </h2>
             <p className="text-base sm:text-lg text-[#F4F0E8]/90 font-sans max-w-2xl font-light leading-relaxed pt-2">
               Available for strategic roles and project collaborations across Buying & Merchandising, Retail Operations, Visual Merchandising, and Brand Strategy.

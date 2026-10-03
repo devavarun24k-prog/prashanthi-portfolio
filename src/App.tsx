@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import type { Project } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { PointOfViewSection } from './components/PointOfViewSection';
 import { SelectedWork } from './components/SelectedWork';
 import { ExperienceSection } from './components/ExperienceSection';
 import { AboutSection } from './components/AboutSection';
@@ -21,6 +22,7 @@ export function App() {
         { id: 'about', name: '03 ABOUT' },
         { id: 'experience', name: '02 EXPERIENCE' },
         { id: 'work', name: '01 WORK' },
+        { id: 'pov', name: 'MANIFESTO' },
         { id: 'hero', name: 'SYS.01' },
       ];
 
@@ -57,16 +59,19 @@ export function App() {
         {/* 1. Hero: Personal Introduction & Identity */}
         <Hero />
 
-        {/* 2. Selected Work: 5 Image-Led Case Studies */}
+        {/* 2. Point of View: Core Manifesto & Pillars */}
+        <PointOfViewSection />
+
+        {/* 3. Selected Work: 4 Image-Led Case Studies */}
         <SelectedWork onSelectProject={(project) => setSelectedProject(project)} />
 
-        {/* 3. Experience & Education: Clean Professional History */}
+        {/* 4. Experience & Education: Clean Professional History */}
         <ExperienceSection />
 
-        {/* 4. About: Real Human Perspective & Background */}
+        {/* 5. About: Real Human Perspective & Background */}
         <AboutSection />
 
-        {/* 5. Contact: Get in Touch */}
+        {/* 6. Contact: Get in Touch */}
         <ContactSection />
       </main>
 

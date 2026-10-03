@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowDown, ArrowUpRight, Sparkles, Terminal } from 'lucide-react';
 import { PERSONAL_DATA } from '../data/portfolioData';
+import { Hero3DCanvas } from './Hero3DCanvas';
 
 export const Hero: React.FC = () => {
   // Coordinated 5-Phase Entrance Sequence
@@ -61,6 +62,9 @@ export const Hero: React.FC = () => {
       id="hero"
       className="relative min-h-[100vh] flex flex-col justify-between pt-28 sm:pt-32 pb-12 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none"
     >
+      {/* 3D Architectural WebGL Canvas Layer */}
+      <Hero3DCanvas className="opacity-70" />
+
       {/* Editorial Background Grid Coordinate Overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-15 bg-[linear-gradient(to_right,#262320_1px,transparent_1px),linear-gradient(to_bottom,#262320_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]" />
 
@@ -183,7 +187,7 @@ export const Hero: React.FC = () => {
               phase >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            “I’m interested in where fashion, consumers and business intersect — from understanding what people want to creating the right product, experience and brand strategy to make it matter.”
+            “I bring a creative eye with a strong understanding of the business behind fashion.”
           </p>
 
           {/* Action CTAs */}
