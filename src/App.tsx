@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { SelectedWork } from './components/SelectedWork';
 import { AboutSection } from './components/AboutSection';
+import { CapabilitiesSection } from './components/CapabilitiesSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -28,10 +29,13 @@ export function App() {
         {/* 3. About: Perspective & Personality */}
         <AboutSection />
 
-        {/* 4. Experience & Education: Professional History */}
+        {/* 4. What I Work With: Core Capabilities */}
+        <CapabilitiesSection />
+
+        {/* 5. Experience & Education: Professional History */}
         <ExperienceSection />
 
-        {/* 5. Contact: Collaboration & Inquiry */}
+        {/* 6. Contact: Collaboration & Inquiry */}
         <ContactSection />
       </main>
 

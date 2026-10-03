@@ -46,6 +46,30 @@ export interface ExposureItem {
   description: string;
 }
 
+export interface WorkWithCategory {
+  number: string;
+  category: string;
+  skills: string[];
+}
+
+export const WORK_WITH_DATA: WorkWithCategory[] = [
+  {
+    number: '01',
+    category: 'MERCHANDISING',
+    skills: ['Assortment Analysis', 'Product Analysis', 'Replenishment'],
+  },
+  {
+    number: '02',
+    category: 'RETAIL',
+    skills: ['Visual Merchandising', 'Store Audits', 'Retail Operations'],
+  },
+  {
+    number: '03',
+    category: 'BRAND & CONSUMER',
+    skills: ['Consumer Research', 'Competitor Research', 'Brand & Marketing'],
+  },
+];
+
 export const PERSONAL_DATA = {
   name: 'Prashanthi B.',
   roleHeadline: 'Buying & Merchandising | Brand Strategy | Visual Merchandising',

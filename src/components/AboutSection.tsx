@@ -53,7 +53,7 @@ export const AboutSection: React.FC = () => {
       {/* 01. Restrained Editorial Section Label (No Separator Line Below) */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-8 sm:mb-10 relative z-10">
         <div className="font-sans font-semibold text-[15px] sm:text-[16px] lg:text-[17px] tracking-[0.12em] uppercase leading-none">
-          <span className="text-[#722F37] mr-1.5">03 /</span>
+          <span className="text-[#722F37] mr-1.5">02 /</span>
           <span className="text-[#F4F0E8]">ABOUT</span>
         </div>
 
