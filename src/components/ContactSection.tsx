@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Copy, Check, ArrowUpRight, Sparkles, FileText } from 'lucide-react';
+import { Mail, Copy, Check, ArrowUpRight, FileText } from 'lucide-react';
 import { PERSONAL_DATA } from '../data/portfolioData';
 
 const LinkedinIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
@@ -37,14 +37,14 @@ export const ContactSection: React.FC = () => {
             PB
           </div>
 
-          {/* Section Eyebrow */}
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#F4F0E8]/20 pb-6 z-10 relative font-mono text-xs text-[#F4F0E8]/80">
-            <div className="inline-flex items-center gap-2 uppercase tracking-widest text-[#F4F0E8]">
-              <Sparkles className="w-3.5 h-3.5 text-[#F4F0E8]" />
-              <span>04 — DIRECT INQUIRY & COLLABORATION</span>
+          {/* Section Label Header */}
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#F4F0E8]/20 pb-6 z-10 relative">
+            <div className="font-sans font-semibold text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] tracking-[0.12em] uppercase leading-none">
+              <span className="text-[#F4F0E8]/70 mr-1.5">04 /</span>
+              <span className="text-[#F4F0E8]">CONTACT</span>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 font-sans text-xs sm:text-[13px] text-[#F4F0E8]/80 uppercase tracking-wider">
               <span className="w-2 h-2 rounded-full bg-[#F4F0E8] animate-ping" />
               <span>BANGALORE / INDIA</span>
             </div>

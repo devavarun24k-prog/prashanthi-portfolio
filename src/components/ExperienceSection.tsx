@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Briefcase, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { EXPERIENCES_DATA, EDUCATION_DATA, EXPOSURES_DATA } from '../data/portfolioData';
 
 export const ExperienceSection: React.FC = () => {
@@ -11,30 +11,38 @@ export const ExperienceSection: React.FC = () => {
       <div className="absolute inset-0 editorial-grid-bg opacity-20 pointer-events-none" />
 
       {/* Section Header */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-16 border-b border-[#262320] relative z-10">
-        <div className="space-y-4 max-w-3xl">
-          <div className="flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#722F37]">
-            <Briefcase className="w-3.5 h-3.5 text-[#722F37]" />
-            <span>03 — CAREER PATH & EXPERIENCE</span>
+      <div className="pb-12 sm:pb-16 border-b border-[#262320] relative z-10 space-y-8">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="font-sans font-semibold text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] tracking-[0.12em] uppercase leading-none">
+            <span className="text-[#722F37] mr-1.5">03 /</span>
+            <span className="text-[#F4F0E8]">EXPERIENCE</span>
           </div>
-          <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
-            CAREER &
-            <span className="block font-serif italic text-[#C8BFB2] font-normal">TIMELINE</span>
-          </h2>
+
+          <div className="text-[11px] sm:text-xs font-sans text-[#8E8278] uppercase tracking-wider">
+            <span>CAREER PATH & PROFESSIONAL HISTORY</span>
+          </div>
         </div>
 
-        {/* Category Switcher Tabs */}
-        <div className="flex items-center gap-2 font-mono text-xs">
-          <button
-            onClick={() => setActiveExpTab('work')}
-            className={`px-4 py-2 rounded-full border transition-all duration-300 ${
-              activeExpTab === 'work'
-                ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold shadow-md'
-                : 'border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
-            }`}
-          >
-            01 // WORK ({EXPERIENCES_DATA.length})
-          </button>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+          <div className="space-y-2 max-w-3xl">
+            <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
+              CAREER &
+              <span className="block font-serif italic text-[#C8BFB2] font-normal">TIMELINE</span>
+            </h2>
+          </div>
+
+          {/* Category Switcher Tabs */}
+          <div className="flex items-center gap-2 font-mono text-xs">
+            <button
+              onClick={() => setActiveExpTab('work')}
+              className={`px-4 py-2 rounded-full border transition-all duration-300 ${
+                activeExpTab === 'work'
+                  ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold shadow-md'
+                  : 'border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
+              }`}
+            >
+              01 // WORK ({EXPERIENCES_DATA.length})
+            </button>
           <button
             onClick={() => setActiveExpTab('academic')}
             className={`px-4 py-2 rounded-full border transition-all duration-300 ${
@@ -57,6 +65,7 @@ export const ExperienceSection: React.FC = () => {
           </button>
         </div>
       </div>
+    </div>
 
       {/* Sequential Editorial Timeline Entries */}
       <div className="pt-12 space-y-12 relative z-10">

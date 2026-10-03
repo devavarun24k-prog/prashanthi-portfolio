@@ -50,16 +50,14 @@ export const AboutSection: React.FC = () => {
       {/* Subtle Architectural Grid Background */}
       <div className="absolute inset-0 editorial-grid-bg opacity-20 pointer-events-none" />
 
-      {/* Top Restrained Section Label & Metadata */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 sm:pb-8 border-b border-[#262320] relative z-10 font-mono text-xs">
-        <div className="flex items-center gap-2.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#722F37]" />
-          <span className="font-semibold tracking-[0.18em] text-[#722F37] uppercase text-[11px] sm:text-xs">
-            02 / ABOUT
-          </span>
+      {/* Top Editorial Section Label Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 sm:pb-8 border-b border-[#262320] mb-10 sm:mb-14 relative z-10">
+        <div className="font-sans font-semibold text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] tracking-[0.12em] uppercase leading-none">
+          <span className="text-[#722F37] mr-1.5">02 /</span>
+          <span className="text-[#F4F0E8]">ABOUT</span>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3 text-[#8E8278] text-[10px] sm:text-[11px] tracking-widest uppercase">
+        <div className="flex items-center gap-2 sm:gap-3 font-sans text-xs sm:text-[13px] text-[#8E8278] tracking-wider uppercase">
           <span className="text-[#C8BFB2]">BANGALORE / INDIA</span>
           <span className="text-[#262320]">•</span>
           <span>FASHION × RETAIL × CONSUMER THINKING</span>

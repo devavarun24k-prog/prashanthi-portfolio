@@ -74,8 +74,9 @@ export const Hero: React.FC = () => {
               phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
             }`}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#722F37]" />
-            <span className="font-bold text-[#F4F0E8] tracking-widest uppercase">Prashanthi B.</span>
+            <span className="font-sans font-semibold text-[14px] sm:text-[15px] lg:text-[16px] tracking-[0.12em] uppercase text-[#F4F0E8] leading-none">
+              Prashanthi B.
+            </span>
           </div>
 
           <div

@@ -39,35 +39,31 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
       {/* Subtle Layout Grid Background */}
       <div className="absolute inset-0 editorial-grid-bg opacity-20 pointer-events-none" />
 
-      {/* Short Editorial Transition Header (~35vh, No Slideshow Filler) */}
-      <div className="pb-16 sm:pb-24 border-b border-[#262320] relative z-10 space-y-6">
-        <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
-          <div className="flex items-center gap-2.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#722F37]" />
-            <span className="font-semibold tracking-[0.18em] text-[#722F37] uppercase text-[11px] sm:text-xs">
-              01 — SELECTED WORK
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2 sm:gap-3 text-[#8E8278] text-[10px] sm:text-[11px] tracking-widest uppercase">
-            <span className="text-[#C8BFB2]">05 CURATED PROJECTS</span>
-            <span className="text-[#262320]">•</span>
-            <span>RETAIL × MERCHANDISING × STRATEGY</span>
-          </div>
+      {/* Section Header Label Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 sm:pb-8 border-b border-[#262320] mb-12 sm:mb-16 relative z-10">
+        <div className="font-sans font-semibold text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] tracking-[0.12em] uppercase leading-none">
+          <span className="text-[#722F37] mr-1.5">01 /</span>
+          <span className="text-[#F4F0E8]">WORK</span>
         </div>
 
-        {/* High-Impact Editorial Transition Statement */}
-        <div className="space-y-3 max-w-4xl pt-2">
-          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.98]">
-            WORK THAT SITS
-            <span className="block font-serif italic text-[#C8BFB2] font-normal mt-1">
-              BETWEEN CREATIVITY AND COMMERCE.
-            </span>
-          </h2>
-          <p className="text-sm sm:text-base text-[#8E8278] font-sans font-light max-w-2xl pt-1 leading-relaxed">
-            Work across retail, fashion strategy, consumer thinking and brand communication.
-          </p>
+        <div className="flex items-center gap-2 sm:gap-3 font-sans text-xs sm:text-[13px] text-[#8E8278] tracking-wider uppercase">
+          <span className="text-[#C8BFB2]">05 CURATED PROJECTS</span>
+          <span className="text-[#262320]">•</span>
+          <span>RETAIL × MERCHANDISING × STRATEGY</span>
         </div>
+      </div>
+
+      {/* High-Impact Editorial Transition Statement */}
+      <div className="space-y-4 max-w-4xl pb-16 sm:pb-24 border-b border-[#262320] relative z-10">
+        <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.98]">
+          WORK THAT SITS
+          <span className="block font-serif italic text-[#C8BFB2] font-normal mt-1">
+            BETWEEN CREATIVITY AND COMMERCE.
+          </span>
+        </h2>
+        <p className="text-sm sm:text-base text-[#8E8278] font-sans font-light max-w-2xl pt-1 leading-relaxed">
+          Work across retail, fashion strategy, consumer thinking and brand communication.
+        </p>
       </div>
 
       {/* 5 Curated Large Magazine Editorial Spreads */}
