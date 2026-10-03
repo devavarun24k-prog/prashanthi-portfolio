@@ -46,21 +46,6 @@ export interface ExposureItem {
   description: string;
 }
 
-export const SKILLS_LIST = [
-  'MERCHANDISE PLANNING',
-  'ASSORTMENT STRATEGY',
-  'VISUAL MERCHANDISING',
-  'STORE AUDITS',
-  'PRODUCT PRESENTATION',
-  'REPLENISHMENT',
-  'CONSUMER THINKING',
-  'BRAND STRATEGY',
-  'COMPETITOR BENCHMARKING',
-  'RETAIL OPERATIONS',
-  'DESIGN THINKING',
-  'ECOSYSTEM MAPPING',
-];
-
 export const PERSONAL_DATA = {
   name: 'Prashanthi B.',
   roleHeadline: 'Buying & Merchandising | Brand Strategy | Visual Merchandising',
@@ -68,11 +53,18 @@ export const PERSONAL_DATA = {
   academicDetail: 'Pearl Academy Bangalore (2025–2027) • ICFAI University BBA (2020–2023)',
   disciplines: 'Buying & Merchandising | Brand Strategy | Visual Merchandising',
   intro: 'I bring a creative eye with a strong understanding of the business behind fashion.',
-  aboutParagraphs: [
-    'I’m Prashanthi B., currently pursuing an MBA in Fashion & Lifestyle Business Management at Pearl Academy, Bangalore (2025–2027), following my BBA from ICFAI University (2020–2023).',
-    'My interests sit across buying, merchandising, visual merchandising, retail operations, branding, and consumer behaviour.',
-    'I enjoy understanding both sides of fashion — what catches attention visually and what makes a product, assortment or retail experience work commercially.'
-  ],
+  perspective: {
+    headline: 'Behind every “I want that”',
+    subheadline: 'there’s a reason.',
+    accent: 'I’m interested in finding it.',
+    paragraphs: [
+      'That curiosity led me to explore marketing, fashion, lifestyle, and consumer behaviour — the little details that influence what catches our eye, what feels relevant, and ultimately, what we choose.',
+      'I’m Prashanthi.B, currently pursuing an MBA in Fashion & Lifestyle, with a growing interest in understanding people, brands, and the space where the two meet.',
+      'I enjoy looking beyond the obvious — questioning why an idea works, how a brand communicates, and what makes an experience feel memorable. My interests span marketing, brand strategy, visual communication, retail, and fashion, but the thread connecting them is simple: understanding what makes people care.',
+      'I’m still learning, experimenting, and figuring things out along the way — which is probably the best part.',
+      'Because sometimes, the smallest reason makes the biggest difference.'
+    ]
+  },
   email: 'prashanthi.rbovilla@gmail.com',
   location: 'Bangalore / India',
   linkedin: 'https://www.linkedin.com/in/prashanthi-reddy-14771a244/',
