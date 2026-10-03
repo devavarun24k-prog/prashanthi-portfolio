@@ -60,13 +60,13 @@ export const Navbar: React.FC = () => {
               e.preventDefault();
               handleNavClick('#hero');
             }}
-            className="group flex items-baseline gap-2.5 text-left focus:outline-none"
+            className="group flex flex-col sm:flex-row sm:items-baseline sm:gap-3 text-left focus:outline-none"
           >
             <span className="font-serif text-2xl tracking-tight text-[#F4F0E8] group-hover:text-[#722F37] transition-colors font-normal">
               PRASHANTHI.B
             </span>
-            <span className="hidden sm:inline-block text-[11px] text-[#C8BFB2] font-mono font-medium tracking-wider">
-              Brands. Retail. Consumer Thinking.
+            <span className="text-[10px] sm:text-[11px] text-[#8E8278] font-mono font-medium tracking-wider uppercase">
+              FASHION · RETAIL · CONSUMER THINKING
             </span>
           </a>
 
@@ -92,7 +92,7 @@ export const Navbar: React.FC = () => {
 
             <a
               href={PERSONAL_DATA.cvUrl}
-              className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold uppercase tracking-wider px-5 py-2 rounded-full bg-[#722F37] text-[#F4F0E8] hover:bg-[#F4F0E8] hover:text-[#0B0A09] transition-all duration-300 shadow-md border border-[#722F37] group"
+              className="inline-flex items-center gap-1 text-xs font-mono text-[#F4F0E8] hover:text-[#A87578] transition-colors py-1 px-2 border-b border-[#722F37] hover:border-[#F4F0E8] group"
             >
               <span>CV</span>
               <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -103,9 +103,10 @@ export const Navbar: React.FC = () => {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
-            className="p-2 text-[#F4F0E8] hover:text-[#722F37] focus:outline-none md:hidden"
+            className="text-xs font-mono tracking-wider uppercase text-[#F4F0E8] hover:text-[#722F37] focus:outline-none md:hidden flex items-center gap-1.5"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <span>{mobileMenuOpen ? 'CLOSE' : 'MENU'}</span>
+            {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
       </header>
