@@ -231,44 +231,46 @@ export const PROJECTS_DATA: Project[] = [
     composition: 'wide'
   },
   {
-    id: 'beyond-the-boutique',
+    id: '3am-india',
     number: '04',
-    title: 'BEYOND THE BOUTIQUE',
-    subtitle: 'Designing a phygital luxury ecosystem where heritage, technology and human clienteling meet.',
-    category: 'Strategic Concept / Phygital Luxury',
-    type: 'Bvlgari Phygital Luxury Exploration',
-    shortDescription: 'A strategic exploration of how Bvlgari can bridge its heritage-led physical experience with digital innovation—without compromising the exclusivity of luxury.',
-    fullOverview: 'A strategic exploration of how Bvlgari can bridge its heritage-led physical experience with digital innovation—without compromising the exclusivity of luxury.',
-    challenge: 'Luxury is no longer experienced only inside the boutique. Consumers increasingly discover, research and engage with brands digitally, creating a need for a more connected online–offline journey.\n\nThe challenge was to explore:\n\nHow can Bvlgari extend its Maison experience into the digital world while retaining its human touch and sense of exclusivity?',
+    title: '3AM INDIA',
+    subtitle: 'Building Digital Consumer Engagement',
+    category: 'Digital Strategy & Consumer Engagement',
+    type: 'Digital Brand Strategy Case Study',
+    shortDescription: 'A digital brand and consumer engagement strategy for 3AM India, focusing on simplified skincare communication, science + nature ingredient transparency, and building an engaged digital community.',
+    fullOverview: '3AM India positions itself around clean, simple, effective skincare at the intersection of science and nature. This project explores building accessible consumer communication and an education-first digital strategy that drove a +13% growth in community engagement.',
+    challenge: 'Skincare routines are often cluttered and confusing for modern consumers. The challenge was to simplify ingredient communication, demystify skincare education, and turn digital interactions into authentic, high-retention consumer connection.',
     processSteps: [
       {
-        title: '01 The Approach',
-        desc: 'Mapped the luxury customer journey from digital discovery to post-purchase engagement and identified opportunities to integrate AI for personalized recommendations and clienteling, AR for immersive product discovery and virtual try-on, CRM for a unified customer view across touchpoints, Digital Product Passports for authentication and ownership, and Omnichannel retail to connect digital and physical experiences.'
+        title: '01 Research & Consumer Insight',
+        desc: 'Investigated consumer friction around skincare complexity, identifying the need for clear, jargon-free formulation transparency.'
       },
       {
-        title: '02 The Strategic Idea',
-        desc: 'Developed a Bvlgari Phygital Luxury Ecosystem connecting: Discover → Explore → Experience → Purchase → Own → Re-engage. The concept positions technology as an extension of the Maison experience, rather than a replacement for human luxury service.'
+        title: '02 Content & Brand Architecture',
+        desc: 'Formulated the Research → Simplify → Create → Connect framework for accessible skincare storytelling.'
       },
       {
-        title: '03 Core Insight',
-        desc: 'Technology should not make luxury more digital. It should make the luxury relationship more seamless, personal and enduring.'
+        title: '03 Community Engagement Growth',
+        desc: 'Executed educational campaigns resulting in measurable community growth from 15K to 17K (+13%).'
+      },
+      {
+        title: '04 Digital Touchpoint Optimization',
+        desc: 'Designed seamless digital touchpoints connecting product discovery with transparent ingredient breakdowns.'
       }
     ],
     keyFacts: [
-      { label: 'Project Scope', value: 'Strategic Exploration', note: 'Phygital luxury ecosystem' },
-      { label: 'Ecosystem Flow', value: '6 Connected Stages', note: 'Discover → Own → Re-engage' },
-      { label: 'Tech Integrations', value: 'AI, AR, CRM & DPP', note: 'Clienteling & authentication' },
-      { label: 'Core Philosophy', value: 'Human-First Luxury', note: 'Technology extending the Maison' }
+      { label: 'Community Growth', value: '15K → 17K', note: '+13% engagement expansion' },
+      { label: 'Brand Philosophy', value: 'Science + Nature', note: 'Plant-based & effective' },
+      { label: 'Strategic Model', value: '4-Stage Framework', note: 'Research → Connect' },
+      { label: 'Core Mission', value: 'Simplified Skincare', note: 'Accessible digital education' }
     ],
     outputs: [
-      'Bvlgari Phygital Luxury Ecosystem Framework (Discover → Explore → Experience → Purchase → Own → Re-engage)',
-      'AI for personalised recommendations and clienteling architecture',
-      'AR for immersive product discovery and virtual try-on concept',
-      'CRM for a unified customer view across touchpoints',
-      'Digital Product Passports for authentication and ownership',
-      'Omnichannel retail strategy connecting digital and physical experiences'
+      'Digital consumer engagement framework (Research → Simplify → Create → Connect)',
+      'Ingredient transparency and educational content strategy',
+      'Community growth loop (15K to 17K engaged consumer base)',
+      'Digital touchpoint architecture for clean skincare communication'
     ],
-    takeaway: 'Technology should not make luxury more digital. It should make the luxury relationship more seamless, personal and enduring.',
+    takeaway: 'Strategic Takeaway: Simplifying complex skincare communication into clear, trustworthy consumer connection.',
     imagePath: '/images/prashanthi/projects/masaba-01.jpg',
     accentColor: '#722F37',
     accentBg: '#141211',
