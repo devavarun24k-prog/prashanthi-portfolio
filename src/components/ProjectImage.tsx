@@ -6,6 +6,7 @@ interface ProjectImageProps {
   alt: string;
   title: string;
   category: string;
+  subtitle?: string;
   accentBg?: string;
   accentColor?: string;
   aspectRatio?: string;
@@ -17,6 +18,7 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
   alt,
   title,
   category,
+  subtitle,
   accentBg = '#141211',
   accentColor: _accentColor = '#722F37',
   aspectRatio = 'aspect-[16/10]',
@@ -68,7 +70,7 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
               {title}
             </h4>
             <p className="text-xs text-[#8E8278] mt-2 font-sans max-w-sm">
-              Visual merchandising, range planning & retail presentation.
+              {subtitle || category}
             </p>
           </div>
 

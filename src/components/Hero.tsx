@@ -162,11 +162,11 @@ export const Hero: React.FC = () => {
               </div>
               <div className="overflow-hidden pt-1">
                 <span
-                  className={`block font-serif italic text-[#722F37] font-normal text-3xl sm:text-4xl lg:text-5xl transition-all duration-1000 delay-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  className={`block font-serif italic text-[#722F37] font-normal text-2xl sm:text-3xl lg:text-4xl transition-all duration-1000 delay-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                     phase >= 2 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
                   }`}
                 >
-                  Fashion & Lifestyle Business
+                  Buying & Merchandising | Brand Strategy | Visual Merchandising
                 </span>
               </div>
             </h1>
@@ -179,13 +179,13 @@ export const Hero: React.FC = () => {
             }`}
           >
             <div className="font-mono text-xs uppercase tracking-wider text-[#C8BFB2]">
-              MBA CANDIDATE — FASHION & LIFESTYLE BUSINESS MANAGEMENT
+              MBA — FASHION & LIFESTYLE BUSINESS MANAGEMENT
             </div>
             <div className="text-xs text-[#8E8278] font-sans">
               Pearl Academy Bangalore (2025–2027) • ICFAI University BBA (2020–2023)
             </div>
             <div className="text-xs font-mono text-[#722F37] pt-0.5">
-              [BUYING] · [MERCHANDISING] · [VISUAL VM] · [RETAIL STRATEGY]
+              [BUYING] · [MERCHANDISING] · [BRAND STRATEGY] · [VISUAL MERCHANDISING]
             </div>
           </div>
 
@@ -195,7 +195,7 @@ export const Hero: React.FC = () => {
               phase >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            "{PERSONAL_DATA.intro}"
+            “I’m interested in where fashion, consumers and business intersect — from understanding what people want to creating the right product, experience and brand strategy to make it matter.”
           </p>
 
           {/* Action CTAs */}

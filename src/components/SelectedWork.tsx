@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowUpRight, Sparkles, Layers, ChevronRight, Activity, GitBranch, ShoppingBag, HeartHandshake, Eye } from 'lucide-react';
+import { ArrowUpRight, Sparkles, Layers, ChevronRight, GitBranch, ShoppingBag, HeartHandshake, Eye, Compass } from 'lucide-react';
 import type { Project } from '../data/portfolioData';
-import { PROJECTS_DATA, MASABA_CATEGORIES } from '../data/portfolioData';
+import { PROJECTS_DATA } from '../data/portfolioData';
 import { ProjectImage } from './ProjectImage';
 
 interface SelectedWorkProps {
@@ -15,16 +15,34 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
   const spreadRefs = useRef<(HTMLElement | null)[]>([]);
 
   // Embedded Interactive States for each Project
-  const [masabaSpreadCat, setMasabaSpreadCat] = useState(0);
   const [bearStageSpread, setBearStageSpread] = useState(0);
   const [waitSpreadStep, setWaitSpreadStep] = useState(0);
-  const [threeAmSpreadStep, setThreeAmSpreadStep] = useState(0);
+  const [masabaSpreadPillar, setMasabaSpreadPillar] = useState(0);
+  const [luxuryStage, setLuxuryStage] = useState(0);
   const [sutraSpreadNode, setSutraSpreadNode] = useState(0);
 
-  const bearStages = ['01 STOCKROOM', '02 MERCHANDISE', '03 FIXTURE', '04 DISPLAY', '05 SHOP FLOOR', '06 FLOW', '07 EXPERIENCE'];
-  const waitSteps = ['WAITING', 'UNCERTAINTY', 'RESEARCH', 'INSIGHT', 'DESIGN', 'SOLUTION'];
-  const threeAmStages = ['RESEARCH', 'SIMPLIFY', 'CREATE', 'CONNECT'];
-  const sutraNodes = ['GAP', 'PLATFORM', 'AUDIENCE', 'MODEL', 'VALUE', 'GROWTH'];
+  const bearStages = ['01 STORE AUDITS', '02 MERCHANDISE', '03 EOSS TRANSITION'];
+  const waitSteps = ['01 EMPATHIZE', '02 DEFINE', '03 IDEATE', '04 PROTOTYPE', '05 TEST'];
+  const masabaPillars = [
+    { title: 'ASSORTMENT PLANNING', desc: 'Balancing SKU breadth, category mix, and focused product offering' },
+    { title: 'PRICING ARCHITECTURE', desc: 'Pricing bands and margin benchmarks protecting brand prestige' },
+    { title: 'PRODUCT POSITIONING', desc: 'Calibrating size ratios and category mix for contemporary consumers' },
+    { title: 'VISUAL INTEGRATION', desc: 'Translating bold cultural codes into a cohesive in-store story' },
+  ];
+  const luxuryStages = [
+    { name: 'DISCOVER', desc: 'Digital discovery & AI-personalized clienteling recommendations' },
+    { name: 'EXPLORE', desc: 'AR virtual try-on & immersive Maison product exploration' },
+    { name: 'EXPERIENCE', desc: 'Seamless transition into physical boutique appointment' },
+    { name: 'PURCHASE', desc: 'Unified CRM transaction across boutique & digital touchpoints' },
+    { name: 'OWN', desc: 'Digital Product Passports (DPP) for authentication and provenance' },
+    { name: 'RE-ENGAGE', desc: 'Enduring client relationship and tailored private previews' },
+  ];
+  const sutraNodes = [
+    { title: 'MARKET GAP', desc: 'Addressing local Indian supply and sizing dynamics' },
+    { title: 'PLATFORM', desc: 'Curated weekly industry intelligence dispatches' },
+    { title: 'COMMUNITY', desc: 'Peer network for lifestyle and D2C apparel founders' },
+    { title: 'ADVISORY', desc: 'Bespoke strategic consulting for retail rollout' },
+  ];
 
   // Desktop Pointer Parallax inside project spread (5-8px subtle range)
   const handleSpreadMouseMove = (e: React.MouseEvent<HTMLElement>) => {
@@ -75,15 +93,15 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
           </h2>
         </div>
 
-        {/* Technical Coordinate Tracker */}
+        {/* Technical Coordinate Tracker & Exact Section Intro */}
         <div className="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-4 font-mono text-xs text-[#8E8278]">
           <div className="flex items-center gap-3">
             <span className="text-[#722F37] font-bold">SPREAD 0{activeSpread + 1} / 05</span>
             <span className="text-[#262320]">|</span>
             <span className="text-[#C8BFB2] uppercase tracking-wider">{PROJECTS_DATA[activeSpread]?.title}</span>
           </div>
-          <p className="max-w-xs text-xs text-[#8E8278] leading-relaxed font-sans text-left lg:text-right">
-            Interactive digital fashion publication spreads exploring commercial retail strategy, VM, and brand architecture.
+          <p className="max-w-md text-xs sm:text-sm text-[#8E8278] leading-relaxed font-sans text-left lg:text-right font-light">
+            A selection of work at the intersection of creativity, consumers and commerce — exploring retail, visual merchandising, brand thinking and the strategies that connect them.
           </p>
         </div>
       </div>
@@ -197,7 +215,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                       <div className="flex items-center justify-between font-mono text-[11px] text-[#722F37] border-b border-[#262320] pb-2">
                         <span className="font-bold uppercase flex items-center gap-1.5">
                           <ShoppingBag className="w-3.5 h-3.5" />
-                          RETAIL FLOW SIMULATOR (STAGE 0{bearStageSpread + 1}/07)
+                          METHODOLOGY & EXECUTION (0{bearStageSpread + 1}/03)
                         </span>
                         <span>46-DAY VM INTERNSHIP</span>
                       </div>
@@ -219,7 +237,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                       </div>
 
                       <div className="text-xs font-mono text-[#C8BFB2] pt-1 flex items-center justify-between">
-                        <span>7 Store Footprint Audited</span>
+                        <span>7 Store VM Audits</span>
                         <span className="text-[#722F37]">2 Flagship NSO Launches</span>
                       </div>
                     </div>
@@ -234,9 +252,9 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                       <div className="flex items-center justify-between font-mono text-[11px] text-[#722F37] border-b border-[#262320] pb-2">
                         <span className="font-bold uppercase flex items-center gap-1.5">
                           <HeartHandshake className="w-3.5 h-3.5" />
-                          EMPATHY SEQUENCE ({waitSteps[waitSpreadStep]})
+                          METHODOLOGY SEQUENCE ({waitSteps[waitSpreadStep]})
                         </span>
-                        <span>N = 35+ PATIENT INTERVIEWS</span>
+                        <span>DESIGN THINKING</span>
                       </div>
 
                       <div className="flex flex-wrap gap-1 font-mono text-[10px]">
@@ -271,8 +289,8 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                       </div>
 
                       <div className="flex justify-between items-center text-[10px] font-mono text-[#8E8278]">
-                        <span>28-PAGE COFFEE TABLE PUBLICATION</span>
-                        <span className="text-[#C8BFB2]">HEAL QUEUE BLUEPRINT</span>
+                        <span>28-PAGE PUBLICATION</span>
+                        <span className="text-[#C8BFB2]">HEAL QUEUE APP CONCEPT</span>
                       </div>
                     </div>
                   )}
@@ -286,65 +304,74 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                       <div className="flex items-center justify-between font-mono text-[11px] text-[#722F37] border-b border-[#262320] pb-2">
                         <span className="font-bold uppercase flex items-center gap-1.5">
                           <Layers className="w-3.5 h-3.5" />
-                          MERCHANDISE SYSTEM // 5 CATEGORIES
+                          MERCHANDISE STRATEGY PILLARS
                         </span>
-                        <span>1,008 SKUs · 40–60% MARGIN</span>
+                        <span>ASSORTMENT & PRICING</span>
                       </div>
 
                       <div className="flex flex-wrap gap-1.5">
-                        {MASABA_CATEGORIES.map((cat, mIdx) => (
+                        {masabaPillars.map((p, pIdx) => (
                           <button
-                            key={mIdx}
-                            onClick={() => setMasabaSpreadCat(mIdx)}
+                            key={pIdx}
+                            onClick={() => setMasabaSpreadPillar(pIdx)}
                             className={`px-2.5 py-1 rounded text-[10px] font-mono transition-all ${
-                              masabaSpreadCat === mIdx
+                              masabaSpreadPillar === pIdx
                                 ? 'bg-[#722F37] text-[#F4F0E8] font-bold'
                                 : 'bg-[#141211] text-[#8E8278] hover:text-[#F4F0E8]'
                             }`}
                           >
-                            {cat.name}
+                            0{pIdx + 1} {p.title.split(' ')[0]}
                           </button>
                         ))}
                       </div>
 
-                      <div className="p-2.5 rounded bg-[#141211] border border-[#262320] flex items-center justify-between text-xs font-mono">
-                        <span className="text-[#C8BFB2]">{MASABA_CATEGORIES[masabaSpreadCat].name}</span>
-                        <span className="text-[#722F37] font-bold">RATIO: {MASABA_CATEGORIES[masabaSpreadCat].ratio}</span>
+                      <div className="p-2.5 rounded bg-[#141211] border border-[#262320] space-y-1">
+                        <div className="text-xs font-mono font-semibold text-[#F4F0E8]">
+                          {masabaPillars[masabaSpreadPillar].title}
+                        </div>
+                        <div className="text-[11px] text-[#C8BFB2] font-sans">
+                          {masabaPillars[masabaSpreadPillar].desc}
+                        </div>
                       </div>
                     </div>
                   )}
 
-                  {/* ---------------- PROJECT 04: 3AM INDIA DIGITAL CAMPAIGN ---------------- */}
-                  {project.id === '3am-india' && (
+                  {/* ---------------- PROJECT 04: BEYOND THE BOUTIQUE (BVLGARI) ---------------- */}
+                  {project.id === 'beyond-the-boutique' && (
                     <div
                       className="p-5 rounded-2xl bg-[#0B0A09] border border-[#262320] space-y-3"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <div className="flex items-center justify-between font-mono text-[11px] text-[#722F37] border-b border-[#262320] pb-2">
                         <span className="font-bold uppercase flex items-center gap-1.5">
-                          <Activity className="w-3.5 h-3.5" />
-                          CONTENT ENGINE (0{threeAmSpreadStep + 1} {threeAmStages[threeAmSpreadStep]})
+                          <Compass className="w-3.5 h-3.5" />
+                          PHYGITAL LUXURY ECOSYSTEM
                         </span>
-                        <span>FOLLOWER GROWTH: +13%</span>
+                        <span>BVLGARI CONCEPT</span>
                       </div>
 
-                      <div className="flex items-center justify-between p-3 rounded-xl bg-[#141211] border border-[#262320]">
-                        <span className="font-serif text-3xl text-[#F4F0E8]">15K → 17K</span>
-                        <span className="text-xs font-mono text-[#722F37] font-bold">+13% VERIFIED EXPANSION</span>
-                      </div>
-
-                      <div className="flex gap-2">
-                        {threeAmStages.map((stg, sIdx) => (
+                      <div className="grid grid-cols-3 sm:grid-cols-6 gap-1 font-mono text-[10px] text-center">
+                        {luxuryStages.map((stg, lIdx) => (
                           <button
-                            key={sIdx}
-                            onClick={() => setThreeAmSpreadStep(sIdx)}
-                            className={`flex-1 py-1 rounded text-[10px] font-mono text-center ${
-                              threeAmSpreadStep === sIdx ? 'bg-[#722F37] text-[#F4F0E8] font-bold' : 'bg-[#141211] text-[#8E8278]'
+                            key={lIdx}
+                            onClick={() => setLuxuryStage(lIdx)}
+                            className={`p-1.5 rounded transition-all truncate ${
+                              luxuryStage === lIdx ? 'bg-[#722F37] text-[#F4F0E8] font-bold' : 'bg-[#141211] text-[#8E8278]'
                             }`}
                           >
-                            {stg}
+                            {stg.name}
                           </button>
                         ))}
+                      </div>
+
+                      <div className="p-2.5 rounded bg-[#141211] border border-[#262320] space-y-1">
+                        <div className="text-xs font-mono font-semibold text-[#F4F0E8] flex items-center justify-between">
+                          <span>STAGE 0{luxuryStage + 1}: {luxuryStages[luxuryStage].name}</span>
+                          <span className="text-[10px] text-[#722F37]">AI · AR · CRM · DPP</span>
+                        </div>
+                        <div className="text-[11px] text-[#C8BFB2] font-sans">
+                          {luxuryStages[luxuryStage].desc}
+                        </div>
                       </div>
                     </div>
                   )}
@@ -360,10 +387,10 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                           <GitBranch className="w-3.5 h-3.5" />
                           INDIA-FIRST FASHION INTELLIGENCE
                         </span>
-                        <span>3-TIER ECOSYSTEM</span>
+                        <span>3 PILLARS</span>
                       </div>
 
-                      <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5 font-mono text-[10px] text-center">
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 font-mono text-[10px] text-center">
                         {sutraNodes.map((node, sIdx) => (
                           <button
                             key={sIdx}
@@ -374,14 +401,18 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                                 : 'bg-[#141211] border-[#262320] text-[#8E8278]'
                             }`}
                           >
-                            {node}
+                            {node.title}
                           </button>
                         ))}
                       </div>
 
-                      <div className="text-[11px] font-mono text-[#8E8278] flex justify-between">
-                        <span>FLYING GROWTH LOOP</span>
-                        <span className="text-[#C8BFB2]">CONTENT → ADVISORY</span>
+                      <div className="p-2.5 rounded bg-[#141211] border border-[#262320] space-y-1">
+                        <div className="text-xs font-mono font-semibold text-[#F4F0E8]">
+                          {sutraNodes[sutraSpreadNode].title}
+                        </div>
+                        <div className="text-[11px] text-[#C8BFB2] font-sans">
+                          {sutraNodes[sutraSpreadNode].desc}
+                        </div>
                       </div>
                     </div>
                   )}
@@ -423,6 +454,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                       alt={project.title}
                       title={project.title}
                       category={project.category}
+                      subtitle={project.subtitle}
                       accentBg={project.accentBg}
                       accentColor={project.accentColor}
                       aspectRatio={project.composition === 'wide' ? 'aspect-[16/9]' : 'aspect-[4/3]'}

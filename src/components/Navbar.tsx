@@ -15,11 +15,9 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { label: 'WORK', href: '#work', number: '01' },
-    { label: 'THE BEAR HOUSE', href: '#bear-house', number: '02' },
-    { label: 'EXPERIENCE', href: '#experience', number: '03' },
-    { label: 'ABOUT', href: '#about', number: '04' },
-    { label: 'CONTACT', href: '#contact', number: '05' },
+    { label: 'ABOUT', href: '#about', number: '01' },
+    { label: 'EXPERIENCE', href: '#experience', number: '02' },
+    { label: 'CONTACT', href: '#contact', number: '03' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -52,8 +50,8 @@ export const Navbar: React.FC = () => {
             <span className="font-serif text-2xl tracking-tight text-[#F4F0E8] group-hover:text-[#722F37] transition-colors font-normal">
               PRASHANTHI B.
             </span>
-            <span className="hidden sm:inline-block text-[10px] text-[#722F37] uppercase tracking-widest font-mono font-semibold">
-              FASHION SYSTEM
+            <span className="hidden sm:inline-block text-[11px] text-[#C8BFB2] font-mono font-medium tracking-wider">
+              Brands. Retail. Consumer Thinking.
             </span>
           </a>
 
@@ -124,6 +122,14 @@ export const Navbar: React.FC = () => {
                 <span className="font-mono text-sm text-[#722F37]">{link.number}</span>
               </a>
             ))}
+
+            <a
+              href={PERSONAL_DATA.cvUrl}
+              className="font-serif text-3xl sm:text-4xl text-[#722F37] hover:text-[#F4F0E8] transition-colors flex items-center justify-between border-b border-[#262320] pb-3"
+            >
+              <span>CV</span>
+              <ArrowUpRight className="w-6 h-6" />
+            </a>
           </nav>
 
           <div className="pt-6 border-t border-[#262320] flex items-center justify-between text-xs font-mono text-[#8E8278]">

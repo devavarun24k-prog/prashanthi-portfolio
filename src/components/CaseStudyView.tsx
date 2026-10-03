@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight, CheckCircle2, Sparkles, ArrowUpRight } from 'lucide-react';
 import type { Project } from '../data/portfolioData';
-import { PROJECTS_DATA, MASABA_CATEGORIES } from '../data/portfolioData';
+import { PROJECTS_DATA } from '../data/portfolioData';
 import { ProjectImage } from './ProjectImage';
 
 interface CaseStudyViewProps {
@@ -15,38 +15,43 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
   onClose,
   onSelectProject,
 }) => {
-  // Masaba interactive category state
-  const [activeMasabaCat, setActiveMasabaCat] = useState(0);
+  // Masaba interactive pillar state
+  const [activeMasabaPillar, setActiveMasabaPillar] = useState(0);
+  const masabaPillars = [
+    { title: 'ASSORTMENT PLANNING', desc: 'Structuring a focused commercial assortment balancing core, fashion and novelty styles across everyday and occasion wear.' },
+    { title: 'PRICING ARCHITECTURE', desc: 'Defined clear pricing bands and margin benchmarks to maintain commercial viability while preserving brand prestige.' },
+    { title: 'PRODUCT POSITIONING', desc: 'Calibrating size ratios and category mix to ensure high sell-through and minimize broken-size inventory.' },
+    { title: 'VISUAL INTEGRATION', desc: 'Integrated brand storytelling and visual merchandising principles to create a cohesive in-store product narrative.' },
+  ];
 
   // Healing wait empathy step
   const [waitStep, setWaitStep] = useState(0);
   const waitSteps = [
-    { label: 'WAITING', tone: 'Empty indeterminate hospital waiting lounge with zero timeline' },
-    { label: 'UNCERTAINTY', tone: 'Emotional stress & anxiety from unpredictable delay times' },
-    { label: 'RESEARCH', tone: 'Field study & interviews across 35+ patients & caregivers' },
-    { label: 'INSIGHT', tone: 'Information deficiency is the primary driver of perceived wait' },
-    { label: 'DESIGN', tone: '28-page editorial publication & Heal Queue service blueprint' },
-    { label: 'SOLUTION', tone: 'Transparent live queue tracking paired with curated reading' },
+    { label: '01 EMPATHIZE', tone: 'Conducted primary research across OPD waiting environments, uncovering key stress points.' },
+    { label: '02 DEFINE', tone: 'Synthesized findings into key themes around boredom, uncertainty and waiting-time anxiety.' },
+    { label: '03 IDEATE', tone: 'Explored digital and experiential interventions to make waiting transparent, engaging, and reassuring.' },
+    { label: '04 PROTOTYPE', tone: 'Developed the Heal Queue app concept with appointments, live queue tracking, and prescriptions.' },
+    { label: '05 TEST', tone: 'Gathered user feedback to refine information clarity, usability, and the waiting experience.' },
   ];
 
-  // 3AM India stage
-  const [active3amStage, setActive3amStage] = useState(0);
-  const threeAmStages = [
-    { title: 'RESEARCH', desc: 'Dermatological literature review of Niacinamide, Ceramides, Salicylic Acid & Actives' },
-    { title: 'SIMPLIFY', desc: 'Deconstructing clinical jargon into approachable routine cheat sheets' },
-    { title: 'CREATE', desc: 'Designing high-save visual social carousels and SEO blog guides' },
-    { title: 'CONNECT', desc: 'Influencer seeding and community routine troubleshooting (+13% growth: 15K → 17K)' },
+  // Beyond the Boutique (Bvlgari) Luxury Ecosystem Stage
+  const [luxuryStage, setLuxuryStage] = useState(0);
+  const luxuryStages = [
+    { name: 'DISCOVER', focus: 'AI-driven personalized clienteling & digital discovery' },
+    { name: 'EXPLORE', focus: 'AR virtual try-on and immersive Maison heritage exploration' },
+    { name: 'EXPERIENCE', focus: 'Seamless transition into personalized physical boutique appointments' },
+    { name: 'PURCHASE', focus: 'Unified CRM transaction across boutique and digital touchpoints' },
+    { name: 'OWN', focus: 'Digital Product Passports (DPP) for authentication & provenance' },
+    { name: 'RE-ENGAGE', focus: 'Enduring client relationship through private previews and curated clienteling' },
   ];
 
   // Sutra Edit Strategy Node
   const [activeSutraNode, setActiveSutraNode] = useState(0);
   const sutraNodes = [
-    { title: 'MARKET GAP', desc: 'Indian lifestyle founders lack local sizing & supply chain intelligence' },
+    { title: 'MARKET GAP', desc: 'Addressing local Indian supply chain and sizing dynamics' },
     { title: 'PLATFORM', desc: 'Weekly curated editorial dispatches analyzing retail formats' },
-    { title: 'AUDIENCE', desc: 'D2C apparel founders, retail merchandisers & fashion brand builders' },
-    { title: 'BUSINESS MODEL', desc: 'Tiered architecture: Free dispatches → Paid intelligence → Advisory' },
-    { title: 'VALUE', desc: 'Contextual, India-first retail frameworks tailored for regional seasonality' },
-    { title: 'GROWTH', desc: 'Founder case study flywheel scaling into advisory partnerships' },
+    { title: 'COMMUNITY', desc: 'Peer network for D2C apparel founders and retail merchandisers' },
+    { title: 'ADVISORY', desc: 'Bespoke strategic consulting for retail expansion and rollout' },
   ];
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -290,41 +295,33 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                 </div>
               </div>
 
-              {/* Dynamic Project Specific Engine (Masaba / Wait / 3AM / Sutra / Bear House) */}
+              {/* Dynamic Project Specific Engine (Masaba / Wait / Beyond the Boutique / Sutra) */}
               {project.id === 'house-of-masaba' && (
                 <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
                   <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
-                    <span className="font-bold uppercase tracking-wider">RANGE ARCHITECTURE & SIZE SKEW</span>
-                    <span>5 CATEGORIES</span>
+                    <span className="font-bold uppercase tracking-wider">MERCHANDISE STRATEGY PILLARS</span>
+                    <span>4 PILLARS</span>
                   </div>
 
                   <div className="flex flex-wrap gap-1.5 font-mono text-[10px]">
-                    {MASABA_CATEGORIES.map((cat, mIdx) => (
+                    {masabaPillars.map((pillar, mIdx) => (
                       <button
                         key={mIdx}
-                        onClick={() => setActiveMasabaCat(mIdx)}
+                        onClick={() => setActiveMasabaPillar(mIdx)}
                         className={`px-2.5 py-1 rounded transition-all ${
-                          activeMasabaCat === mIdx
+                          activeMasabaPillar === mIdx
                             ? 'bg-[#722F37] text-[#F4F0E8] font-bold'
                             : 'bg-[#0B0A09] text-[#8E8278] hover:text-[#F4F0E8]'
                         }`}
                       >
-                        {cat.name}
+                        0{mIdx + 1} {pillar.title.split(' ')[0]}
                       </button>
                     ))}
                   </div>
 
-                  <div className="grid grid-cols-5 gap-1.5 font-mono text-center pt-2">
-                    {['XS', 'S', 'M', 'L', 'XL'].map((sz, sIdx) => {
-                      const ratioValues = MASABA_CATEGORIES[activeMasabaCat].ratio.split(':').map((v) => Number(v.trim()));
-                      const weight = ratioValues[sIdx] || 1;
-                      return (
-                        <div key={sz} className="p-2 rounded bg-[#0B0A09] border border-[#722F37]/50">
-                          <span className="text-[10px] text-[#722F37] block">{sz}</span>
-                          <span className="text-sm font-bold text-[#F4F0E8]">{weight}x</span>
-                        </div>
-                      );
-                    })}
+                  <div className="p-3 rounded bg-[#0B0A09] border border-[#262320] space-y-1 font-mono">
+                    <div className="text-xs text-[#F4F0E8] font-bold">{masabaPillars[activeMasabaPillar].title}</div>
+                    <div className="text-[11px] text-[#C8BFB2] font-sans font-light leading-relaxed">{masabaPillars[activeMasabaPillar].desc}</div>
                   </div>
                 </div>
               )}
@@ -333,7 +330,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                 <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
                   <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
                     <span className="font-bold uppercase tracking-wider">EMPATHY PHASE ({waitSteps[waitStep].label})</span>
-                    <span>N = 35+</span>
+                    <span>DESIGN THINKING</span>
                   </div>
 
                   <div className="flex flex-wrap gap-1 font-mono text-[10px]">
@@ -377,29 +374,29 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                 </div>
               )}
 
-              {project.id === '3am-india' && (
+              {project.id === 'beyond-the-boutique' && (
                 <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-4 shadow-xl">
                   <div className="flex items-center justify-between font-mono text-xs text-[#722F37] border-b border-[#262320] pb-2">
-                    <span className="font-bold uppercase tracking-wider">CAMPAIGN STAGE: {threeAmStages[active3amStage].title}</span>
-                    <span>+13% GROWTH</span>
+                    <span className="font-bold uppercase tracking-wider">PHYGITAL ECOSYSTEM: {luxuryStages[luxuryStage].name}</span>
+                    <span>BVLGARI CONCEPT</span>
                   </div>
 
-                  <div className="flex gap-1.5 font-mono text-[10px]">
-                    {threeAmStages.map((stg, sIdx) => (
+                  <div className="grid grid-cols-3 gap-1 font-mono text-[10px]">
+                    {luxuryStages.map((stg, sIdx) => (
                       <button
                         key={sIdx}
-                        onClick={() => setActive3amStage(sIdx)}
-                        className={`flex-1 py-1 rounded text-center transition-all ${
-                          active3amStage === sIdx ? 'bg-[#722F37] text-[#F4F0E8] font-bold' : 'bg-[#0B0A09] text-[#8E8278]'
+                        onClick={() => setLuxuryStage(sIdx)}
+                        className={`p-1.5 rounded text-center transition-all ${
+                          luxuryStage === sIdx ? 'bg-[#722F37] text-[#F4F0E8] font-bold' : 'bg-[#0B0A09] text-[#8E8278]'
                         }`}
                       >
-                        {stg.title}
+                        {stg.name}
                       </button>
                     ))}
                   </div>
 
                   <p className="text-xs text-[#C8BFB2] font-sans pt-1">
-                    {threeAmStages[active3amStage].desc}
+                    {luxuryStages[luxuryStage].focus}
                   </p>
                 </div>
               )}
@@ -411,7 +408,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                     <span>INTELLIGENCE</span>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-1.5 font-mono text-[10px]">
+                  <div className="grid grid-cols-2 gap-1.5 font-mono text-[10px]">
                     {sutraNodes.map((nd, nIdx) => (
                       <button
                         key={nIdx}
@@ -470,6 +467,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                   alt={nextProject.title}
                   title={nextProject.title}
                   category={nextProject.category}
+                  subtitle={nextProject.subtitle}
                   accentBg={nextProject.accentBg}
                   accentColor={nextProject.accentColor}
                   aspectRatio="aspect-full"

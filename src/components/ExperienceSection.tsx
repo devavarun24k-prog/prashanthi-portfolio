@@ -30,7 +30,7 @@ export const ExperienceSection: React.FC = () => {
                 : 'bg-[#141211] border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
             }`}
           >
-            01 // WORK (2)
+            01 // WORK ({EXPERIENCES_DATA.length})
           </button>
           <button
             onClick={() => setActiveExpTab('academic')}
@@ -40,7 +40,7 @@ export const ExperienceSection: React.FC = () => {
                 : 'bg-[#141211] border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
             }`}
           >
-            02 // EDUCATION (2)
+            02 // EDUCATION ({EDUCATION_DATA.length})
           </button>
           <button
             onClick={() => setActiveExpTab('exposure')}
@@ -50,7 +50,7 @@ export const ExperienceSection: React.FC = () => {
                 : 'bg-[#141211] border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
             }`}
           >
-            03 // IMMERSION (2)
+            03 // IMMERSION ({EXPOSURES_DATA.length})
           </button>
         </div>
       </div>

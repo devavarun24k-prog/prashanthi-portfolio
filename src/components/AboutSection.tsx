@@ -24,7 +24,7 @@ export const AboutSection: React.FC = () => {
         <div className="space-y-4 max-w-3xl">
           <div className="flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#722F37]">
             <User className="w-4 h-4 text-[#722F37]" />
-            <span>BACKGROUND & PERSPECTIVE // CANDIDATE PROFILE</span>
+            <span>BACKGROUND & PERSPECTIVE // PROFESSIONAL PROFILE</span>
           </div>
           <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
             ABOUT
