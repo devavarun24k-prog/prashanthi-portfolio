@@ -4,7 +4,6 @@ import { PERSONAL_DATA } from '../data/portfolioData';
 
 export const ContactSection: React.FC = () => {
   const [inView, setInView] = useState(false);
-  const [scrollYOffset, setScrollYOffset] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -24,28 +23,11 @@ export const ContactSection: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      if (rect.top <= windowHeight && rect.bottom >= 0) {
-        const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
-        // Subtle 10-18px vertical movement on portrait
-        setScrollYOffset((progress - 0.5) * 24);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <section
       ref={sectionRef}
       id="contact"
-      className="min-h-[100svh] lg:min-h-[110svh] bg-[#0B0A09] text-[#F4F0E8] relative select-none border-b border-[#262320] flex flex-col justify-between pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto overflow-hidden"
+      className="py-20 sm:py-28 lg:py-32 bg-[#0B0A09] text-[#F4F0E8] relative select-none border-b border-[#262320] flex flex-col justify-between px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto overflow-hidden"
     >
       {/* 01. Section Label Bar */}
       <div className="w-full relative z-20">
@@ -71,72 +53,34 @@ export const ContactSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 02. MAIN EDITORIAL SPREAD (LEFT TYPOGRAPHY + RIGHT VISUAL ANCHOR) */}
-      <div className="my-auto py-8 sm:py-12 lg:py-14 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-center">
-          {/* Mobile Image (Visible only on mobile before headline) */}
-          <div className="block lg:hidden w-full overflow-hidden">
-            <div
-              className="w-full h-[50svh] sm:h-[60svh] overflow-hidden transition-all duration-1000 ease-out"
-              style={{
-                clipPath: inView ? 'inset(0% 0 0% 0)' : 'inset(100% 0 0% 0)',
-                transition: 'clip-path 1.1s cubic-bezier(0.16, 1, 0.3, 1)',
-              }}
-            >
-              <img
-                src={PERSONAL_DATA.images.hero}
-                alt="PRASHANTHI.B — Editorial Closing"
-                className="w-full h-full object-cover object-top filter brightness-[0.92] contrast-[1.03]"
-              />
-            </div>
-          </div>
-
-          {/* Left / Main Typography Area */}
-          <div className="lg:col-span-7 space-y-6 sm:space-y-8">
-            <div className="overflow-hidden">
-              <h2
-                className={`font-serif text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.25rem] xl:text-[6.25rem] 2xl:text-[7rem] font-normal tracking-tight leading-[0.86] text-[#F4F0E8] uppercase transition-all duration-1000 ease-out ${
-                  inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                }`}
-              >
-                LET’S TALK
-                <span className="block font-serif italic text-[#C8BFB2] font-normal mt-1 sm:mt-2">
-                  ABOUT WHAT
-                </span>
-                <span className="block font-serif font-normal text-[#F4F0E8] mt-1 sm:mt-2">
-                  COMES NEXT<span className="text-[#722F37]">.</span>
-                </span>
-              </h2>
-            </div>
-
-            {/* Restrained Subtitle Line (Max 2 lines) */}
-            <div
-              className={`pt-2 sm:pt-4 transition-all duration-700 delay-300 ease-out ${
-                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      {/* 02. MAIN EDITORIAL HEADLINE SPREAD */}
+      <div className="my-auto py-12 sm:py-16 lg:py-20 w-full relative z-10">
+        <div className="max-w-5xl space-y-6 sm:space-y-8">
+          <div className="overflow-hidden">
+            <h2
+              className={`font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-normal tracking-tight leading-[0.90] text-[#F4F0E8] uppercase transition-all duration-1000 ease-out ${
+                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
             >
-              <p className="text-xs sm:text-[13px] lg:text-sm font-mono text-[#8E8278] uppercase tracking-wider leading-relaxed max-w-lg">
-                AVAILABLE FOR STRATEGIC ROLES, SELECTED COLLABORATIONS & PROJECTS.
-              </p>
-            </div>
+              LET’S TALK
+              <span className="block font-serif italic text-[#C8BFB2] font-normal mt-1.5 sm:mt-2">
+                ABOUT WHAT
+              </span>
+              <span className="block font-serif font-normal text-[#F4F0E8] mt-1.5 sm:mt-2">
+                COMES NEXT<span className="text-[#722F37]">.</span>
+              </span>
+            </h2>
           </div>
 
-          {/* Right / Visual Editorial Portrait Crop (Desktop & Tablet) */}
-          <div className="hidden lg:flex lg:col-span-5 justify-end">
-            <div
-              className="relative w-full max-w-md xl:max-w-lg aspect-[3/4] h-[520px] lg:h-[620px] xl:h-[680px] overflow-hidden shadow-2xl transition-all duration-1000 ease-out"
-              style={{
-                clipPath: inView ? 'inset(0% 0 0% 0)' : 'inset(100% 0 0% 0)',
-                transform: `translate3d(0, ${scrollYOffset}px, 0)`,
-                transition: 'clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1)',
-              }}
-            >
-              <img
-                src={PERSONAL_DATA.images.hero}
-                alt="PRASHANTHI.B — Editorial Closing Spread"
-                className="w-full h-full object-cover object-top filter brightness-[0.92] contrast-[1.03]"
-              />
-            </div>
+          {/* Restrained Subtitle Line (Max 2 lines) */}
+          <div
+            className={`pt-2 sm:pt-4 transition-all duration-700 delay-300 ease-out ${
+              inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
+            <p className="text-xs sm:text-[13px] lg:text-sm font-mono text-[#8E8278] uppercase tracking-wider leading-relaxed max-w-xl">
+              AVAILABLE FOR STRATEGIC ROLES, SELECTED COLLABORATIONS & PROJECTS.
+            </p>
           </div>
         </div>
       </div>
