@@ -1,76 +1,112 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PERSONAL_DATA } from '../data/portfolioData';
 
 export const AboutSection: React.FC = () => {
   const { perspective, images } = PERSONAL_DATA;
+  const sectionRef = useRef<HTMLElement>(null);
+  const [scrollYOffset, setScrollYOffset] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Calculate normalized progress while section is in view
+      if (rect.top <= windowHeight && rect.bottom >= 0) {
+        const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+        // Restrained 10-18px parallax movement
+        setScrollYOffset((progress - 0.5) * 24);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       id="about"
-      className="py-24 sm:py-36 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#262320] bg-[#0B0A09] text-[#F4F0E8] select-none relative overflow-hidden"
+      className="py-20 sm:py-28 lg:py-32 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#262320] bg-[#0B0A09] text-[#F4F0E8] select-none relative overflow-hidden"
     >
-      {/* Subtle Layout Grid Background */}
+      {/* Subtle Architectural Grid Background */}
       <div className="absolute inset-0 editorial-grid-bg opacity-20 pointer-events-none" />
 
-      {/* Top Editorial Understated Section Label */}
-      <div className="pb-12 sm:pb-16 border-b border-[#262320] relative z-10">
+      {/* 01. Restrained Section Label & Editorial Metadata */}
+      <div className="flex flex-wrap items-center justify-between gap-4 pb-8 sm:pb-10 border-b border-[#262320] relative z-10 font-mono text-xs">
         <div className="flex items-center gap-3">
           <span className="w-1.5 h-1.5 rounded-full bg-[#722F37]" />
-          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#722F37]">
-            ABOUT / PERSPECTIVE
+          <span className="font-bold tracking-widest text-[#722F37] uppercase">
+            03 / ABOUT
           </span>
+        </div>
+
+        <div className="flex items-center gap-3 text-[#8E8278] text-[11px] uppercase tracking-wider">
+          <span className="text-[#C8BFB2]">BANGALORE / INDIA</span>
+          <span className="text-[#262320]">•</span>
+          <span>FASHION × RETAIL × CONSUMER THINKING</span>
         </div>
       </div>
 
-      {/* Dominant Editorial Opening Statement */}
-      <div className="py-14 sm:py-20 border-b border-[#262320] relative z-10 space-y-2 max-w-5xl">
-        <h2 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
-          {perspective.headline}
-          <span className="block font-serif text-[#C8BFB2] font-normal text-3xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 sm:mt-3">
+      {/* 02. Refined Editorial Introduction Statement (Controlled Width & Hierarchy) */}
+      <div className="py-10 sm:py-14 border-b border-[#262320] relative z-10">
+        <div className="max-w-3xl sm:max-w-4xl space-y-1.5 sm:space-y-2">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-normal text-[#F4F0E8] tracking-tight leading-[1.12]">
+            {perspective.headline}
+          </h2>
+          <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-normal text-[#C8BFB2] tracking-tight leading-[1.15]">
             {perspective.subheadline}
-          </span>
-          <span className="block font-serif italic text-[#722F37] font-normal text-3xl sm:text-5xl md:text-6xl lg:text-7xl mt-3 sm:mt-4">
+          </p>
+          <p className="font-serif italic text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-normal text-[#722F37] tracking-tight leading-[1.15] pt-1">
             {perspective.accent}
-          </span>
-        </h2>
+          </p>
+        </div>
       </div>
 
-      {/* Refined Editorial Reading Layout Split */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-16 sm:pt-20 items-start relative z-10">
-        {/* Left Column: Unboxed Editorial Portrait */}
-        <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-4">
-          <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-[#262320] shadow-2xl transition-all duration-700">
+      {/* 03. Editorial Reading Spread (Portrait Left ~38%, Narrative Right ~62%) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 pt-12 sm:pt-16 items-start relative z-10">
+        {/* Left Column: Unboxed Editorial Portrait (Magazine integration, no card box) */}
+        <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-3">
+          <div
+            className="relative aspect-[3/4] max-w-sm sm:max-w-md mx-auto lg:mx-0 overflow-hidden rounded-xl border border-[#262320]/80 shadow-2xl transition-transform duration-700 ease-out"
+            style={{
+              transform: `translate3d(0, ${scrollYOffset}px, 0)`,
+            }}
+          >
             <img
               src={images.portrait01}
               alt="Prashanthi B. — Editorial Portrait"
-              className="w-full h-full object-cover object-top transition-transform duration-1000 ease-out hover:scale-[1.01]"
+              className="w-full h-full object-cover object-top transition-transform duration-1000 ease-out hover:scale-[1.015]"
             />
+          </div>
+          <div className="flex items-center justify-between text-[10px] font-mono text-[#8E8278] uppercase tracking-wider px-1 pt-1 max-w-sm sm:max-w-md mx-auto lg:mx-0">
+            <span>PRASHANTHI B.</span>
+            <span>PERSPECTIVE & PROFILE</span>
           </div>
         </div>
 
-        {/* Right Column: Editorial Paragraphs with Subtle Dividers */}
-        <div className="lg:col-span-7 space-y-0 relative pl-0 lg:pl-8 border-l-0 lg:border-l border-[#262320]">
-          {perspective.paragraphs.map((paragraph, index) => {
-            const isLast = index === perspective.paragraphs.length - 1;
-            return (
-              <div
-                key={index}
-                className={`py-7 sm:py-8 ${
-                  index !== 0 ? 'border-t border-[#262320]/70' : ''
-                } transition-all duration-500`}
-              >
-                <p
-                  className={`${
-                    isLast
-                      ? 'font-serif italic text-xl sm:text-2xl text-[#F4F0E8] font-normal leading-relaxed pt-2'
-                      : 'font-sans text-base sm:text-lg text-[#C8BFB2] font-light leading-relaxed'
-                  }`}
-                >
-                  {paragraph}
-                </p>
-              </div>
-            );
-          })}
+        {/* Right Column: Narrative Body Copy & Restrained Closing Statement */}
+        <div className="lg:col-span-7 space-y-6 sm:space-y-7 pl-0 lg:pl-6 border-l-0 lg:border-l border-[#262320]">
+          <div className="space-y-5 sm:space-y-6 max-w-xl text-sm sm:text-[15px] lg:text-base text-[#C8BFB2] font-sans font-light leading-[1.8]">
+            {perspective.paragraphs.map((paragraph, index) => (
+              <p key={index} className="transition-opacity duration-700">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          {/* 04. Restrained Editorial Closing Statement */}
+          <div className="pt-8 sm:pt-10 mt-8 sm:mt-10 border-t border-[#262320]">
+            <div className="max-w-xl">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#722F37] block mb-2 font-semibold">
+                CORE PHILOSOPHY
+              </span>
+              <p className="font-serif italic text-lg sm:text-xl lg:text-2xl text-[#F4F0E8] font-normal leading-relaxed">
+                “{perspective.closing}”
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

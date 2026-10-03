@@ -61,9 +61,9 @@ export const PERSONAL_DATA = {
       'That curiosity led me to explore marketing, fashion, lifestyle, and consumer behaviour — the little details that influence what catches our eye, what feels relevant, and ultimately, what we choose.',
       'I’m Prashanthi.B, currently pursuing an MBA in Fashion & Lifestyle, with a growing interest in understanding people, brands, and the space where the two meet.',
       'I enjoy looking beyond the obvious — questioning why an idea works, how a brand communicates, and what makes an experience feel memorable. My interests span marketing, brand strategy, visual communication, retail, and fashion, but the thread connecting them is simple: understanding what makes people care.',
-      'I’m still learning, experimenting, and figuring things out along the way — which is probably the best part.',
-      'Because sometimes, the smallest reason makes the biggest difference.'
-    ]
+      'I’m still learning, experimenting, and figuring things out along the way — which is probably the best part.'
+    ],
+    closing: 'Because sometimes, the smallest reason makes the biggest difference.'
   },
   email: 'prashanthi.rbovilla@gmail.com',
   location: 'Bangalore / India',
