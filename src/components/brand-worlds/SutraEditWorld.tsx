@@ -9,7 +9,6 @@ export const SutraEditWorld: React.FC<SutraEditWorldProps> = ({
   className = '',
 }) => {
   const [stage, setStage] = useState<number>(0);
-  const [stageProgress, setStageProgress] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState<boolean>(true);
 
@@ -22,14 +21,14 @@ export const SutraEditWorld: React.FC<SutraEditWorldProps> = ({
   ];
 
   const TOTAL_STAGES = stages.length;
-  const STAGE_DURATION = 1900; // ms per stage
+  const STAGE_DURATION = 2200; // ms per stage
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
     if (containerRef.current) {
@@ -39,31 +38,19 @@ export const SutraEditWorld: React.FC<SutraEditWorldProps> = ({
     return () => observer.disconnect();
   }, []);
 
-  // Continuous Seamless Animation Loop
+  // Safe timer loop without RAF state thrashing
   useEffect(() => {
     if (!isVisible) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    let startTime = performance.now();
-    let animFrameId: number;
+    const interval = setInterval(() => {
+      setStage((prev) => (prev + 1) % TOTAL_STAGES);
+    }, STAGE_DURATION);
 
-    const tick = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = (elapsed % STAGE_DURATION) / STAGE_DURATION;
-      const currentStage = Math.floor((elapsed / STAGE_DURATION) % TOTAL_STAGES);
-
-      setStageProgress(progress);
-      setStage((prev) => (prev !== currentStage ? currentStage : prev));
-
-      animFrameId = requestAnimationFrame(tick);
-    };
-
-    animFrameId = requestAnimationFrame(tick);
-
-    return () => {
-      cancelAnimationFrame(animFrameId);
-    };
+    return () => clearInterval(interval);
   }, [isVisible, TOTAL_STAGES]);
+
+  const currentStage = stages[stage] || stages[0];
 
   return (
     <div
@@ -82,12 +69,12 @@ export const SutraEditWorld: React.FC<SutraEditWorldProps> = ({
           </span>
           <span className="text-[#262320]">•</span>
           <span className="text-[#C8BFB2] text-[11px] uppercase transition-all duration-500">
-            {stages[stage].name}
+            {currentStage.name}
           </span>
         </div>
 
         <div className="flex items-center gap-2 text-[10px] font-mono text-[#8E8278]">
-          <span className="text-[#722F37] font-bold">0{stage + 1}</span>
+          <span className="text-[#722F37] font-bold">{currentStage.num}</span>
           <span>/</span>
           <span>0{TOTAL_STAGES}</span>
           <span className="w-1.5 h-1.5 rounded-full bg-[#722F37] animate-ping ml-1" />
@@ -219,10 +206,9 @@ export const SutraEditWorld: React.FC<SutraEditWorldProps> = ({
               <div key={idx} className="space-y-1">
                 <div className="h-1 bg-[#141211] rounded-full overflow-hidden border border-[#262320]/60">
                   <div
-                    className="h-full bg-[#722F37] transition-all duration-100 ease-linear"
-                    style={{
-                      width: isCompleted ? '100%' : isCurrent ? `${stageProgress * 100}%` : '0%',
-                    }}
+                    className={`h-full bg-[#722F37] transition-all ${
+                      isCompleted ? 'w-full' : isCurrent ? 'w-full duration-[2200ms] ease-linear' : 'w-0'
+                    }`}
                   />
                 </div>
                 <div className="flex items-center justify-between text-[9px] font-mono">

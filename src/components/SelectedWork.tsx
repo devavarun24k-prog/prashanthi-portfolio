@@ -8,6 +8,7 @@ import { HealingWaitWorld } from './brand-worlds/HealingWaitWorld';
 import { HouseOfMasabaWorld } from './brand-worlds/HouseOfMasabaWorld';
 import { ThreeAmWorld } from './brand-worlds/ThreeAmWorld';
 import { SutraEditWorld } from './brand-worlds/SutraEditWorld';
+import { ErrorBoundary } from './ErrorBoundary';
 
 interface SelectedWorkProps {
   onSelectProject: (project: Project) => void;
@@ -53,19 +54,39 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
     return () => observer.disconnect();
   }, []);
 
-  // Helper to render the dedicated Brand World component
+  // Helper to render the dedicated Brand World component with ErrorBoundary safety
   const renderBrandWorld = (projectId: string) => {
     switch (projectId) {
       case 'bear-house':
-        return <BearHouseWorld />;
+        return (
+          <ErrorBoundary>
+            <BearHouseWorld />
+          </ErrorBoundary>
+        );
       case 'healing-the-wait':
-        return <HealingWaitWorld />;
+        return (
+          <ErrorBoundary>
+            <HealingWaitWorld />
+          </ErrorBoundary>
+        );
       case 'house-of-masaba':
-        return <HouseOfMasabaWorld />;
+        return (
+          <ErrorBoundary>
+            <HouseOfMasabaWorld />
+          </ErrorBoundary>
+        );
       case '3am-india':
-        return <ThreeAmWorld />;
+        return (
+          <ErrorBoundary>
+            <ThreeAmWorld />
+          </ErrorBoundary>
+        );
       case 'sutra-edit':
-        return <SutraEditWorld />;
+        return (
+          <ErrorBoundary>
+            <SutraEditWorld />
+          </ErrorBoundary>
+        );
       default:
         return null;
     }
