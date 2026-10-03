@@ -78,10 +78,10 @@ export const PERSONAL_DATA = {
   linkedin: 'https://www.linkedin.com/in/prashanthi-reddy-14771a244/',
   cvUrl: 'mailto:prashanthi.rbovilla@gmail.com?subject=CV Request - Prashanthi B.',
   images: {
-    hero: '/images/prashanthi/hero.jpg',
-    portrait01: '/images/prashanthi/portrait-01.jpg',
-    portrait02: '/images/prashanthi/portrait-02.jpg',
-    detail: '/images/prashanthi/detail.jpg'
+    hero: '/images/prashanthi-hero.jpg',
+    portrait01: '/images/prashanthi-hero.jpg',
+    portrait02: '/images/prashanthi-hero.jpg',
+    detail: '/images/prashanthi-hero.jpg'
   }
 };
 

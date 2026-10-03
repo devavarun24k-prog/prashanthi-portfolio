@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { User, ArrowUpRight, FileText, Sparkles, Sliders } from 'lucide-react';
+import { User, ArrowUpRight, FileText, Sliders } from 'lucide-react';
 import { PERSONAL_DATA, SKILLS_LIST } from '../data/portfolioData';
 
 export const AboutSection: React.FC = () => {
-  const [imgError, setImgError] = useState(false);
-  const [imgLoaded, setImgLoaded] = useState(false);
   const [activeLens, setActiveLens] = useState<'retail' | 'merchandising' | 'branding' | 'consumer' | 'strategy'>('retail');
 
   const lensOptions: { id: 'retail' | 'merchandising' | 'branding' | 'consumer' | 'strategy'; label: string; focus: string; cropStyle: string }[] = [
@@ -42,58 +40,14 @@ export const AboutSection: React.FC = () => {
 
       {/* Main Split Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-16 items-start">
-        {/* Left Column: Interactive Portrait Frame with Lens Crop Shifts (Cols 5) */}
+        {/* Left Column: Portrait Frame with Lens Focus (Cols 5) */}
         <div className="lg:col-span-5 relative space-y-4">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#262320] bg-[#141211] shadow-2xl group transition-all duration-700">
-            {!imgError && (
-              <img
-                src={PERSONAL_DATA.images.portrait01}
-                alt="Prashanthi B. — About Portrait"
-                onLoad={() => setImgLoaded(true)}
-                onError={() => setImgError(true)}
-                className={`w-full h-full object-cover transition-all duration-700 ${
-                  imgLoaded ? 'opacity-100' : 'opacity-0 scale-95'
-                } ${currentLens.cropStyle}`}
-              />
-            )}
-
-            {(imgError || !imgLoaded) && (
-              <div
-                className={`absolute inset-0 flex flex-col justify-between p-8 bg-[#141211] transition-opacity duration-300 ${
-                  imgError ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                <div className="flex items-center justify-between border-b border-[#262320] pb-3 text-xs font-mono">
-                  <span className="font-semibold uppercase tracking-wider text-[11px] text-[#722F37] flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    PORTRAIT LENS: {currentLens.label}
-                  </span>
-                  <span className="text-[10px] text-[#8E8278]">REF.PB_02</span>
-                </div>
-
-                <div className="my-auto text-center py-6">
-                  <div className="w-16 h-16 mx-auto rounded-full bg-[#0B0A09] border border-[#262320] flex items-center justify-center text-2xl font-serif text-[#722F37] mb-3 shadow-inner">
-                    PB
-                  </div>
-                  <h3 className="font-serif text-3xl text-[#F4F0E8]">
-                    Prashanthi B.
-                  </h3>
-                  <p className="text-xs font-mono text-[#722F37] mt-1 font-semibold uppercase tracking-wider">
-                    Bangalore / India
-                  </p>
-                </div>
-
-                <div className="border-t border-[#262320] pt-3 text-[11px] text-[#8E8278] flex justify-between font-mono">
-                  <span>/images/prashanthi/portrait-01.jpg</span>
-                  <span className="text-[#722F37] font-semibold">LENS_{currentLens.label}</span>
-                </div>
-              </div>
-            )}
-
-            {/* Interactive Lens Overlay Coordinates */}
-            <div className="absolute top-4 left-4 px-3 py-1 rounded bg-[#0B0A09]/85 backdrop-blur-md border border-[#262320] font-mono text-[10px] text-[#C8BFB2] uppercase tracking-widest pointer-events-none">
-              [ + ] LENS // {currentLens.label}
-            </div>
+            <img
+              src={PERSONAL_DATA.images.portrait01}
+              alt="Prashanthi B. — About Portrait"
+              className={`w-full h-full object-cover transition-all duration-700 ${currentLens.cropStyle}`}
+            />
           </div>
 
           {/* Interactive Domain Lens Selector */}

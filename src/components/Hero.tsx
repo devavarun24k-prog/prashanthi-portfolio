@@ -3,9 +3,6 @@ import { ArrowDown, ArrowUpRight, Sparkles, Terminal } from 'lucide-react';
 import { PERSONAL_DATA } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
-  const [imgError, setImgError] = useState(false);
-  const [imgLoaded, setImgLoaded] = useState(false);
-  
   // Coordinated 5-Phase Entrance Sequence
   const [phase, setPhase] = useState<number>(0);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -213,9 +210,9 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: PHASE 3 Zoom Settling Portrait (Cols 5) */}
+        {/* Right Column: Hero Portrait Photograph (Cols 5) */}
         <div
-          className="lg:col-span-5 flex justify-center lg:justify-end z-0 transition-transform duration-300 ease-out"
+          className="lg:col-span-5 flex justify-center lg:justify-end z-10 transition-transform duration-300 ease-out"
           style={{
             transform: `translate3d(${mousePos.x * 0.7}px, ${mousePos.y * 0.7 + scrollProgress * 20}px, 0)`,
           }}
@@ -224,65 +221,13 @@ export const Hero: React.FC = () => {
             className={`relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-3xl border border-[#262320] bg-[#141211] shadow-2xl transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               phase >= 3 ? 'photo-develop-reveal' : 'photo-develop-hidden'
             }`}
-            style={{
-              // Scroll transformation: subtle scale adaptation
-              transform: `scale(${phase >= 3 ? 1 + scrollProgress * 0.05 : 1.08})`,
-            }}
           >
-            {/* Real Portrait Photo */}
-            {!imgError && (
-              <img
-                src={PERSONAL_DATA.images.hero}
-                alt="Prashanthi B. — Fashion Business & Merchandising"
-                onLoad={() => setImgLoaded(true)}
-                onError={() => setImgError(true)}
-                className={`w-full h-full object-cover transition-all duration-1000 ${
-                  imgLoaded ? 'opacity-100' : 'opacity-0'
-                } hover:scale-[1.04]`}
-              />
-            )}
-
-            {/* Editorial Placeholder Canvas */}
-            {(imgError || !imgLoaded) && (
-              <div
-                className={`absolute inset-0 flex flex-col justify-between p-8 bg-[#141211] transition-opacity duration-500 ${
-                  imgError ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                <div className="flex items-center justify-between border-b border-[#262320] pb-3 text-xs font-mono">
-                  <span className="font-semibold uppercase tracking-wider text-[11px] text-[#722F37] flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#722F37] animate-ping" />
-                    DEVELOPED PORTRAIT
-                  </span>
-                  <span className="text-[10px] text-[#8E8278]">4:5 // REF.PB_01</span>
-                </div>
-
-                <div className="my-auto text-center py-6">
-                  <div className="w-20 h-20 mx-auto rounded-full bg-[#0B0A09] border border-[#262320] flex items-center justify-center text-3xl font-serif text-[#722F37] mb-4 shadow-inner">
-                    PB
-                  </div>
-                  <h3 className="font-serif text-3xl text-[#F4F0E8] font-normal">
-                    Prashanthi B.
-                  </h3>
-                  <p className="text-xs font-mono text-[#722F37] mt-1 uppercase tracking-widest">
-                    Fashion & Retail Business
-                  </p>
-                  <p className="text-[11px] font-mono text-[#8E8278] mt-0.5">
-                    Bangalore, India
-                  </p>
-                </div>
-
-                <div className="border-t border-[#262320] pt-3 flex items-center justify-between text-[11px] text-[#8E8278] font-mono">
-                  <span>/images/prashanthi/hero.jpg</span>
-                  <span className="text-[#722F37] font-semibold">ASSET_READY</span>
-                </div>
-              </div>
-            )}
-
-            {/* Editorial Crop Coordinates Tag */}
-            <div className="absolute top-4 left-4 px-3 py-1 rounded bg-[#0B0A09]/85 backdrop-blur-md border border-[#262320] font-mono text-[10px] text-[#C8BFB2] uppercase tracking-widest pointer-events-none">
-              [ + ] 4:5 // PORTRAIT CROP
-            </div>
+            {/* Real Portrait Photo of Prashanthi B. */}
+            <img
+              src={PERSONAL_DATA.images.hero}
+              alt="Prashanthi B. — Fashion Business & Merchandising"
+              className="w-full h-full object-cover object-center hover:scale-[1.02] transition-transform duration-700 ease-out"
+            />
           </div>
         </div>
       </div>
