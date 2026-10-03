@@ -95,15 +95,15 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
   const renderBrandWorldCanvas = () => {
     switch (project.id) {
       case 'bear-house':
-        return <BearHouseWorld autoPlay={true} />;
+        return <BearHouseWorld />;
       case 'healing-the-wait':
-        return <HealingWaitWorld autoPlay={true} />;
+        return <HealingWaitWorld />;
       case 'house-of-masaba':
-        return <HouseOfMasabaWorld autoPlay={true} />;
+        return <HouseOfMasabaWorld />;
       case '3am-india':
-        return <ThreeAmWorld autoPlay={true} />;
+        return <ThreeAmWorld />;
       case 'sutra-edit':
-        return <SutraEditWorld autoPlay={true} />;
+        return <SutraEditWorld />;
       default:
         return null;
     }
