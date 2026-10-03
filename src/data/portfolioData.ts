@@ -62,21 +62,21 @@ export const SKILLS_LIST = [
 ];
 
 export const PERSONAL_DATA = {
-  name: 'PRASHANTHI B.',
+  name: 'Prashanthi.B',
   roleHeadline: 'Buying & Merchandising | Brand Strategy | Visual Merchandising',
   credential: 'MBA — Fashion & Lifestyle Business Management',
   academicDetail: 'Pearl Academy Bangalore (2025–2027) • ICFAI University BBA (2020–2023)',
   disciplines: 'Buying & Merchandising | Brand Strategy | Visual Merchandising',
   intro: 'I’m interested in where fashion, consumers and business intersect — from understanding what people want to creating the right product, experience and brand strategy to make it matter.',
   aboutParagraphs: [
-    'I’m Prashanthi, currently pursuing an MBA in Fashion & Lifestyle Business Management at Pearl Academy, Bangalore (2025–2027), following my BBA from ICFAI University (2020–2023).',
+    'I’m Prashanthi.B, currently pursuing an MBA in Fashion & Lifestyle Business Management at Pearl Academy, Bangalore (2025–2027), following my BBA from ICFAI University (2020–2023).',
     'My interests sit across buying, merchandising, visual merchandising, retail operations, branding, and consumer behaviour.',
     'I enjoy understanding both sides of fashion — what catches attention visually and what makes a product, assortment or retail experience work commercially.'
   ],
   email: 'prashanthi.rbovilla@gmail.com',
   location: 'Bangalore / India',
   linkedin: 'https://www.linkedin.com/in/prashanthi-reddy-14771a244/',
-  cvUrl: 'mailto:prashanthi.rbovilla@gmail.com?subject=CV Request - Prashanthi B',
+  cvUrl: 'mailto:prashanthi.rbovilla@gmail.com?subject=CV Request - Prashanthi.B',
   images: {
     hero: '/images/prashanthi/hero.jpg',
     portrait01: '/images/prashanthi/portrait-01.jpg',
@@ -98,16 +98,20 @@ export const PROJECTS_DATA: Project[] = [
     challenge: 'Maintaining consistent visual standards across diverse store formats while balancing merchandise presentation, product accessibility, replenishment and fast-paced floor changes — from established mall stores to new store setups.',
     processSteps: [
       {
-        title: '01 Store Audits & VM Standards',
-        desc: 'Gained hands-on exposure to VM audits across 7 stores, reviewing store presentation against VM guidelines, including planogram adherence, hanger spacing, mannequin presentation, product placement, fixture consistency and overall visual standards.'
+        title: '01 / STORE VM EXPOSURE — Store Audits & VM Standards',
+        desc: 'Gained hands-on exposure to store-level VM audits and standards across EBO and SIS formats, observing merchandise presentation, displays, fixtures and overall store execution.'
       },
       {
-        title: '02 Merchandise Presentation',
-        desc: 'Worked on product presentation and visual consistency across stores, including colour flow, category placement, fixture arrangement, mannequin styling and maintaining clear product visibility.'
+        title: '02 / STYLING & PRESENTATION — Mannequin Styling & Displays',
+        desc: 'Styled mannequins and created complete looks, working with colour flow, product pairing and accessories to strengthen visual presentation across stores.'
       },
       {
-        title: '03 EOSS Floor Transition',
-        desc: 'Supported the End of Season Sale (EOSS) floor setup by reorganising merchandise into size-wise fixtures, improving product accessibility, arranging sale communication and supporting quick replenishment during high-volume'
+        title: '03 / EOSS FLOOR SETUP — End of Season Sale',
+        desc: 'Worked on EOSS floor changes, including merchandise reorganisation, size-wise product arrangement, display adjustments and replenishment to maintain an organised sales floor.'
+      },
+      {
+        title: '04 / NEW STORE SETUP — Himayath Nagar — NSO',
+        desc: 'Worked on the visual merchandising setup for the Himayath Nagar new store, including merchandise placement, fixture and wall setup, mannequin styling and overall store presentation.'
       }
     ],
     keyFacts: [
@@ -275,47 +279,49 @@ export const PROJECTS_DATA: Project[] = [
     id: 'sutra-edit',
     number: '05',
     title: 'SUTRA EDIT',
-    subtitle: 'Building an India-First Fashion Intelligence Platform',
-    category: 'Fashion Intelligence / Business Strategy',
-    type: 'Startup Strategy Case Study',
-    shortDescription: 'An India-first fashion intelligence platform providing actionable market insights, founder community, and strategic consulting.',
-    fullOverview: 'A startup business model and brand strategy addressing the information void for emerging Indian direct-to-consumer and lifestyle founders who navigate distinct local supply chains and sizing dynamics.',
-    challenge: 'Emerging Indian fashion entrepreneurs lack contextual, actionable business intelligence on sourcing, small-batch manufacturing, sizing curves, and omnichannel rollout.',
+    subtitle: 'India’s fashion intelligence platform for sharper brand decisions.',
+    category: '05 / FASHION INTELLIGENCE & BUSINESS MODEL',
+    type: 'Fashion Intelligence Platform Concept',
+    shortDescription: 'Sutra Edit brings together market intelligence, founder community and strategic consulting to help emerging fashion and lifestyle brands understand what’s changing, why it matters, and what to do next.',
+    fullOverview: 'A business concept built around retail intelligence for emerging Indian D2C and lifestyle brands, connecting content, community and consulting with a focus on local sourcing and retail realities.',
+    challenge: 'India’s emerging fashion founders lack accessible, India-specific business intelligence and expert guidance to turn industry signals into sharper brand decisions.',
     processSteps: [
       {
-        title: '01 Market Gap Analysis',
-        desc: 'Identified mismatch between Western academic fashion frameworks and India’s festive-driven, multi-climate retail landscape.'
+        title: '01 — Market Gap',
+        desc: 'Mapped the gap between global fashion intelligence platforms and the contextual needs of India’s emerging fashion founders.'
       },
       {
-        title: '02 Platform Architecture',
-        desc: 'Structured a 3-pillar ecosystem: Weekly Edit (curated industry intelligence), Community (founder peer network), and Consulting (bespoke advisory).'
+        title: '02 — Platform Architecture',
+        desc: 'Built a three-part model around The Weekly Edit, The Dashboard and 1:1 Consulting.'
       },
       {
-        title: '03 Audience & Value Ladder',
-        desc: 'Mapped customer progression from free newsletter readers to community members and one-on-one consulting clients.'
+        title: '03 — Value Proposition',
+        desc: 'Defined a progression from accessible industry intelligence to premium insights and strategic advisory.'
       },
       {
-        title: '04 Business Model & Strategy',
-        desc: 'Formulated sustainable ecosystem: Content → Contextual Intelligence → Strategic Advisory.'
+        title: '04 — Business Model',
+        desc: 'Developed a tiered revenue model spanning Starter, Pro and Premium, supported by subscriptions and consulting.'
       },
       {
-        title: '05 Go-to-Market Execution',
-        desc: 'Designed roadmap focused on founder case studies, retail audits, and tactical supplier intelligence.'
+        title: '05 — Go-to-Market',
+        desc: 'Outlined a launch strategy centred on founder-led content, industry intelligence, community building and strategic partnerships.'
       }
     ],
     keyFacts: [
-      { label: 'Core Market', value: 'India D2C & Lifestyle', note: 'Contextual retail frameworks' },
-      { label: 'Ecosystem Pillars', value: '3 Verticals', note: 'Weekly Edit, Community, Consulting' },
-      { label: 'Platform Scope', value: 'Fashion Intelligence', note: 'Content → Advisory' },
-      { label: 'Strategic Focus', value: 'Retail & Sourcing', note: 'Addressing local Indian supply realities' }
+      { label: 'Core Market', value: 'India · D2C · Fashion & Lifestyle', note: 'Contextual retail focus' },
+      { label: 'Business Verticals', value: 'Intelligence · Community · Consulting', note: '3-part platform architecture' },
+      { label: 'Revenue Model', value: 'Subscription · Membership · Consulting', note: 'Tiered monetization' },
+      { label: 'Platform Scope', value: 'Industry Intelligence', note: 'Signals to sharper brand decisions' }
     ],
     outputs: [
-      'India-first fashion retail intelligence ecosystem blueprint',
-      'Value architecture connecting editorial dispatches to advisory services',
-      'Weekly Edit content framework analyzing store formats and merchandising strategies',
-      'Consulting roadmap for emerging apparel brands preparing for retail expansion'
+      'India-first fashion intelligence platform for emerging founders',
+      'The Weekly Edit — curated business, market and trend intelligence',
+      'The Dashboard — trend prediction, competitor mapping and pricing benchmarks',
+      '1:1 Consulting model covering brand strategy, GTM, investor preparation and channel expansion',
+      'Tiered subscription architecture across Starter, Pro and Premium',
+      'Launch roadmap spanning audience building, founder community and regional expansion'
     ],
-    takeaway: 'Contextual, actionable industry intelligence empowers emerging Indian fashion founders to bridge creative vision with sustainable commercial retail growth.',
+    takeaway: 'Strategic Takeaway: Turning fragmented fashion signals into intelligence founders can act on.',
     imagePath: '/images/prashanthi/projects/sutra-01.jpg',
     accentColor: '#722F37',
     accentBg: '#141211',
@@ -325,13 +331,13 @@ export const PROJECTS_DATA: Project[] = [
 ];
 
 export const BEAR_HOUSE_LOCATIONS = [
-  { name: 'Lakeshore Mall', city: 'Bangalore', type: 'EBO Mall Store', focus: 'EOSS size-wise layout, visual audits' },
-  { name: 'Sharath City Mall', city: 'Hyderabad', type: 'Flagship Mall Hub', focus: 'High-traffic display maintenance, replenishment' },
-  { name: 'Banjara Hills', city: 'Hyderabad', type: 'High-Street Boutique', focus: 'Focal window styling, brand presentation' },
-  { name: 'Broadway', city: 'Hyderabad', type: 'Retail Destination', focus: 'Floor zoning standards, mannequin coordination' },
-  { name: 'Amb Mall', city: 'Hyderabad', type: 'Destination Mall', focus: 'EOSS shorts wall execution, fixture standards' },
-  { name: 'Himayath Nagar', city: 'Hyderabad', type: 'New Store Opening (NSO)', focus: 'Full NSO visual floor setup, opening inventory' },
-  { name: 'Tolichowki', city: 'Hyderabad', type: 'New Store Opening (NSO)', focus: 'NSO visual merchandising execution, compliance' }
+  { name: 'Orion Mall', city: 'Bangalore', type: 'EBO', focus: 'Visual merchandising audits, display standards, replenishment' },
+  { name: 'Phoenix Mall of Asia', city: 'Bangalore', type: 'EBO', focus: 'High-footfall presentation, mannequin styling, floor compliance' },
+  { name: 'Sarath City Capital Mall', city: 'Hyderabad', type: 'EBO', focus: 'High-traffic display maintenance, focal point setups' },
+  { name: 'Himayath Nagar', city: 'Hyderabad', type: 'EBO', focus: 'New Store Opening (NSO), floor setup, fixture & wall layout' },
+  { name: 'Tolichowki', city: 'Hyderabad', type: 'EBO', focus: 'New Store Opening (NSO), visual merchandising launch execution' },
+  { name: 'Central Mall', city: 'Hyderabad', type: 'SIS', focus: 'Shop-in-Shop visual merchandising compliance, category display' },
+  { name: 'Centro Mall', city: 'Hyderabad', type: 'SIS', focus: 'Shop-in-Shop brand presentation and stock replenishment' }
 ];
 
 export const EXPERIENCES_DATA: ExperienceItem[] = [

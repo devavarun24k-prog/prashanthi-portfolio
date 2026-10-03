@@ -48,7 +48,7 @@ export const AboutSection: React.FC = () => {
             {!imgError && (
               <img
                 src={PERSONAL_DATA.images.portrait01}
-                alt="Prashanthi B. — About Portrait"
+                alt="Prashanthi.B — About Portrait"
                 onLoad={() => setImgLoaded(true)}
                 onError={() => setImgError(true)}
                 className={`w-full h-full object-cover transition-all duration-700 ${
@@ -76,7 +76,7 @@ export const AboutSection: React.FC = () => {
                     PB
                   </div>
                   <h3 className="font-serif text-3xl text-[#F4F0E8]">
-                    PRASHANTHI B.
+                    Prashanthi.B
                   </h3>
                   <p className="text-xs font-mono text-[#722F37] mt-1 font-semibold uppercase tracking-wider">
                     Bangalore / India

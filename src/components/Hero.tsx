@@ -77,7 +77,7 @@ export const Hero: React.FC = () => {
             }`}
           >
             <Sparkles className="w-3.5 h-3.5 text-[#722F37] animate-pulse" />
-            <span className="font-bold text-[#F4F0E8] tracking-widest uppercase">PRASHANTHI B.</span>
+            <span className="font-bold text-[#F4F0E8] tracking-widest uppercase">Prashanthi.B</span>
           </div>
 
           {/* Tag 2: Location Coordinate */}
@@ -141,28 +141,19 @@ export const Hero: React.FC = () => {
 
           {/* PHASE 2: Mask Uncover Typography */}
           <div className="overflow-hidden">
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.25rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.25rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.95]">
               <div className="overflow-hidden">
                 <span
-                  className={`block transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  className={`block transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] whitespace-nowrap ${
                     phase >= 2 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
                   }`}
                 >
-                  PRASHANTHI
+                  Prashanthi.B
                 </span>
               </div>
-              <div className="overflow-hidden">
+              <div className="overflow-hidden pt-2">
                 <span
-                  className={`block transition-all duration-1000 delay-150 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    phase >= 2 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
-                  }`}
-                >
-                  B.
-                </span>
-              </div>
-              <div className="overflow-hidden pt-1">
-                <span
-                  className={`block font-serif italic text-[#722F37] font-normal text-2xl sm:text-3xl lg:text-4xl transition-all duration-1000 delay-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  className={`block font-serif italic text-[#722F37] font-normal text-2xl sm:text-3xl lg:text-4xl transition-all duration-1000 delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                     phase >= 2 ? 'mask-vertical-reveal' : 'mask-vertical-hidden'
                   }`}
                 >
@@ -242,7 +233,7 @@ export const Hero: React.FC = () => {
             {!imgError && (
               <img
                 src={PERSONAL_DATA.images.hero}
-                alt="Prashanthi B. — Fashion Business & Merchandising"
+                alt="Prashanthi.B — Fashion Business & Merchandising"
                 onLoad={() => setImgLoaded(true)}
                 onError={() => setImgError(true)}
                 className={`w-full h-full object-cover transition-all duration-1000 ${
@@ -271,7 +262,7 @@ export const Hero: React.FC = () => {
                     PB
                   </div>
                   <h3 className="font-serif text-3xl text-[#F4F0E8] font-normal">
-                    PRASHANTHI B.
+                    Prashanthi.B
                   </h3>
                   <p className="text-xs font-mono text-[#722F37] mt-1 uppercase tracking-widest">
                     Fashion & Retail Business

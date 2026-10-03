@@ -48,10 +48,11 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
   // Sutra Edit Strategy Node
   const [activeSutraNode, setActiveSutraNode] = useState(0);
   const sutraNodes = [
-    { title: 'MARKET GAP', desc: 'Addressing local Indian supply chain and sizing dynamics' },
-    { title: 'PLATFORM', desc: 'Weekly curated editorial dispatches analyzing retail formats' },
-    { title: 'COMMUNITY', desc: 'Peer network for D2C apparel founders and retail merchandisers' },
-    { title: 'ADVISORY', desc: 'Bespoke strategic consulting for retail expansion and rollout' },
+    { title: '01 MARKET GAP', desc: 'Fragmented fashion intelligence and local Indian sizing dynamics' },
+    { title: '02 PLATFORM', desc: 'Curated editorial intelligence and retail market breakdowns' },
+    { title: '03 VALUE PROP', desc: 'Actionable strategic decisions backed by Indian consumer data' },
+    { title: '04 BUSINESS MODEL', desc: 'Tiered subscriptions, founder network and bespoke advisory' },
+    { title: '05 GTM', desc: 'Audience building, trend reports and regional ecosystem expansion' },
   ];
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);

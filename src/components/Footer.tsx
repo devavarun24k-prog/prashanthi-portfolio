@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
 
         <div className="flex items-center gap-6">
           <span className="text-xs text-[#8E8278] font-mono">
-            © {CURRENT_YEAR} PRASHANTHI B.
+            © {CURRENT_YEAR} Prashanthi.B
           </span>
           <button
             onClick={scrollToTop}

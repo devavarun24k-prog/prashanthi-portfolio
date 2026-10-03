@@ -21,7 +21,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
   const [luxuryStage, setLuxuryStage] = useState(0);
   const [sutraSpreadNode, setSutraSpreadNode] = useState(0);
 
-  const bearStages = ['01 STORE AUDITS', '02 MERCHANDISE', '03 EOSS TRANSITION'];
+  const bearStages = ['01 STORE VM', '02 STYLING', '03 EOSS SETUP', '04 NEW STORE'];
   const waitSteps = ['01 EMPATHIZE', '02 DEFINE', '03 IDEATE', '04 PROTOTYPE', '05 TEST'];
   const masabaPillars = [
     { title: 'ASSORTMENT PLANNING', desc: 'Balancing SKU breadth, category mix, and focused product offering' },
@@ -38,10 +38,11 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
     { name: 'RE-ENGAGE', desc: 'Enduring client relationship and tailored private previews' },
   ];
   const sutraNodes = [
-    { title: 'MARKET GAP', desc: 'Addressing local Indian supply and sizing dynamics' },
-    { title: 'PLATFORM', desc: 'Curated weekly industry intelligence dispatches' },
-    { title: 'COMMUNITY', desc: 'Peer network for lifestyle and D2C apparel founders' },
-    { title: 'ADVISORY', desc: 'Bespoke strategic consulting for retail rollout' },
+    { title: '01 MARKET GAP', desc: 'Fragmented fashion intelligence in India' },
+    { title: '02 PLATFORM', desc: 'Editorial & strategic knowledge platform' },
+    { title: '03 VALUE PROP', desc: 'Decisions backed by Indian consumer data' },
+    { title: '04 BIZ MODEL', desc: 'Subscriptions, advisory & founder network' },
+    { title: '05 GTM', desc: 'Audience building, reports & expansion' },
   ];
 
   // Desktop Pointer Parallax inside project spread (5-8px subtle range)
@@ -215,7 +216,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                       <div className="flex items-center justify-between font-mono text-[11px] text-[#722F37] border-b border-[#262320] pb-2">
                         <span className="font-bold uppercase flex items-center gap-1.5">
                           <ShoppingBag className="w-3.5 h-3.5" />
-                          METHODOLOGY & EXECUTION (0{bearStageSpread + 1}/03)
+                          METHODOLOGY & EXECUTION (0{bearStageSpread + 1}/04)
                         </span>
                         <span>46-DAY VM INTERNSHIP</span>
                       </div>
@@ -387,10 +388,10 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                           <GitBranch className="w-3.5 h-3.5" />
                           INDIA-FIRST FASHION INTELLIGENCE
                         </span>
-                        <span>3 PILLARS</span>
+                        <span>5 METHODOLOGY PHASES</span>
                       </div>
 
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 font-mono text-[10px] text-center">
+                      <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5 font-mono text-[10px] text-center">
                         {sutraNodes.map((node, sIdx) => (
                           <button
                             key={sIdx}
