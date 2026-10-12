@@ -100,11 +100,11 @@ export const EntryStage: React.FC<EntryStageProps> = ({ onEnter }) => {
           <div className="lg:col-span-7 z-20 flex flex-col justify-center">
             <div className="overflow-hidden">
               <h1
-                className={`font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] xl:text-[7.5rem] 2xl:text-[8.5rem] text-[#F4F0E8] font-normal leading-[0.9] tracking-tight uppercase transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                className={`font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[5.75rem] xl:text-[7rem] 2xl:text-[8rem] text-[#F4F0E8] font-normal leading-[0.92] tracking-tight uppercase whitespace-nowrap transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   isMounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                 }`}
               >
-                PRASHANTHI<span className="text-[#722F37] italic drop-shadow-[0_0_30px_rgba(114,47,55,0.35)]">.B</span>
+                PRASHANTHI<span className="text-[#722F37]">.B</span>
               </h1>
             </div>
           </div>
