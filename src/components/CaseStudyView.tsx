@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { X, ChevronLeft, ChevronRight, CheckCircle2, Sparkles, ArrowUpRight, Layers } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Sparkles, ArrowUpRight, Layers } from 'lucide-react';
 import type { Project } from '../data/portfolioData';
 import { PROJECTS_DATA } from '../data/portfolioData';
 import { ProjectImage } from './ProjectImage';
@@ -34,6 +34,25 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
         return ['MARKET GAP', 'PLATFORM', 'VALUE PROPOSITION', 'BUSINESS MODEL', 'GO-TO-MARKET'];
       default:
         return ['DISCOVERY', 'ANALYSIS', 'STRATEGY', 'EXECUTION', 'DELIVERY'];
+    }
+  };
+
+  const getCaseStudyContributionHeading = (projectId: string) => {
+    switch (projectId) {
+      case 'samsonite-smarttravel':
+        return 'PRODUCT-MARKETING ROADMAP & ANALYSIS';
+      case 'sutra-edit':
+        return 'ECOSYSTEM VERTICALS & BUSINESS ARCHITECTURE';
+      case 'house-of-masaba':
+        return 'RETAIL PRESENTATION & ASSORTMENT PLANNING';
+      case 'bear-house':
+        return 'STORE-LEVEL VISUAL MERCHANDISING & OPERATIONS';
+      case 'healing-the-wait':
+        return 'SERVICE DESIGN & DIGITAL SOLUTION MAPPING';
+      case 'bvlgari':
+        return 'LUXURY RETAIL & DIGITAL INTEGRATION STRATEGY';
+      default:
+        return 'OUTPUTS & DELIVERABLES';
     }
   };
 
@@ -232,20 +251,27 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                 </div>
               </div>
 
-              {/* Section 04: Outputs & Deliverables */}
+              {/* Section 04: Project-Specific Contributions */}
               <div
                 id="story-outputs"
-                className="p-8 rounded-3xl bg-[#141211] border border-[#262320] space-y-4"
+                className="p-8 sm:p-10 rounded-3xl bg-[#141211] border border-[#262320] space-y-6"
               >
-                <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] flex items-center gap-2">
-                  <span>04</span>
-                  <span>// OUTPUTS & DELIVERABLES</span>
-                </span>
-                <div className="space-y-3">
+                <div className="flex items-center justify-between border-b border-[#262320] pb-4">
+                  <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#722F37] flex items-center gap-2">
+                    <span>04</span>
+                    <span>// {getCaseStudyContributionHeading(project.id)}</span>
+                  </span>
+                  <span className="text-[11px] font-mono text-[#8E8278] uppercase">
+                    {project.outputs.length} KEY INITIATIVES
+                  </span>
+                </div>
+                <div className="space-y-4">
                   {project.outputs.map((out, idx) => (
-                    <div key={idx} className="flex items-start gap-3 text-sm text-[#C8BFB2] font-sans">
-                      <CheckCircle2 className="w-4 h-4 text-[#722F37] shrink-0 mt-0.5" />
-                      <span>{out}</span>
+                    <div key={idx} className="flex items-start gap-4 text-base text-[#C8BFB2] font-sans pb-3 border-b border-[#262320]/40 last:border-b-0 last:pb-0">
+                      <span className="text-xs font-mono font-bold text-[#722F37] shrink-0 mt-1">
+                        0{idx + 1}
+                      </span>
+                      <span className="leading-relaxed font-light">{out}</span>
                     </div>
                   ))}
                 </div>
@@ -299,15 +325,15 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
                 </div>
               </div>
 
-              {/* Project Category & Focus Card */}
-              <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-3 shadow-xl">
-                <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#722F37]">
-                  CORE DISCIPLINE
+              {/* Strategic Discipline Focus Card */}
+              <div className="p-6 rounded-3xl bg-[#141211] border border-[#262320] space-y-2.5 shadow-xl">
+                <div className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[#722F37]">
+                  STRATEGIC FOCUS
                 </div>
-                <div className="text-sm font-sans font-medium text-[#F4F0E8]">
-                  {project.category}
+                <div className="text-sm font-sans font-medium text-[#F4F0E8] leading-snug">
+                  {project.type}
                 </div>
-                <div className="text-xs text-[#8E8278] font-sans font-light leading-relaxed">
+                <div className="text-xs text-[#8E8278] font-sans font-light leading-relaxed pt-1 border-t border-[#262320]/60">
                   {project.shortDescription}
                 </div>
               </div>

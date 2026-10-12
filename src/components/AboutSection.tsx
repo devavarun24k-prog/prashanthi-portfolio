@@ -144,31 +144,45 @@ export const AboutSection: React.FC = () => {
             ))}
           </div>
 
-          {/* Education Details */}
+          {/* Education Details — Consistent Editorial Hierarchy */}
           <div
-            className={`pt-6 border-t border-[#262320] max-w-xl transition-all duration-700 delay-500 ease-out ${
+            className={`pt-8 border-t border-[#262320] max-w-xl transition-all duration-700 delay-500 ease-out ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#722F37] block mb-3 font-semibold">
+            <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#722F37] block mb-4 font-semibold">
               ACADEMIC BACKGROUND
             </span>
-            <div className="space-y-3 font-mono text-xs">
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 pb-2 border-b border-[#262320]/50">
-                <span className="text-[#F4F0E8] font-semibold">Pearl Academy, Bangalore</span>
-                <span className="text-[#8E8278]">2025–2027</span>
+            <div className="space-y-5">
+              {/* Entry 01: Pearl Academy */}
+              <div className="pb-4 border-b border-[#262320]/60 space-y-1">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h4 className="text-base sm:text-lg font-serif text-[#F4F0E8] font-normal tracking-tight">
+                    Pearl Academy, Bangalore
+                  </h4>
+                  <span className="font-mono text-xs text-[#8E8278] shrink-0">
+                    2025–2027
+                  </span>
+                </div>
+                <p className="text-sm font-sans text-[#C8BFB2] font-light leading-relaxed">
+                  MBA in Fashion & Lifestyle Business Management
+                </p>
               </div>
-              <p className="text-[#C8BFB2] text-[13px] font-sans -mt-1">
-                MBA in Fashion & Lifestyle Business Management
-              </p>
 
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 pt-2 pb-2 border-b border-[#262320]/50">
-                <span className="text-[#F4F0E8] font-semibold">ICFAI Foundation for Higher Education (IFHE), Hyderabad</span>
-                <span className="text-[#8E8278]">2020–2023</span>
+              {/* Entry 02: ICFAI University */}
+              <div className="space-y-1">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h4 className="text-base sm:text-lg font-serif text-[#F4F0E8] font-normal tracking-tight">
+                    ICFAI Foundation for Higher Education (IFHE), Hyderabad
+                  </h4>
+                  <span className="font-mono text-xs text-[#8E8278] shrink-0">
+                    2020–2023
+                  </span>
+                </div>
+                <p className="text-sm font-sans text-[#C8BFB2] font-light leading-relaxed">
+                  Bachelor of Business Administration (BBA)
+                </p>
               </div>
-              <p className="text-[#C8BFB2] text-[13px] font-sans -mt-1">
-                Bachelor of Business Administration (BBA)
-              </p>
             </div>
           </div>
 

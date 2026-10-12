@@ -7,6 +7,25 @@ interface SelectedWorkProps {
   onSelectProject: (project: Project) => void;
 }
 
+const getProjectContributionHeading = (projectId: string) => {
+  switch (projectId) {
+    case 'samsonite-smarttravel':
+      return 'PRODUCT-MARKETING ROADMAP & ANALYSIS';
+    case 'sutra-edit':
+      return 'ECOSYSTEM VERTICALS & BUSINESS ARCHITECTURE';
+    case 'house-of-masaba':
+      return 'RETAIL PRESENTATION & ASSORTMENT PLANNING';
+    case 'bear-house':
+      return 'STORE-LEVEL VISUAL MERCHANDISING & OPERATIONS';
+    case 'healing-the-wait':
+      return 'SERVICE DESIGN & DIGITAL SOLUTION MAPPING';
+    case 'bvlgari':
+      return 'LUXURY RETAIL & DIGITAL INTEGRATION STRATEGY';
+    default:
+      return 'KEY DELIVERABLES & STRATEGY';
+  }
+};
+
 export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) => {
   const [visibleMetrics, setVisibleMetrics] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -103,9 +122,6 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                     onClick={() => onSelectProject(project)}
                     className="space-y-2 cursor-pointer group/title"
                   >
-                    <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] block">
-                      {project.category}
-                    </span>
                     <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#F4F0E8] font-normal leading-[0.95] tracking-tight group-hover/title:text-[#C8BFB2] transition-colors">
                       {project.title}
                     </h3>
@@ -115,20 +131,20 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                   </div>
 
                   {/* Short Narrative Description */}
-                  <p className="text-sm sm:text-base text-[#C8BFB2] font-sans font-light leading-relaxed">
+                  <p className="text-base sm:text-[17px] text-[#C8BFB2] font-sans font-light leading-relaxed">
                     {project.shortDescription}
                   </p>
 
-                  {/* Key Deliverables & Strategy */}
-                  <div className="space-y-2.5 pt-2 border-t border-[#262320]">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#722F37] font-bold block">
-                      KEY DELIVERABLES & STRATEGY:
+                  {/* Project-Specific Contributions Section */}
+                  <div className="space-y-3.5 pt-3 border-t border-[#262320]">
+                    <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#722F37] font-semibold block">
+                      {getProjectContributionHeading(project.id)}
                     </span>
-                    <div className="space-y-2">
+                    <div className="space-y-2.5">
                       {project.outputs.map((out, oIdx) => (
-                        <div key={oIdx} className="text-xs text-[#C8BFB2] font-sans flex items-start gap-2.5">
-                          <span className="text-[#722F37] font-mono text-[10px] shrink-0 mt-0.5">•</span>
-                          <span>{out}</span>
+                        <div key={oIdx} className="text-sm text-[#C8BFB2] font-sans flex items-start gap-3">
+                          <span className="text-[#722F37] font-mono text-xs shrink-0 mt-0.5">0{oIdx + 1}</span>
+                          <span className="leading-relaxed">{out}</span>
                         </div>
                       ))}
                     </div>
@@ -176,9 +192,9 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                       className="rounded-2xl transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                     />
 
-                    {/* Subtle Editorial Number Watermark */}
+                    {/* Subtle Editorial Index Watermark */}
                     <div className="absolute top-4 left-4 px-3 py-1 rounded bg-[#0B0A09]/80 backdrop-blur-md border border-[#262320] font-mono text-[10px] text-[#C8BFB2] uppercase tracking-widest pointer-events-none transition-colors duration-500 group-hover:border-[#722F37]/40">
-                      0{idx + 1} // {project.category.split('/')[0].trim()}
+                      0{idx + 1} // CASE STUDY
                     </div>
                   </div>
                 </div>

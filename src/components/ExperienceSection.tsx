@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { CheckCircle2 } from 'lucide-react';
 import { EXPERIENCES_DATA, EDUCATION_DATA, EXPOSURES_DATA } from '../data/portfolioData';
 
 export const ExperienceSection: React.FC = () => {
@@ -137,13 +136,18 @@ export const ExperienceSection: React.FC = () => {
                     {exp.description}
                   </p>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 border-t border-[#262320]">
-                    {exp.highlights.map((h, hIdx) => (
-                      <div key={hIdx} className="flex items-start gap-2.5 text-xs text-[#8E8278] font-sans">
-                        <CheckCircle2 className="w-4 h-4 text-[#722F37] shrink-0 mt-0.5" />
-                        <span>{h}</span>
-                      </div>
-                    ))}
+                  <div className="space-y-3 pt-4 border-t border-[#262320]">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#722F37] font-semibold block">
+                      KEY RESPONSIBILITIES & EXECUTION:
+                    </span>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                      {exp.highlights.map((h, hIdx) => (
+                        <div key={hIdx} className="flex items-start gap-3 text-sm text-[#C8BFB2] font-sans font-light">
+                          <span className="text-[#722F37] font-mono text-xs shrink-0 mt-0.5">0{hIdx + 1}</span>
+                          <span className="leading-relaxed">{h}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -172,10 +176,13 @@ export const ExperienceSection: React.FC = () => {
 
                   <div>
                     <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal group-hover:translate-x-1 transition-transform duration-300">
-                      {edu.degree}
+                      {edu.institution}
                     </h3>
-                    <p className="text-sm font-mono text-[#C8BFB2] mt-1">
-                      {edu.institution} — {edu.location}
+                    <p className="text-base sm:text-lg font-sans text-[#C8BFB2] font-light mt-1">
+                      {edu.degree}
+                    </p>
+                    <p className="text-xs font-mono text-[#8E8278] mt-1.5 uppercase tracking-wider">
+                      {edu.location}
                     </p>
                   </div>
                 </div>
