@@ -42,7 +42,7 @@ export const CapabilitiesSection: React.FC = () => {
       {/* Strong Editorial Section Heading */}
       <div className="mb-10 sm:mb-14 relative z-10 overflow-hidden">
         <h2
-          className={`font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[6rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.9] transition-all duration-700 ease-out ${
+          className={`font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[6rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.9] transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
@@ -50,19 +50,23 @@ export const CapabilitiesSection: React.FC = () => {
         </h2>
       </div>
 
-      {/* Subtle Horizontal Rule */}
-      <div className="w-full h-px bg-[#8E8278]/25 mb-12 sm:mb-16 relative z-10" />
+      {/* Subtle Horizontal Rule with Smooth Width Reveal */}
+      <div
+        className={`w-full h-px bg-[#8E8278]/25 mb-12 sm:mb-16 relative z-10 origin-left transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          inView ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+        }`}
+      />
 
       {/* 3-Column Editorial Capability Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-12 xl:gap-16 relative z-10">
         {WORK_WITH_DATA.map((cat, index) => (
           <div
             key={cat.number}
-            className={`group md:border-l md:border-[#262320] md:pl-8 lg:pl-10 first:border-l-0 first:pl-0 transition-all duration-700 ease-out ${
+            className={`group md:border-l md:border-[#262320] md:pl-8 lg:pl-10 first:border-l-0 first:pl-0 transition-all duration-900 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
             style={{
-              transitionDelay: `${150 + index * 150}ms`,
+              transitionDelay: `${200 + index * 120}ms`,
             }}
           >
             {/* Category Number */}

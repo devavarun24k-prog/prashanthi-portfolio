@@ -56,8 +56,8 @@ export interface WorkWithCategory {
 export const WORK_WITH_DATA: WorkWithCategory[] = [
   {
     number: '01',
-    category: 'MERCHANDISING',
-    skills: ['Assortment Planning', 'Product Analysis', 'Replenishment'],
+    category: 'BRAND & CONSUMER',
+    skills: ['Brand Strategy', 'Consumer Insights', 'Product Positioning'],
   },
   {
     number: '02',
@@ -66,8 +66,8 @@ export const WORK_WITH_DATA: WorkWithCategory[] = [
   },
   {
     number: '03',
-    category: 'BRAND & CONSUMER',
-    skills: ['Brand Strategy', 'Consumer Insights', 'Product Positioning'],
+    category: 'MERCHANDISING',
+    skills: ['Assortment Planning', 'Product Analysis', 'Replenishment'],
   },
 ];
 

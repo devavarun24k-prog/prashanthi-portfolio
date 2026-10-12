@@ -39,7 +39,7 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
           loading="lazy"
           onLoad={() => setIsLoaded(true)}
           onError={() => setHasError(true)}
-          className={`w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.04] ${
+          className={`w-full h-full object-cover transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025] ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
         />

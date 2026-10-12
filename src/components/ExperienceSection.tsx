@@ -1,12 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { EXPERIENCES_DATA, EDUCATION_DATA, EXPOSURES_DATA } from '../data/portfolioData';
 
 export const ExperienceSection: React.FC = () => {
   const [activeExpTab, setActiveExpTab] = useState<'work' | 'academic' | 'exposure'>('work');
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="experience" className="py-24 sm:py-36 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#262320] bg-[#0B0A09] text-[#F4F0E8] select-none relative">
+    <section
+      ref={sectionRef}
+      id="experience"
+      className="py-24 sm:py-36 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto border-b border-[#262320] bg-[#0B0A09] text-[#F4F0E8] select-none relative"
+    >
       {/* Subtle Layout Grid Background */}
       <div className="absolute inset-0 editorial-grid-bg opacity-20 pointer-events-none" />
 
@@ -24,8 +47,12 @@ export const ExperienceSection: React.FC = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-          <div className="space-y-2 max-w-3xl">
-            <h2 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92]">
+          <div className="space-y-2 max-w-3xl overflow-hidden">
+            <h2
+              className={`font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#F4F0E8] tracking-tight leading-[0.92] transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
+            >
               CAREER &
               <span className="block font-serif italic text-[#C8BFB2] font-normal">TIMELINE</span>
             </h2>
@@ -35,37 +62,37 @@ export const ExperienceSection: React.FC = () => {
           <div className="flex items-center gap-2 font-mono text-xs">
             <button
               onClick={() => setActiveExpTab('work')}
-              className={`px-4 py-2 rounded-full border transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full border transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 activeExpTab === 'work'
                   ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold shadow-md'
-                  : 'border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
+                  : 'border-[#262320] text-[#8E8278] hover:text-[#F4F0E8] hover:border-[#722F37]/40'
               }`}
             >
               01 // WORK ({EXPERIENCES_DATA.length})
             </button>
-          <button
-            onClick={() => setActiveExpTab('academic')}
-            className={`px-4 py-2 rounded-full border transition-all duration-300 ${
-              activeExpTab === 'academic'
-                ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold shadow-md'
-                : 'border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
-            }`}
-          >
-            02 // EDUCATION ({EDUCATION_DATA.length})
-          </button>
-          <button
-            onClick={() => setActiveExpTab('exposure')}
-            className={`px-4 py-2 rounded-full border transition-all duration-300 ${
-              activeExpTab === 'exposure'
-                ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold shadow-md'
-                : 'border-[#262320] text-[#8E8278] hover:text-[#F4F0E8]'
-            }`}
-          >
-            03 // IMMERSION ({EXPOSURES_DATA.length})
-          </button>
+            <button
+              onClick={() => setActiveExpTab('academic')}
+              className={`px-4 py-2 rounded-full border transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                activeExpTab === 'academic'
+                  ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold shadow-md'
+                  : 'border-[#262320] text-[#8E8278] hover:text-[#F4F0E8] hover:border-[#722F37]/40'
+              }`}
+            >
+              02 // EDUCATION ({EDUCATION_DATA.length})
+            </button>
+            <button
+              onClick={() => setActiveExpTab('exposure')}
+              className={`px-4 py-2 rounded-full border transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                activeExpTab === 'exposure'
+                  ? 'bg-[#722F37] border-[#722F37] text-[#F4F0E8] font-bold shadow-md'
+                  : 'border-[#262320] text-[#8E8278] hover:text-[#F4F0E8] hover:border-[#722F37]/40'
+              }`}
+            >
+              03 // IMMERSION ({EXPOSURES_DATA.length})
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
       {/* Sequential Editorial Timeline Entries */}
       <div className="pt-12 space-y-12 relative z-10">
@@ -74,15 +101,20 @@ export const ExperienceSection: React.FC = () => {
             {EXPERIENCES_DATA.map((exp, idx) => (
               <div
                 key={exp.id}
-                className="p-8 sm:p-12 rounded-2xl border border-[#262320] hover:border-[#722F37] transition-all duration-500 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group"
+                style={{
+                  transitionDelay: `${100 + idx * 120}ms`,
+                }}
+                className={`p-8 sm:p-12 rounded-2xl border border-[#262320] hover:border-[#722F37] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.45)] grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group ${
+                  inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
               >
                 {/* Number */}
-                <div className="lg:col-span-2 font-serif text-5xl sm:text-6xl lg:text-7xl text-[#722F37]/40 group-hover:text-[#722F37] transition-colors font-normal select-none">
+                <div className="lg:col-span-2 font-serif text-5xl sm:text-6xl lg:text-7xl text-[#722F37]/40 group-hover:text-[#722F37] transition-colors duration-500 font-normal select-none">
                   0{idx + 1}
                 </div>
 
                 <div className="lg:col-span-10 space-y-5">
-                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#262320] pb-4 font-mono text-xs group-hover:border-[#722F37]/30 transition-colors">
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#262320] pb-4 font-mono text-xs group-hover:border-[#722F37]/30 transition-colors duration-500">
                     <div className="flex items-center gap-3">
                       <span className="font-bold text-[#722F37] px-3 py-1 rounded border border-[#262320]">
                         {exp.period}
@@ -93,7 +125,7 @@ export const ExperienceSection: React.FC = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal group-hover:translate-x-1 transition-transform duration-300">
+                    <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal group-hover:translate-x-1 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
                       {exp.company}
                     </h3>
                     <p className="text-sm font-mono font-bold text-[#722F37] mt-1 uppercase tracking-wider">

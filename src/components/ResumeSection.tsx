@@ -110,7 +110,7 @@ export const ResumeSection: React.FC = () => {
               {EXPERIENCES_DATA.map((exp) => (
                 <div
                   key={exp.id}
-                  className="p-5 sm:p-6 rounded-lg border border-[#262320] hover:border-[#722F37]/50 transition-colors bg-[#141211]/30 space-y-2"
+                  className="p-5 sm:p-6 rounded-lg border border-[#262320] hover:border-[#722F37]/60 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(0,0,0,0.3)] bg-[#141211]/30 space-y-2"
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="font-serif text-xl sm:text-2xl text-[#F4F0E8] font-normal">

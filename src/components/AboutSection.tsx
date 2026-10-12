@@ -67,7 +67,7 @@ export const AboutSection: React.FC = () => {
       {/* 02. Main Editorial Statement (Directly Connected to Canvas, No Borders) */}
       <div className="max-w-5xl space-y-1.5 sm:space-y-2 mb-12 sm:mb-16 relative z-10">
         <h2
-          className={`font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.75rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.92] transition-all duration-700 ease-out ${
+          className={`font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.75rem] font-normal text-[#F4F0E8] tracking-tight leading-[0.92] transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
@@ -76,7 +76,7 @@ export const AboutSection: React.FC = () => {
 
         <div className="overflow-hidden">
           <p
-            className={`font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem] font-normal text-[#C8BFB2] tracking-tight leading-[0.96] transition-all duration-700 delay-100 ease-out ${
+            className={`font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem] font-normal text-[#C8BFB2] tracking-tight leading-[0.96] transition-all duration-1000 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
@@ -86,7 +86,7 @@ export const AboutSection: React.FC = () => {
 
         <div className="overflow-hidden pt-0.5">
           <p
-            className={`font-serif italic text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem] font-normal text-[#722F37] tracking-tight leading-[0.96] transition-all duration-700 delay-200 ease-out ${
+            className={`font-serif italic text-3xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem] font-normal text-[#722F37] tracking-tight leading-[0.96] transition-all duration-1000 delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >

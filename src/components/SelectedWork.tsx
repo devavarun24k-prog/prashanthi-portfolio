@@ -13,19 +13,28 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
   const [visibleMetrics, setVisibleMetrics] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
+  const [visibleProjects, setVisibleProjects] = useState<Set<number>>(new Set());
+  const projectRefs = useRef<(HTMLElement | null)[]>([]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisibleMetrics(true);
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleMetrics(true);
+            const index = Number(entry.target.getAttribute('data-project-index'));
+            if (!isNaN(index)) {
+              setVisibleProjects((prev) => new Set(prev).add(index));
+            }
+          }
+        });
       },
-      { threshold: 0.1 }
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    projectRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
 
     return () => observer.disconnect();
   }, []);
@@ -39,7 +48,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
       {/* Subtle Layout Grid Background */}
       <div className="absolute inset-0 editorial-grid-bg opacity-20 pointer-events-none" />
 
-      {/* Section Header Label Bar */}
+      {/* Section Header Label Bar with Divider Reveal */}
       <div className="flex flex-wrap items-center justify-between gap-4 pb-6 sm:pb-8 border-b border-[#262320] mb-12 sm:mb-16 relative z-10">
         <div className="font-sans font-semibold text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] tracking-[0.12em] uppercase leading-none">
           <span className="text-[#722F37] mr-1.5">01 /</span>
@@ -53,24 +62,31 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
         </div>
       </div>
 
-      {/* 5 Curated Large Magazine Editorial Spreads */}
+      {/* 6 Curated Large Magazine Editorial Spreads */}
       <div className="space-y-28 sm:space-y-40 pt-4 sm:pt-6 relative z-10">
         {PROJECTS_DATA.map((project, idx) => {
           const isHovered = activeHoverIndex === idx;
           const isEven = idx % 2 === 1;
+          const isVisible = visibleProjects.has(idx);
 
           return (
             <article
               key={project.id}
               id={`project-${project.id}`}
+              data-project-index={idx}
+              ref={(el) => {
+                projectRefs.current[idx] = el;
+              }}
               onMouseEnter={() => setActiveHoverIndex(idx)}
               onMouseLeave={() => setActiveHoverIndex(null)}
-              className="group relative transition-all duration-700"
+              className={`group relative transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
             >
               {/* Top Project Identification Bar */}
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#262320] pb-4 mb-8 sm:mb-12 font-mono text-xs text-[#8E8278] transition-colors group-hover:border-[#722F37]/50">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#262320] pb-4 mb-8 sm:mb-12 font-mono text-xs text-[#8E8278] transition-colors duration-500 group-hover:border-[#722F37]/50">
                 <div className="flex items-center gap-3">
-                  <span className="text-[#722F37] font-bold text-sm">0{idx + 1}</span>
+                  <span className="text-[#722F37] font-bold text-sm transition-transform duration-500 group-hover:scale-105">0{idx + 1}</span>
                   <span className="text-[#262320]">/</span>
                   <span className="text-[#F4F0E8] font-semibold uppercase tracking-wider">{project.category}</span>
                 </div>
@@ -168,7 +184,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                 >
                   <div
                     onClick={() => onSelectProject(project)}
-                    className="relative overflow-hidden rounded-2xl border border-[#262320] group-hover:border-[#722F37]/80 shadow-2xl transition-all duration-700 cursor-pointer"
+                    className="relative overflow-hidden rounded-2xl border border-[#262320] group-hover:border-[#722F37]/80 shadow-2xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] cursor-pointer"
                   >
                     <ProjectImage
                       src={project.imagePath}
@@ -179,11 +195,11 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                       accentBg={project.accentBg}
                       accentColor={project.accentColor}
                       aspectRatio="aspect-[16/11]"
-                      className="rounded-2xl hover:scale-[1.02] transition-transform duration-700 ease-out"
+                      className="rounded-2xl transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                     />
 
                     {/* Subtle Editorial Number Watermark */}
-                    <div className="absolute top-4 left-4 px-3 py-1 rounded bg-[#0B0A09]/80 backdrop-blur-md border border-[#262320] font-mono text-[10px] text-[#C8BFB2] uppercase tracking-widest pointer-events-none">
+                    <div className="absolute top-4 left-4 px-3 py-1 rounded bg-[#0B0A09]/80 backdrop-blur-md border border-[#262320] font-mono text-[10px] text-[#C8BFB2] uppercase tracking-widest pointer-events-none transition-colors duration-500 group-hover:border-[#722F37]/40">
                       0{idx + 1} // {project.category.split('/')[0].trim()}
                     </div>
                   </div>
