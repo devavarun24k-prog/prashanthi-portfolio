@@ -32,18 +32,8 @@ export const EntryStage: React.FC<EntryStageProps> = ({ onEnter }) => {
     // Wait for cinematic exit transition (900ms) before unmounting
     setTimeout(() => {
       onEnter();
-      
-      // If a specific hash was targeted (e.g. #project-sutra-edit), smoothly scroll to it
-      if (window.location.hash) {
-        try {
-          const targetEl = document.querySelector(window.location.hash);
-          if (targetEl) {
-            targetEl.scrollIntoView({ behavior: 'smooth' });
-          }
-        } catch {
-          // Ignore invalid hash selectors
-        }
-      }
+      // Always reset window scroll to top of homepage
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }, 900);
   };
 
@@ -97,16 +87,14 @@ export const EntryStage: React.FC<EntryStageProps> = ({ onEnter }) => {
         <div className="my-auto py-6 sm:py-8 lg:py-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
           
           {/* Left Column: Correctly Aligned, Balanced PRASHANTHI.B Display Name */}
-          <div className="lg:col-span-7 z-20 flex flex-col justify-center">
-            <div className="overflow-hidden">
-              <h1
-                className={`font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[5.75rem] xl:text-[7rem] 2xl:text-[8rem] text-[#F4F0E8] font-normal leading-[0.92] tracking-tight uppercase whitespace-nowrap transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                  isMounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                }`}
-              >
-                PRASHANTHI<span className="text-[#722F37]">.B</span>
-              </h1>
-            </div>
+          <div className="lg:col-span-7 z-20 flex flex-col justify-center min-w-0">
+            <h1
+              className={`font-serif text-[clamp(2.5rem,7.5vw,6.5rem)] text-[#F4F0E8] font-normal leading-[0.95] tracking-tight uppercase whitespace-nowrap transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                isMounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              }`}
+            >
+              PRASHANTHI<span className="text-[#722F37]">.B</span>
+            </h1>
           </div>
 
           {/* Right Column: Oversized Cinematic Portrait Framing */}

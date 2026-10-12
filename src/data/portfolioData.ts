@@ -367,7 +367,7 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
     period: '2023–2024',
     company: '3AM India',
     role: 'Social Media Marketing Intern',
-    location: 'Bangalore, India',
+    location: 'Hyderabad',
     type: 'Digital Marketing & Community Internship',
     description: 'Social media marketing and brand communication internship managing strategy, content calendars, influencer outreach, and audience engagement for clean skincare brand 3AM India.',
     highlights: [
