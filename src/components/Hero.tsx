@@ -17,20 +17,20 @@ export const Hero: React.FC = () => {
     <section
       ref={heroRef}
       id="hero"
-      className="relative min-h-[72vh] lg:min-h-[84vh] w-full bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none border-b border-[#262320] flex flex-col justify-center pt-32 sm:pt-36 lg:pt-40 pb-20 sm:pb-24 lg:pb-28 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto"
+      className="relative min-h-[74vh] lg:min-h-[85vh] w-full bg-[#0B0A09] text-[#F4F0E8] overflow-hidden select-none border-b border-[#262320] flex flex-col justify-center pt-32 sm:pt-36 lg:pt-40 pb-20 sm:pb-24 lg:pb-28 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto"
     >
       {/* Subtle Architectural Layout Grid */}
       <div className="absolute inset-0 editorial-grid-bg opacity-15 pointer-events-none" />
 
-      {/* Main Editorial Homepage Introduction Spread */}
-      <div className="py-6 sm:py-10 lg:py-12 relative z-10 w-full max-w-5xl">
-        <div className="space-y-10 sm:space-y-12">
+      {/* Main Editorial Homepage Introduction Spread across full available container */}
+      <div className="py-6 sm:py-10 lg:py-12 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-16 items-start">
           
-          {/* Main Introduction Hierarchy */}
-          <div className="space-y-6 sm:space-y-7">
-            {/* 1. Main Display Headline (10-15% larger on desktop) */}
+          {/* Left Column (~60% / 7 cols): Main Narrative & Introduction Hierarchy */}
+          <div className="lg:col-span-7 space-y-6 sm:space-y-7">
+            {/* 1. Main Display Headline */}
             <h1
-              className={`font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem] text-[#F4F0E8] font-normal tracking-tight leading-[1.04] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.15rem] xl:text-[4.65rem] text-[#F4F0E8] font-normal tracking-tight leading-[1.04] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
 
             {/* 2. Short Statement Below Headline */}
             <p
-              className={`text-lg sm:text-xl lg:text-[1.35rem] text-[#F4F0E8] font-sans font-normal leading-snug max-w-3xl transition-all duration-700 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`text-lg sm:text-xl lg:text-[1.35rem] text-[#F4F0E8] font-sans font-normal leading-snug max-w-2xl transition-all duration-700 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
@@ -48,7 +48,7 @@ export const Hero: React.FC = () => {
 
             {/* 3. Supporting Description */}
             <p
-              className={`text-base sm:text-[1.125rem] lg:text-[1.2rem] text-[#C8BFB2] font-sans font-light leading-[1.75] max-w-3xl transition-all duration-700 delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`text-base sm:text-[1.125rem] lg:text-[1.2rem] text-[#C8BFB2] font-sans font-light leading-[1.75] max-w-2xl transition-all duration-700 delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
@@ -57,7 +57,7 @@ export const Hero: React.FC = () => {
 
             {/* 4. Call to Action: EXPLORE SELECTED WORK → */}
             <div
-              className={`pt-3 transition-all duration-700 delay-300 ease-out ${
+              className={`pt-4 transition-all duration-700 delay-300 ease-out ${
                 inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
@@ -73,32 +73,52 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Balanced Two-Column Information Row Beneath a Subtle Divider */}
+          {/* Right Column (~40% / 5 cols): Restrained Minimal Editorial Information Panel */}
           <div
-            className={`pt-8 sm:pt-10 border-t border-[#262320] max-w-3xl transition-all duration-700 delay-400 ease-out ${
+            className={`lg:col-span-5 lg:pl-6 xl:pl-8 lg:border-l lg:border-[#262320] transition-all duration-700 delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 font-mono text-xs">
-              {/* LEFT — BASED IN */}
-              <div className="space-y-1">
-                <span className="text-[10px] text-[#8E8278] uppercase tracking-[0.2em] font-semibold block">
+            <div className="space-y-8 sm:space-y-9 pt-2">
+              
+              {/* BASED IN */}
+              <div className="space-y-2">
+                <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#722F37] font-semibold block">
                   BASED IN
                 </span>
-                <span className="text-sm sm:text-[15px] font-sans text-[#F4F0E8] font-medium block">
-                  BANGALORE / INDIA
-                </span>
+                <p className="text-base sm:text-lg font-sans text-[#F4F0E8] font-medium leading-snug">
+                  Bangalore, India
+                </p>
               </div>
 
-              {/* RIGHT — EDUCATION & STATUS */}
-              <div className="space-y-1">
-                <span className="text-[10px] text-[#8E8278] uppercase tracking-[0.2em] font-semibold block">
-                  EDUCATION & STATUS
+              {/* EDUCATION */}
+              <div className="space-y-2 pt-6 border-t border-[#262320]">
+                <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#722F37] font-semibold block">
+                  EDUCATION
                 </span>
-                <span className="text-sm sm:text-[15px] font-sans text-[#C8BFB2] block">
-                  PEARL ACADEMY · 2025–2027
-                </span>
+                <div className="space-y-1">
+                  <p className="text-base sm:text-lg font-sans text-[#F4F0E8] font-medium leading-snug">
+                    Pearl Academy
+                  </p>
+                  <p className="text-xs sm:text-[13px] font-sans text-[#C8BFB2] leading-relaxed">
+                    MBA — Fashion & Lifestyle Business Management
+                  </p>
+                  <p className="text-xs font-mono text-[#8E8278] pt-0.5">
+                    2025–2027
+                  </p>
+                </div>
               </div>
+
+              {/* FOCUS */}
+              <div className="space-y-2 pt-6 border-t border-[#262320]">
+                <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#722F37] font-semibold block">
+                  FOCUS
+                </span>
+                <p className="text-sm sm:text-[15px] font-sans text-[#C8BFB2] leading-relaxed">
+                  Branding · Marketing · Fashion & Retail
+                </p>
+              </div>
+
             </div>
           </div>
 
