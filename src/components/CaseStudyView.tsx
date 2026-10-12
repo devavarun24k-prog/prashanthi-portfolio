@@ -3,6 +3,7 @@ import { X, ChevronLeft, ChevronRight, Sparkles, ArrowUpRight, Layers } from 'lu
 import type { Project } from '../data/portfolioData';
 import { PROJECTS_DATA } from '../data/portfolioData';
 import { ProjectImage } from './ProjectImage';
+import { SamsoniteCaseStudy } from './SamsoniteCaseStudy';
 
 interface CaseStudyViewProps {
   project: Project | null;
@@ -85,6 +86,15 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
   }, [project, onClose, onSelectProject]);
 
   if (!project) return null;
+
+  if (project.id === 'samsonite-smarttravel') {
+    return (
+      <SamsoniteCaseStudy
+        onClose={onClose}
+        onSelectProject={onSelectProject}
+      />
+    );
+  }
 
   const projectList = PROJECTS_DATA;
   const currentIndex = projectList.findIndex((p) => p.id === project.id);

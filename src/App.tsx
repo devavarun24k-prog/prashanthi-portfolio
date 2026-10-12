@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Project } from './data/portfolioData';
+import { PROJECTS_DATA } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { EditorialGrid } from './components/EditorialGrid';
 import { Hero } from './components/Hero';
@@ -18,6 +19,23 @@ import { AmbientCursor } from './components/AmbientCursor';
 export function App() {
   const [hasEntered, setHasEntered] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash.includes('samsonite')) {
+        const proj = PROJECTS_DATA.find((p) => p.id === 'samsonite-smarttravel');
+        if (proj) {
+          setHasEntered(true);
+          setSelectedProject(proj);
+        }
+      }
+    };
+
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0B0A09] text-[#F4F0E8] antialiased selection:bg-[#722F37] selection:text-[#F4F0E8] relative">
