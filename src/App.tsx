@@ -10,12 +10,18 @@ import { ExperienceSection } from './components/ExperienceSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { CaseStudyView } from './components/CaseStudyView';
+import { EntryStage } from './components/EntryStage';
 
 export function App() {
+  const [hasEntered, setHasEntered] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0B0A09] text-[#F4F0E8] antialiased selection:bg-[#722F37] selection:text-[#F4F0E8] relative">
+      {/* 0. Standalone Editorial Opening Stage inspired by reference opening & ENTER interaction */}
+      {!hasEntered && (
+        <EntryStage onEnter={() => setHasEntered(true)} />
+      )}
       {/* Subtle Architectural Editorial Grid System (Background Layer) */}
       <EditorialGrid />
 
