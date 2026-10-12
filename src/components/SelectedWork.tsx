@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowUpRight } from 'lucide-react';
 import type { Project } from '../data/portfolioData';
 import { PROJECTS_DATA } from '../data/portfolioData';
 import { ProjectImage } from './ProjectImage';
@@ -9,7 +8,6 @@ interface SelectedWorkProps {
 }
 
 export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) => {
-  const [activeHoverIndex, setActiveHoverIndex] = useState<number | null>(null);
   const [visibleMetrics, setVisibleMetrics] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -65,7 +63,6 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
       {/* 6 Curated Large Magazine Editorial Spreads */}
       <div className="space-y-28 sm:space-y-40 pt-4 sm:pt-6 relative z-10">
         {PROJECTS_DATA.map((project, idx) => {
-          const isHovered = activeHoverIndex === idx;
           const isEven = idx % 2 === 1;
           const isVisible = visibleProjects.has(idx);
 
@@ -77,8 +74,6 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
               ref={(el) => {
                 projectRefs.current[idx] = el;
               }}
-              onMouseEnter={() => setActiveHoverIndex(idx)}
-              onMouseLeave={() => setActiveHoverIndex(null)}
               className={`group relative transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
@@ -104,11 +99,14 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                     isEven ? 'lg:order-2' : 'lg:order-1'
                   }`}
                 >
-                  <div className="space-y-2">
+                  <div
+                    onClick={() => onSelectProject(project)}
+                    className="space-y-2 cursor-pointer group/title"
+                  >
                     <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#722F37] block">
                       {project.category}
                     </span>
-                    <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#F4F0E8] font-normal leading-[0.95] tracking-tight group-hover:text-[#F4F0E8] transition-colors">
+                    <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#F4F0E8] font-normal leading-[0.95] tracking-tight group-hover/title:text-[#C8BFB2] transition-colors">
                       {project.title}
                     </h3>
                     <p className="font-serif text-xl sm:text-2xl text-[#C8BFB2] italic pt-0.5">
@@ -153,26 +151,6 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                         </div>
                       </div>
                     ))}
-                  </div>
-
-                  {/* Explore Case Study CTA */}
-                  <div className="pt-4 flex items-center justify-between">
-                    <button
-                      onClick={() => onSelectProject(project)}
-                      className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#722F37] hover:text-[#F4F0E8] transition-colors group/btn"
-                    >
-                      <span>EXPLORE CASE STUDY</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                    </button>
-
-                    <div className="w-24 h-[1px] bg-[#262320] relative overflow-hidden">
-                      <div
-                        className="absolute inset-y-0 left-0 bg-[#722F37] transition-all duration-500 ease-out"
-                        style={{
-                          width: isHovered ? '100%' : '0%',
-                        }}
-                      />
-                    </div>
                   </div>
                 </div>
 

@@ -16,7 +16,7 @@
     background-color: #0B0A09;
     color: #F4F0E8;
     overflow-x: hidden;
-    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   }
 
   /* Clean minimal scrollbar */
@@ -250,3 +250,30 @@
   }
 }
 
+/* Editorial Ticker Marquee Loop */
+@keyframes tickerMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-ticker {
+  animation: tickerMarquee 32s linear infinite;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .animate-ticker:hover {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker {
+    animation: none !important;
+    transform: none !important;
+  }
+}

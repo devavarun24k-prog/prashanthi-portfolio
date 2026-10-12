@@ -3,6 +3,7 @@ import type { Project } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { EditorialGrid } from './components/EditorialGrid';
 import { Hero } from './components/Hero';
+import { EditorialTicker } from './components/EditorialTicker';
 import { SelectedWork } from './components/SelectedWork';
 import { AboutSection } from './components/AboutSection';
 import { CapabilitiesSection } from './components/CapabilitiesSection';
@@ -37,6 +38,9 @@ export function App() {
       <main className="flex-grow">
         {/* 1. Fullscreen Hero */}
         <Hero />
+
+        {/* Horizontal Editorial Competencies Ticker */}
+        <EditorialTicker />
 
         {/* 2. Selected Work (6 Curated Editorial Spreads) */}
         <SelectedWork onSelectProject={(project) => setSelectedProject(project)} />
