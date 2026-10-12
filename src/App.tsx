@@ -19,8 +19,7 @@ export function App() {
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash;
-      if (hash) {
-        setHasEntered(true);
+      if (hash && hasEntered) {
         const targetId = hash.startsWith('#') ? hash.substring(1) : hash;
         const element =
           document.getElementById(targetId) ||
@@ -28,17 +27,14 @@ export function App() {
             ? document.getElementById('project-samsonite-smarttravel')
             : null);
         if (element) {
-          setTimeout(() => {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }, 100);
+          element.scrollIntoView({ behavior: 'smooth' });
         }
       }
     };
 
-    handleHash();
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
-  }, []);
+  }, [hasEntered]);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0B0A09] text-[#F4F0E8] antialiased selection:bg-[#722F37] selection:text-[#F4F0E8] relative">

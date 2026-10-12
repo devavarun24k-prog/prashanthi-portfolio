@@ -6,19 +6,14 @@ interface EntryStageProps {
 
 export const EntryStage: React.FC<EntryStageProps> = ({ onEnter }) => {
   const [isExiting, setIsExiting] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     // Lock background scrolling while entry stage is active
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
-    // Trigger mounted entrance animations
-    const timer = setTimeout(() => setIsMounted(true), 50);
-
     return () => {
       document.body.style.overflow = originalOverflow;
-      clearTimeout(timer);
     };
   }, []);
 
@@ -32,8 +27,29 @@ export const EntryStage: React.FC<EntryStageProps> = ({ onEnter }) => {
     // Wait for cinematic exit transition (900ms) before unmounting
     setTimeout(() => {
       onEnter();
-      // Always reset window scroll to top of homepage
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      // If a specific hash was targeted (e.g. #project-sutra-edit, #work), smoothly scroll to it
+      if (window.location.hash) {
+        try {
+          const targetId = window.location.hash.startsWith('#')
+            ? window.location.hash.substring(1)
+            : window.location.hash;
+          const targetEl =
+            document.getElementById(targetId) ||
+            (targetId === 'samsonite' || targetId === 'samsonite-smarttravel'
+              ? document.getElementById('project-samsonite-smarttravel')
+              : null);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          }
+        } catch {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        }
+      } else {
+        // Always reset window scroll to top of homepage
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }
     }, 900);
   };
 
@@ -88,22 +104,14 @@ export const EntryStage: React.FC<EntryStageProps> = ({ onEnter }) => {
           
           {/* Left Column: Correctly Aligned, Balanced PRASHANTHI.B Display Name */}
           <div className="lg:col-span-7 z-20 flex flex-col justify-center min-w-0">
-            <h1
-              className={`font-serif text-[clamp(2.5rem,7.5vw,6.5rem)] text-[#F4F0E8] font-normal leading-[0.95] tracking-tight uppercase whitespace-nowrap transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                isMounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-              }`}
-            >
+            <h1 className="font-serif text-[clamp(2.5rem,7.5vw,6.5rem)] text-[#F4F0E8] font-normal leading-[0.95] tracking-tight uppercase whitespace-nowrap">
               PRASHANTHI<span className="text-[#722F37]">.B</span>
             </h1>
           </div>
 
           {/* Right Column: Oversized Cinematic Portrait Framing */}
           <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end z-10">
-            <div
-              className={`relative w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[420px] aspect-[4/5] rounded-2xl overflow-hidden border border-[#262320] shadow-2xl transition-all duration-1000 delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                isMounted ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
-              }`}
-            >
+            <div className="relative w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[420px] aspect-[4/5] rounded-2xl overflow-hidden border border-[#262320] shadow-2xl">
               {/* Backing Depth Layer */}
               <div className="absolute inset-0 bg-[#141211]" />
 
