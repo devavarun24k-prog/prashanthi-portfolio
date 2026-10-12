@@ -54,50 +54,47 @@ export const Navbar: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-          {/* Brand Identity / Monogram */}
+          {/* Brand Identity / Monogram (Compact PRASHANTHI.B label) */}
           <a
             href="#hero"
             onClick={(e) => {
               e.preventDefault();
               handleNavClick('#hero');
             }}
-            className="group flex flex-col sm:flex-row sm:items-baseline sm:gap-3 text-left focus:outline-none"
+            className="group flex items-baseline text-left focus:outline-none"
           >
             <span className="font-serif text-2xl tracking-tight text-[#F4F0E8] group-hover:text-[#722F37] transition-colors font-normal">
               PRASHANTHI.B
-            </span>
-            <span className="text-[10px] sm:text-[11px] text-[#8E8278] font-mono font-medium tracking-wider uppercase">
-              FASHION · RETAIL · CONSUMER THINKING
             </span>
           </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-7 text-xs font-mono font-medium uppercase tracking-wider">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
-                className="group relative text-[#C8BFB2] hover:text-[#F4F0E8] transition-colors flex items-center gap-1.5 py-1"
-              >
-                <span className="text-[9px] text-[#722F37] font-bold group-hover:scale-110 transition-transform">
-                  {link.number}
-                </span>
-                <span>{link.label}</span>
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#722F37] group-hover:w-full transition-all duration-300 ease-out" />
-              </a>
-            ))}
-
-            <a
-              href={PERSONAL_DATA.cvUrl}
-              className="inline-flex items-center gap-1 text-xs font-mono text-[#F4F0E8] hover:text-[#A87578] transition-colors py-1 px-2 border-b border-[#722F37] hover:border-[#F4F0E8] group"
-            >
-              <span>CV</span>
-              <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
+            {navLinks.map((link) => {
+              const isResume = link.label === 'RESUME';
+              return (
+                <a
+                  key={link.label}
+                  href={isResume ? PERSONAL_DATA.cvUrl : link.href}
+                  onClick={(e) => {
+                    if (!isResume) {
+                      e.preventDefault();
+                      handleNavClick(link.href);
+                    }
+                  }}
+                  className="group relative text-[#C8BFB2] hover:text-[#F4F0E8] transition-colors flex items-center gap-1.5 py-1"
+                >
+                  <span className="text-[9px] text-[#722F37] font-bold group-hover:scale-110 transition-transform">
+                    {link.number}
+                  </span>
+                  <span>{link.label}</span>
+                  {isResume && (
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#722F37] group-hover:text-[#F4F0E8] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  )}
+                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#722F37] group-hover:w-full transition-all duration-300 ease-out" />
+                </a>
+              );
+            })}
           </nav>
 
           {/* Mobile Menu Trigger */}
@@ -128,28 +125,29 @@ export const Navbar: React.FC = () => {
           </div>
 
           <nav className="flex flex-col space-y-6 my-auto py-8 font-mono">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
-                className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] hover:text-[#722F37] transition-colors flex items-center justify-between border-b border-[#262320] pb-3"
-              >
-                <span>{link.label}</span>
-                <span className="font-mono text-sm text-[#722F37]">{link.number}</span>
-              </a>
-            ))}
-
-            <a
-              href={PERSONAL_DATA.cvUrl}
-              className="font-serif text-3xl sm:text-4xl text-[#722F37] hover:text-[#F4F0E8] transition-colors flex items-center justify-between border-b border-[#262320] pb-3"
-            >
-              <span>CV</span>
-              <ArrowUpRight className="w-6 h-6" />
-            </a>
+            {navLinks.map((link) => {
+              const isResume = link.label === 'RESUME';
+              return (
+                <a
+                  key={link.label}
+                  href={isResume ? PERSONAL_DATA.cvUrl : link.href}
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    if (!isResume) {
+                      e.preventDefault();
+                      handleNavClick(link.href);
+                    }
+                  }}
+                  className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] hover:text-[#722F37] transition-colors flex items-center justify-between border-b border-[#262320] pb-3"
+                >
+                  <span className="flex items-center gap-2">
+                    {link.label}
+                    {isResume && <ArrowUpRight className="w-5 h-5 text-[#722F37]" />}
+                  </span>
+                  <span className="font-mono text-sm text-[#722F37]">{link.number}</span>
+                </a>
+              );
+            })}
           </nav>
 
           <div className="pt-6 border-t border-[#262320] flex items-center justify-between text-xs font-mono text-[#8E8278]">
@@ -157,7 +155,7 @@ export const Navbar: React.FC = () => {
               href={PERSONAL_DATA.cvUrl}
               className="inline-flex items-center gap-1.5 py-2.5 px-6 rounded-full bg-[#722F37] text-[#F4F0E8] font-bold uppercase tracking-wider shadow-md"
             >
-              <span>REQUEST CV</span>
+              <span>RESUME</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
             <span className="text-[10px] uppercase">BANGALORE, INDIA</span>
