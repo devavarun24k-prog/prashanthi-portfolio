@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import type { Project } from '../data/portfolioData';
 import { PROJECTS_DATA } from '../data/portfolioData';
 import { ProjectImage } from './ProjectImage';
-
-interface SelectedWorkProps {
-  onSelectProject: (project: Project) => void;
-}
+import { SamsoniteEditorialSection } from './SamsoniteEditorialSection';
 
 const getProjectContributionHeading = (projectId: string) => {
   switch (projectId) {
@@ -26,7 +22,7 @@ const getProjectContributionHeading = (projectId: string) => {
   }
 };
 
-export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) => {
+export const SelectedWork: React.FC = () => {
   const [visibleMetrics, setVisibleMetrics] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -82,6 +78,11 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
       {/* 6 Curated Large Magazine Editorial Spreads */}
       <div className="space-y-28 sm:space-y-40 pt-4 sm:pt-6 relative z-10">
         {PROJECTS_DATA.map((project, idx) => {
+          // Samsonite SmartTravel+ displays the bespoke photo 2 editorial composition directly inline
+          if (project.id === 'samsonite-smarttravel') {
+            return <SamsoniteEditorialSection key={project.id} />;
+          }
+
           const isEven = idx % 2 === 1;
           const isVisible = visibleProjects.has(idx);
 
@@ -118,11 +119,8 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                     isEven ? 'lg:order-2' : 'lg:order-1'
                   }`}
                 >
-                  <div
-                    onClick={() => onSelectProject(project)}
-                    className="space-y-2 cursor-pointer group/title"
-                  >
-                    <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#F4F0E8] font-normal leading-[0.95] tracking-tight group-hover/title:text-[#C8BFB2] transition-colors">
+                  <div className="space-y-2">
+                    <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#F4F0E8] font-normal leading-[0.95] tracking-tight">
                       {project.title}
                     </h3>
                     <p className="font-serif text-xl sm:text-2xl text-[#C8BFB2] italic pt-0.5">
@@ -176,10 +174,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                     isEven ? 'lg:order-1' : 'lg:order-2'
                   }`}
                 >
-                  <div
-                    onClick={() => onSelectProject(project)}
-                    className="relative overflow-hidden rounded-2xl border border-[#262320] group-hover:border-[#722F37]/80 shadow-2xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] cursor-pointer"
-                  >
+                  <div className="relative overflow-hidden rounded-2xl border border-[#262320] group-hover:border-[#722F37]/80 shadow-2xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
                     <ProjectImage
                       src={project.imagePath}
                       alt={project.title}
@@ -191,11 +186,6 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
                       aspectRatio="aspect-[16/11]"
                       className="rounded-2xl transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                     />
-
-                    {/* Subtle Editorial Index Watermark */}
-                    <div className="absolute top-4 left-4 px-3 py-1 rounded bg-[#0B0A09]/80 backdrop-blur-md border border-[#262320] font-mono text-[10px] text-[#C8BFB2] uppercase tracking-widest pointer-events-none transition-colors duration-500 group-hover:border-[#722F37]/40">
-                      0{idx + 1} // CASE STUDY
-                    </div>
                   </div>
                 </div>
               </div>
@@ -206,4 +196,3 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
     </section>
   );
 };
-

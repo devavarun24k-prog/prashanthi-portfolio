@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import type { Project } from './data/portfolioData';
-import { PROJECTS_DATA } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { EditorialGrid } from './components/EditorialGrid';
 import { Hero } from './components/Hero';
@@ -12,22 +10,27 @@ import { ExperienceSection } from './components/ExperienceSection';
 import { ResumeSection } from './components/ResumeSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { CaseStudyView } from './components/CaseStudyView';
 import { EntryStage } from './components/EntryStage';
 import { AmbientCursor } from './components/AmbientCursor';
 
 export function App() {
   const [hasEntered, setHasEntered] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
     const handleHash = () => {
-      const hash = window.location.hash.toLowerCase();
-      if (hash.includes('samsonite')) {
-        const proj = PROJECTS_DATA.find((p) => p.id === 'samsonite-smarttravel');
-        if (proj) {
-          setHasEntered(true);
-          setSelectedProject(proj);
+      const hash = window.location.hash;
+      if (hash) {
+        setHasEntered(true);
+        const targetId = hash.startsWith('#') ? hash.substring(1) : hash;
+        const element =
+          document.getElementById(targetId) ||
+          (targetId === 'samsonite' || targetId === 'samsonite-smarttravel'
+            ? document.getElementById('project-samsonite-smarttravel')
+            : null);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
         }
       }
     };
@@ -61,7 +64,7 @@ export function App() {
         <EditorialTicker />
 
         {/* 2. Selected Work (6 Curated Editorial Spreads) */}
-        <SelectedWork onSelectProject={(project) => setSelectedProject(project)} />
+        <SelectedWork />
 
         {/* 3. About: Perspective & Personality */}
         <AboutSection />
@@ -81,16 +84,8 @@ export function App() {
 
       {/* Footer */}
       <Footer />
-
-      {/* Immersive Case Study View */}
-      <CaseStudyView
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-        onSelectProject={setSelectedProject}
-      />
     </div>
   );
 }
 
 export default App;
-
