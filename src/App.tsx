@@ -28,6 +28,9 @@ export function App() {
             : null) ||
           (targetId === 'masaba' || targetId === 'house-of-masaba'
             ? document.getElementById('project-house-of-masaba')
+            : null) ||
+          (targetId === 'healing-the-wait' || targetId === 'heal-queue' || targetId === 'the-space-between'
+            ? document.getElementById('project-healing-the-wait')
             : null);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });

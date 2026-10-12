@@ -3,6 +3,7 @@ import { PROJECTS_DATA } from '../data/portfolioData';
 import { ProjectImage } from './ProjectImage';
 import { SamsoniteEditorialSection } from './SamsoniteEditorialSection';
 import { MasabaProjectSection } from './MasabaProjectSection';
+import { HealingTheWaitSection } from './HealingTheWaitSection';
 
 const getProjectContributionHeading = (projectId: string) => {
   switch (projectId) {
@@ -87,6 +88,11 @@ export const SelectedWork: React.FC = () => {
           // House of Masaba displays the bespoke interactive collection & range plan editorial section
           if (project.id === 'house-of-masaba') {
             return <MasabaProjectSection key={project.id} />;
+          }
+
+          // THE SPACE BETWEEN — Healing the Wait displays the bespoke continuous animated showcase
+          if (project.id === 'healing-the-wait') {
+            return <HealingTheWaitSection key={project.id} />;
           }
 
           const isEven = idx % 2 === 1;

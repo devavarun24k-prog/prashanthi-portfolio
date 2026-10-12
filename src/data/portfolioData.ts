@@ -278,43 +278,43 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: 'healing-the-wait',
     number: '05',
-    title: 'Healing the Wait',
-    subtitle: 'Making Waiting Feel More Human',
-    category: 'DESIGN THINKING · CUSTOMER EXPERIENCE',
-    type: 'Design Thinking Case Study',
-    shortDescription: 'A research-led service-design project exploring patient and caregiver experiences in hospital outpatient waiting areas through a proposed digital solution, Heal Queue.',
-    fullOverview: 'A research-led service-design project exploring patient and caregiver experiences in hospital outpatient waiting areas through a proposed digital solution, Heal Queue.',
-    challenge: 'How might hospital waiting become more transparent, manageable and less stressful?',
+    title: 'THE SPACE BETWEEN',
+    subtitle: 'Healing the Wait',
+    category: 'HUMAN-CENTRED DESIGN · DESIGN THINKING',
+    type: 'Research · Experience Design · Digital Prototyping',
+    shortDescription: 'In hospitals, the uncertainty of not knowing when your turn will come can turn waiting into an experience of anxiety, frustration, and helplessness. The Space Between explores this overlooked part of the patient journey through design research, resulting in a publication and Heal Queue — a proposed digital experience for queue tracking, appointment booking, and patient updates.',
+    fullOverview: 'In hospitals, the uncertainty of not knowing when your turn will come can turn waiting into an experience of anxiety, frustration, and helplessness. The Space Between explores this overlooked part of the patient journey through design research, resulting in a publication and Heal Queue — a proposed digital experience for queue tracking, appointment booking, and patient updates.',
+    challenge: "Waiting for care shouldn't leave you in uncertainty.",
     processSteps: [
       {
         title: '01 / Field Observations',
-        desc: 'Explored patient and caregiver pain points through field observations and interviews.'
+        desc: 'Explored patient and caregiver pain points through hospital field observations and unstructured interviews.'
       },
       {
-        title: '02 / App Concept & Mock-ups',
-        desc: 'Developed the Heal Queue app concept and interface mock-ups.'
+        title: '02 / Editorial Publication',
+        desc: 'Documented waiting room psychology and spatial tensions into "The Space Between" publication.'
       },
       {
-        title: '03 / Service Mapping',
-        desc: 'Mapped features including appointments, live token tracking, doctor status, tests, prescriptions and patient assistance.'
+        title: '03 / Heal Queue Digital Prototype',
+        desc: 'Designed and prototyped Heal Queue for live queue tracking, booking, reports, and multilingual care updates.'
       }
     ],
     keyFacts: [
-      { label: 'Project Type', value: 'Service Design Research' },
-      { label: 'Methodology', value: 'Design Thinking' },
-      { label: 'Concept Output', value: 'Heal Queue Digital Solution' },
-      { label: 'Core Focus', value: 'Patient & Caregiver Experience' }
+      { label: 'Discipline', value: 'Human-Centred Design' },
+      { label: 'Methodology', value: 'Design Thinking Research' },
+      { label: 'Core Output', value: 'Publication & Heal Queue' },
+      { label: 'Languages', value: 'English, Hindi, Kannada' }
     ],
     outputs: [
-      'Explored patient and caregiver pain points through field observations and interviews.',
-      'Developed the Heal Queue app concept and interface mock-ups.',
-      'Mapped features including appointments, live token tracking, doctor status, tests, prescriptions and patient assistance.'
+      'Field Observations & Patient Journey: Uncovering anxiety and spatial friction in outpatient waiting zones.',
+      'The Space Between Publication: Editorial research documenting healthcare waiting room dynamics.',
+      'Heal Queue Interactive Application: Live predictive queue tracking, appointments, and care continuity.'
     ],
-    takeaway: 'Using research and digital service design to address uncertainty and improve the patient waiting experience.',
-    imagePath: '/images/projects/healing-the-wait/cover.jpg',
-    accentColor: '#A87578',
+    takeaway: "Waiting for care shouldn't leave you in uncertainty — transforming healthcare delays through transparency.",
+    imagePath: '/images/projects/healing-the-wait/image_686dd433.jpg',
+    accentColor: '#7FCCC4',
     accentBg: '#141211',
-    tagColor: 'bg-dustyRose/20 text-ivory',
+    tagColor: 'bg-[#002F42] text-[#7FCCC4]',
     composition: 'portrait'
   },
   {
