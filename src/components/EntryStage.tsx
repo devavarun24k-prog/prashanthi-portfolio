@@ -93,42 +93,19 @@ export const EntryStage: React.FC<EntryStageProps> = ({ onEnter }) => {
           </div>
         </header>
 
-        {/* Central Monumental Composition: Left Stacked Typography + Right Editorial Portrait */}
-        <div className="my-auto py-6 sm:py-8 lg:py-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        {/* Central Composition: Left Balanced Name Treatment + Right Editorial Portrait */}
+        <div className="my-auto py-6 sm:py-8 lg:py-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
           
-          {/* Left Column: Monumental Stacked Typography & Strategy Descriptor */}
-          <div className="lg:col-span-7 space-y-6 sm:space-y-8 z-20">
-            {/* Monumental Editorial Name Stack */}
-            <div className="space-y-1 sm:space-y-2">
-              <div className="overflow-hidden">
-                <h1
-                  className={`font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] xl:text-[9.5rem] text-[#F4F0E8] font-normal leading-[0.84] tracking-tight transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    isMounted ? 'translate-y-0' : 'translate-y-full'
-                  }`}
-                >
-                  PRASHANTHI
-                </h1>
-              </div>
-
-              <div className="overflow-hidden pl-6 sm:pl-12 lg:pl-20">
-                <span
-                  className={`block font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] xl:text-[9.5rem] text-[#722F37] italic font-normal leading-[0.84] tracking-tight drop-shadow-[0_0_30px_rgba(114,47,55,0.35)] transition-transform duration-1000 delay-150 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    isMounted ? 'translate-y-0' : 'translate-y-full'
-                  }`}
-                >
-                  .B
-                </span>
-              </div>
-            </div>
-
-            {/* Disciplines & Academic Credential Descriptor */}
-            <div className="pt-3 sm:pt-5 border-t border-[#262320] space-y-2 max-w-xl">
-              <div className="font-mono text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase text-[#C8BFB2]">
-                BUYING & MERCHANDISING · BRAND STRATEGY · VISUAL MERCHANDISING
-              </div>
-              <p className="font-sans text-xs sm:text-sm text-[#8E8278] font-light leading-relaxed">
-                MBA Fashion &amp; Lifestyle Business Management · ICFAI BBA. Creative eye engineered with commercial architecture.
-              </p>
+          {/* Left Column: Correctly Aligned, Balanced PRASHANTHI.B Display Name */}
+          <div className="lg:col-span-7 z-20 flex flex-col justify-center">
+            <div className="overflow-hidden">
+              <h1
+                className={`font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] xl:text-[7.5rem] 2xl:text-[8.5rem] text-[#F4F0E8] font-normal leading-[0.9] tracking-tight uppercase transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  isMounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                }`}
+              >
+                PRASHANTHI<span className="text-[#722F37] italic drop-shadow-[0_0_30px_rgba(114,47,55,0.35)]">.B</span>
+              </h1>
             </div>
           </div>
 
