@@ -320,40 +320,41 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: 'bvlgari',
     number: '06',
-    title: 'Bvlgari',
-    subtitle: 'Exploring the Future of Luxury Retail',
-    category: 'LUXURY BRANDING · RETAIL CONCEPT',
-    type: 'Academic Concept',
-    shortDescription: 'An academic luxury-retail concept exploring how digital touchpoints could complement exclusivity and personalisation in a premium in-store experience.',
-    fullOverview: 'An academic luxury-retail concept exploring how digital touchpoints could complement exclusivity and personalisation in a premium in-store experience.',
-    challenge: 'How can luxury retail integrate digital convenience without compromising personal attention and exclusivity?',
+    title: 'THE PHYGITAL MAISON',
+    subtitle: 'Bridging Craftsmanship and Digital Innovation',
+    category: 'INNOVATIONS IN LUXURY RETAIL · BRAND STRATEGY',
+    type: 'Luxury Strategy · Phygital Retail',
+    shortDescription: 'A proposed strategy connecting Bvlgari’s heritage-led boutique experience with digital innovation to create a seamless, personalised luxury journey.',
+    fullOverview: 'A proposed strategy connecting Bvlgari’s heritage-led boutique experience with digital innovation to create a seamless, personalised luxury journey.',
+    challenge: 'How can Bvlgari integrate digital convenience without compromising exclusivity, craftsmanship and human connection?',
     processSteps: [
       {
-        title: '01 / Brand Positioning',
-        desc: 'Explored luxury brand positioning and customer expectations.'
+        title: '01 / Discovery & Audit',
+        desc: 'Identified gaps across digital discovery, boutique experiences and customer engagement.'
       },
       {
-        title: '02 / Physical & Digital',
-        desc: 'Examined the relationship between physical retail and digital touchpoints.'
+        title: '02 / Digital Levers & Innovation',
+        desc: 'Proposed AI-powered personalisation, AR product exploration and Digital Product Passports.'
       },
       {
-        title: '03 / Strategic Outputs',
-        desc: 'Developed the research and conceptual outputs relevant to the project.'
+        title: '03 / Strategic Roadmap',
+        desc: 'Mapped the customer journey across discovery, purchase, ownership and retention for digital clienteling.'
       }
     ],
     keyFacts: [
-      { label: 'Project Type', value: 'Academic Concept' },
-      { label: 'Sector', value: 'Luxury Retail & Fine Jewellery' },
-      { label: 'Core Theme', value: 'Exclusivity & Digital Touchpoints' },
-      { label: 'Brand', value: 'Bvlgari' }
+      { label: 'Brand', value: 'Bvlgari' },
+      { label: 'Discipline', value: 'Luxury Brand Strategy' },
+      { label: 'Core Theme', value: 'Phygital Clienteling & AR' },
+      { label: 'Pillars', value: 'Craftsmanship & Innovation' }
     ],
     outputs: [
-      'Explored luxury brand positioning and customer expectations.',
-      'Examined the relationship between physical retail and digital touchpoints.',
-      'Developed the research and conceptual outputs relevant to the project.'
+      'Identified gaps across digital discovery, boutique experiences and customer engagement.',
+      'Proposed AI-powered personalisation, AR product exploration and Digital Product Passports.',
+      'Mapped the customer journey across discovery, purchase, ownership and retention.',
+      'Developed a strategic roadmap for phygital retail and digital clienteling.'
     ],
-    takeaway: 'Exploring how digital innovation can complement luxury retail while preserving the qualities customers value.',
-    imagePath: '/images/projects/bvlgari/cover.jpg',
+    takeaway: 'Bridging heritage-led boutique craftsmanship with digital clienteling innovation.',
+    imagePath: '/images/projects/bvlgari/Bvlgari_ The Phygital Maison.png',
     accentColor: '#722F37',
     accentBg: '#141211',
     tagColor: 'bg-burgundy text-ivory',

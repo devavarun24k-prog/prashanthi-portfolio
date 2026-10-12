@@ -31,6 +31,9 @@ export function App() {
             : null) ||
           (targetId === 'healing-the-wait' || targetId === 'heal-queue' || targetId === 'the-space-between'
             ? document.getElementById('project-healing-the-wait')
+            : null) ||
+          (targetId === 'bvlgari' || targetId === 'phygital-maison' || targetId === 'the-phygital-maison'
+            ? document.getElementById('project-bvlgari')
             : null);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });

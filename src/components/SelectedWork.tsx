@@ -4,6 +4,7 @@ import { ProjectImage } from './ProjectImage';
 import { SamsoniteEditorialSection } from './SamsoniteEditorialSection';
 import { MasabaProjectSection } from './MasabaProjectSection';
 import { HealingTheWaitSection } from './HealingTheWaitSection';
+import { BvlgariPhygitalMaisonSection } from './BvlgariPhygitalMaisonSection';
 
 const getProjectContributionHeading = (projectId: string) => {
   switch (projectId) {
@@ -93,6 +94,11 @@ export const SelectedWork: React.FC = () => {
           // THE SPACE BETWEEN — Healing the Wait displays the bespoke continuous animated showcase
           if (project.id === 'healing-the-wait') {
             return <HealingTheWaitSection key={project.id} />;
+          }
+
+          // THE PHYGITAL MAISON — Bvlgari displays the bespoke luxury retail & digital innovation section
+          if (project.id === 'bvlgari') {
+            return <BvlgariPhygitalMaisonSection key={project.id} />;
           }
 
           const isEven = idx % 2 === 1;
