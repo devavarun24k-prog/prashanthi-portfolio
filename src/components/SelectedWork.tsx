@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { PROJECTS_DATA } from '../data/portfolioData';
 import { ProjectImage } from './ProjectImage';
 import { SamsoniteEditorialSection } from './SamsoniteEditorialSection';
+import { MasabaProjectSection } from './MasabaProjectSection';
 
 const getProjectContributionHeading = (projectId: string) => {
   switch (projectId) {
@@ -81,6 +82,11 @@ export const SelectedWork: React.FC = () => {
           // Samsonite SmartTravel+ displays the bespoke photo 2 editorial composition directly inline
           if (project.id === 'samsonite-smarttravel') {
             return <SamsoniteEditorialSection key={project.id} />;
+          }
+
+          // House of Masaba displays the bespoke interactive collection & range plan editorial section
+          if (project.id === 'house-of-masaba') {
+            return <MasabaProjectSection key={project.id} />;
           }
 
           const isEven = idx % 2 === 1;

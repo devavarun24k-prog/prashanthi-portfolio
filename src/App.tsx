@@ -25,6 +25,9 @@ export function App() {
           document.getElementById(targetId) ||
           (targetId === 'samsonite' || targetId === 'samsonite-smarttravel'
             ? document.getElementById('project-samsonite-smarttravel')
+            : null) ||
+          (targetId === 'masaba' || targetId === 'house-of-masaba'
+            ? document.getElementById('project-house-of-masaba')
             : null);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });

@@ -195,39 +195,39 @@ export const PROJECTS_DATA: Project[] = [
     id: 'house-of-masaba',
     number: '03',
     title: 'House of Masaba',
-    subtitle: 'Translating Brand Identity into Retail Experience',
-    category: 'VISUAL MERCHANDISING · BUYING & MERCHANDISING',
+    subtitle: 'Decoding a brand. Building its range. Shaping its retail story.',
+    category: 'RETAIL STRATEGY · PRODUCT ASSORTMENT · RANGE PLANNING',
     type: 'Academic Project',
-    shortDescription: 'An academic project exploring how House of Masaba’s distinctive brand identity translates into retail presentation and product assortment decisions.',
-    fullOverview: 'An academic project exploring how House of Masaba’s distinctive brand identity translates into retail presentation and product assortment decisions.',
-    challenge: 'How can visual storytelling and merchandise planning work together to create a cohesive retail experience?',
+    shortDescription: 'From signature prints to contemporary Indian dressing, this project explores House of Masaba’s brand positioning, target consumer, and competitive landscape to identify opportunities for merchandise planning and retail strategy.',
+    fullOverview: 'From signature prints to contemporary Indian dressing, this project explores House of Masaba’s brand positioning, target consumer, and competitive landscape to identify opportunities for merchandise planning and retail strategy across 5 collection concepts, 112 planned styles, and 1,008 planned SKUs.',
+    challenge: 'How can visual storytelling, product assortment planning and range development work together to create a cohesive retail experience aligned with a distinctive fashion identity?',
     processSteps: [
       {
-        title: '01 / Visual Merchandising',
-        desc: 'Developed display concepts aligned with the brand’s visual identity.'
+        title: '01 / The Brand & Opportunity',
+        desc: 'Explored House of Masaba’s brand positioning, target consumer, and competitive landscape.'
       },
       {
-        title: '02 / Buying & Merchandising',
-        desc: 'Analysed product categories, pricing tiers, size ratios and assortment decisions.'
+        title: '02 / The Assortment Strategy',
+        desc: 'Structured 5 collection concepts covering 112 planned styles and 1,008 planned SKUs.'
       },
       {
-        title: '03 / Retail Presentation',
-        desc: 'Worked on product presentation, display concepts and the relationship between merchandise and brand identity.'
+        title: '03 / Visual Merchandising & Retail Perspective',
+        desc: 'Translated product selection, styling, colour, and print into a considered retail direction.'
       }
     ],
     keyFacts: [
-      { label: 'Project Type', value: 'Academic Project' },
-      { label: 'Discipline', value: 'Visual Merchandising' },
-      { label: 'Commercial Scope', value: 'Buying & Assortment' },
+      { label: 'Collection Concepts', value: '5 Directions' },
+      { label: 'Planned Styles', value: '112 Styles' },
+      { label: 'Planned SKUs', value: '1,008 SKUs' },
       { label: 'Brand Focus', value: 'House of Masaba' }
     ],
     outputs: [
-      'Visual Merchandising: Developed display concepts aligned with the brand’s visual identity.',
-      'Buying & Merchandising: Analysed product categories, pricing tiers, size ratios and assortment decisions.',
-      'Retail Presentation: Worked on product presentation, display concepts and the relationship between merchandise and brand identity.'
+      'The Assortment Strategy: 5 collection concepts, 112 planned styles, and 1,008 planned SKUs.',
+      'Visual Merchandising: Translating product selection, colour flows, and styling into retail presentation.',
+      'The Retail Perspective: Bringing consumer insights, assortment planning, and merchandising into strategy.'
     ],
-    takeaway: 'Connecting visual identity, product strategy and retail presentation to create a cohesive brand experience.',
-    imagePath: '/images/projects/house-of-masaba/cover.jpg',
+    takeaway: 'Connecting brand identity, range planning, and visual merchandising into a cohesive commercial architecture.',
+    imagePath: '/images/projects/house-of-masaba/Festive1.png',
     accentColor: '#722F37',
     accentBg: '#141211',
     tagColor: 'bg-burgundy text-ivory',

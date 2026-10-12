@@ -24,32 +24,18 @@ export const EntryStage: React.FC<EntryStageProps> = ({ onEnter }) => {
     // Unlock scroll immediately upon activating ENTER
     document.body.style.overflow = '';
 
+    // Clear any stale hash from the URL so it never scrolls to an anchor
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+
     // Wait for cinematic exit transition (900ms) before unmounting
     setTimeout(() => {
       onEnter();
-      // If a specific hash was targeted (e.g. #project-sutra-edit, #work), smoothly scroll to it
-      if (window.location.hash) {
-        try {
-          const targetId = window.location.hash.startsWith('#')
-            ? window.location.hash.substring(1)
-            : window.location.hash;
-          const targetEl =
-            document.getElementById(targetId) ||
-            (targetId === 'samsonite' || targetId === 'samsonite-smarttravel'
-              ? document.getElementById('project-samsonite-smarttravel')
-              : null);
-          if (targetEl) {
-            targetEl.scrollIntoView({ behavior: 'smooth' });
-          } else {
-            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-          }
-        } catch {
-          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-        }
-      } else {
-        // Always reset window scroll to top of homepage
-        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      }
+      // Always reset window scroll strictly to top of homepage landing page
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
     }, 900);
   };
 
