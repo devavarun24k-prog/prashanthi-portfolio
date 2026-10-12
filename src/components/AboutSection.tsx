@@ -144,6 +144,34 @@ export const AboutSection: React.FC = () => {
             ))}
           </div>
 
+          {/* Education Details */}
+          <div
+            className={`pt-6 border-t border-[#262320] max-w-xl transition-all duration-700 delay-500 ease-out ${
+              inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#722F37] block mb-3 font-semibold">
+              ACADEMIC BACKGROUND
+            </span>
+            <div className="space-y-3 font-mono text-xs">
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 pb-2 border-b border-[#262320]/50">
+                <span className="text-[#F4F0E8] font-semibold">Pearl Academy, Bangalore</span>
+                <span className="text-[#8E8278]">2025–2027</span>
+              </div>
+              <p className="text-[#C8BFB2] text-[13px] font-sans -mt-1">
+                MBA in Fashion & Lifestyle Business Management
+              </p>
+
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 pt-2 pb-2 border-b border-[#262320]/50">
+                <span className="text-[#F4F0E8] font-semibold">ICFAI Foundation for Higher Education (IFHE), Hyderabad</span>
+                <span className="text-[#8E8278]">2020–2023</span>
+              </div>
+              <p className="text-[#C8BFB2] text-[13px] font-sans -mt-1">
+                Bachelor of Business Administration (BBA)
+              </p>
+            </div>
+          </div>
+
           {/* Restrained Closing Signature Statement */}
           <div
             className={`pt-8 sm:pt-10 mt-8 sm:mt-10 border-t border-[#262320] max-w-xl transition-all duration-700 delay-700 ease-out ${

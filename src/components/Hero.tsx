@@ -83,14 +83,45 @@ export const Hero: React.FC = () => {
               </div>
             </div>
 
-            {/* Positioning Statement */}
-            <p
-              className={`text-base sm:text-lg lg:text-[1.1rem] text-[#C8BFB2] font-sans font-light leading-relaxed max-w-xl transition-all duration-700 delay-200 ease-out ${
-                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-            >
-              “{PERSONAL_DATA.intro}”
-            </p>
+            {/* Headline & Narrative Copy */}
+            <div className="space-y-4 max-w-xl">
+              <h2
+                className={`font-serif text-2xl sm:text-3xl lg:text-4xl text-[#F4F0E8] font-normal tracking-tight transition-all duration-700 delay-150 ease-out ${
+                  inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+              >
+                Good Design. Better Strategy.
+              </h2>
+              <div
+                className={`space-y-3 text-base sm:text-lg text-[#C8BFB2] font-sans font-light leading-relaxed transition-all duration-700 delay-200 ease-out ${
+                  inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+              >
+                <p>
+                  I like good design. I like better strategy. Ideally, I want both.
+                </p>
+                <p>
+                  I’m interested in what happens between a brand being noticed and a customer choosing it — from positioning and communication to products, retail and consumer experience.
+                </p>
+              </div>
+
+              {/* Call to Action: Explore Selected Work */}
+              <div
+                className={`pt-2 transition-all duration-700 delay-250 ease-out ${
+                  inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+              >
+                <a
+                  href="#work"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono uppercase tracking-[0.15em] text-[#F4F0E8] hover:text-[#A87578] group py-2"
+                >
+                  <span className="border-b border-[#722F37] group-hover:border-[#F4F0E8] pb-0.5 transition-colors">
+                    Explore Selected Work
+                  </span>
+                  <span className="text-[#722F37] group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+              </div>
+            </div>
 
             {/* Small Information System */}
             <div

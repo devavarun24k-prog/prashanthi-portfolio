@@ -26,6 +26,7 @@ export interface ExperienceItem {
   role: string;
   location: string;
   type: string;
+  duration?: string;
   description: string;
   highlights: string[];
 }
@@ -56,7 +57,7 @@ export const WORK_WITH_DATA: WorkWithCategory[] = [
   {
     number: '01',
     category: 'MERCHANDISING',
-    skills: ['Assortment Analysis', 'Product Analysis', 'Replenishment'],
+    skills: ['Assortment Planning', 'Product Analysis', 'Replenishment'],
   },
   {
     number: '02',
@@ -66,28 +67,32 @@ export const WORK_WITH_DATA: WorkWithCategory[] = [
   {
     number: '03',
     category: 'BRAND & CONSUMER',
-    skills: ['Consumer Research', 'Competitor Research', 'Brand & Marketing'],
+    skills: ['Brand Strategy', 'Consumer Insights', 'Product Positioning'],
   },
 ];
 
 export const PERSONAL_DATA = {
   name: 'PRASHANTHI.B',
+  headline: 'Good Design. Better Strategy.',
+  introText: [
+    'I like good design. I like better strategy. Ideally, I want both.',
+    'I’m interested in what happens between a brand being noticed and a customer choosing it — from positioning and communication to products, retail and consumer experience.'
+  ],
   roleHeadline: 'Buying & Merchandising | Brand Strategy | Visual Merchandising',
   credential: 'MBA — Fashion & Lifestyle Business Management',
   academicDetail: 'Pearl Academy Bangalore (2025–2027) • ICFAI University BBA (2020–2023)',
   disciplines: 'Buying & Merchandising | Brand Strategy | Visual Merchandising',
-  intro: 'I bring a creative eye with a strong understanding of the business behind fashion.',
+  intro: 'I like good design. I like better strategy. Ideally, I want both.',
   perspective: {
-    headline: 'Behind every “I want that”',
-    subheadline: 'there’s a reason.',
-    accent: 'I’m interested in finding it.',
+    headline: 'Good Design.',
+    subheadline: 'Better Strategy.',
+    accent: 'Ideally, I want both.',
     paragraphs: [
-      'That curiosity led me to explore marketing, fashion, lifestyle, and consumer behaviour — the little details that influence what catches our eye, what feels relevant, and ultimately, what we choose.',
-      'I’m Prashanthi.B, currently pursuing an MBA in Fashion & Lifestyle, with a growing interest in understanding people, brands, and the space where the two meet.',
-      'I enjoy looking beyond the obvious — questioning why an idea works, how a brand communicates, and what makes an experience feel memorable. My interests span marketing, brand strategy, visual communication, retail, and fashion, but the thread connecting them is simple: understanding what makes people care.',
-      'I’m still learning, experimenting, and figuring things out along the way — which is probably the best part.'
+      'I’m pursuing an MBA in Fashion & Lifestyle Business Management, with a focus on branding, marketing and the business of fashion.',
+      'From social media marketing to hands-on retail execution, my experiences have shaped my interest in how brands communicate, how consumers make choices and how products become experiences.',
+      'I’m curious about the details, interested in the bigger picture and drawn to the thinking that connects creativity with commerce.'
     ],
-    closing: 'Because sometimes, the smallest reason makes the biggest difference.'
+    closing: 'Connecting creativity with commercial architecture.'
   },
   email: 'prashanthi.rbovilla@gmail.com',
   location: 'Bangalore / India',
@@ -103,47 +108,168 @@ export const PERSONAL_DATA = {
 
 export const PROJECTS_DATA: Project[] = [
   {
-    id: 'bear-house',
+    id: 'samsonite-smarttravel',
     number: '01',
-    title: 'THE BEAR HOUSE',
-    subtitle: 'Retail in the Real World',
-    category: 'Retail / Visual Merchandising',
-    type: 'Retail Internship · Hyderabad',
-    shortDescription: 'Hands-on visual merchandising, store operations, merchandise organization and retail execution across EBO and SIS formats in Hyderabad.',
-    fullOverview: 'An intensive 46-day visual merchandising internship across 7 high-traffic retail locations in Hyderabad, reviewing store presentation against VM guidelines, supporting 2 New Store Openings (NSO), and executing End of Season Sale (EOSS) transitions.',
-    challenge: 'Maintaining consistent visual standards across diverse store formats while balancing merchandise presentation, product accessibility, replenishment and fast-paced floor changes — from established mall stores to new store setups.',
+    title: 'Samsonite SmartTravel+',
+    subtitle: 'Turning Travel Friction into a Product Opportunity',
+    category: 'PRODUCT MARKETING · ACADEMIC PROJECT',
+    type: 'Academic Project',
+    shortDescription: 'An academic project exploring a smart-luggage concept through consumer needs, product positioning and go-to-market strategy.',
+    fullOverview: 'An academic project exploring a smart-luggage concept through consumer needs, product positioning and go-to-market strategy.',
+    challenge: 'How can luggage evolve to meet the expectations of today’s connected traveller?',
     processSteps: [
       {
-        title: '01 / Store Audits & VM Standards',
-        desc: 'Gained hands-on exposure to store-level VM audits and standards across EBO and SIS formats, observing merchandise presentation, displays, fixtures and overall store execution.'
+        title: '01 / Consumer Analysis',
+        desc: 'Target consumer and travel-needs analysis.'
       },
       {
-        title: '02 / Mannequin Styling & Displays',
-        desc: 'Styled mannequins and created complete looks, working with colour flow, product pairing and accessories to strengthen visual presentation across stores.'
+        title: '02 / Concept & Pricing',
+        desc: 'Product concept, positioning and pricing strategy.'
       },
       {
-        title: '03 / End of Season Sale Floor Setup',
-        desc: 'Worked on EOSS floor changes, including merchandise reorganisation, size-wise product arrangement, display adjustments and replenishment to maintain an organised sales floor.'
-      },
-      {
-        title: '04 / New Store Setup — NSO',
-        desc: 'Worked on the visual merchandising setup for new store launches in Hyderabad, including merchandise placement, fixture setup, mannequin styling and overall store presentation.'
+        title: '03 / Go-to-Market',
+        desc: 'Marketing communication and go-to-market planning.'
       }
     ],
     keyFacts: [
-      { label: 'Internship Duration', value: '46 Days', note: 'On-ground retail immersion' },
-      { label: 'Store Footprint', value: '7 Retail Locations', note: 'Hyderabad EBO & SIS' },
-      { label: 'New Store Openings', value: '2 Launches', note: 'Himayath Nagar & Tolichowki' },
-      { label: 'Floor Execution', value: 'EOSS Setup', note: 'Size-wise floor organization' }
+      { label: 'Project Type', value: 'Academic Project' },
+      { label: 'Focus Area', value: 'Product Marketing' },
+      { label: 'Core Scope', value: 'Consumer Needs & GTM' },
+      { label: 'Target', value: 'Connected Traveller' }
     ],
     outputs: [
-      'Visual merchandising audit checklists and compliance standards across 7 Hyderabad stores',
-      'Mannequin styling guides and cross-category fixture coordination',
-      'EOSS size-wise floor layout and wall execution',
-      'NSO initial merchandise allocation and display setups'
+      'Target consumer and travel-needs analysis.',
+      'Product concept, positioning and pricing strategy.',
+      'Marketing communication and go-to-market planning.'
     ],
-    takeaway: 'Understanding how merchandise moves from stockroom to sales floor — and how space, presentation and organisation directly influence customer dwell time and conversion.',
-    imagePath: '/images/prashanthi/bear-house/store-01.jpg',
+    takeaway: 'Connecting product innovation with consumer needs to create a relevant market proposition.',
+    imagePath: '/images/projects/samsonite/cover.jpg',
+    accentColor: '#722F37',
+    accentBg: '#141211',
+    tagColor: 'bg-burgundy text-ivory',
+    composition: 'landscape'
+  },
+  {
+    id: 'sutra-edit',
+    number: '02',
+    title: 'Sutra Edit',
+    subtitle: 'Building a Fashion Business Ecosystem',
+    category: 'BRAND STRATEGY · STARTUP CONCEPT',
+    type: 'Startup Concept',
+    shortDescription: 'A proposed fashion and lifestyle business ecosystem connecting content, industry intelligence and advisory services for emerging brands.',
+    fullOverview: 'A proposed fashion and lifestyle business ecosystem connecting content, industry intelligence and advisory services for emerging brands.',
+    challenge: 'How can emerging fashion businesses access relevant insights, community and strategic support?',
+    processSteps: [
+      {
+        title: '01 / Brand Concept',
+        desc: 'Defined the brand concept, target audience and positioning.'
+      },
+      {
+        title: '02 / Three Verticals',
+        desc: 'Developed three verticals: Weekly Edit, Community and Consulting.'
+      },
+      {
+        title: '03 / Monetisation Model',
+        desc: 'Structured a tiered monetisation model: Content → Intelligence → Advisory.'
+      }
+    ],
+    keyFacts: [
+      { label: 'Project Type', value: 'Startup Concept' },
+      { label: 'Focus Area', value: 'Brand Strategy' },
+      { label: 'Ecosystem', value: 'Content · Intelligence · Advisory' },
+      { label: 'Target Sector', value: 'Emerging Fashion & Lifestyle' }
+    ],
+    outputs: [
+      'Defined the brand concept, target audience and positioning.',
+      'Developed three verticals: Weekly Edit, Community and Consulting.',
+      'Structured a tiered monetisation model: Content → Intelligence → Advisory.'
+    ],
+    takeaway: 'Building a scalable ecosystem around the evolving needs of fashion businesses.',
+    imagePath: '/images/projects/sutra-edit/cover.jpg',
+    accentColor: '#722F37',
+    accentBg: '#141211',
+    tagColor: 'bg-burgundy text-ivory',
+    composition: 'editorial'
+  },
+  {
+    id: 'house-of-masaba',
+    number: '03',
+    title: 'House of Masaba',
+    subtitle: 'Translating Brand Identity into Retail Experience',
+    category: 'VISUAL MERCHANDISING · BUYING & MERCHANDISING',
+    type: 'Academic Project',
+    shortDescription: 'An academic project exploring how House of Masaba’s distinctive brand identity translates into retail presentation and product assortment decisions.',
+    fullOverview: 'An academic project exploring how House of Masaba’s distinctive brand identity translates into retail presentation and product assortment decisions.',
+    challenge: 'How can visual storytelling and merchandise planning work together to create a cohesive retail experience?',
+    processSteps: [
+      {
+        title: '01 / Visual Merchandising',
+        desc: 'Developed display concepts aligned with the brand’s visual identity.'
+      },
+      {
+        title: '02 / Buying & Merchandising',
+        desc: 'Analysed product categories, pricing tiers, size ratios and assortment decisions.'
+      },
+      {
+        title: '03 / Retail Presentation',
+        desc: 'Worked on product presentation, display concepts and the relationship between merchandise and brand identity.'
+      }
+    ],
+    keyFacts: [
+      { label: 'Project Type', value: 'Academic Project' },
+      { label: 'Discipline', value: 'Visual Merchandising' },
+      { label: 'Commercial Scope', value: 'Buying & Assortment' },
+      { label: 'Brand Focus', value: 'House of Masaba' }
+    ],
+    outputs: [
+      'Visual Merchandising: Developed display concepts aligned with the brand’s visual identity.',
+      'Buying & Merchandising: Analysed product categories, pricing tiers, size ratios and assortment decisions.',
+      'Retail Presentation: Worked on product presentation, display concepts and the relationship between merchandise and brand identity.'
+    ],
+    takeaway: 'Connecting visual identity, product strategy and retail presentation to create a cohesive brand experience.',
+    imagePath: '/images/projects/house-of-masaba/cover.jpg',
+    accentColor: '#722F37',
+    accentBg: '#141211',
+    tagColor: 'bg-burgundy text-ivory',
+    composition: 'wide'
+  },
+  {
+    id: 'bear-house',
+    number: '04',
+    title: 'The Bear House',
+    subtitle: 'Retail in the Real World',
+    category: 'INDUSTRY EXPERIENCE · VISUAL MERCHANDISING',
+    type: 'Professional Internship',
+    shortDescription: 'A 46-day visual merchandising internship involving store-level display execution, product presentation and retail operations.',
+    fullOverview: 'A 46-day visual merchandising internship involving store-level display execution, product presentation and retail operations.',
+    challenge: 'How can visual merchandising and store execution support a consistent, organised and customer-friendly retail environment?',
+    processSteps: [
+      {
+        title: '01 / Styling & Displays',
+        desc: 'Executed mannequin styling, displays, colour flows, fixtures and props.'
+      },
+      {
+        title: '02 / Sale Floor Execution',
+        desc: 'Supported End-of-Season Sale setups, including stock segregation and floor transitions.'
+      },
+      {
+        title: '03 / New Store Setups',
+        desc: 'Gained hands-on exposure to new-store setup and retail execution across selected stores.'
+      }
+    ],
+    keyFacts: [
+      { label: 'Project Type', value: 'Professional Internship' },
+      { label: 'Duration', value: '46 Days' },
+      { label: 'Location', value: 'Hyderabad' },
+      { label: 'Year', value: '2026' }
+    ],
+    outputs: [
+      'Executed mannequin styling, displays, colour flows, fixtures and props.',
+      'Supported End-of-Season Sale setups, including stock segregation and floor transitions.',
+      'Gained hands-on exposure to new-store setup and retail execution across selected stores.'
+    ],
+    takeaway: 'Understanding how visual standards, product presentation and stock organisation translate into real-world retail execution.',
+    imagePath: '/images/projects/bear-house/cover.jpg',
     accentColor: '#722F37',
     accentBg: '#141211',
     tagColor: 'bg-burgundy text-ivory',
@@ -151,213 +277,104 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: 'healing-the-wait',
-    number: '02',
-    title: 'HEALING THE WAIT',
-    subtitle: 'Designing for a Human Experience',
-    category: 'Design Thinking / Service Design',
+    number: '05',
+    title: 'Healing the Wait',
+    subtitle: 'Making Waiting Feel More Human',
+    category: 'DESIGN THINKING · CUSTOMER EXPERIENCE',
     type: 'Design Thinking Case Study',
-    shortDescription: 'Transforming the healthcare waiting room experience through human-centered research and the Heal Queue service design concept.',
-    fullOverview: 'A design thinking research project addressing the emotional anxiety and friction of indeterminate hospital waiting times through empathetic patient studies and a digital queue management concept.',
-    challenge: 'Hospital waiting rooms frequently amplify anxiety, boredom, and frustration due to uncertainty around consultation timing and complete opacity in waiting areas.',
+    shortDescription: 'A research-led service-design project exploring patient and caregiver experiences in hospital outpatient waiting areas through a proposed digital solution, Heal Queue.',
+    fullOverview: 'A research-led service-design project exploring patient and caregiver experiences in hospital outpatient waiting areas through a proposed digital solution, Heal Queue.',
+    challenge: 'How might hospital waiting become more transparent, manageable and less stressful?',
     processSteps: [
       {
-        title: '01 — Empathize',
-        desc: 'Conducted primary research across OPD waiting environments, combining field observations and patient/caregiver conversations to uncover key stress points.'
+        title: '01 / Field Observations',
+        desc: 'Explored patient and caregiver pain points through field observations and interviews.'
       },
       {
-        title: '02 — Define',
-        desc: 'Synthesized research findings into key themes around boredom (66%), uncertainty (60%) and frustration (40%), identifying waiting-time anxiety as a central experience gap.'
+        title: '02 / App Concept & Mock-ups',
+        desc: 'Developed the Heal Queue app concept and interface mock-ups.'
       },
       {
-        title: '03 — Ideate',
-        desc: 'Explored digital and experiential interventions to make waiting more transparent, engaging, and reassuring.'
-      },
-      {
-        title: '04 — Prototype',
-        desc: 'Developed the Heal Queue app concept with appointments, live queue tracking, tests, prescriptions, and patient assistance.'
-      },
-      {
-        title: '05 — Test',
-        desc: 'Gathered user feedback to refine information clarity, usability, and the overall waiting experience.'
+        title: '03 / Service Mapping',
+        desc: 'Mapped features including appointments, live token tracking, doctor status, tests, prescriptions and patient assistance.'
       }
     ],
     keyFacts: [
-      { label: 'Patient Boredom', value: '66%', note: 'Uncovered in patient conversations' },
-      { label: 'Wait Anxiety', value: '60%', note: 'From uncertain delay times' },
-      { label: 'Frustration', value: '40%', note: 'Key experience gap identified' },
-      { label: 'Design Framework', value: '5-Stage Loop', note: 'Empathize to Test' }
+      { label: 'Project Type', value: 'Service Design Research' },
+      { label: 'Methodology', value: 'Design Thinking' },
+      { label: 'Concept Output', value: 'Heal Queue Digital Solution' },
+      { label: 'Core Focus', value: 'Patient & Caregiver Experience' }
     ],
     outputs: [
-      'Heal Queue App — appointments, live queue tracking, test bookings, digital prescriptions, and patient assistance',
-      'Queue & Appointment Management — real-time token updates, doctor availability, and estimated waiting times',
-      'Patient Support Features — test scheduling, prescription access, reminders and assistance throughout the hospital visit'
+      'Explored patient and caregiver pain points through field observations and interviews.',
+      'Developed the Heal Queue app concept and interface mock-ups.',
+      'Mapped features including appointments, live token tracking, doctor status, tests, prescriptions and patient assistance.'
     ],
-    takeaway: 'Information reduces anxiety. By replacing opacity with transparent digital tracking and thoughtful communication, perceived wait time is radically diminished.',
-    imagePath: '/images/prashanthi/projects/healing-wait-01.jpg',
+    takeaway: 'Using research and digital service design to address uncertainty and improve the patient waiting experience.',
+    imagePath: '/images/projects/healing-the-wait/cover.jpg',
     accentColor: '#A87578',
     accentBg: '#141211',
     tagColor: 'bg-dustyRose/20 text-ivory',
     composition: 'portrait'
   },
   {
-    id: 'house-of-masaba',
-    number: '03',
-    title: 'HOUSE OF MASABA',
-    subtitle: 'Assortment and Merchandising Strategy',
-    category: 'Fashion Strategy / Merchandise Planning',
-    type: 'Merchandise Planning & Assortment Strategy',
-    shortDescription: 'A merchandise strategy case study for House of Masaba, focused on assortment planning, pricing architecture and product positioning, translating its distinctive brand identity into a commercially relevant offering for contemporary Indian consumers.',
-    fullOverview: 'A merchandise strategy case study for House of Masaba, focused on assortment planning, pricing architecture and product positioning, translating its distinctive brand identity into a commercially relevant offering for contemporary Indian consumers.',
-    challenge: 'Translate House of Masaba’s bold, distinctive brand identity into a commercially viable assortment — balancing SKU breadth, category mix, pricing and size ratios to create a focused and market-relevant merchandise plan.',
+    id: 'bvlgari',
+    number: '06',
+    title: 'Bvlgari',
+    subtitle: 'Exploring the Future of Luxury Retail',
+    category: 'LUXURY BRANDING · RETAIL CONCEPT',
+    type: 'Academic Concept',
+    shortDescription: 'An academic luxury-retail concept exploring how digital touchpoints could complement exclusivity and personalisation in a premium in-store experience.',
+    fullOverview: 'An academic luxury-retail concept exploring how digital touchpoints could complement exclusivity and personalisation in a premium in-store experience.',
+    challenge: 'How can luxury retail integrate digital convenience without compromising personal attention and exclusivity?',
     processSteps: [
       {
-        title: '01 Assortment Planning',
-        desc: 'Structured a focused commercial assortment balancing core, fashion and novelty styles across everyday and occasion wear.'
+        title: '01 / Brand Positioning',
+        desc: 'Explored luxury brand positioning and customer expectations.'
       },
       {
-        title: '02 Pricing Architecture',
-        desc: 'Defined clear pricing bands (₹7.5K–₹65K) and margin benchmarks (40–60%) to maintain commercial viability while preserving brand prestige.'
+        title: '02 / Physical & Digital',
+        desc: 'Examined the relationship between physical retail and digital touchpoints.'
       },
       {
-        title: '03 Product Positioning & Sizing',
-        desc: 'Calibrated size ratios (XS–XL) and category mix to ensure high sell-through and minimize broken-size inventory.'
-      },
-      {
-        title: '04 Visual & Retail Integration',
-        desc: 'Integrated brand storytelling and visual merchandising principles to create a cohesive in-store product narrative.'
+        title: '03 / Strategic Outputs',
+        desc: 'Developed the research and conceptual outputs relevant to the project.'
       }
     ],
     keyFacts: [
-      { label: 'Verified Styles', value: '112 Styles', note: 'Across 5 core categories' },
-      { label: 'Total Assortment', value: '1,008 SKUs', note: 'Structured SKU breadth' },
-      { label: 'Price Architecture', value: '₹7.5K – ₹65K', note: 'Tiered commercial bands' },
-      { label: 'Target Margin', value: '40% – 60%', note: 'Baseline profitability' }
+      { label: 'Project Type', value: 'Academic Concept' },
+      { label: 'Sector', value: 'Luxury Retail & Fine Jewellery' },
+      { label: 'Core Theme', value: 'Exclusivity & Digital Touchpoints' },
+      { label: 'Brand', value: 'Bvlgari' }
     ],
     outputs: [
-      '5 Core Categories: Festive Bias, High-End Prêt, Wedding Guest, Heritage Remix Lab, Print Your Personality',
-      'Tiered pricing architecture (₹7.5K–₹65K) and commercial margin guidelines',
-      'Size ratio planning (XS–XL) and inventory balance recommendations'
+      'Explored luxury brand positioning and customer expectations.',
+      'Examined the relationship between physical retail and digital touchpoints.',
+      'Developed the research and conceptual outputs relevant to the project.'
     ],
-    takeaway: 'Where bold cultural codes meet thoughtful merchandise strategy — turning brand identity into a cohesive product story.',
-    imagePath: '/images/prashanthi/projects/masaba-01.jpg',
+    takeaway: 'Exploring how digital innovation can complement luxury retail while preserving the qualities customers value.',
+    imagePath: '/images/projects/bvlgari/cover.jpg',
     accentColor: '#722F37',
     accentBg: '#141211',
     tagColor: 'bg-burgundy text-ivory',
     composition: 'wide'
-  },
-  {
-    id: '3am-india',
-    number: '04',
-    title: '3AM INDIA',
-    subtitle: 'Social Media & Community Strategy',
-    category: 'Digital Marketing / Social Strategy',
-    type: 'Social Media & Growth Strategy',
-    shortDescription: 'Social media strategy, educational content creation, influencer collaboration and community growth (+13% from 15K to 17K followers) for clean skincare brand 3AM India.',
-    fullOverview: 'Hands-on social media marketing and brand communication internship managing strategy, content calendars, influencer outreach, and analytics-driven community growth.',
-    challenge: 'Simplifying complex skincare formulations and ingredient stories into engaging, highly shareable social content that drives authentic audience trust and follower growth.',
-    processSteps: [
-      {
-        title: '01 — Research',
-        desc: 'Researched skincare trends, ingredient science, and competitor communication strategies to identify key educational content pillars.'
-      },
-      {
-        title: '02 — Simplify',
-        desc: 'Translated complex scientific formulations and active ingredients into clear, bite-sized visual education for everyday consumers.'
-      },
-      {
-        title: '03 — Create',
-        desc: 'Designed engaging social media assets, captions, stories, and blogs focused on transparency, routine-building, and skincare efficacy.'
-      },
-      {
-        title: '04 — Connect',
-        desc: 'Engaged with community comments, managed influencer seeding collaborations, and monitored analytics to optimize engagement and grow followers.'
-      }
-    ],
-    keyFacts: [
-      { label: 'Audience Growth', value: '15K → 17K', note: '+13% community expansion' },
-      { label: 'Framework', value: '4-Step Loop', note: 'Research → Simplify → Create → Connect' },
-      { label: 'Core Channels', value: 'Social & Blog', note: 'Multi-touchpoint strategy' },
-      { label: 'Marketing Scope', value: 'Content & Influencer', note: 'Organic community trust' }
-    ],
-    outputs: [
-      'Educational skincare content calendars and campaign copy',
-      'Influencer collaboration pipelines and outreach workflows',
-      'Audience analytics tracking and engagement optimization (+13% follower growth)'
-    ],
-    takeaway: 'Translating complex ingredient science into simple, relatable content that builds genuine consumer trust and community momentum.',
-    imagePath: '/images/prashanthi/projects/3am-01.jpg',
-    accentColor: '#A87578',
-    accentBg: '#141211',
-    tagColor: 'bg-dustyRose/20 text-ivory',
-    composition: 'landscape'
-  },
-  {
-    id: 'sutra-edit',
-    number: '05',
-    title: 'SUTRA EDIT',
-    subtitle: 'India’s fashion intelligence platform for sharper brand decisions.',
-    category: 'Fashion Intelligence / Business Strategy',
-    type: 'Fashion Intelligence Platform Concept',
-    shortDescription: 'Sutra Edit brings together market intelligence, founder community and strategic consulting to help emerging fashion and lifestyle brands understand what’s changing, why it matters, and what to do next.',
-    fullOverview: 'A business concept built around retail intelligence for emerging Indian D2C and lifestyle brands, connecting content, community and consulting with a focus on local sourcing and retail realities.',
-    challenge: 'India’s emerging fashion founders lack accessible, India-specific business intelligence and expert guidance to turn industry signals into sharper brand decisions.',
-    processSteps: [
-      {
-        title: '01 — Market Gap',
-        desc: 'Mapped the gap between global fashion intelligence platforms and the contextual needs of India’s emerging fashion founders.'
-      },
-      {
-        title: '02 — Platform Architecture',
-        desc: 'Built a three-part model around The Weekly Edit, The Dashboard and 1:1 Consulting.'
-      },
-      {
-        title: '03 — Value Proposition',
-        desc: 'Defined a progression from accessible industry intelligence to premium insights and strategic advisory.'
-      },
-      {
-        title: '04 — Business Model',
-        desc: 'Developed a tiered revenue model spanning Starter, Pro and Premium, supported by subscriptions and consulting.'
-      },
-      {
-        title: '05 — Go-to-Market',
-        desc: 'Outlined a launch strategy centred on founder-led content, industry intelligence, community building and strategic partnerships.'
-      }
-    ],
-    keyFacts: [
-      { label: 'Core Market', value: 'India | D2C Fashion & Lifestyle', note: 'Contextual retail focus' },
-      { label: 'Business Verticals', value: '3 Verticals', note: 'Editorial, Dashboard, Advisory' },
-      { label: 'Revenue Tiers', value: 'Starter / Pro / Premium', note: 'Tiered subscription model' },
-      { label: 'Strategic Focus', value: 'Brand Decisions', note: 'Signals to sharper action' }
-    ],
-    outputs: [
-      'The Weekly Edit — curated business, market and trend intelligence',
-      'The Dashboard — trend prediction, competitor mapping and pricing benchmarks',
-      '1:1 Consulting model covering brand strategy, GTM, and channel expansion',
-      'Tiered subscription architecture across Starter, Pro and Premium'
-    ],
-    takeaway: 'Turning fragmented fashion signals into intelligence founders can act on.',
-    imagePath: '/images/prashanthi/projects/sutra-01.jpg',
-    accentColor: '#722F37',
-    accentBg: '#141211',
-    tagColor: 'bg-burgundy text-ivory',
-    composition: 'editorial'
   }
 ];
 
 export const EXPERIENCES_DATA: ExperienceItem[] = [
   {
     id: '3am-india',
-    period: '2023 – 2024',
+    period: '2023–2024',
     company: '3AM India',
     role: 'Social Media Marketing Intern',
     location: 'Bangalore, India',
     type: 'Digital Marketing & Community Internship',
-    description: 'Managed social media strategy and execution, created educational skincare content, supported influencer collaborations, and tracked audience engagement insights.',
+    description: 'Social media marketing and brand communication internship managing strategy, content calendars, influencer outreach, and audience engagement for clean skincare brand 3AM India.',
     highlights: [
       'Managed social media strategy and execution across channels',
       'Created content, captions, creatives and blogs',
       'Supported influencer collaborations and community outreach',
-      'Used analytics and audience insights to track trends and grew followers from 15K to 17K (+13%)'
+      'Used analytics and audience insights to track trends and community engagement'
     ]
   },
   {
@@ -365,14 +382,14 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
     period: '2026',
     company: 'The Bear House',
     role: 'Visual Merchandising Intern',
+    duration: '46 days',
     location: 'Hyderabad',
     type: 'Retail Internship (46 Days)',
-    description: 'Hands-on visual merchandising internship across 7 retail locations in Hyderabad covering EBO and SIS formats, store visual audits, floor replenishment, 2 New Store Openings (NSO), and EOSS transitions.',
+    description: 'A 46-day visual merchandising internship involving store-level display execution, product presentation and retail operations.',
     highlights: [
-      'Conducted visual merchandising store audits across 7 retail locations in Hyderabad',
-      'Executed full floor setup for 2 New Store Openings (Himayath Nagar, Tolichowki)',
-      'Organised End of Season Sale (EOSS) size-wise grids and floor presentation',
-      'Maintained mannequin styling, fixture standards, and stockroom-to-floor replenishment'
+      'Executed mannequin styling, displays, colour flows, fixtures and props.',
+      'Supported End-of-Season Sale setups, including stock segregation and floor transitions.',
+      'Gained hands-on exposure to new-store setup and retail execution across selected stores.'
     ]
   }
 ];
@@ -380,16 +397,16 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
 export const EDUCATION_DATA: EducationItem[] = [
   {
     id: 'pearl-academy',
-    period: '2025 – 2027',
-    degree: 'MBA — Fashion & Lifestyle Business Management',
+    period: '2025–2027',
+    degree: 'MBA, Fashion & Lifestyle Business Management',
     institution: 'Pearl Academy',
     location: 'Bangalore, India',
     status: 'In Progress'
   },
   {
     id: 'icfai',
-    period: '2020 – 2023',
-    degree: 'BBA — Bachelor of Business Administration',
+    period: '2020–2023',
+    degree: 'BBA',
     institution: 'ICFAI University',
     location: 'Hyderabad, India',
     status: 'Completed'

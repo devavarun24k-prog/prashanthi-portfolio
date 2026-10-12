@@ -7,6 +7,7 @@ import { SelectedWork } from './components/SelectedWork';
 import { AboutSection } from './components/AboutSection';
 import { CapabilitiesSection } from './components/CapabilitiesSection';
 import { ExperienceSection } from './components/ExperienceSection';
+import { ResumeSection } from './components/ResumeSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { CaseStudyView } from './components/CaseStudyView';
@@ -37,7 +38,7 @@ export function App() {
         {/* 1. Fullscreen Hero */}
         <Hero />
 
-        {/* 2. Selected Work (5 Curated Editorial Spreads) */}
+        {/* 2. Selected Work (6 Curated Editorial Spreads) */}
         <SelectedWork onSelectProject={(project) => setSelectedProject(project)} />
 
         {/* 3. About: Perspective & Personality */}
@@ -49,7 +50,10 @@ export function App() {
         {/* 5. Experience & Education: Professional History */}
         <ExperienceSection />
 
-        {/* 6. Contact: Collaboration & Inquiry */}
+        {/* 6. Resume: Credentials & Profile */}
+        <ResumeSection />
+
+        {/* 7. Contact: Collaboration & Inquiry */}
         <ContactSection />
       </main>
 

@@ -47,7 +47,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3 font-sans text-xs sm:text-[13px] text-[#8E8278] tracking-wider uppercase">
-          <span className="text-[#C8BFB2]">05 CURATED PROJECTS</span>
+          <span className="text-[#C8BFB2]">06 CURATED PROJECTS</span>
           <span className="text-[#262320]">•</span>
           <span>RETAIL × MERCHANDISING × STRATEGY</span>
         </div>

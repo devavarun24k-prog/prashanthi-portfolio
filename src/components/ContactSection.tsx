@@ -37,7 +37,7 @@ export const ContactSection: React.FC = () => {
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
             }`}
           >
-            <span className="text-[#722F37] mr-1.5">04 /</span>
+            <span className="text-[#722F37] mr-1.5">05 /</span>
             <span className="text-[#F4F0E8]">CONTACT</span>
           </div>
 
