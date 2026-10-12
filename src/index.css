@@ -181,3 +181,33 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Ambient Cursor Follower Glow matching reference portfolio */
+.cursor-ambient-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 998;
+  opacity: 0;
+  background: radial-gradient(circle, rgba(114, 47, 55, 0.40) 0%, rgba(200, 191, 178, 0.08) 45%, transparent 70%);
+  transform: translate3d(-500px, -500px, 0) translate(-50%, -50%);
+  will-change: transform, opacity;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@media (pointer: coarse) {
+  .cursor-ambient-glow {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-ambient-glow {
+    display: none !important;
+  }
+}
+
