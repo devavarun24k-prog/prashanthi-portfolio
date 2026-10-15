@@ -36,8 +36,8 @@ export const ExperienceSection: React.FC = () => {
       <div className="pb-12 sm:pb-16 border-b border-[#262320] relative z-10 space-y-8">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="font-sans font-semibold text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] tracking-[0.12em] uppercase leading-none">
-            <span className="text-[#722F37] mr-1.5">03 /</span>
-            <span className="text-[#F4F0E8]">EXPERIENCE</span>
+            <span className="text-[#722F37] mr-1.5">02 /</span>
+            <span className="text-[#F4F0E8]">EXPERIENCE &amp; EDUCATION</span>
           </div>
 
           <div className="text-[11px] sm:text-xs font-sans text-[#8E8278] uppercase tracking-wider">
@@ -156,57 +156,174 @@ export const ExperienceSection: React.FC = () => {
         )}
 
         {activeExpTab === 'academic' && (
-          <div className="space-y-8">
-            {EDUCATION_DATA.map((edu, idx) => (
-              <div
-                key={edu.id}
-                className="p-8 sm:p-12 rounded-2xl border border-[#262320] hover:border-[#722F37] transition-all duration-500 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group"
-              >
-                <div className="lg:col-span-2 font-serif text-5xl sm:text-6xl lg:text-7xl text-[#722F37]/40 group-hover:text-[#722F37] transition-colors font-normal select-none">
-                  0{idx + 3}
-                </div>
-
-                <div className="lg:col-span-10 space-y-4">
-                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#262320] pb-4 font-mono text-xs group-hover:border-[#722F37]/30 transition-colors">
-                    <span className="font-bold text-[#722F37] px-3 py-1 rounded border border-[#262320]">
-                      {edu.period}
-                    </span>
-                    <span className="text-[#F4F0E8] font-bold">{edu.status}</span>
-                  </div>
-
-                  <div>
-                    <h3 className="font-serif text-3xl sm:text-4xl text-[#F4F0E8] font-normal group-hover:translate-x-1 transition-transform duration-300">
-                      {edu.institution}
-                    </h3>
-                    <p className="text-base sm:text-lg font-sans text-[#C8BFB2] font-light mt-1">
-                      {edu.degree}
-                    </p>
-                    <p className="text-xs font-mono text-[#8E8278] mt-1.5 uppercase tracking-wider">
-                      {edu.location}
-                    </p>
-                  </div>
+          <div className="pt-2 pb-6 space-y-10 sm:space-y-12 animate-fadeIn">
+            {/* Top Sub-Header */}
+            <div className="flex flex-col lg:flex-row lg:items-baseline justify-between gap-6 pb-6 border-b border-[#262320]">
+              <div className="flex items-baseline gap-4">
+                <span className="font-serif text-5xl sm:text-6xl text-[#722F37] font-normal">
+                  03
+                </span>
+                <div className="flex items-center gap-4 flex-grow">
+                  <span className="font-mono text-xs uppercase tracking-[0.22em] text-[#C8BFB2]">
+                    / EDUCATION
+                  </span>
+                  <div className="h-[1px] bg-[#262320] flex-grow max-w-md hidden sm:block" />
                 </div>
               </div>
-            ))}
+
+              <div className="max-w-md text-xs sm:text-[13px] font-mono text-[#8E8278] leading-relaxed">
+                A foundation in business, with a focus on fashion, branding, marketing, retail and merchandising.
+              </div>
+            </div>
+
+            {/* Headline */}
+            <div className="space-y-1">
+              <h3 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#F4F0E8] font-normal tracking-tight">
+                Education,
+              </h3>
+              <p className="font-serif italic text-3xl sm:text-5xl lg:text-6xl text-[#C8BFB2] font-normal tracking-tight">
+                with a business lens.
+              </p>
+            </div>
+
+            {/* Main Content Grid: Rows on Left (8 cols), Visual Graphic on Right (4 cols) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              
+              {/* Left Column: Educational Rows */}
+              <div className="lg:col-span-8 space-y-0 divide-y divide-[#262320] border-y border-[#262320]">
+                
+                {/* Row 1: Pearl Academy */}
+                <div className="py-7 sm:py-8 grid grid-cols-1 sm:grid-cols-12 gap-6 items-center group">
+                  <div className="sm:col-span-4 flex items-center gap-3">
+                    <span className="font-mono text-xs text-[#8E8278]">03 —</span>
+                    <span className="font-serif text-2xl sm:text-3xl text-[#722F37] font-normal">
+                      2025 — 2027
+                    </span>
+                  </div>
+
+                  <div className="hidden sm:block sm:col-span-1 h-14 w-[1px] bg-[#262320] mx-auto" />
+
+                  <div className="sm:col-span-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="space-y-1">
+                      <h4 className="font-serif text-2xl sm:text-3xl text-[#F4F0E8] font-normal">
+                        Pearl Academy
+                      </h4>
+                      <p className="text-sm sm:text-base text-[#C8BFB2] font-sans font-light">
+                        MBA, Fashion &amp; Lifestyle Business Management
+                      </p>
+                      <p className="font-mono text-xs uppercase tracking-wider text-[#8E8278] pt-0.5">
+                        BANGALORE, INDIA
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-[#F4F0E8] shrink-0">
+                      <span className="w-2 h-2 rounded-full bg-[#722F37] animate-pulse" />
+                      <span>IN PROGRESS</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Row 2: ICFAI University */}
+                <div className="py-7 sm:py-8 grid grid-cols-1 sm:grid-cols-12 gap-6 items-center group">
+                  <div className="sm:col-span-4 flex items-center gap-3">
+                    <span className="font-mono text-xs text-[#8E8278]">04 —</span>
+                    <span className="font-serif text-2xl sm:text-3xl text-[#722F37] font-normal">
+                      2020 — 2023
+                    </span>
+                  </div>
+
+                  <div className="hidden sm:block sm:col-span-1 h-14 w-[1px] bg-[#262320] mx-auto" />
+
+                  <div className="sm:col-span-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="space-y-1">
+                      <h4 className="font-serif text-2xl sm:text-3xl text-[#F4F0E8] font-normal">
+                        ICFAI University
+                      </h4>
+                      <p className="text-sm sm:text-base text-[#C8BFB2] font-sans font-light">
+                        BBA
+                      </p>
+                      <p className="font-mono text-xs uppercase tracking-wider text-[#8E8278] pt-0.5">
+                        HYDERABAD, INDIA
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-[#8E8278] shrink-0">
+                      <span className="w-2 h-2 rounded-full bg-[#8E8278]" />
+                      <span>COMPLETED</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Right Column: Fashion — Strategy Loop Graphic */}
+              <div className="lg:col-span-4 flex justify-center py-6">
+                <div className="relative flex flex-col items-center select-none">
+                  <span className="font-mono text-xs uppercase tracking-[0.28em] text-[#C8BFB2] mb-3">
+                    FASHION
+                  </span>
+                  
+                  {/* SVG Loop Line */}
+                  <svg width="150" height="280" viewBox="0 0 150 280" fill="none" className="overflow-visible">
+                    <defs>
+                      <filter id="eduGlow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="0" dy="0" stdDeviation="4" floodColor="#722F37" floodOpacity="0.7"/>
+                      </filter>
+                    </defs>
+                    {/* Central Vertical Axis */}
+                    <line x1="75" y1="10" x2="75" y2="270" stroke="#262320" strokeWidth="1" />
+                    
+                    {/* Swirling Loop connecting the two spheres */}
+                    <path
+                      d="M 75,65 C 135,95 135,185 75,215 C 15,245 15,145 75,65"
+                      stroke="#722F37"
+                      strokeWidth="1.5"
+                      fill="none"
+                      filter="url(#eduGlow)"
+                      className="opacity-90"
+                    />
+                    
+                    {/* Upper Glowing Dot */}
+                    <circle cx="75" cy="65" r="4.5" fill="#722F37" filter="url(#eduGlow)" />
+                    <circle cx="75" cy="65" r="2" fill="#F4F0E8" />
+                    
+                    {/* Lower Glowing Dot */}
+                    <circle cx="75" cy="215" r="4.5" fill="#722F37" filter="url(#eduGlow)" />
+                    <circle cx="75" cy="215" r="2" fill="#F4F0E8" />
+                  </svg>
+
+                  <span className="font-mono text-xs uppercase tracking-[0.28em] text-[#C8BFB2] mt-3">
+                    STRATEGY
+                  </span>
+                </div>
+              </div>
+
+            </div>
           </div>
         )}
 
         {activeExpTab === 'exposure' && (
-          <div className="space-y-8">
+          <div className="space-y-8 animate-fadeIn">
             {EXPOSURES_DATA.map((exp, idx) => (
               <div
                 key={exp.id}
                 className="p-8 sm:p-12 rounded-2xl border border-[#262320] hover:border-[#722F37] transition-all duration-500 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative overflow-hidden group"
               >
                 <div className="lg:col-span-2 font-serif text-5xl sm:text-6xl lg:text-7xl text-[#722F37]/40 group-hover:text-[#722F37] transition-colors font-normal select-none">
-                  0{idx + 5}
+                  0{idx + 1}
                 </div>
 
                 <div className="lg:col-span-10 space-y-4">
-                  <div className="flex items-center justify-between border-b border-[#262320] pb-4 font-mono text-xs group-hover:border-[#722F37]/30 transition-colors">
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#262320] pb-4 font-mono text-xs group-hover:border-[#722F37]/30 transition-colors">
                     <span className="text-[#722F37] font-bold uppercase tracking-wider">
                       {exp.type}
                     </span>
+                    {exp.status && (
+                      <span className="flex items-center gap-2 text-[#F4F0E8] font-bold">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#722F37]" />
+                        {exp.status}
+                      </span>
+                    )}
                   </div>
 
                   <div>

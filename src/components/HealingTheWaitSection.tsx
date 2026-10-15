@@ -1117,31 +1117,6 @@ export const HealingTheWaitSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Booklet Image 02: Inside Spread */}
-          <div className="group/card relative rounded-2xl border border-[#262320] bg-[#141211] p-3 shadow-xl transition-all duration-300 hover:border-[#722F37]/60">
-            <div
-              className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-[#0A0908] cursor-pointer"
-              onClick={() => setZoomedImage('/images/projects/healing-the-wait/image_e8de4b98.jpg')}
-            >
-              <img
-                src="/images/projects/healing-the-wait/image_e8de4b98.jpg"
-                alt="The Space Between — Service Blueprint & Patient Journey Mapping Spread"
-                className="w-full h-full object-cover object-center filter brightness-[0.98] transition-transform duration-700 group-hover/card:scale-[1.02]"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover/card:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#141211]/90 border border-[#722F37] text-xs font-mono text-[#F4F0E8]">
-                  <ZoomIn className="w-3.5 h-3.5 text-[#722F37]" /> Click to Zoom
-                </span>
-              </div>
-            </div>
-
-            <div className="pt-3 px-1 flex items-center justify-between text-[11px] font-mono text-[#8E8278]">
-              <span className="text-[#C8BFB2]">Plate 02 · Patient Journey &amp; Service Mapping</span>
-              <span className="text-[#722F37]">SYSTEM BLUEPRINT</span>
-            </div>
-          </div>
-
         </div>
 
       </div>

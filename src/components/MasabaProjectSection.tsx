@@ -116,9 +116,6 @@ export const MasabaProjectSection: React.FC = () => {
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] text-[#F4F0E8] font-normal leading-[1.05] tracking-tight">
             Decoding a brand. Building its range. Shaping its retail story.
           </h2>
-          <p className="font-mono text-xs sm:text-[13px] text-[#8E8278] tracking-wider uppercase pt-1">
-            Academic Project · Retail Strategy · Product Assortment · Range Planning · Collection Development · Visual Merchandising
-          </p>
         </div>
       </div>
 

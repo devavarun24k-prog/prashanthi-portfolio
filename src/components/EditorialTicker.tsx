@@ -2,8 +2,6 @@ export function EditorialTicker() {
   const items = [
     'BRAND STRATEGY',
     'MARKETING & STORYTELLING',
-    'CUSTOMER RELATIONSHIPS',
-    'CONSUMER INSIGHTS',
     'VISUAL MERCHANDISING',
     'BUYING & MERCHANDISING',
   ];

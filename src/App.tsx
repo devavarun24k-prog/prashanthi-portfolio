@@ -4,10 +4,8 @@ import { EditorialGrid } from './components/EditorialGrid';
 import { Hero } from './components/Hero';
 import { EditorialTicker } from './components/EditorialTicker';
 import { SelectedWork } from './components/SelectedWork';
-import { AboutSection } from './components/AboutSection';
-import { CapabilitiesSection } from './components/CapabilitiesSection';
 import { ExperienceSection } from './components/ExperienceSection';
-import { ResumeSection } from './components/ResumeSection';
+import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { EntryStage } from './components/EntryStage';
@@ -25,6 +23,9 @@ export function App() {
           document.getElementById(targetId) ||
           (targetId === 'samsonite' || targetId === 'samsonite-smarttravel'
             ? document.getElementById('project-samsonite-smarttravel')
+            : null) ||
+          (targetId === 'sutra' || targetId === 'sutra-edit'
+            ? document.getElementById('project-sutra-edit')
             : null) ||
           (targetId === 'masaba' || targetId === 'house-of-masaba'
             ? document.getElementById('project-house-of-masaba')
@@ -68,22 +69,16 @@ export function App() {
         {/* Horizontal Editorial Competencies Ticker */}
         <EditorialTicker />
 
-        {/* 2. Selected Work (6 Curated Editorial Spreads) */}
+        {/* 2. Selected Work (Curated Editorial Spreads) */}
         <SelectedWork />
 
-        {/* 3. About: Perspective & Personality */}
-        <AboutSection />
-
-        {/* 4. What I Work With: Core Capabilities */}
-        <CapabilitiesSection />
-
-        {/* 5. Experience & Education: Professional History */}
+        {/* 3. Experience & Education: Professional History & Academic Rigor */}
         <ExperienceSection />
 
-        {/* 6. Resume: Credentials & Profile */}
-        <ResumeSection />
+        {/* 4. About: Perspective & Personality */}
+        <AboutSection />
 
-        {/* 7. Contact: Collaboration & Inquiry */}
+        {/* 5. Contact: Collaboration & Inquiry */}
         <ContactSection />
       </main>
 

@@ -86,10 +86,6 @@ export const BvlgariPhygitalMaisonSection: React.FC = () => {
             INNOVATIONS IN LUXURY RETAIL · BRAND STRATEGY
           </span>
         </div>
-
-        <div className="text-[11px] text-[#8E8278] font-mono tracking-wider">
-          <span>Academic Strategy · Luxury Clienteling</span>
-        </div>
       </div>
 
       {/* 1. Main Title & Identity Presentation */}
@@ -125,7 +121,7 @@ export const BvlgariPhygitalMaisonSection: React.FC = () => {
               Phygital Experiences
             </span>
             <span className="text-[#38332F]">•</span>
-            <span className="px-3 py-1 rounded-md bg-[#141211] border border-[#262320] text-[#722F37] font-medium">
+            <span className="px-3 py-1 rounded-md bg-[#141211] border border-[#262320] text-[#F4F0E8]">
               Digital Clienteling
             </span>
             <span className="text-[#38332F]">•</span>
@@ -139,27 +135,27 @@ export const BvlgariPhygitalMaisonSection: React.FC = () => {
       {/* 2. BESPOKE ASYMMETRICAL EDITORIAL IMAGE COMPOSITION */}
       <div className="space-y-6 sm:space-y-8 mb-16 sm:mb-24 pt-6 border-t border-[#262320]">
         
-        {/* Upper Tier: Primary Vision Anchor (7 cols) + Dual Feature Spreads (5 cols) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+        {/* Upper Tier: Dual Strategic Plates (2 cols) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start">
           
-          {/* Primary Hero Anchor (7 cols) — Bvlgari_ The Phygital Maison.png */}
-          <div className="lg:col-span-7 group/hero relative rounded-2xl border border-[#262320] bg-[#141211] p-3 shadow-2xl transition-all duration-500 hover:border-[#722F37]/60">
+          {/* Plate 01: Luxury Bulgari Serpenti AR Try-On.png */}
+          <div className="group/card relative rounded-2xl border border-[#262320] bg-[#141211] p-3 shadow-xl transition-all duration-500 hover:border-[#722F37]/60">
             <div
               className="relative aspect-[3/2] w-full rounded-xl overflow-hidden bg-[#0A0908] cursor-pointer"
               onClick={() =>
                 setZoomedImage({
-                  src: '/images/projects/bvlgari/Bvlgari_ The Phygital Maison.png',
-                  caption: 'The Phygital Maison · Vision Architecture & Brand Strategy'
+                  src: '/images/projects/bvlgari/Luxury Bulgari Serpenti AR Try-On.png',
+                  caption: 'Spatial Exploration · Serpenti Augmented Reality Try-On Experience'
                 })
               }
             >
               <img
-                src="/images/projects/bvlgari/Bvlgari_ The Phygital Maison.png"
-                alt="Bvlgari: The Phygital Maison — Bridging Craftsmanship and Digital Innovation"
-                className="w-full h-full object-cover object-center filter brightness-[0.98] transition-transform duration-700 group-hover/hero:scale-[1.02]"
+                src="/images/projects/bvlgari/Luxury Bulgari Serpenti AR Try-On.png"
+                alt="Luxury Bulgari Serpenti AR Try-On Experience"
+                className="w-full h-full object-cover object-center filter brightness-[0.98] transition-transform duration-700 group-hover/card:scale-[1.02]"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-black/35 opacity-0 group-hover/hero:opacity-100 transition-opacity flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/35 opacity-0 group-hover/card:opacity-100 transition-opacity flex items-center justify-center">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#141211]/90 border border-[#722F37] text-xs font-mono text-[#F4F0E8]">
                   <ZoomIn className="w-3.5 h-3.5 text-[#722F37]" /> Click to Inspect
                 </span>
@@ -167,74 +163,39 @@ export const BvlgariPhygitalMaisonSection: React.FC = () => {
             </div>
 
             <div className="pt-3 px-1 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-[#8E8278]">
-              <span className="text-[#C8BFB2]">01 / Vision Anchor · The Phygital Maison Architecture</span>
-              <span className="text-[#722F37]">HERITAGE &amp; INNOVATION</span>
+              <span className="text-[#C8BFB2]">01 / Spatial Exploration · Serpenti AR Try-On</span>
+              <span className="text-[#722F37]">AR PROTOTYPE</span>
             </div>
           </div>
 
-          {/* Right Tier (5 cols): Two Stacked Asymmetric Feature Plates */}
-          <div className="lg:col-span-5 space-y-6">
-            
-            {/* Plate 02: Luxury Bulgari Serpenti AR Try-On.png */}
-            <div className="group/card relative rounded-2xl border border-[#262320] bg-[#141211] p-3 shadow-xl transition-all duration-500 hover:border-[#722F37]/60">
-              <div
-                className="relative aspect-[3/2] w-full rounded-xl overflow-hidden bg-[#0A0908] cursor-pointer"
-                onClick={() =>
-                  setZoomedImage({
-                    src: '/images/projects/bvlgari/Luxury Bulgari Serpenti AR Try-On.png',
-                    caption: 'Spatial Exploration · Serpenti Augmented Reality Try-On Experience'
-                  })
-                }
-              >
-                <img
-                  src="/images/projects/bvlgari/Luxury Bulgari Serpenti AR Try-On.png"
-                  alt="Luxury Bulgari Serpenti AR Try-On Experience"
-                  className="w-full h-full object-cover object-center filter brightness-[0.98] transition-transform duration-700 group-hover/card:scale-[1.02]"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black/35 opacity-0 group-hover/card:opacity-100 transition-opacity flex items-center justify-center">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#141211]/90 border border-[#722F37] text-xs font-mono text-[#F4F0E8]">
-                    <ZoomIn className="w-3.5 h-3.5 text-[#722F37]" /> Click to Inspect
-                  </span>
-                </div>
-              </div>
-
-              <div className="pt-3 px-1 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-[#8E8278]">
-                <span className="text-[#C8BFB2]">02 / Spatial Exploration · Serpenti AR Try-On</span>
-                <span className="text-[#722F37]">AR PROTOTYPE</span>
+          {/* Plate 02: Bulgari Virtual Serpenti Consultation.png */}
+          <div className="group/card relative rounded-2xl border border-[#262320] bg-[#141211] p-3 shadow-xl transition-all duration-500 hover:border-[#722F37]/60">
+            <div
+              className="relative aspect-[3/2] w-full rounded-xl overflow-hidden bg-[#0A0908] cursor-pointer"
+              onClick={() =>
+                setZoomedImage({
+                  src: '/images/projects/bvlgari/Bulgari Virtual Serpenti Consultation.png',
+                  caption: 'VIP Clienteling · Remote Virtual Serpenti Consultation Suite'
+                })
+              }
+            >
+              <img
+                src="/images/projects/bvlgari/Bulgari Virtual Serpenti Consultation.png"
+                alt="Bulgari Virtual Serpenti Consultation Suite"
+                className="w-full h-full object-cover object-center filter brightness-[0.98] transition-transform duration-700 group-hover/card:scale-[1.02]"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-black/35 opacity-0 group-hover/card:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#141211]/90 border border-[#722F37] text-xs font-mono text-[#F4F0E8]">
+                  <ZoomIn className="w-3.5 h-3.5 text-[#722F37]" /> Click to Inspect
+                </span>
               </div>
             </div>
 
-            {/* Plate 03: Bulgari Virtual Serpenti Consultation.png */}
-            <div className="group/card relative rounded-2xl border border-[#262320] bg-[#141211] p-3 shadow-xl transition-all duration-500 hover:border-[#722F37]/60">
-              <div
-                className="relative aspect-[3/2] w-full rounded-xl overflow-hidden bg-[#0A0908] cursor-pointer"
-                onClick={() =>
-                  setZoomedImage({
-                    src: '/images/projects/bvlgari/Bulgari Virtual Serpenti Consultation.png',
-                    caption: 'VIP Clienteling · Remote Virtual Serpenti Consultation Suite'
-                  })
-                }
-              >
-                <img
-                  src="/images/projects/bvlgari/Bulgari Virtual Serpenti Consultation.png"
-                  alt="Bulgari Virtual Serpenti Consultation Suite"
-                  className="w-full h-full object-cover object-center filter brightness-[0.98] transition-transform duration-700 group-hover/card:scale-[1.02]"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black/35 opacity-0 group-hover/card:opacity-100 transition-opacity flex items-center justify-center">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#141211]/90 border border-[#722F37] text-xs font-mono text-[#F4F0E8]">
-                    <ZoomIn className="w-3.5 h-3.5 text-[#722F37]" /> Click to Inspect
-                  </span>
-                </div>
-              </div>
-
-              <div className="pt-3 px-1 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-[#8E8278]">
-                <span className="text-[#C8BFB2]">03 / VIP Clienteling · Remote Virtual Consultation</span>
-                <span className="text-[#722F37]">DIGITAL SALON</span>
-              </div>
+            <div className="pt-3 px-1 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-[#8E8278]">
+              <span className="text-[#C8BFB2]">02 / VIP Clienteling · Remote Virtual Consultation</span>
+              <span className="text-[#722F37]">DIGITAL SALON</span>
             </div>
-
           </div>
 
         </div>

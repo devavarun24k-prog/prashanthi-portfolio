@@ -44,6 +44,7 @@ export interface ExposureItem {
   id: string;
   title: string;
   type: string;
+  status?: string;
   description: string;
 }
 
@@ -415,6 +416,13 @@ export const EDUCATION_DATA: EducationItem[] = [
 ];
 
 export const EXPOSURES_DATA: ExposureItem[] = [
+  {
+    id: 'inside-lvmh',
+    title: 'INSIDE LVMH',
+    type: 'Luxury Industry Learning Programme',
+    status: 'Registered · Upcoming',
+    description: "An upcoming learning experience focused on understanding the luxury industry, LVMH's ecosystem, and luxury business practices."
+  },
   {
     id: 'miss-karnataka',
     title: 'Miss Karnataka Grand',

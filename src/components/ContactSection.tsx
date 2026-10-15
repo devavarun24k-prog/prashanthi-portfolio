@@ -37,7 +37,7 @@ export const ContactSection: React.FC = () => {
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
             }`}
           >
-            <span className="text-[#722F37] mr-1.5">05 /</span>
+            <span className="text-[#722F37] mr-1.5">04 /</span>
             <span className="text-[#F4F0E8]">CONTACT</span>
           </div>
 
@@ -61,33 +61,32 @@ export const ContactSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             <div className="overflow-hidden">
               <h2
-                className={`font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.75rem] font-normal tracking-tight leading-[0.94] text-[#F4F0E8] uppercase transition-all duration-1000 ease-out ${
+                className={`font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-normal tracking-tight leading-[0.98] text-[#F4F0E8] uppercase transition-all duration-1000 ease-out ${
                   inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                 }`}
               >
-                LET’S TALK
-                <span className="block font-serif italic text-[#C8BFB2] font-normal mt-1.5">
-                  ABOUT WHAT
-                </span>
-                <span className="block font-serif font-normal text-[#F4F0E8] mt-1.5">
-                  COMES NEXT<span className="text-[#722F37]">.</span>
-                </span>
+                GREAT<br />
+                BRANDS START<br />
+                <span className="text-[#C8BFB2]">WITH </span>
+                <span className="italic text-[#C8BFB2]">CURIOUS<br /></span>
+                <span className="italic text-[#C8BFB2]">CONVERSATIONS</span>
+                <span className="text-[#722F37]">.</span>
               </h2>
             </div>
 
             {/* Restrained Subtitle Narrative */}
             <div
-              className={`pt-2 sm:pt-4 transition-all duration-700 delay-300 ease-out ${
+              className={`space-y-4 pt-2 sm:pt-4 transition-all duration-700 delay-300 ease-out ${
                 inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
               <p className="text-base sm:text-lg text-[#C8BFB2] font-sans font-light leading-relaxed max-w-xl">
-                Open to discussions around brand strategy, retail merchandising, creative communications, and strategic fashion management opportunities.
+                Open to opportunities in brand strategy, marketing, brand communications, and merchandising — where creativity meets commerce.
               </p>
-              <div className="flex items-center gap-2 pt-4 font-mono text-xs text-[#722F37]">
-                <span className="w-2 h-2 rounded-full bg-[#722F37] animate-pulse" />
-                <span className="text-[#8E8278] uppercase tracking-wider">
-                  CURRENTLY AVAILABLE FOR SELECTED COLLABORATIONS
+              <div className="flex items-center gap-2 pt-2 font-mono text-xs">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#722F37] shrink-0" />
+                <span className="text-[#C8BFB2] uppercase tracking-wider font-medium text-[11px] sm:text-xs">
+                  LET’S CREATE WHAT’S NEXT.
                 </span>
               </div>
             </div>
@@ -95,13 +94,13 @@ export const ContactSection: React.FC = () => {
 
           {/* Right Column (5 cols): Editorial Interactive Contact Directory */}
           <div
-            className={`lg:col-span-5 space-y-3.5 transition-all duration-700 delay-400 ease-out ${
+            className={`lg:col-span-5 space-y-4 transition-all duration-700 delay-400 ease-out ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
-            {/* Email Card */}
+            {/* Card 01: Direct Email */}
             <a
-              href={`mailto:${PERSONAL_DATA.email}?subject=Collaboration / Strategic Role Inquiry - PRASHANTHI.B`}
+              href={`mailto:${PERSONAL_DATA.email}?subject=Collaboration / Opportunity - PRASHANTHI.B`}
               className="group p-5 sm:p-6 rounded-2xl bg-[#141211] border border-[#262320] hover:border-[#722F37] transition-all duration-500 flex items-center justify-between block"
             >
               <div className="space-y-1">
@@ -112,10 +111,12 @@ export const ContactSection: React.FC = () => {
                   {PERSONAL_DATA.email}
                 </span>
               </div>
-              <ArrowRight className="w-4 h-4 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-1.5 transition-all shrink-0 ml-4" />
+              <div className="w-9 h-9 rounded-full border border-[#262320] flex items-center justify-center group-hover:border-[#722F37] group-hover:bg-[#722F37]/10 transition-colors shrink-0 ml-4">
+                <ArrowRight className="w-4 h-4 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-0.5 transition-all" />
+              </div>
             </a>
 
-            {/* LinkedIn Card */}
+            {/* Card 02: LinkedIn */}
             <a
               href={PERSONAL_DATA.linkedin}
               target="_blank"
@@ -124,42 +125,48 @@ export const ContactSection: React.FC = () => {
             >
               <div className="space-y-1">
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#722F37] block font-semibold">
-                  02 // LINKEDIN PROFILE
+                  02 // LINKEDIN
                 </span>
                 <span className="text-sm sm:text-base font-sans text-[#F4F0E8] group-hover:text-[#C8BFB2] transition-colors">
                   Prashanthi Reddy
                 </span>
               </div>
-              <ArrowRight className="w-4 h-4 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-1.5 transition-all shrink-0 ml-4" />
+              <div className="w-9 h-9 rounded-full border border-[#262320] flex items-center justify-center group-hover:border-[#722F37] group-hover:bg-[#722F37]/10 transition-colors shrink-0 ml-4">
+                <ArrowRight className="w-4 h-4 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-0.5 transition-all" />
+              </div>
             </a>
 
-            {/* Resume Card */}
+            {/* Card 03: Resume / View My CV */}
             <a
               href={PERSONAL_DATA.cvUrl}
               className="group p-5 sm:p-6 rounded-2xl bg-[#141211] border border-[#262320] hover:border-[#722F37] transition-all duration-500 flex items-center justify-between block"
             >
               <div className="space-y-1">
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#722F37] block font-semibold">
-                  03 // CURRICULUM VITAE
+                  03 // RESUME
                 </span>
                 <span className="text-sm sm:text-base font-sans text-[#F4F0E8] group-hover:text-[#C8BFB2] transition-colors">
-                  Request Complete Profile & CV
+                  View My CV
                 </span>
               </div>
-              <ArrowRight className="w-4 h-4 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-1.5 transition-all shrink-0 ml-4" />
+              <div className="w-9 h-9 rounded-full border border-[#262320] flex items-center justify-center group-hover:border-[#722F37] group-hover:bg-[#722F37]/10 transition-colors shrink-0 ml-4">
+                <ArrowRight className="w-4 h-4 text-[#8E8278] group-hover:text-[#F4F0E8] group-hover:translate-x-0.5 transition-all" />
+              </div>
             </a>
 
-            {/* Location Panel */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#141211]/50 border border-[#262320]/60 flex items-center justify-between">
+            {/* Card 04: Base Location */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#141211] border border-[#262320] flex items-center justify-between">
               <div className="space-y-1">
-                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#8E8278] block font-semibold">
+                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#722F37] block font-semibold">
                   04 // BASE LOCATION
                 </span>
-                <span className="text-sm sm:text-base font-sans text-[#C8BFB2]">
+                <span className="text-sm sm:text-base font-sans text-[#F4F0E8]">
                   Bangalore, Karnataka, India
                 </span>
               </div>
-              <span className="font-mono text-xs text-[#8E8278]">IST (UTC+5:30)</span>
+              <div className="w-9 h-9 rounded-full border border-[#262320] flex items-center justify-center shrink-0 ml-4">
+                <ArrowRight className="w-4 h-4 text-[#8E8278]" />
+              </div>
             </div>
           </div>
 
@@ -172,7 +179,7 @@ export const ContactSection: React.FC = () => {
           <span className="text-[#F4F0E8] font-sans font-semibold text-xs tracking-widest">
             PRASHANTHI.B
           </span>
-          <span>FASHION · RETAIL · BRAND STRATEGY</span>
+          <span>BANGALORE / INDIA</span>
           <span>PORTFOLIO / 2026</span>
         </div>
       </div>

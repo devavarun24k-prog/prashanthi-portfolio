@@ -53,14 +53,12 @@ export const AboutSection: React.FC = () => {
       {/* 01. Restrained Editorial Section Label (No Separator Line Below) */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-8 sm:mb-10 relative z-10">
         <div className="font-sans font-semibold text-[15px] sm:text-[16px] lg:text-[17px] tracking-[0.12em] uppercase leading-none">
-          <span className="text-[#722F37] mr-1.5">02 /</span>
+          <span className="text-[#722F37] mr-1.5">03 /</span>
           <span className="text-[#F4F0E8]">ABOUT</span>
         </div>
 
         <div className="hidden sm:flex items-center gap-2 sm:gap-3 font-sans text-xs sm:text-[13px] text-[#8E8278] tracking-wider uppercase">
           <span className="text-[#C8BFB2]">BANGALORE, INDIA</span>
-          <span className="text-[#262320]">•</span>
-          <span>FASHION × RETAIL × BRAND STRATEGY</span>
         </div>
       </div>
 
@@ -118,10 +116,10 @@ export const AboutSection: React.FC = () => {
           <div className="space-y-1 pt-1 max-w-lg mx-auto lg:mx-0 font-sans text-xs text-[#8E8278]">
             <div className="flex items-center justify-between uppercase tracking-wider text-[11px]">
               <span className="text-[#F4F0E8] font-semibold">BANGALORE / INDIA</span>
-              <span>2025 — 2027</span>
+              <span>2025–2027</span>
             </div>
             <p className="text-[11px] text-[#C8BFB2] font-mono">
-              MBA — FASHION & LIFESTYLE BUSINESS MANAGEMENT
+              MBA · FASHION & LIFESTYLE BUSINESS MANAGEMENT
             </p>
           </div>
         </div>
@@ -144,51 +142,9 @@ export const AboutSection: React.FC = () => {
             ))}
           </div>
 
-          {/* Education Details — Consistent Editorial Hierarchy */}
-          <div
-            className={`pt-8 border-t border-[#262320] max-w-xl transition-all duration-700 delay-500 ease-out ${
-              inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#722F37] block mb-4 font-semibold">
-              ACADEMIC BACKGROUND
-            </span>
-            <div className="space-y-5">
-              {/* Entry 01: Pearl Academy */}
-              <div className="pb-4 border-b border-[#262320]/60 space-y-1">
-                <div className="flex items-baseline justify-between gap-4">
-                  <h4 className="text-base sm:text-lg font-serif text-[#F4F0E8] font-normal tracking-tight">
-                    Pearl Academy, Bangalore
-                  </h4>
-                  <span className="font-mono text-xs text-[#8E8278] shrink-0">
-                    2025–2027
-                  </span>
-                </div>
-                <p className="text-sm font-sans text-[#C8BFB2] font-light leading-relaxed">
-                  MBA in Fashion & Lifestyle Business Management
-                </p>
-              </div>
-
-              {/* Entry 02: ICFAI University */}
-              <div className="space-y-1">
-                <div className="flex items-baseline justify-between gap-4">
-                  <h4 className="text-base sm:text-lg font-serif text-[#F4F0E8] font-normal tracking-tight">
-                    ICFAI Foundation for Higher Education (IFHE), Hyderabad
-                  </h4>
-                  <span className="font-mono text-xs text-[#8E8278] shrink-0">
-                    2020–2023
-                  </span>
-                </div>
-                <p className="text-sm font-sans text-[#C8BFB2] font-light leading-relaxed">
-                  Bachelor of Business Administration (BBA)
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* Restrained Closing Signature Statement */}
           <div
-            className={`pt-8 sm:pt-10 mt-8 sm:mt-10 border-t border-[#262320] max-w-xl transition-all duration-700 delay-700 ease-out ${
+            className={`pt-8 sm:pt-10 mt-8 sm:mt-10 border-t border-[#262320] max-w-xl transition-all duration-700 delay-500 ease-out ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >

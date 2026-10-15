@@ -61,7 +61,7 @@ export const Hero: React.FC = () => {
         
         {/* Eyebrow Label */}
         <p
-          className={`text-[10px] sm:text-[11px] font-mono tracking-[0.25em] uppercase text-[#A87578] mb-4 sm:mb-5 transition-all duration-700 ease-out ${
+          className={`text-[10px] sm:text-[11px] font-mono tracking-[0.25em] uppercase text-[#8B3A44] mb-4 sm:mb-5 transition-all duration-700 ease-out font-medium ${
             inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
           }`}
         >
@@ -75,7 +75,7 @@ export const Hero: React.FC = () => {
           }`}
         >
           I like understanding<br />
-          <span className="italic text-[#C88A90] whitespace-normal sm:whitespace-nowrap">why we choose a brand —</span><br />
+          <span className="italic text-[#8B3A44] whitespace-normal sm:whitespace-nowrap">why we choose a brand,</span><br />
           and why we keep choosing it.
         </h1>
 
@@ -96,14 +96,14 @@ export const Hero: React.FC = () => {
         >
           {/* Col 1: CURRENT EDUCATION */}
           <div className="space-y-1.5 pb-5 md:pb-0 border-b border-[#262320]/60 md:border-b-0 md:border-r md:border-[#262320] md:pr-8 lg:pr-10 xl:pr-12">
-            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#A87578] block">
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#8B3A44] block font-semibold">
               CURRENT EDUCATION
             </span>
             <h4 className="font-serif text-lg sm:text-xl text-[#F4F0E8] font-normal leading-snug">
               Pearl Academy
             </h4>
             <p className="text-xs sm:text-[13px] font-sans text-[#8E8278] leading-relaxed whitespace-normal xl:whitespace-nowrap">
-              MBA — Fashion & Lifestyle Business Management
+              MBA in Fashion & Lifestyle Business Management
             </p>
             <p className="text-xs font-mono text-[#8E8278]/80">
               2025–2027
@@ -112,7 +112,7 @@ export const Hero: React.FC = () => {
 
           {/* Col 2: BASED IN */}
           <div className="space-y-1.5 pb-5 md:pb-0 border-b border-[#262320]/60 md:border-b-0 md:border-r md:border-[#262320] md:px-8 lg:px-10 xl:px-12">
-            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#A87578] block">
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#8B3A44] block font-semibold">
               BASED IN
             </span>
             <h4 className="font-serif text-lg sm:text-xl text-[#F4F0E8] font-normal leading-snug">
@@ -123,8 +123,8 @@ export const Hero: React.FC = () => {
           {/* Col 3: OPEN TO */}
           <div className="space-y-1.5 md:pl-8 lg:pl-10 xl:pl-12">
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#A87578] shrink-0" />
-              <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#A87578]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#722F37] shrink-0" />
+              <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#8B3A44] font-semibold">
                 OPEN TO
               </span>
             </div>
