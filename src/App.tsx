@@ -35,6 +35,9 @@ export function App() {
             : null) ||
           (targetId === 'bvlgari' || targetId === 'phygital-maison' || targetId === 'the-phygital-maison'
             ? document.getElementById('project-bvlgari')
+            : null) ||
+          (targetId === 'bear-house' || targetId === 'the-bear-house'
+            ? document.getElementById('project-bear-house')
             : null);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });

@@ -1,31 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { PROJECTS_DATA } from '../data/portfolioData';
-import { ProjectImage } from './ProjectImage';
 import { SamsoniteEditorialSection } from './SamsoniteEditorialSection';
 import { SutraEditSection } from './SutraEditSection';
 import { MasabaProjectSection } from './MasabaProjectSection';
 import { HealingTheWaitSection } from './HealingTheWaitSection';
 import { BvlgariPhygitalMaisonSection } from './BvlgariPhygitalMaisonSection';
-
-const getProjectContributionHeading = (projectId: string) => {
-  switch (projectId) {
-    case 'samsonite-smarttravel':
-      return 'PRODUCT-MARKETING ROADMAP & ANALYSIS';
-    case 'sutra-edit':
-      return 'ECOSYSTEM VERTICALS & BUSINESS ARCHITECTURE';
-    case 'house-of-masaba':
-      return 'RETAIL PRESENTATION & ASSORTMENT PLANNING';
-    case 'bear-house':
-      return 'STORE-LEVEL VISUAL MERCHANDISING & OPERATIONS';
-    case 'healing-the-wait':
-      return 'SERVICE DESIGN & DIGITAL SOLUTION MAPPING';
-    case 'bvlgari':
-      return 'LUXURY RETAIL & DIGITAL INTEGRATION STRATEGY';
-    default:
-      return 'KEY DELIVERABLES & STRATEGY';
-  }
-};
+import { BearHouseSection } from './BearHouseSection';
 
 export const SelectedWork: React.FC = () => {
   const [expandedProjects, setExpandedProjects] = useState<Record<string, boolean>>({});
@@ -80,7 +61,6 @@ export const SelectedWork: React.FC = () => {
       <div className="space-y-16 sm:space-y-24 pt-4 sm:pt-6 relative z-10">
         {PROJECTS_DATA.map((project, idx) => {
           const isExpanded = !!expandedProjects[project.id];
-          const isEven = idx % 2 === 1;
 
           return (
             <article
@@ -144,41 +124,7 @@ export const SelectedWork: React.FC = () => {
                   {project.id === 'house-of-masaba' && <MasabaProjectSection />}
                   {project.id === 'healing-the-wait' && <HealingTheWaitSection />}
                   {project.id === 'bvlgari' && <BvlgariPhygitalMaisonSection />}
-                  {project.id === 'bear-house' && (
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center p-8 rounded-2xl bg-[#141211]/50 border border-[#262320]">
-                      <div className={`lg:col-span-6 space-y-6 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                        <div className="space-y-3.5 border-t border-[#262320] pt-4">
-                          <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-[#722F37] font-semibold block">
-                            {getProjectContributionHeading(project.id)}
-                          </span>
-                          <div className="space-y-2.5">
-                            {project.outputs.map((out, oIdx) => (
-                              <div key={oIdx} className="text-sm text-[#C8BFB2] font-sans flex items-start gap-3">
-                                <span className="text-[#722F37] font-mono text-xs shrink-0 mt-0.5">0{oIdx + 1}</span>
-                                <span className="leading-relaxed">{out}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className={`lg:col-span-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                        <div className="relative overflow-hidden rounded-2xl border border-[#262320] shadow-2xl">
-                          <ProjectImage
-                            src={project.imagePath}
-                            alt={project.title}
-                            title={project.title}
-                            category={project.category}
-                            subtitle={project.subtitle}
-                            accentBg={project.accentBg}
-                            accentColor={project.accentColor}
-                            aspectRatio="aspect-[16/11]"
-                            className="rounded-2xl transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                  {project.id === 'bear-house' && <BearHouseSection />}
 
                   {/* Bottom Collapse Button */}
                   <div className="flex justify-center pt-4">
