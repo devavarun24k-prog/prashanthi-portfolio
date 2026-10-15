@@ -484,7 +484,7 @@ export const MasabaProjectSection: React.FC = () => {
             <span>AUTHENTIC ACADEMIC RESEARCH REPORT</span>
           </div>
           <h4 className="font-serif text-xl sm:text-2xl text-[#F4F0E8] font-normal">
-            House of Masaba Comprehensive Case Study
+            House of Masaba Comprehensive Strategic Report
           </h4>
           <p className="text-xs sm:text-sm text-[#8E8278] font-sans font-light">
             Verified 8-page complete strategic analysis covering brand DNA, assortment architecture, collection concepts, and visual merchandising guidelines.
